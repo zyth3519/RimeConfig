@@ -23,6 +23,6 @@ jobs:
       - name: clone
         run: git clone https://${{ secrets.PRIVATE_REPO_PAT }}@github.com/zyth3519/RimeConfig.git
       - name: cd
-        run: cd RimeConfig 
+        run: cd RimeConfig && ls
       - name: run update script
         run:  node update.js
