@@ -99,7 +99,7 @@ function update_config(last) {
     const download_url = last.assets.find((item) => item.name === "rime-wanxiang-base.zip").browser_download_url;
     await download_file(download_url, origin_config_file_name);
     await unzip_file(origin_config_file_name, `${download_dir}/config`);
-    execute(`cp -rf ${download_dir}/config/* .`);
+    execute(`cp -vrf ${download_dir}/config/* .`);
   });
 }
 
@@ -108,7 +108,7 @@ async function update_dict(last) {
   await download_file(download_url, origin_dict_file_name);
 
   await unzip_file(origin_dict_file_name, `${download_dir}/dict`);
-  execute(`cp -rf ${download_dir}/dict/base-dicts/* ./dicts/`);
+  execute(`cp -vrf ${download_dir}/dict/base-dicts/* ./dicts/`);
 }
 async function main() {
   const [origin_dict_info, origin_config_info] = await get_origin_last_version();
