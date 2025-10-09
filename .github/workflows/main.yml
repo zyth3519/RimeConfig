@@ -21,7 +21,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:   
       - name: clone
-        run: git clone git@github.com:zyth3519/RimeConfig.git
+        run: https://${{ secrets.PRIVATE_REPO_PAT }}@github.com/zyth3519/RimeConfig.git
         
       - name: run update script
         run:  cd RimeConfig 
