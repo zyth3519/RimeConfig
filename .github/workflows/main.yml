@@ -25,4 +25,4 @@ jobs:
       - name: cd
         run: cd RimeConfig && ls
       - name: run update script
-        run:  node update.js
+        run:  ls && node update.js
