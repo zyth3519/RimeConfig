@@ -334,3 +334,4 @@ B 重复以上操作完成更多设备的添加和同步
 如果觉得项目好用，可以请AMZ喝咖啡
 
 <img alt="pay" src="./custom/赞赏.jpg" height="312" width="446">
+# RimeConfig
