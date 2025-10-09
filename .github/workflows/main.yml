@@ -20,12 +20,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: set git
+        run: git config --global user.name 'zyth3519'
+             git config --global user.email 'zythpang@gmail.com'
+             git config --global credential.helper store
+             
       - name: clone
         run: git clone git@github.com:zyth3519/RimeConfig.git
              cd RimeConfig
-             git config --global user.name 'zyth3519'
-             git config --global user.email 'zythpang@gmail.com'
-             git config --global credential.helper store
              
       - name: run update script
         run:  node update.js
