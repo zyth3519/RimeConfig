@@ -62,40 +62,27 @@ function execute(cmd) {
   return new Promise((resolve, reject) => {
     exec(cmd, (err, stdout, stderr) => {
       if (err) {
+        console.log(err)
         reject(err);
         return;
       }
+      console.log(stdout, stderr)
       resolve(stdout);
     });
   });
 }
-function download_file(url, filename) {
+
+async function download_file(url, filename) {
   if (!fs.existsSync(download_dir)) {
     fs.mkdirSync("tmp")
   }
 
-
-  return new Promise((resolve, reject) => {
-    exec(`wget ${url} -O ${download_dir}/${filename}`, (err, stdout, stderr) => {
-      if (err) {
-        reject(err);
-        return;
-      }
-      resolve(stdout);
-    });
-  });
+  return await execute(`wget ${url} -O ${download_dir}/${filename}`);
 }
 
-function unzip_file(filename, outdir) {
-  return new Promise((resolve, reject) => {
-    exec(`7z x ${download_dir}/${filename} -o${outdir}`, (err, stdout, stderr) => {
-      if (err) {
-        reject(err);
-        return;
-      }
-      resolve(stdout);
-    });
-  });
+async function unzip_file(filename, outdir) {
+  return await execute(`7z x ${download_dir}/${filename} -o${outdir}`);
+
 }
 
 function update_config(last) {
@@ -117,7 +104,6 @@ function update_config(last) {
 }
 
 async function update_dict(last) {
-  console.log(last)
   const download_url = last.assets.find((item) => item.name === "base-dicts.zip").browser_download_url;
   await download_file(download_url, origin_dict_file_name);
 
