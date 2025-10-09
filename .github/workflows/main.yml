@@ -22,7 +22,7 @@ jobs:
     steps:   
       - name: clone
         run: git clone git@github.com:zyth3519/RimeConfig.git
-             cd RimeConfig
-             
+        
       - name: run update script
-        run:  node update.js
+        run:  cd RimeConfig 
+              node update.js
