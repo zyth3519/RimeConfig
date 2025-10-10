@@ -20,10 +20,10 @@ for (( i=0; i < max_len; i++ )); do
 
     if (( num1 > num2 )); then
         echo 1
-        exit 1  
+        exit 0  
     elif (( num1 < num2 )); then
         echo 2
-        exit 2  
+        exit 0 
     fi
 done
 
