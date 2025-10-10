@@ -43,4 +43,4 @@ jobs:
       - name: Show
         if: env.UPDATE_NEEDED == 'true'
         run: |
-          echo ${{ steps.version.version }}
+          echo ${{ steps.version.outputs.version }}
