@@ -56,3 +56,11 @@ jobs:
           cp -rf ./tmp/config/* .
           cat version.txt
 
+      - name: Push
+        run: |
+          git config user.name "zyth3519"
+          git config user.email "zythpang@github.com"
+          git add .
+          git commit -m "update config and dict"
+          git push origin ${{ github.ref_name }}
+
