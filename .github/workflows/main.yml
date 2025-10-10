@@ -43,4 +43,5 @@ jobs:
       - name: Show
         if: env.UPDATE_NEEDED == 'true'
         run: |
-          echo ${{ steps.version.outputs.version }}
+          wget  https://github.com/amzxyz/rime_wanxiang/releases/download/${{ steps.version.outputs.version }}/rime-wanxiang-base.zip  -P ./tmp
+          ls ./tmp
