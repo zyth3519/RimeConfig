@@ -26,9 +26,9 @@ jobs:
           fetch - depth: 0  # 获取完整的提交历史，以便后续操作
           
       - name: Get local version
-        id: local - version
+        id: local-version
         run: |
-          _local_version=$(cat version.txt)
+          local_version=$(cat version.txt)
           echo "local_version=$local_version" >> $GITHUB_OUTPUT
           
       - name: Download Releases file
