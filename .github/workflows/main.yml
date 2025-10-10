@@ -17,16 +17,16 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:   
-      - name: Clone
+      - name: 克隆仓库
         run: |
           git clone https://${{ secrets.PRIVATE_REPO_PAT }}@github.com/zyth3519/RimeConfig.git
 
-      - name: Download Releases file
+      - name: 下载Release文件 
         run: |
           cd RimeConfig
           wget https://api.github.com/repos/amzxyz/rime_wanxiang/releases -P ./tmp
           
-      - name: Compare version
+      - name: 比较版本
         id: version
         run: | 
           cd RimeConfig
@@ -38,30 +38,31 @@ jobs:
             echo "version=$remote_version" >> $GITHUB_OUTPUT
           fi
           
-      - name: Download last config
+      - name: 下载配置文件
         if: env.UPDATE_CONFIG == 'true'
         run: |
           cd RimeConfig
           wget  https://github.com/amzxyz/rime_wanxiang/releases/download/${{ steps.version.outputs.version }}/rime-wanxiang-base.zip  -P ./tmp
 
-      - name: Download last dict
+      - name: 下载词库文件
         run: |
           cd RimeConfig
           wget https://github.com/amzxyz/rime_wanxiang/releases/download/dict-nightly/base-dicts.zip -P ./tmp
 
-      - name: Update config
+      - name: 更新配置
         if: env.UPDATE_CONFIG == 'true'
         run: |
           cd RimeConfig
           7z x ./tmp/rime-wanxiang-base.zip -o./tmp/config
           cp -rf ./tmp/config/* .
 
-      - name: Update dict
+      - name: 更新词库
         run: |
           cd RimeConfig
           7z x ./tmp/base-dicts.zip -o./tmp
           cp -rf ./tmp/base-dicts/* dicts
-      - name: Get isUpdate
+
+      - name: 判断是否需要更新
         run: |
           cd RimeConfig
           if git status | grep -q "nothing to commit, working tree clean"; then echo 不需要更新; else echo "NEED_PUSH=true" >> $GITHUB_ENV; fi
