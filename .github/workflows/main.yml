@@ -20,10 +20,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:   
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch - depth: 0  # 获取完整的提交历史，以便后续操作
+      - name: Clone
+        run: |
+          git clone https://${{ secrets.PRIVATE_REPO_PAT }}@github.com/zyth3519/RimeConfig.git
+          cd RimeConfig
 
       - name: Download Releases file
         run: |
