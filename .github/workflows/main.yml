@@ -53,6 +53,6 @@ jobs:
         if: env.UPDATE_NEEDED == 'true'
         run: |
           7z x ./tmp/rime-wanxiang-base.zip -o./tmp/config
-          cp ./tmp/config/* .
+          cp -rf ./tmp/config/* .
           cat version.txt
 
