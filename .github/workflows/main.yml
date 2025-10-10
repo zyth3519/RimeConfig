@@ -48,3 +48,11 @@ jobs:
       - name: Download last dict
         run: |
           wget https://github.com/amzxyz/rime_wanxiang/releases/download/dict-nightly/base-dicts.zip -P ./tmp
+
+      - name: Update config
+        if: env.UPDATE_NEEDED == 'true'
+        run: |
+          7z x ./tmp/rime-wanxiang-base.zip -o./tmp/config
+          cp ./tmp/config/* .
+          cat version.txt
+
