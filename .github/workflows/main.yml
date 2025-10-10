@@ -40,8 +40,11 @@ jobs:
             echo "version=$remote_version" >> $GITHUB_OUTPUT
           fi
           
-      - name: Show
+      - name: Download last config
         if: env.UPDATE_NEEDED == 'true'
         run: |
           wget  https://github.com/amzxyz/rime_wanxiang/releases/download/${{ steps.version.outputs.version }}/rime-wanxiang-base.zip  -P ./tmp
-          ls ./tmp
+
+      - name: Download last dict
+        run: |
+          wget https://github.com/amzxyz/rime_wanxiang/releases/download/dict-nightly/base-dicts.zip -P ./tmp
