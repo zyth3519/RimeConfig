@@ -4,7 +4,7 @@ patch:
     hotkeys:
       - Control+F1
   # 默认英文
-  switches/@0/reset: 1
+  # switches/@0/reset: 1
   # 修改输入法切换键
   ascii_composer:
     good_old_caps_lock: true
