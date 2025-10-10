@@ -34,12 +34,12 @@ jobs:
           remote_version=$(bash get_last_version.sh)
           res=$(bash compare_versions.sh $local_version $remote_version)
           if (( res==2 )) then
-            echo "UPDATE_NEEDED=true" >> $GITHUB_ENV
+            echo "UPDATE_CONFIG=true" >> $GITHUB_ENV
             echo "version=$remote_version" >> $GITHUB_OUTPUT
           fi
           
       - name: Download last config
-        if: env.UPDATE_NEEDED == 'true'
+        if: env.UPDATE_CONFIG == 'true'
         run: |
           cd RimeConfig
           wget  https://github.com/amzxyz/rime_wanxiang/releases/download/${{ steps.version.outputs.version }}/rime-wanxiang-base.zip  -P ./tmp
@@ -50,7 +50,7 @@ jobs:
           wget https://github.com/amzxyz/rime_wanxiang/releases/download/dict-nightly/base-dicts.zip -P ./tmp
 
       - name: Update config
-        if: env.UPDATE_NEEDED == 'true'
+        if: env.UPDATE_CONFIG == 'true'
         run: |
           cd RimeConfig
           7z x ./tmp/rime-wanxiang-base.zip -o./tmp/config
@@ -61,8 +61,13 @@ jobs:
           cd RimeConfig
           7z x ./tmp/base-dicts.zip -o./tmp
           cp -rf ./tmp/base-dicts/* dicts
+      - name: Get isUpdate
+        run: |
+          cd RimeConfig
+          if git status | grep -q "nothing to commit, working tree clean"; then echo 不需要更新; else echo "NEED_PUSH=true" >> $GITHUB_ENV; fi
 
       - name: Push
+        if: env.NEED_PUSH == 'true'
         run: |
           cd RimeConfig
           git config user.name "zyth3519"
