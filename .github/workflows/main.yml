@@ -4,13 +4,10 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
-  push:
-    branches: [ "main" ]
+  schedule:
+    - cron: '0 0 * * *'  # 每天 0 点运行，你可以根据需要调整定时规则
+  workflow_dispatch:  # 也可以手动触发
     
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -58,7 +55,12 @@ jobs:
           cd RimeConfig
           7z x ./tmp/rime-wanxiang-base.zip -o./tmp/config
           cp -rf ./tmp/config/* .
-          cat version.txt
+
+      - name: Update dict
+        run: |
+          cd RimeConfig
+          7z x ./tmp/base-dicts.zip -o ./tmp
+          cp -rf ./tmp/base-dicts/* dicts
 
       - name: Push
         run: |
