@@ -23,15 +23,16 @@ jobs:
       - name: Clone
         run: |
           git clone https://${{ secrets.PRIVATE_REPO_PAT }}@github.com/zyth3519/RimeConfig.git
-          cd RimeConfig
 
       - name: Download Releases file
         run: |
+          cd RimeConfig
           wget https://api.github.com/repos/amzxyz/rime_wanxiang/releases -P ./tmp
           
       - name: Compare version
         id: version
         run: | 
+          cd RimeConfig
           local_version=$(cat version.txt)
           remote_version=$(bash get_last_version.sh)
           res=$(bash compare_versions.sh $local_version $remote_version)
@@ -43,21 +44,25 @@ jobs:
       - name: Download last config
         if: env.UPDATE_NEEDED == 'true'
         run: |
+          cd RimeConfig
           wget  https://github.com/amzxyz/rime_wanxiang/releases/download/${{ steps.version.outputs.version }}/rime-wanxiang-base.zip  -P ./tmp
 
       - name: Download last dict
         run: |
+          cd RimeConfig
           wget https://github.com/amzxyz/rime_wanxiang/releases/download/dict-nightly/base-dicts.zip -P ./tmp
 
       - name: Update config
         if: env.UPDATE_NEEDED == 'true'
         run: |
+          cd RimeConfig
           7z x ./tmp/rime-wanxiang-base.zip -o./tmp/config
           cp -rf ./tmp/config/* .
           cat version.txt
 
       - name: Push
         run: |
+          cd RimeConfig
           git config user.name "zyth3519"
           git config user.email "zythpang@github.com"
           git add .
