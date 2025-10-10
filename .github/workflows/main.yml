@@ -28,7 +28,7 @@ jobs:
       - name: Get local version
         id: local - version
         run: |
-          local_version=$(cat version.txt)
+          _local_version=$(cat version.txt)
           echo "local_version=$local_version" >> $GITHUB_OUTPUT
           
       - name: Download Releases file
