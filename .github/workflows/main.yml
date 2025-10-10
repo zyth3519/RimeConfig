@@ -30,14 +30,17 @@ jobs:
           wget https://api.github.com/repos/amzxyz/rime_wanxiang/releases -P ./tmp
           
       - name: Compare version
+        id: version
         run: | 
           local_version=$(cat version.txt)
           remote_version=$(bash get_last_version.sh)
           res=$(bash compare_versions.sh $local_version $remote_version)
           if (( res==2 )) then
             echo "UPDATE_NEEDED=true" >> $GITHUB_ENV
+            echo "version=$remote_version" >> $GITHUB_OUTPUT
           fi
+          
       - name: Show
         if: env.UPDATE_NEEDED == 'true'
         run: |
-          echo "hello"
+          echo ${{ steps.version.version }}
