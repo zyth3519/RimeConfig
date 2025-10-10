@@ -59,7 +59,7 @@ jobs:
       - name: Update dict
         run: |
           cd RimeConfig
-          7z x ./tmp/base-dicts.zip -o ./tmp
+          7z x ./tmp/base-dicts.zip -o./tmp
           cp -rf ./tmp/base-dicts/* dicts
 
       - name: Push
