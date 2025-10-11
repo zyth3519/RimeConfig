@@ -77,7 +77,7 @@ jobs:
           git commit -m "更新配置和词库"
           git push origin ${{ github.ref_name }}
 
-      - name: Push Main
+      - name: Push Android
         if: env.NEED_PUSH == 'true'
         run: |
           cd RimeConfig
