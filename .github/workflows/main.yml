@@ -67,13 +67,20 @@ jobs:
           cd RimeConfig
           if git status | grep -q "nothing to commit, working tree clean"; then echo 不需要更新; else echo "NEED_PUSH=true" >> $GITHUB_ENV; fi
 
-      - name: Push
+      - name: Push Main
         if: env.NEED_PUSH == 'true'
         run: |
           cd RimeConfig
           git config user.name "zyth3519"
           git config user.email "zythpang@github.com"
           git add .
-          git commit -m "update config and dict"
+          git commit -m "更新配置和词库"
           git push origin ${{ github.ref_name }}
 
+      - name: Push Main
+        if: env.NEED_PUSH == 'true'
+        run: |
+          cd RimeConfig
+          git switch android
+          git merge main -m "合并Main"
+          git push origin android
