@@ -207,6 +207,7 @@ function curr_state.has_adjustment() return curr_state.mode ~= curr_state.ADJUST
 ------------------------------------------------------------
 -- 六、关键日志（精简）
 ------------------------------------------------------------
+--[[
 local function _print_sync_probe(phase)
     local user_dir = tostring(rime_api.get_user_data_dir() or "")
     local iid, ysync = _read_installation_yaml()
@@ -228,7 +229,7 @@ local function _debug_paths_once()
                            tostring(dir), tostring(_file_exists(_manifest_path(dir)))))
     log.info(string.format("[sequence] export_path=%s exists=%s",
                            tostring(export_path), tostring(_file_exists(export_path))))
-end
+end ]]--
 
 ------------------------------------------------------------
 -- 七、记录解析（新格式）
@@ -517,8 +518,8 @@ local P = {}
 function P.init(env)
     seq_db:open()
     seq_data.device_name = _detect_device_name()
-    _print_sync_probe("init")   -- 关键：一次性输出最终使用的 sync_dir
-    _debug_paths_once()         -- 关键：简要输出导出与清单路径是否存在
+    --_print_sync_probe("init")   -- 关键：一次性输出最终使用的 sync_dir
+    --_debug_paths_once()         -- 关键：简要输出导出与清单路径是否存在
     init_once()
 end
 

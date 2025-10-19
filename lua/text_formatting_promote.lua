@@ -73,7 +73,6 @@ local ZWJ  = string.char(0xE2, 0x80, 0x8D) -- U+200D 零宽连字
 
 local function normalize_spaces(s)
     if not s or s == "" then return s end
-    -- 转换空格
     s = s:gsub(NBSP, " ") --opencc中译英转换英文间隔空格为正常空格
         -- :gsub(FWSP, " ")
     return s
@@ -136,80 +135,104 @@ end
 -- ========= 包裹映射 =========
 local default_wrap_map = {
     -- 单字母：常用成对括号/引号（每项恰好两个字符）
-    a = "()",    -- 圆括号
-    b = "[]",    -- 方括号
-    c = "{}",    -- 花括号
-    d = "<>",    -- 尖括号
-    e = "\"\"",  -- 英文双引号
-    f = "''",    -- 英文单引号
-    g = "``",    -- 反引号
-    h = "「」",  -- 直角引号
-    i = "『』",  -- 双直角引号
-    j = "“”",    -- 中文弯双引号
-    k = "‘’",    -- 中文弯单引号
-    l = "《》",  -- 书名号（双）
-    m = "〈〉",  -- 书名号（单）
-    n = "（）",  -- 全角圆括号
-    o = "【】",  -- 黑方头括号
-    p = "〔〕",  -- 方头括号
-    q = "｛｝",  -- 全角花括号
-    r = "［］",  -- 全角方括号
-    s = "〈〉",   -- 数学尖括号
-    t = "⟨⟩",   -- 数学角括号
-    u = "⦅⦆",   -- 白圆括号
-    v = "⦇⦈",   -- 白方括号
-    w = "❰❱",   -- 装饰角括号
-    x = "⟪⟫",   -- 双角括号
-    y = "«»",    -- 法文双书名号
-    z = "‹›",    -- 法文单书名号
+    a = "[]",        -- 方括号
+    b = "【】",       -- 黑方头括号
+    c = "❲❳",        -- 双大括号 / 装饰括号
+    d = "〔〕",       -- 方头括号
+    e = "⟮⟯",        -- 小圆括号 / 装饰括号
+    f = "⟦⟧",        -- 双方括号 / 数学集群括号
+    g = "「」",       -- 直角引号
+    -- h 预留用于 Markdown 一级标题
+    i = "『』",       -- 双直角引号
+    j = "<>",         -- 尖括号
+    k = "《》",       -- 书名号（双）
+    l = "〈〉",       -- 书名号（单）
+    m = "‹›",         -- 法文单书名号
+    n = "«»",         -- 法文双书名号
+    o = "⦅⦆",        -- 白圆括号
+    p = "⦇⦈",        -- 白方括号
+    q = "()",         -- 圆括号
+    r = "〖〗",        -- 花括号扩展 / 装饰括号
+    s = "［］",       -- 全角方括号
+    t = "⟨⟩",        -- 数学角括号
+    u = "〈〉",        -- 数学尖括号
+    v = "❰❱",        -- 装饰角括号
+    w = "（）",       -- 全角圆括号
+    x = "｛｝",       -- 全角花括号
+    y = "⟪⟫",       -- 双角括号
+    z = "{}",        -- 花括号
 
-    -- 双字母：其余成对括号族（不与上面重复）
-    aa = "〖〗",
-    bb = "〘〙",
-    cc = "〚〛",
-    dd = "❨❩",
-    ee = "❪❫",
-    ff = "❬❭",
-    gg = "⦉⦊",
-    hh = "⦋⦌",
-    ii = "⦍⦎",
-    jj = "⦏⦐",
-    kk = "⦑⦒",
-    ll = "❮❯",
-    mm = "⌈⌉",
-    nn = "⌊⌋",
-    oo = "⟦⟧",
-    pp = "⟮⟯",
-    qq = "⟬⟭",
-    rr = "❲❳",
-    ss = "⌜⌝",
-    tt = "⌞⌟",
-    uu = "⸢⸣",
-    vv = "⸤⸥",
-    ww = "﹁﹂",
-    xx = "﹃﹄",
-    yy = "⌠⌡",
-    zz = "⟅⟆",
+    -- ===== 扩展括号族 / 引号 =====
+    dy = "''",       -- 英文单引号
+    sy = "\"\"",     -- 英文双引号
+    zs = "“”",       -- 中文弯双引号
+    zd = "‘’",       -- 中文弯单引号
+    fy = "``",       -- 反引号
 
-    -- 双字母：重复/运算/标记类（值均为两字符，便于切左右）
-    md = "**",       -- Markdown 粗体
-    it = "__",       -- Markdown 斜体（下划线风格）
-    st = "~~",       -- 删除线
-    eq = "==",
+    -- ===== 双字母括号族 =====
+    aa = "〚〛",      -- 双中括号
+    bb = "〘〙",      -- 双中括号（小）
+    cc = "〚〛",      -- 双中括号（重复，可用于 Lua 匹配）
+    dd = "❨❩",      -- 小圆括号装饰
+    ee = "❪❫",      -- 小圆括号装饰
+    ff = "❬❭",      -- 小尖括号装饰
+    gg = "⦉⦊",      -- 双弯方括号
+    hh = "⦋⦌",      -- 双弯方括号
+    ii = "⦍⦎",      -- 双弯方括号
+    jj = "⦏⦐",      -- 双弯方括号
+    kk = "⦑⦒",      -- 双弯方括号
+    ll = "❮❯",      -- 小尖括号装饰
+    mm = "⌈⌉",      -- 上取整 / 数学符号
+    nn = "⌊⌋",      -- 下取整 / 数学符号
+    oo = "⦗⦘",      -- 双方括号装饰（补齐）
+    pp = "⦙⦚",      -- 双方括号装饰（补齐）
+    qq = "⟬⟭",      -- 小双角括号
+    rr = "❴❵",      -- 花括号装饰
+    ss = "⌜⌝",      -- 数学上角符号
+    tt = "⌞⌟",      -- 数学下角符号
+    uu = "⸢⸣",      -- 装饰方括号
+    vv = "⸤⸥",      -- 装饰方括号
+    ww = "﹁﹂",      -- 中文书名号 / 注释引号
+    xx = "﹃﹄",      -- 中文书名号 / 注释引号
+    yy = "⌠⌡",      -- 数学 / 程序符号
+    zz = "⟅⟆",      -- 数学 / 装饰括号
+
+    -- ===== Markdown / 标记 =====
+    md = "**|**",      -- Markdown 粗体
+    jc = "**|**",      -- 加粗
+    it = "__|__",      -- 斜体
+    st = "~~|~~",      -- 删除线
+    eq = "==|==",      -- 高亮
+    ln = "`|`",        -- 行内代码
+    cb = "```|```",    -- 代码块
+    qt = "> |",        -- 引用
+    ul = "- |",        -- 无序列表项
+    ol = "1. |",       -- 有序列表项
+    lk = "[|](url)",   -- 链接
+    im = "![|](img)",  -- 图片
+    h = "# |",         -- 一级标题
+    hh = "## |",       -- 二级标题
+    hhh = "### |",     -- 三级标题
+    hhhh = "#### |",   -- 四级标题
+    sp = "\\|",        -- 反斜杠转义
+    br = "|  ",        -- 换行
+    cm = "<!--|-->",   -- 注释
+
+    -- ===== 运算与标记符 =====
     pl = "++",
     mi = "--",
     sl = "//",
-    bs = "\\\\",     -- 反斜杠对（Lua 里写成 "\\\\")
+    bs = "\\\\",
     at = "@@",
     dl = "$$",
     pc = "%%",
     an = "&&",
-    ["or"] = "||",
     cr = "^^",
     cl = "::",
     sc = ";;",
     ex = "!!",
     qu = "??",
+    sb = "sb",
 }
 
 local function load_mapping_from_config(config)
@@ -228,15 +251,45 @@ local function load_mapping_from_config(config)
     return symbol_map
 end
 
-local function precompile_wrap_parts(wrap_map)
+local function utf8_chars(s)
+    local chars = {}
+    for ch in s:gmatch("[%z\1-\127\194-\244][\128-\191]*") do
+        table.insert(chars, ch)
+    end
+    return chars
+end
+
+-- 现在接受第二个参数 delimiter（如 "|"），若 wrap_str 包含 delimiter 则按其拆分为 left/right（多字符）
+-- 若不含 delimiter 且恰好为两个 UTF-8 字符，则左取第1个字符，右取第2个字符（兼容两字符写法）
+-- 生成左右包裹部分（优先 delimiter；否则两字符兼容；否则首/尾回退）
+local function precompile_wrap_parts(wrap_map, delimiter)
+    delimiter = delimiter or "|"
     local parts = {}
     for k, wrap_str in pairs(wrap_map) do
-        local chars = {}
-        for ch in wrap_str:gmatch("[%z\1-\127\194-\244][\128-\191]*") do table.insert(chars, ch) end
-        local l, r = "", ""
-        if #chars >= 1 then l = chars[1] end
-        if #chars >= 2 then r = chars[#chars] end
-        parts[k] = { l = l, r = r }
+        if not wrap_str or wrap_str == "" then
+            parts[k] = { l = "", r = "" }
+        else
+            -- 优先按 delimiter 切分（literal search）
+            local pos = string.find(wrap_str, delimiter, 1, true)
+            if pos then
+                local left = string.sub(wrap_str, 1, pos - 1) or ""
+                local right = string.sub(wrap_str, pos + 1) or ""
+                parts[k] = { l = left, r = right }
+            else
+                local chars = utf8_chars(wrap_str)
+                if #chars == 0 then
+                    parts[k] = { l = "", r = "" }
+                elseif #chars == 1 then
+                    parts[k] = { l = chars[1], r = "" }
+                elseif #chars == 2 then
+                    -- 恰好两个 UTF-8 字符：按左右两字符处理
+                    parts[k] = { l = chars[1], r = chars[2] }
+                else
+                    -- 3+ 字符：回退为首/尾
+                    parts[k] = { l = chars[1], r = chars[#chars] }
+                end
+            end
+        end
     end
     return parts
 end
@@ -245,7 +298,16 @@ end
 function M.init(env)
     local cfg = env.engine and env.engine.schema and env.engine.schema.config or nil
     env.wrap_map   = cfg and load_mapping_from_config(cfg) or default_wrap_map
-    env.wrap_parts = precompile_wrap_parts(env.wrap_map)
+    -- 新：可配置的分隔符（默认 '|'）
+    env.wrap_delimiter = "|"
+    if cfg then
+        local okd, d = pcall(function() return cfg:get_string("paired_symbols/delimiter") end)
+        if okd and d and #d > 0 then
+            env.wrap_delimiter = d:sub(1,1)  -- 只取第一个字符作为分隔符
+        end
+    end
+
+    env.wrap_parts = precompile_wrap_parts(env.wrap_map, env.wrap_delimiter)
 
     -- 触发分隔符：默认取 "\\"，支持 schema 自定义
     env.symbol = "\\"
