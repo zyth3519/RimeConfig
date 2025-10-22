@@ -58,8 +58,8 @@
 
 1. 将方案文件置于用户目录中，直接部署，等待部署完成后，
 
-2. 输入以下指令(斜杠引导)切换为对应的双拼/全拼，切换后按照提示重新部署，完成。
-3. 这样的指令能帮你一次性完成4个补丁文件的输入类型修改，运行逻辑：根目录无自定义文件则复制custom文件夹相关文件出来并修改为对应的输入方案，如果根目录存在则只修改输入方案，不进行复制，因此不会被覆盖。
+2. 输入以下指令(斜杠引导)切换为对应的双拼/全拼，切换后按照提示重新部署，完成。  
+3. 这样的指令能帮你一次性完成4个补丁文件的输入类型修改，运行逻辑：根目录无自定义文件则复制custom文件夹相关文件出来并修改为对应的输入方案，如果根目录存在则只修改输入方案，不进行复制，因此不会被覆盖。  
 4. ios仓输入法，平台特殊，需要额外去：方案文件管理-使用键盘文件覆盖应用文件，才能完成文件变更
 
 ```
@@ -337,7 +337,7 @@ patch:
 
 #重命名法，重命名用户根目录`wanxiang.dict.yaml`为`wanxianguser.dict.yaml`，避免更新被覆盖
 
-#所有主方案文件中使用了这个固定词库的位置都要变更
+#所有主方案文件中使用了这个固定词库的位置都要变更 
 ```
 patch:
   translator/dictionary: wanxianguser
@@ -400,9 +400,9 @@ xxx/sync/ios
 
 此时点击同步也能将用户词与windows文件夹下面的合并一起导入数据库，模拟多设备同步，这也是未来真正的多设备同步逻辑
 
-- [用于Linux Mac的词库刷拼音辅助码工具](https://github.com/amzxyz/rime_wanxiang/releases/download/tools/wanxiang-dicts-tools-linux-mac)
+- [用于Linux Mac的词库刷拼音辅助码工具](https://github.com/amzxyz/RIME-LMDG/releases/download/tools/wanxiang-dicts-tools-linux-mac)
 
-- [用于Windows的词库刷拼音辅助码工具](https://github.com/amzxyz/rime_wanxiang/releases/download/tools/wanxiang-dicts-tools.exe)
+- [用于Windows的词库刷拼音辅助码工具](https://github.com/amzxyz/RIME-LMDG/releases/download/tools/wanxiang-dicts-tools.exe)
 
 
 <img alt="pay" src="./custom/万象输入方案.png">
