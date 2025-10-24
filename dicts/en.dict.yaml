@@ -96,6 +96,7 @@ ID	Id
 IE	Ie
 if	If
 in	In
+IN	IN
 IO	Io
 IP	Ip
 IQ	Iq
@@ -190,8 +191,14 @@ ay	Ay
 cg	Cg
 re	Re
 os	Os
-I'd	Id
+OP	OP
+ED	ED
+EP	EP
+CV	CV
 YY	YY
+OST	OST
+OVA	OVA
+I'd	Id
 Vimeo	Vimeo
 HLS	HLS
 SRE	SRE
@@ -1232,6 +1239,7 @@ obi	Obi
 dib	Dib
 nub	Nub
 GMV	GMV
+PGC	PGC
 bap	Bap
 bub	Bub
 keg	Keg
