@@ -396,8 +396,8 @@ sort: by_weight
 陈家村	chén jiā cūn	327
 陈家店	chén jiā diàn	159
 陈家渡	chén jiā dù	103
-陈家岗	chén jiā gǎng	150
 陈家港	chén jiā gǎng	270
+陈家岗	chén jiā gǎng	150
 陈家阁	chén jiā gé	272
 陈家口	chén jiā kǒu	150
 陈家楼	chén jiā lóu	155
@@ -1427,11 +1427,11 @@ sort: by_weight
 姜家村	jiāng jiā cūn	247
 蒋家村	jiǎng jiā cūn	236
 江家村	jiāng jiā cūn	188
-姜家坪	jiāng jiā píng	191
 蒋家坪	jiǎng jiā píng	213
+姜家坪	jiāng jiā píng	191
 蒋家桥	jiǎng jiā qiáo	302
-蒋家山	jiǎng jiā shān	120
 姜家山	jiāng jiā shān	181
+蒋家山	jiǎng jiā shān	120
 姜家屯	jiāng jiā tún	145
 姜家湾	jiāng jiā wān	222
 蒋家巷	jiǎng jiā xiàng	82
@@ -2479,6 +2479,8 @@ sort: by_weight
 马架村	mǎ jià cūn	69
 马家渡	mǎ jiā dù	175
 马家河	mǎ jiā hé	325
+马家集	mǎ jiā jí	100
+马家街	mǎ jiā jiē	100
 马家口	mǎ jiā kǒu	145
 马家楼	mǎ jiā lóu	263
 马家庙	mǎ jiā miào	94
@@ -2489,13 +2491,14 @@ sort: by_weight
 马家湾	mǎ jiā wān	322
 马家溪	mǎ jiā xī	133
 马家乡	mǎ jiā xiāng	275
-玛家乡	mǎ jiā xiāng	1
 马家巷	mǎ jiā xiàng	269
+玛家乡	mǎ jiā xiāng	1
 马家堰	mǎ jiā yàn	150
 马家峪	mǎ jiā yù	94
 马家镇	mǎ jiā zhèn	213
 马甲镇	mǎ jiǎ zhèn	204
 马家庄	mǎ jiā zhuāng	342
+马尖山	mǎ jiān shān	100
 马涧镇	mǎ jiàn zhèn	127
 马剑镇	mǎ jiàn zhèn	127
 马江村	mǎ jiāng cūn	1
@@ -2512,6 +2515,9 @@ sort: by_weight
 马圈村	mǎ juàn cūn	185
 马郡村	mǎ jùn cūn	94
 马军村	mǎ jūn cūn	1
+马军营	mǎ jūn yíng	100
+马卡区	mǎ kǎ qū	100
+马卡省	mǎ kǎ shěng	100
 马克村	mǎ kè cūn	155
 马坑村	mǎ kēng cūn	145
 马坑乡	mǎ kēng xiāng	127
@@ -3397,8 +3403,8 @@ sort: by_weight
 王集镇	wáng jí zhèn	302
 王家坝	wáng jiā bà	290
 王家堡	wáng jiā bǎo	267
-王家场	wáng jiā chǎng	159
 王家厂	wáng jiā chǎng	167
+王家场	wáng jiā chǎng	159
 王家村	wáng jiā cūn	360
 王家店	wáng jiā diàn	280
 王家渡	wáng jiā dù	356
@@ -3426,8 +3432,8 @@ sort: by_weight
 王家洼	wáng jiā wā	175
 王家湾	wáng jiā wān	222
 王家屋	wáng jiā wū	1
-王家乡	wáng jiā xiāng	237
 王家巷	wáng jiā xiàng	298
+王家乡	wáng jiā xiāng	237
 王家营	wáng jiā yíng	347
 王家峪	wáng jiā yù	278
 王家院	wáng jiā yuàn	120
@@ -3874,8 +3880,8 @@ sort: by_weight
 徐集乡	xú jí xiāng	159
 徐集镇	xú jí zhèn	159
 徐继庄	xú jì zhuāng	167
-许家坝	xǔ jiā bà	231
 徐家坝	xú jiā bà	270
+许家坝	xǔ jiā bà	231
 徐家浜	xú jiā bāng	185
 徐家堡	xú jiā bǎo	163
 徐家埠	xú jiā bù	178
@@ -3893,13 +3899,13 @@ sort: by_weight
 徐家楼	xú jiā lóu	249
 徐家棚	xú jiā péng	345
 徐家坪	xú jiā píng	199
-许家桥	xǔ jiā qiáo	139
 徐家桥	xú jiā qiáo	219
-徐家山	xú jiā shān	206
+许家桥	xǔ jiā qiáo	139
 许家山	xǔ jiā shān	243
+徐家山	xú jiā shān	206
 许家洼	xǔ jiā wā	139
-许家湾	xǔ jiā wān	94
 徐家湾	xú jiā wān	304
+许家湾	xǔ jiā wān	94
 许家崖	xǔ jiā yá	255
 许家窑	xǔ jiā yáo	233
 徐家院	xú jiā yuàn	1
@@ -4057,8 +4063,8 @@ sort: by_weight
 杨家屯	yáng jiā tún	171
 杨家湾	yáng jiā wān	368
 杨家溪	yáng jiā xī	342
-杨家乡	yáng jiā xiāng	196
 杨家巷	yáng jiā xiàng	215
+杨家乡	yáng jiā xiāng	196
 杨家峪	yáng jiā yù	313
 杨家院	yáng jiā yuàn	120
 杨家寨	yáng jiā zhài	289
@@ -4334,8 +4340,8 @@ sort: by_weight
 张家店	zhāng jiā diàn	237
 张家墩	zhāng jiā dūn	213
 张家畈	zhāng jiā fàn	196
-张家房	zhāng jiā fáng	1
 张家坊	zhāng jiā fāng	145
+张家房	zhāng jiā fáng	1
 张家坟	zhāng jiā fén	282
 张家河	zhāng jiā hé	221
 张家湖	zhāng jiā hú	103
@@ -4355,8 +4361,8 @@ sort: by_weight
 张家屯	zhāng jiā tún	191
 张家洼	zhāng jiā wā	226
 张家溪	zhāng jiā xī	193
-张家乡	zhāng jiā xiāng	226
 张家巷	zhāng jiā xiàng	300
+张家乡	zhāng jiā xiāng	226
 张家窑	zhāng jiā yáo	163
 张家营	zhāng jiā yíng	181
 张家院	zhāng jiā yuàn	127
@@ -4568,8 +4574,8 @@ sort: by_weight
 郑家口	zhèng jiā kǒu	82
 郑家台	zhèng jiā tái	112
 郑家屯	zhèng jiā tún	359
-郑家屋	zhèng jiā wū	1
 郑家坞	zhèng jiā wù	228
+郑家屋	zhèng jiā wū	1
 郑家镇	zhèng jiā zhèn	191
 郑家庄	zhèng jiā zhuāng	312
 郑楼村	zhèng lóu cūn	82
@@ -4670,8 +4676,8 @@ sort: by_weight
 周家山	zhōu jiā shān	215
 周家台	zhōu jiā tái	145
 周家湾	zhōu jiā wān	208
-周家乡	zhōu jiā xiāng	191
 周家巷	zhōu jiā xiàng	255
+周家乡	zhōu jiā xiāng	191
 周家营	zhōu jiā yíng	215
 周家院	zhōu jiā yuàn	52
 周家寨	zhōu jiā zhài	133
@@ -12619,7 +12625,7 @@ sort: by_weight
 钢山街道	gāng shān jiē dào	10
 岗上积镇	gǎng shàng jī zhèn	125
 岗石岭村	gǎng shí lǐng cūn	1
-杠树台村	gāng shù tái cūn	1
+杠树台村	gàng shù tái cūn	1
 杠头沟村	gàng tóu gōu cūn	1
 岗头桥村	gǎng tóu qiáo cūn	1
 缸窑岭镇	gāng yáo lǐng zhèn	58
@@ -25178,11 +25184,11 @@ sort: by_weight
 青岗槽村	qīng gǎng cáo cūn	1
 青岗集乡	qīng gǎng jí xiāng	35
 青岗集镇	qīng gǎng jí zhèn	35
-青杠林村	qīng gāng lín cūn	58
+青杠林村	qīng gàng lín cūn	58
 青岗岭乡	qīng gǎng lǐng xiāng	1
-青杠坪村	qīng gāng píng cūn	149
+青杠坪村	qīng gàng píng cūn	149
 青岗坪村	qīng gǎng píng cūn	35
-青杠树村	qīng gāng shù cūn	230
+青杠树村	qīng gàng shù cūn	230
 青岗树村	qīng gǎng shù cūn	1
 青格劳村	qīng gé láo cūn	1
 请各乡镇	qǐng gè xiāng zhèn	77
@@ -36036,7 +36042,7 @@ sort: by_weight
 杨家坟村	yáng jiā fén cūn	1
 杨家港村	yáng jiā gǎng cūn	1
 杨家岗村	yáng jiā gǎng cūn	1
-杨家杠村	yáng jiā gāng cūn	1
+杨家杠村	yáng jiā gàng cūn	1
 杨家沟村	yáng jiā gōu cūn	255
 杨家沟乡	yáng jiā gōu xiāng	1
 杨家沟镇	yáng jiā gōu zhèn	142
