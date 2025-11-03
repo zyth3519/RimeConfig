@@ -1720,14 +1720,37 @@ function IsLeap(y)
         return 365
     end
 end
+-- 日期格式化函数，用于自定义日期格式。N20150101和/rq使用
+function format_date(today, format_str)
+    local result = format_str
+    
+    -- 处理四位年份
+    result = result:gsub("Y", string.format("%04d", today.year))
+    
+    -- 处理两位年份
+    result = result:gsub("y", string.format("%02d", today.year % 100))
+    
+    -- 处理带前导零的月日
+    result = result:gsub("m", string.format("%02d", today.month))
+    result = result:gsub("d", string.format("%02d", today.day))
+    
+    -- 处理不带前导零的月日
+    result = result:gsub("n", tostring(today.month))
+    result = result:gsub("j", tostring(today.day))
+    
+    return result
+end
 
--- 日历查询
-local function QueryLunarInfo(date)
+-- 修改后的 QueryLunarInfo 函数
+local function QueryLunarInfo(env, date)
+    local config  = env.engine.schema.config
     local str, LunarDate, LunarGz, result, DateTime
     date = tostring(date)
     result = {}
     str = date:gsub("^(%u+)", "")
+    
     if string.match(str, "^(20)%d%d+$") ~= nil or string.match(str, "^(19)%d%d+$") ~= nil then
+        -- 日期格式补全逻辑保持不变
         if string.len(str) == 4 then
             str = str .. "010101"
         elseif string.len(str) == 5 then
@@ -1743,11 +1766,14 @@ local function QueryLunarInfo(date)
         else
             str = string.sub(str, 1, 10)
         end
+        
+        -- 日期有效性检查保持不变
         if tonumber(string.sub(str, 5, 6)) > 12 or tonumber(string.sub(str, 5, 6)) < 1 or
             tonumber(string.sub(str, 7, 8)) > 31 or tonumber(string.sub(str, 7, 8)) < 1 or
             tonumber(string.sub(str, 9, 10)) > 24 then
             return result
         end
+        
         LunarDate = Date2LunarDate(str)
         LunarGz = lunarJzl(str)
         DateTime = LunarDate2Date(str, 0)
@@ -1758,24 +1784,43 @@ local function QueryLunarInfo(date)
             local m = tonumber(string.sub(str, 5, 6))
             local d = tonumber(string.sub(str, 7, 8))
 
-            result = {
-                -- ===== 公历格式 =====
-                { dateRQ, "" },
-                { string.sub(str, 1, 4) .. "." .. string.sub(str, 5, 6) .. "." .. string.sub(str, 7, 8), "" },
-                { string.sub(str, 1, 4) .. "-" .. string.sub(str, 5, 6) .. "-" .. string.sub(str, 7, 8), "" },
-                { string.sub(str, 1, 4) .. "/" .. string.sub(str, 5, 6) .. "/" .. string.sub(str, 7, 8), "" },
-                { string.format("%d年%d月%d日", y, m, d), "" },
-                { string.format("%d月%d日", m, d), "" },
-                -- ===== 公历⇉农历 =====
-                { LunarDate, "" },
-                -- ===== 公历⇉干支 =====
-                { LunarGz, "" }
-            }
+            -- 尝试使用自定义格式
+            local custom_formats = config:get_list("date_formats")
+            local use_custom_format = custom_formats and custom_formats.size > 0
+            
+            if use_custom_format then
+                -- 使用自定义格式
+                result = {}
+                for i = 1, custom_formats.size do
+                    local format_str = custom_formats:get_value_at(i-1):get_string()
+                    local formatted_date = format_date({year = y, month = m, day = d}, format_str)
+                    if formatted_date then
+                        table.insert(result, { formatted_date, "" })
+                    end
+                end
+            else
+                -- 使用默认格式
+                result = {
+                    -- ===== 公历格式 =====
+                    { dateRQ, "" },
+                    { string.sub(str, 1, 4) .. "." .. string.sub(str, 5, 6) .. "." .. string.sub(str, 7, 8), "" },
+                    { string.sub(str, 1, 4) .. "-" .. string.sub(str, 5, 6) .. "-" .. string.sub(str, 7, 8), "" },
+                    { string.sub(str, 1, 4) .. "/" .. string.sub(str, 5, 6) .. "/" .. string.sub(str, 7, 8), "" },
+                    { string.format("%d年%d月%d日", y, m, d), "" },
+                    { string.format("%d月%d日", m, d), "" },
+                }
+            end
+            
+            -- 添加农历和干支信息（无论是否使用自定义格式）
+            table.insert(result, { LunarDate, "" })
+            table.insert(result, { LunarGz, "" })
+            
+            -- 添加闰月信息
             if tonumber(string.sub(str, 7, 8)) < 31 then
                 table.insert(result, { DateTime, "" })
-                local leapDate = { LunarDate2Date(str, 1) .. "（闰）", "〔农历⇉公历〕" } --查询同一农历月份的闰月对应的公历日期
-                if string.match(leapDate[1], "^(%d+)") ~= nil then
-                    table.insert(result, leapDate)
+                local leapDate = LunarDate2Date(str, 1) .. "（闰）"
+                if string.match(leapDate, "^(%d+)") ~= nil then
+                    table.insert(result, { leapDate, "〔农历⇉公历〕" })
                 end
             end
         end
@@ -2302,116 +2347,6 @@ local function get_upcoming_holidays()
     return upcoming_holidays
 end
 
--- 获取生日提醒信息的函数，可接受自定义生日设置
-function get_birthday_reminders(custom_settings)
-    -- 使用传入的自定义设置或默认全局设置
-    local settings = custom_settings or BIRTHDAY_SETTINGS
-
-    -- 获取当前日期
-    local current_date = os.date("%Y%m%d")
-    local current_year = os.date("%Y")
-    local birthday_list = {}
-
-    -- 计算公历生日倒计时
-    for _, birthday in ipairs(settings.solar or {}) do
-        local month, day, name, note = birthday[1], birthday[2], birthday[3], birthday[4]
-        -- 构建今年的生日日期
-        local this_year_birthday = string.format("%s%02d%02d", current_year, month, day)
-        -- 计算天数差
-        local days_left = diffDate(current_date, this_year_birthday)
-
-        -- 如果生日已过，计算明年的生日
-        if days_left < 0 then
-            local next_year = tonumber(current_year) + 1
-            this_year_birthday = string.format("%s%02d%02d", next_year, month, day)
-            days_left = diffDate(current_date, this_year_birthday)
-        end
-
-        -- 格式化日期显示
-        local formatted_date = string.format("%02d月%02d日", month, day)
-        -- 构建生日信息
-        local birthday_info
-        if note and note ~= "" then
-            birthday_info = string.format("%s(%s): %s", name, note, formatted_date)
-        else
-            birthday_info = string.format("%s: %s", name, formatted_date)
-        end
-
-        -- 添加到生日列表
-        table.insert(birthday_list,
-            { birthday_info, string.format("〔< %d 天〕", days_left), days_left })
-    end
-
-    -- 计算农历生日倒计时
-    for _, birthday in ipairs(settings.lunar or {}) do
-        local month, day, name, note = birthday[1], birthday[2], birthday[3], birthday[4]
-
-        -- 在函数内重新定义农历月份名和日期名
-        local cMonName = { "正月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月",
-            "十月", "冬月", "腊月" }
-        local cDayName = { "初一", "初二", "初三", "初四", "初五", "初六", "初七", "初八", "初九",
-            "初十", "十一", "十二", "十三", "十四", "十五", "十六", "十七", "十八",
-            "十九", "二十", "廿一", "廿二", "廿三", "廿四", "廿五", "廿六", "廿七",
-            "廿八", "廿九", "三十" }
-
-        -- 格式化农历月日
-        local lunar_md = string.format("%02d%02d", month, day)
-
-        -- 先计算今年的农历生日对应的公历日期
-        local lunar_date_str = current_year .. lunar_md
-        local solar_date = LunarDate2Date(lunar_date_str, 0)
-
-        -- 提取公历日期中的月份和日期
-        local solar_month, solar_day = solar_date:match("(%d+)月(%d+)日")
-        solar_month = tonumber(solar_month)
-        solar_day = tonumber(solar_day)
-
-        -- 构建今年农历生日对应的公历日期字符串
-        local this_year_birthday = string.format("%s%02d%02d", current_year, solar_month, solar_day)
-        -- 计算今年农历生日倒计时天数
-        local days_left = diffDate(current_date, this_year_birthday)
-
-        -- 如果今年农历生日已过，计算明年的农历生日
-        if days_left < 0 then
-            local next_year = tonumber(current_year) + 1
-            lunar_date_str = next_year .. lunar_md
-            solar_date = LunarDate2Date(lunar_date_str, 0)
-            solar_month, solar_day = solar_date:match("(%d+)月(%d+)日")
-            solar_month = tonumber(solar_month)
-            solar_day = tonumber(solar_day)
-            days_left = nl_shengri2(current_year, lunar_md, "00")
-        end
-
-        -- 格式化农历日期
-        local formatted_lunar = cMonName[month] .. cDayName[day]
-        local formatted_solar = string.format("%d月%d日", tonumber(solar_month), tonumber(solar_day))
-
-        -- 构建农历生日信息
-        local birthday_info
-        if note and note ~= "" then
-            birthday_info = string.format("%s(%s): %s(%s)", name, note, formatted_lunar, formatted_solar)
-        else
-            birthday_info = string.format("%s: %s(%s)", name, formatted_lunar, formatted_solar)
-        end
-
-        -- 添加到生日列表
-        table.insert(birthday_list,
-            { birthday_info, string.format("〔 < %d 天〕", days_left), days_left })
-    end
-
-    -- 按天数排序
-    table.sort(birthday_list, function(a, b)
-        return a[3] < b[3]
-    end)
-
-    -- 移除days_left数据，保持与原始数据结构兼容
-    for i, v in ipairs(birthday_list) do
-        birthday_list[i] = { v[1], v[2] }
-    end
-
-    return birthday_list
-end
-
 -- 下面这个用于统一生成候选的逻辑
 local function generate_candidates(input, seg, candidates)
     for _, item in ipairs(candidates) do
@@ -2453,10 +2388,8 @@ local function translator(input, seg, env)
         local n = input:sub(2)
         local yr = os.date("%Y")
         segment.tags = segment.tags + Set({ "Ndate" })
-
         -- N0101–N1231（仅月日）
         if #n == 4 and n:match("^%d%d%d%d$") then
-            --- 设置手动排序的排序编码，以启用手动排序支持
             context:set_property("sequence_adjustment_code", "Nmmdd")
 
             local mm = tonumber(n:sub(1, 2))
@@ -2468,28 +2401,53 @@ local function translator(input, seg, env)
                     set_prompt_if_invalid(context, " 〔日期不存在〕")
                     return
                 end
-                -- 如果日期存在，则设置为 display_year
+                
                 set_prompt_if_invalid(context, display_year)
                 local mm_str = string.format("%02d", mm)
                 local dd_str = string.format("%02d", dd)
                 local date_str = yr .. mm_str .. dd_str .. "01"
-                local lunar = QueryLunarInfo(date_str)
+                local lunar = QueryLunarInfo(env, date_str)
+                
                 if #lunar > 0 then
                     local candidates = {
                         { string.format("%d月%d日", mm, dd), "" },
                         { string.format("%02d月%02d日", mm, dd), "" }
                     }
-                    local lunar_full = lunar[7][1]
-                    local lunar_md = lunar_full:gsub(".*%)", "")
-                    if lunar_md == lunar_full then
-                        local lunar_md = lunar_full:gsub("^.-年", ""):gsub("^.-%)", "")
+                    
+                    -- 生肖列表
+                    local zodiacs = {"鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪"}
+                    
+                    -- 遍历所有候选项
+                    for i, candidate in ipairs(lunar) do
+                        local text = candidate[1]
+                        
+                        -- 如果文本不包含数字，使用正则表达式处理
+                        if not text:match("%d") then
+                            -- 检查是否包含生肖
+                            local has_zodiac = false
+                            for _, zodiac in ipairs(zodiacs) do
+                                if text:match(zodiac) then
+                                    has_zodiac = true
+                                    break
+                                end
+                            end
+                            
+                            -- 如果包含生肖，去掉生肖部分
+                            if has_zodiac then
+                                text = text:gsub("%(.*%)", "")  -- 去掉括号及括号内的内容
+                            end
+                            
+                            -- 提取"年"字后面的内容
+                            local processed_text = text:gsub(".*%)", "")
+                            if processed_text == text then
+                                processed_text = text:gsub("^.-年", ""):gsub("^.-%)", "")
+                            end
+                            
+                            table.insert(candidates, { processed_text, "" })
+                        end
+                        -- 如果文本包含数字，则丢弃（不做任何处理）
                     end
-                    table.insert(candidates, { lunar_md, "" })
-
-                    local gz_full = lunar[8][1]
-                    local gz_md = gz_full:gsub("^.-年", "")
-                    table.insert(candidates, { gz_md, "" })
-
+                    
                     generate_candidates(input, seg, candidates)
                 end
                 return
@@ -2510,7 +2468,7 @@ local function translator(input, seg, env)
                     return
                 end
             end
-            local lunar = QueryLunarInfo(n)
+            local lunar = QueryLunarInfo(env, n)
             local candidates = {}
             for i = 1, #lunar do
                 table.insert(candidates, { lunar[i][1], lunar[i][2] })
@@ -2554,25 +2512,53 @@ local function translator(input, seg, env)
         local ymd = os.date("%Y%m%d") -- 年月日
         local ymdh = os.date("%Y%m%d%H") -- 年月日时
         local num_year = string.format(" 〔%03d/%d〕", today.yday, IsLeap(today.year)) -- 年内第几天/总天数
-        local m = today.month
-        local d = today.day
 
-        local date_variants = {
-            -- 常规格式（带前导零）
-            { os.date("%Y年%m月%d日"), "" },
-            { os.date("%Y.%m.%d"), "" },
-            { os.date("%Y-%m-%d"), "" },
-            { os.date("%Y/%m/%d"), "" },
-            { os.date("%Y%m%d"), "" },
-            -- 不带前导零的格式
-            { string.format("%d年%d月%d日", today.year, m, d), "" },
-            { string.format("%d月%d日", m, d), "" },
-            -- 农历相关
+        -- 读取自定义日期格式
+        local date_variants = {}
+        local custom_formats = config:get_list("date_formats")
+        
+        if custom_formats then
+            for i = 1, custom_formats.size do
+                local format_str = custom_formats:get_value_at(i-1):get_string()
+                
+                -- 根据格式字符串生成日期
+                local formatted_date = format_date(today, format_str)
+                if formatted_date then
+                    table.insert(date_variants, { formatted_date, "" })
+                end
+            end
+        else
+            -- 如果没有自定义配置，使用默认格式
+            date_variants = {
+                -- 带前导零的格式
+                { os.date("%Y年%m月%d日"), "" },
+                { os.date("%Y.%m.%d"), "" },
+                { os.date("%Y-%m-%d"), "" },
+                { os.date("%Y/%m/%d"), "" },
+                { os.date("%Y%m%d"), "" },
+                -- 两位年份格式
+                { os.date("%y年%m月%d日"), "" },
+                { os.date("%y%m%d"), "" },
+                -- 不带前导零的格式
+                { string.format("%d年%d月%d日", today.year, today.month, today.day), "" },
+                { string.format("%d年%d月%d日", today.year % 100, today.month, today.day), "" },
+                { string.format("%d月%d日", today.month, today.day), "" },
+            }
+        end
+        
+        -- 添加农历相关格式（固定显示）
+        local lunar_variants = {
             { CnDate_translator(ymd), "" },
             { lunarJzl(ymdh), "" },
             { Date2LunarDate(ymd) .. JQtest(ymd), "" },
             { Date2LunarDate(ymd) .. GetLunarSichen(os.date("%H"), 1), "" }
         }
+        
+        -- 合并日期格式和农历格式
+        for _, variant in ipairs(lunar_variants) do
+            table.insert(date_variants, variant)
+        end
+        
         generate_candidates("date", seg, date_variants)
         set_prompt_if_invalid(context, num_year)
         return
@@ -2644,11 +2630,40 @@ local function translator(input, seg, env)
     if (command == "jq") then
         --- 设置手动排序的排序编码，以启用手动排序支持
         context:set_property("sequence_adjustment_code", "/jq")
-
-        local jqs = GetNowTimeJq(os.date("%Y%m%d", os.time() - 3600 * 24 * 15))
+        local jqs = GetNowTimeJq(os.date("%Y%m%d", os.time()))
+        --local jqs = GetNowTimeJq(os.date("%Y%m%d", os.time() - 3600 * 24 * 15)) 向前获取一个历史节气
         local jq_variants = {}
         for _, jq in ipairs(jqs) do
-            table.insert(jq_variants, { jq, "" }) -- 空注释
+            local jieqi_name, date_str = jq:match("^(%S+)%s+(%d+-%d+-%d+)$")
+            local days_diff = ""  -- 默认注释为空
+            if date_str then
+                -- 将日期转换为 YYYYMMDD 格式
+                local target_date = date_str:gsub("-", "")
+                -- 计算距离今天的天数
+                local diff = days_until(target_date)
+                
+                -- 提取月份和日期
+                local year, month, day = date_str:match("(%d+)-(%d+)-(%d+)")
+                
+                -- 格式化日期为 "MM月DD日" 格式
+                local month_day = month .. "月" .. day .. "日"
+                
+                -- 重新格式化节气显示，类似节日的格式
+                local formatted_jq = jieqi_name .. " (" .. month_day .. ")"
+                
+                -- 只显示未来（包括今天）的节气
+                if diff >= 0 then
+                    if diff == 0 then
+                        days_diff = "〔今天〕"
+                    else
+                        days_diff = string.format("〔< %d 天〕", diff)
+                    end
+                    table.insert(jq_variants, { formatted_jq, days_diff })
+                end
+            else
+                -- 如果解析失败，保持原样
+                table.insert(jq_variants, { jq, "" })
+            end
         end
         generate_candidates("ojq", seg, jq_variants)
         return
@@ -2701,79 +2716,6 @@ local function translator(input, seg, env)
         end
         -- 使用 generate_candidates 函数生成候选项
         generate_candidates("holiday_summary", seg, candidates)
-        return
-    end
-
-    -- **生日提醒**
-    if (command == "sr" or command == "ur") then
-        --- 设置手动排序的排序编码，以启用手动排序支持
-        context:set_property("sequence_adjustment_code", "/sr")
-
-        -- 从用户配置文件中读取生日设置
-        local birthday_settings = {
-            solar = {},
-            lunar = {}
-        }
-
-        -- 读取公历生日（键值对格式）
-        local solar_map = config:get_map("birthday_reminder/solar_birthdays")
-        if solar_map then
-            -- 使用 keys() 方法获取所有键
-            local keys = solar_map:keys()
-            for _, key in ipairs(keys) do
-                -- 使用 get_value(key) 方法获取值
-                local value = solar_map:get_value(key):get_string()
-
-                -- 解析值：日期和备注（格式："日期,备注" 或 "日期"）
-                local parts = {}
-                for part in string.gmatch(value, "[^,]+") do
-                    table.insert(parts, part)
-                end
-
-                local date_str = parts[1] or ""
-                local note = parts[2] or ""
-
-                -- 解析日期字符串
-                date_str = string.format("%04d", tonumber(date_str) or 0)
-                local month = tonumber(date_str:sub(1, 2))
-                local day = tonumber(date_str:sub(3, 4))
-
-                -- 添加到生日设置
-                table.insert(birthday_settings.solar, { month, day, key, note })
-            end
-        end
-
-        -- 读取农历生日（键值对格式）
-        local lunar_map = config:get_map("birthday_reminder/lunar_birthdays")
-        if lunar_map then
-            -- 使用 keys() 方法获取所有键
-            local keys = lunar_map:keys()
-            for _, key in ipairs(keys) do
-                -- 使用 get_value(key) 方法获取值
-                local value = lunar_map:get_value(key):get_string()
-
-                -- 解析值：日期和备注（格式："日期,备注" 或 "日期"）
-                local parts = {}
-                for part in string.gmatch(value, "[^,]+") do
-                    table.insert(parts, part)
-                end
-
-                local date_str = parts[1] or ""
-                local note = parts[2] or ""
-
-                -- 解析日期字符串
-                date_str = string.format("%04d", tonumber(date_str) or 0)
-                local month = tonumber(date_str:sub(1, 2))
-                local day = tonumber(date_str:sub(3, 4))
-
-                -- 添加到生日设置
-                table.insert(birthday_settings.lunar, { month, day, key, note })
-            end
-        end
-
-        local candidates = get_birthday_reminders(birthday_settings)
-        -- 生成候选项
-        generate_candidates("birthday_reminders", seg, candidates)
         return
     end
 
