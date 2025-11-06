@@ -253,11 +253,11 @@ base:
       - xform/^(a|ā|á|ǎ|à)/Q$1/
       - xform/^(o|ō|ó|ǒ|ò)/R$1/
       - xform/^(e|ē|é|ě|è)/B$1/
-      - xform/^([jqxy])u/$1ü/
-      - xform/^([jqxy])ū/$1ǖ/
-      - xform/^([jqxy])ú/$1ǘ/
-      - xform/^([jqxy])ǔ/$1ǚ/
-      - xform/^([jqxy])ù/$1ǜ/
+      - xform/^([jqxy])u$/$1ü/
+      - xform/^([jqxy])ū$/$1ǖ/
+      - xform/^([jqxy])ú$/$1ǘ/
+      - xform/^([jqxy])ǔ$/$1ǚ/
+      - xform/^([jqxy])ù$/$1ǜ/
       - xform/^ǹg$/Bèng/
       - xform/^ňg$/Běng/
       - xform/^ńg$/Béng/
