@@ -6,6 +6,13 @@ name: cn&en
 version: "LTS"
 sort: original  #字典初始排序，可選original或by_weight
 ...
+88vip	88vip
+我的ip	wǒ'de'ip
+你的ip	nǐ'de'ip
+A站	A'zhàn
+AC号	AC'hào
+AV号	AV'hào
+BV号	BV'hào
 K记	K'jì
 M记	M'jì
 θ粒子	sāi ta lì zǐ
@@ -1494,7 +1501,6 @@ L系列	L'xì'liè
 特斯拉Model S	tè'sī'lā'Model'S
 特斯拉Cybertruck	tè'sī'lā'Cybertruck
 Model 3	Model'sān
-Model 3	Model
 Model Y	Model'Y
 Model YL	Model'YL
 Model X	Model'X

@@ -787,6 +787,9 @@ ore	Ore
 org	Org
 ORM	ORM
 Orz	Orz
+PLC	PLC
+modbus	modbus
+rtu	rtu
 OSS	OSS
 OTC	OTC
 our	Our
@@ -1320,6 +1323,7 @@ bps	Bps
 eft	Eft
 eon	Eon
 han	Han
+GKD	GKD
 nit	Nit
 fen	Fen
 boh	Boh
@@ -4680,6 +4684,7 @@ audio	Audio
 audit	Audit
 aural	Aural
 aurum	Aurum
+AcFun	AcFun
 autos	Autos
 avail	Avail
 avant	Avant
@@ -12532,6 +12537,7 @@ unisex	Unisex
 united	United
 unless	Unless
 unlike	Unlike
+userdb	Userdb
 unload	Unload
 unlock	Unlock
 unpaid	Unpaid
@@ -37209,6 +37215,7 @@ cankerous	Cankerous
 bespatter	Bespatter
 overspill	Overspill
 menstruum	Menstruum
+displacive	Displacive
 hemolysis	Hemolysis
 slideback	Slideback
 glissando	Glissando
