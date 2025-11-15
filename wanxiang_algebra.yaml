@@ -777,34 +777,34 @@ base:
       - xlit/①②③④/7890
       - derive/^ng(\d)$/eng$1/
       - xform/^n(\d)/en$1/
-      - xform/^m(\d)$/me$1$2/
+      - xform/^m(\d)$/me$1/
       - derive/^([jqxy])u(\d)$/$1v$2/
       - derive/^([aoe])([ioun])(\d)$/$1$1$2$3/
       - xform/^([aoe])(ng)?(\d)$/$1$1$2$3/
+      - xform/[vu]n(\d)$/Ⓩ$1/
+      - xform/[vu]e(\d)$/Ⓧ$1/
+      - xform/[iu]a(\d)$/Ⓠ$1/
+      - xform/[vu]an(\d)$/Ⓦ$1/
+      - xform/iu|uai(\d)$/Ⓨ$1/
+      - xform/^(.)i?ong(\d)$/$1Ⓢ$2/
+      - xform/ui(\d)$/Ⓥ$1/
       - xform/^zh/Ⓥ/
       - xform/^ch/Ⓘ/
       - xform/^sh/Ⓤ/
-      - xform/^(.)[iu]a(\d)$/$1Ⓠ$2/
-      - xform/^(.)[vu]an(\d)$/$1Ⓦ$2/
+      - xform/ian(\d)$/Ⓓ$1/
+      - xform/[iu]ang(\d)$/Ⓝ$1/
+      - xform/iao(\d)$/Ⓜ$1/
+      - xform/ang(\d)$/Ⓖ$1/
+      - xform/eng(\d)$/Ⓗ$1/
+      - xform/ing(\d)$/Ⓙ$1/
       - xform/^(.)en(\d)$/$1Ⓡ$2/
       - xform/^(.)ie(\d)$/$1Ⓣ$2/
-      - xform/^(.)(iu|uai)(\d)$/$1Ⓨ$3/
       - xform/^(.)uo(\d)$/$1Ⓞ$2/
       - xform/^(.)ou(\d)$/$1Ⓟ$2/
-      - xform/^(.)i?ong(\d)$/$1Ⓢ$2/
-      - xform/^(.)ian(\d)$/$1Ⓓ$2/
       - xform/^(.)an(\d)$/$1Ⓕ$2/
-      - xform/^(.)(iang|uang)(\d)$/$1Ⓝ$3/
-      - xform/^(.)iao(\d)$/$1Ⓜ$2/
-      - xform/^(.)ang(\d)$/$1Ⓖ$2/
-      - xform/^(.)eng(\d)$/$1Ⓗ$2/
-      - xform/^(.)ing(\d)$/$1Ⓙ$2/
       - xform/^(.)ai(\d)$/$1Ⓚ$2/
       - xform/^(.)(in|er)(\d)$/$1Ⓛ$3/
-      - xform/^(.)[vu]n(\d)$/$1Ⓩ$2/
-      - xform/^(.)[vu]e(\d)$/$1Ⓧ$2/
       - xform/^(.)ao(\d)$/$1Ⓒ$2/
-      - xform/^(.)(v|ui)(\d)$/$1Ⓥ$3/
       - xform/^(.)ei(\d)$/$1Ⓑ$2/
       - xlit/ⓆⓌⓇⓉⓎⓊⒾⓄⓅⓈⒹⒻⒼⒽⒿⓀⓁⓏⓍⒸⓋⒷⓃⓂ/qwrtyuiopsdfghjklzxcvbnm/
       - derive/^(..)(\d)$/$1/
@@ -2771,4 +2771,4 @@ mixed:
     - derive/^(.*?)(\d?);(bd|dw|df|dw|yl|rw|fs|iw)$/$1$3/
     - derive/^(.*?)(\d?);.*?,(bd|dw|df|dw|yl|rw|fs|iw)$/$1$3/
     - derive/^(.*?)(\d?);.*?,.*?,(bd|dw|df|dw|yl|rw|fs|iw)$/$1$3/
-    - derive/^(.*?)(\d?);.*?,.*?,.*?,(bd|dw|df|dw|yl|rw|fs|iw)$/$1$3/b55lg9fDU74e19400aG34GaoT8I
+    - derive/^(.*?)(\d?);.*?,.*?,.*?,(bd|dw|df|dw|yl|rw|fs|iw)$/$1$3/

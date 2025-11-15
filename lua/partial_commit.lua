@@ -99,24 +99,78 @@ local function eat_len_by_target(ctx, target)
     if j <= Lt then return 0 end
     return i - 1
 end
--- 回写余码到组合区（使用 update_notifier 确保 caret 正确）
-local function set_pending(env, rest) env._cpc_pending_rest = rest or "" end
-local function has_pending(env) return type(env._cpc_pending_rest) == "string" and env._cpc_pending_rest ~= nil end
-local function take_pending(env) local r = env._cpc_pending_rest; env._cpc_pending_rest = nil; return r end
+
+local function set_pending(env, rest)
+    env._cpc_pending_rest = rest or ""
+end
+local function has_pending(env)
+    return type(env._cpc_pending_rest) == "string" and env._cpc_pending_rest ~= nil
+end
+local function take_pending(env)
+    local r = env._cpc_pending_rest
+    env._cpc_pending_rest = nil
+    return r
+end
 
 function M.init(env)
-    env._cpc_update_conn = env.engine.context.update_notifier:connect(function(ctx)
+    local ctx = env.engine.context
+
+    env._cpc_update_conn = ctx.update_notifier:connect(function(c)
         if not has_pending(env) then return end
         local rest = take_pending(env) or ""
 
-        ctx.input = rest
-        if ctx.clear_non_confirmed_composition then
-            ctx:clear_non_confirmed_composition()
+        c.input = rest
+        if c.clear_non_confirmed_composition then
+            c:clear_non_confirmed_composition()
         end
-        if ctx.caret_pos ~= nil then
-            ctx.caret_pos = #rest
+        if c.caret_pos ~= nil then
+            c.caret_pos = #rest
         end
     end)
+
+    env._cpc_key_handler = function(key)
+
+        if not key:ctrl() or key:release() then
+            return wanxiang.RIME_PROCESS_RESULTS.kNoop
+        end
+
+        local n = DIGIT[key.keycode] or KP[key.keycode]
+        if not n then return wanxiang.RIME_PROCESS_RESULTS.kNoop end
+
+        local c = env.engine.context
+        if not c:is_composing() then
+            return wanxiang.RIME_PROCESS_RESULTS.kNoop
+        end
+
+        local cand = c:get_selected_candidate() or c:get_candidate(0)
+        if not cand or not cand.text or #cand.text == 0 then
+            return wanxiang.RIME_PROCESS_RESULTS.kNoop
+        end
+
+        local head = utf8_head(cand.text, n)
+        if head == "" then
+            return wanxiang.RIME_PROCESS_RESULTS.kNoop
+        end
+
+        local target = script_prefix(c, n)
+        if target == "" then
+            return wanxiang.RIME_PROCESS_RESULTS.kNoop
+        end
+
+        local consumed = eat_len_by_target(c, target)
+        if consumed == 0 then
+            return wanxiang.RIME_PROCESS_RESULTS.kNoop
+        end
+
+        local raw_clean = clean_raw(c, c.input or "")
+        local rest = raw_clean:sub(consumed + 1)
+
+        env.engine:commit_text(head)
+        set_pending(env, rest)
+        c:refresh_non_confirmed_composition()
+
+        return wanxiang.RIME_PROCESS_RESULTS.kAccepted
+    end
 end
 
 function M.fini(env)
@@ -124,44 +178,14 @@ function M.fini(env)
         env._cpc_update_conn:disconnect()
         env._cpc_update_conn = nil
     end
+    env._cpc_key_handler = nil
 end
 
--- 主逻辑：Ctrl+数字触发
 function M.func(key, env)
-    if not key:ctrl() or key:release() then
+    if not env._cpc_key_handler then
         return wanxiang.RIME_PROCESS_RESULTS.kNoop
     end
-
-    local n = DIGIT[key.keycode] or KP[key.keycode]
-    if not n then return wanxiang.RIME_PROCESS_RESULTS.kNoop end
-
-    local ctx = env.engine.context
-    if not ctx:is_composing() then return wanxiang.RIME_PROCESS_RESULTS.kNoop end
-
-    local cand = ctx:get_selected_candidate() or ctx:get_candidate(0)
-    if not cand or not cand.text or #cand.text == 0 then
-        return wanxiang.RIME_PROCESS_RESULTS.kNoop
-    end
-
-    local head = utf8_head(cand.text, n)
-    if head == "" then return wanxiang.RIME_PROCESS_RESULTS.kNoop end
-
-    local target = script_prefix(ctx, n)
-    if target == "" then return wanxiang.RIME_PROCESS_RESULTS.kNoop end
-
-    local consumed = eat_len_by_target(ctx, target)
-    if consumed == 0 then
-        return wanxiang.RIME_PROCESS_RESULTS.kNoop
-    end
-
-    local raw_clean = clean_raw(ctx, ctx.input or "")
-    local rest = raw_clean:sub(consumed + 1)
-
-    env.engine:commit_text(head)
-    set_pending(env, rest)
-    ctx:refresh_non_confirmed_composition()
-
-    return wanxiang.RIME_PROCESS_RESULTS.kAccepted
+    return env._cpc_key_handler(key)
 end
 
 return M
