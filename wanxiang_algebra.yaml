@@ -1707,12 +1707,7 @@ pro:
       - derive|^(.*?)(\d?);.*?,.*?,.*?,(\w)(\w).*$|$1$3$2$4|  # 双拼+字母 数字 字母
       - derive|^(.*?)(\d?);.*?,.*?,.*?,(\w)(\w).*$|$1$3$4/| # 双拼+2位辅助码+/
       - derive|^(.*?)(\d?);.*?,.*?,.*?,(\w)(\w).*$|$1$3$4o| # 双拼\+2位辅助码\+o，主要用来应对小企鹅这类输入法没法使用符号的场景，但同时有些辅助码会出现异常，如：ui uio>uiuio，手机小企鹅使用时开启
-  #特殊优化：部分音节字极少，几乎不参与构词，则提升对应四码字的优先级，仅对自然码双拼有效，其他双拼方案需作对应修改）
-  #    - derive/^(.*?)(\d?);(bd|dw|df|dw|yl|rw|fs|iw)$/$1$3/
-  #    - derive/^(.*?)(\d?);.*?,(bd|dw|df|dw|yl|rw|fs|iw)$/$1$3/
-  #    - derive/^(.*?)(\d?);.*?,.*?,(bd|dw|df|dw|yl|rw|fs|iw)$/$1$3/
-  #    - derive/^(.*?)(\d?);.*?,.*?,.*?,(bd|dw|df|dw|yl|rw|fs|iw)$/$1$3/
-  #    - erase/^(.+);(.+)$/    # 删除原始编码加速检索
+      - erase/^(.+);(.+)$/    # 删除原始编码加速检索
       - xform/◯/;/  #对于微软双拼、搜狗双拼，前面将分号保护了起来，现在放出来让其发挥作用
 
   间接辅助:  ########################################位于词库第三个分号后
@@ -1731,16 +1726,6 @@ pro:
       - derive|^(.*?)(\d?);.*?,(\w).*$|$1$2/$3| # 双拼+直接声调+/间接一位辅助码的情况
       - derive|^(.*?)(\d?);.*?,(\w)(\w).*$|$1/$3$4| # 双拼+2位辅助码的情况
       - derive|^(.*?)(\d?);.*?,(\w)(\w).*$|$1$2/$3$4| # 双拼+直接声调+/间接2位辅助码的情况
-  #分号后面第三组辅助码
-      - derive|^(.*?)(\d?);.*?,.*?,(\w).*$|$1/$3| # 双拼+一位辅助码的情况
-      - derive|^(.*?)(\d?);.*?,.*?,(\w).*$|$1$2/$3| # 双拼+直接声调+/间接一位辅助码的情况
-      - derive|^(.*?)(\d?);.*?,.*?,(\w)(\w).*$|$1/$3$4| # 双拼+2位辅助码的情况
-      - derive|^(.*?)(\d?);.*?,.*?,(\w)(\w).*$|$1$2/$3$4| # 双拼+直接声调+/间接2位辅助码的情况
-  #分号后面第四组辅助码
-      - derive|^(.*?)(\d?);.*?,.*?,.*?,(\w).*$|$1/$3| # 双拼+一位辅助码的情况
-      - derive|^(.*?)(\d?);.*?,.*?,.*?,(\w).*$|$1$2/$3| # 双拼+直接声调+/间接一位辅助码的情况
-      - derive|^(.*?)(\d?);.*?,.*?,.*?,(\w)(\w).*$|$1/$3$4| # 双拼+2位辅助码的情况
-      - derive|^(.*?)(\d?);.*?,.*?,.*?,(\w)(\w).*$|$1$2/$3$4| # 双拼+直接声调+/间接2位辅助码的情况
       - erase/^(.+);(.+)$/    # 删除原始编码加速检索
       - xform/◯/;/  #对于微软双拼、搜狗双拼，前面将分号保护了起来，现在放出来让其发挥作用
 
@@ -1755,7 +1740,7 @@ reverse:
   #适配乱序17按键映射的笔画映射（横在HP键，竖在Sh键，撇在L键，捺在Y键，折在Zh键）
   hslzy:  
     __append:
-      - xlit/HSPZN/hslzy/   
+      - xlit/HSPZN/hslzy/
       
   全拼:
     - xform/'//
@@ -2761,14 +2746,10 @@ mixed:
 #特殊优化：部分音节字极少，几乎不参与构词，则提升对应四码字的优先级，仅对小鹤双拼有效，其他双拼方案需作对应修改）
 小鹤双拼提权:
   __append:
-    - derive/^(.*?)(\d?);(bl|dx|df|eg|fn|kw|ny|tw|vw|yd|rx|fs|ix)$/$1$3/
-    - derive/^(.*?)(\d?);.*?,(bl|dx|df|eg|fn|kw|ny|tw|vw|yd|rx|fs|ix)$/$1$3/
-    - derive/^(.*?)(\d?);.*?,.*?,(bl|dx|df|eg|fn|kw|ny|tw|vw|yd|rx|fs|ix)$/$1$3/
-    - derive/^(.*?)(\d?);.*?,.*?,.*?,(bl|dx|df|eg|fn|kw|ny|tw|vw|yd|rx|fs|ix)$/$1$3/
+    - derive/^(.*?)(\d?);(bl|dx|df|eg|fn|kw|ny|tw|vw|yd|rx|fs|ix|eq)$/$1$3/
+    - derive/^(.*?)(\d?);.*?,(bl|dx|df|eg|fn|kw|ny|tw|vw|yd|rx|fs|ix|eq)$/$1$3/
 #特殊优化：部分音节字极少，几乎不参与构词，则提升对应四码字的优先级，仅对自然码有效，其他双拼方案需作对应修改）
 自然码提权:
   __append:
-    - derive/^(.*?)(\d?);(bd|dw|df|dw|yl|rw|fs|iw)$/$1$3/
-    - derive/^(.*?)(\d?);.*?,(bd|dw|df|dw|yl|rw|fs|iw)$/$1$3/
-    - derive/^(.*?)(\d?);.*?,.*?,(bd|dw|df|dw|yl|rw|fs|iw)$/$1$3/
-    - derive/^(.*?)(\d?);.*?,.*?,.*?,(bd|dw|df|dw|yl|rw|fs|iw)$/$1$3/
+    - derive/^(.*?)(\d?);(jb|wq|aq|av|dn|xh|bv|jz|hm|sn|cd|iw|xl|ak|zy|fy|uz|yx|wb|wr|yw|dz|qz|ms|at|xf|gi|gn|or|ux|ww|nw|fs|qk|rl|cq|sw|jv|cy|sq|dd|fp|ae|ix|td|ep|ar|wm|pd|et|yz|eh|ct|os|hx|zq|ew|fm|ab|kc|tf|fx|we|sz|wx|bq|ic|ez|bs|ej|oh|ps|pw|fr|pq|au|wc|wp|dt|qf|zc|vx|im|br|mw|un|qb|fi|zm|vn|oz|kt|rq|ay|fn|yc|um|eq|eu|cz|yq|tq|oi|ek|az|fv|zx|ut|vz|ry|ac|ws|af|qv|ea|qj|al|ol|on|sx|ap|df|eg|rz|ey|em|ag|hi|iz|ki|xz|xj|ad|ft|pt|op|vt|oj|kn|pr|hq|eb|ev|cx|zd|am|ov|oq|ym|ef|ot|mr|rd|sy|oc|rc|oe|fq|cn|ok|rn|bp|yv|uc|wk|oy|bt|je|ow|xg|jj|rw|pp|ja|wt|lf|xe|wy|kx|sm|qe|fw|gc|xa|cw|zn|tn|cc|jo|md|sd|ql|kq|it|bd|sc|wv|fc|dw|ob|vm|ed|jl|xo|fl|gq|gt|of|pv|wd|qa|xk|yd|fe|og|iq|oa|uq|om|xv|mv|as|ox|km|zt|od|ht|el|hn|st|wn|mt|wi|tz|aj|yg|bw|jf|jg|kz|es|xb|ax|rt|gx|bb|qo|yf|ex|rx|tt|us|qg|pe|zw|mp|qh|rm|hc|np|jh|cm|yl|eo|ra|vc|aw|tw|fk|gm|ec|be|vq|fd|jk|in)$/$1$3/
+    - derive/^(.*?)(\d?);.*?,(jb|wq|aq|av|dn|xh|bv|jz|hm|sn|cd|iw|xl|ak|zy|fy|uz|yx|wb|wr|yw|dz|qz|ms|at|xf|gi|gn|or|ux|ww|nw|fs|qk|rl|cq|sw|jv|cy|sq|dd|fp|ae|ix|td|ep|ar|wm|pd|et|yz|eh|ct|os|hx|zq|ew|fm|ab|kc|tf|fx|we|sz|wx|bq|ic|ez|bs|ej|oh|ps|pw|fr|pq|au|wc|wp|dt|qf|zc|vx|im|br|mw|un|qb|fi|zm|vn|oz|kt|rq|ay|fn|yc|um|eq|eu|cz|yq|tq|oi|ek|az|fv|zx|ut|vz|ry|ac|ws|af|qv|ea|qj|al|ol|on|sx|ap|df|eg|rz|ey|em|ag|hi|iz|ki|xz|xj|ad|ft|pt|op|vt|oj|kn|pr|hq|eb|ev|cx|zd|am|ov|oq|ym|ef|ot|mr|rd|sy|oc|rc|oe|fq|cn|ok|rn|bp|yv|uc|wk|oy|bt|je|ow|xg|jj|rw|pp|ja|wt|lf|xe|wy|kx|sm|qe|fw|gc|xa|cw|zn|tn|cc|jo|md|sd|ql|kq|it|bd|sc|wv|fc|dw|ob|vm|ed|jl|xo|fl|gq|gt|of|pv|wd|qa|xk|yd|fe|og|iq|oa|uq|om|xv|mv|as|ox|km|zt|od|ht|el|hn|st|wn|mt|wi|tz|aj|yg|bw|jf|jg|kz|es|xb|ax|rt|gx|bb|qo|yf|ex|rx|tt|us|qg|pe|zw|mp|qh|rm|hc|np|jh|cm|yl|eo|ra|vc|aw|tw|fk|gm|ec|be|vq|fd|jk|in)$/$1$3/
