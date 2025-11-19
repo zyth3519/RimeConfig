@@ -5,7 +5,7 @@ local wanxiang = {}
 
 -- x-release-please-start-version
 
-wanxiang.version = "v13.3.17"
+wanxiang.version = "v13.4.1"
 
 -- x-release-please-end
 
@@ -197,9 +197,10 @@ wanxiang.INPUT_METHOD_MARKERS = {
     ["Ⅶ"] = "ziguang", --紫光双拼
     ["Ⅷ"] = "pyjj", --拼音加加
     ["Ⅸ"] = "gbpy", --国标双拼
-    ["Ⅹ"] = "lxsq", --乱序17
+    ["Ⅹ"] = "wxsp", --万象双拼
     ["Ⅺ"] = "zrlong", --自然龙
     ["Ⅻ"] = "hxlong", --汉心龙
+    ["Ⅼ"] = "lxsq", --乱序17
     ["ⅲ"] = "ⅲ", -- 间接辅助标记：命中则额外返回 md="ⅲ"
 }
 
