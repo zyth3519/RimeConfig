@@ -74,7 +74,18 @@ function CR.init(env)
     local auto_delimiter = env.settings.auto_delimiter
     local is_pro = wanxiang.is_pro_scheme(env)
     -- 根据方案选择加载路径
-    local path = (is_pro and "dicts/corrections.pro.dict.yaml") or "dicts/corrections.dict.yaml"
+    -- "错音错字" 的 UTF-8 数字转义
+    local CYCZ = "\233\148\153\233\159\179\233\148\153\229\173\151"  -- 错音错字
+
+    local function get_corrections_path(is_pro)
+        local prefix = "dicts/" .. CYCZ
+        if is_pro then
+            return prefix .. ".pro.dict.yaml"
+        else
+            return prefix .. ".dict.yaml"
+        end
+    end
+    local path = get_corrections_path(is_pro)
     local file, close_file, err = wanxiang.load_file_with_fallback(path)
     if not file then
         log.error(string.format("[super_comment]: 加载失败 %s，错误: %s", path, err))
