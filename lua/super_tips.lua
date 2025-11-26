@@ -254,14 +254,6 @@ function P.func(key, env)
         return wanxiang.RIME_PROCESS_RESULTS.kNoop
     end
 
-    -- 如果启用了 tips 功能，则应使用此 workaround
-    -- rime 内核在移动候选时并不会触发 update_notifier，这里做一个临时修复
-    -- 如果是 paging，则主动调用 update_tips_prompt
-    local segment = context.composition:back()
-    if segment and segment:has_tag("paging") then
-        update_tips_prompt(context, env)
-    end
-
     -- 以下处理 tips 上屏逻辑
     if not P.tips_key                                   -- 未设置上屏键
         or P.tips_key ~= key:repr()                     -- 或者当前按下的不是上屏键
