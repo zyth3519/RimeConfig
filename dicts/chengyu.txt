@@ -11605,6 +11605,7 @@
 瘦骨嶙峋	sglx
 三宫六院	sgly
 伸个懒腰	sgly
+山高路远	sgly
 仨瓜俩枣	sglz
 神鬼莫测	sgmc
 时乖命蹇	sgmj
@@ -13459,6 +13460,7 @@
 硕果累累	ugll
 瘦骨嶙峋	uglx
 伸个懒腰	ugly
+山高路远	ugly
 神鬼莫测	ugmc
 时乖命蹇	ugmj
 说个没完	ugmw

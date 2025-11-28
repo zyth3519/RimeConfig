@@ -330,9 +330,9 @@ speller:
   algebra:
     - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
     - xform/^(.*);.*$/$1/
-    - derive/^ng$/eng/
-    - xform/^n$/en/
-    - xform/^m$/me/
+    - derive/^[nńňǹ]g$/eng/
+    - xform/^[nńňǹ]$/en/
+    - xform/^ḿ$/me/
     - abbrev/^([a-z]).+$/$1/
     - abbrev/^([zcs]h).+$/$1/
     - derive/^([nl])ve$/$1ue/
