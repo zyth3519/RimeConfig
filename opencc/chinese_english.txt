@@ -11151,8 +11151,6 @@
 台座	台座 pedestal
 台方	台方 Taiwan side
 台湾	台湾 Taiwan
-台湾人	台湾人 Taiwanese
-台湾话	台湾话 Taiwanese Chinese language Taiwanese
 台灯	台灯 desk lamp table lamp
 台独	台独 Taiwan independence
 台球	台球 ping-pong
@@ -11162,7 +11160,6 @@
 台胞	台胞 compatriots in Taiwan
 台胞证	台胞证 identification card for Taiwan compatriots
 台词	台词 actor's lines
-台资	台资 capital invested by the Taiwanese
 台车	台车 trolley
 台长	台长 head of broadcasting station
 台阶	台阶 stairs steps sidestep flight of steps
@@ -26016,7 +26013,7 @@
 新华社	新华社 Xinhua News Agency
 新卡尔迪斯	新卡尔迪斯 Caldas Novas
 新古典主义	新古典主义 neoclassicism
-新台币	新台币 new Taiwanese currency
+新台币	新台币 new Taiwan currency
 新名词	新名词 new term
 新喀里多尼亚	新喀里多尼亚 New Caledonia
 新四军	新四军 New Fourth Army
