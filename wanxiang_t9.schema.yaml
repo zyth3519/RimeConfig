@@ -40,8 +40,6 @@ switches:
     reset: 1
 
 
-
-
 # 输入引擎
 engine:
   processors:
@@ -88,7 +86,7 @@ engine:
     - simplifier@s2hk                               #简繁切换港繁
     - simplifier@chinese_english                    #中英翻译滤镜
     - lua_filter@*super_lookup                      #字词输入中反查辅助筛选
-    - lua_filter@*text_formatting_promote           #给自定义用户词扩展一个换行:\n, 制表符：\t, 回车符：\r, 空格：\s
+    - lua_filter@*super_filter                      #功能太多详见Lua文件
     - uniquifier                                    # 去重
 
 super_comment:                  # 超级注释模块，子项配置 true 开启，false 关闭
@@ -102,6 +100,9 @@ tips:
   # 可选项为：偏旁，符号，化学式，时间，符号，组字，翻译，表情，货币，车牌
   disabled_types: []
 
+#在8105基础上你可以通过黑白名单微调你自己的字符集过滤清单，主数据库位于lua/charset.bin不可编辑
+charsetlist: []
+charsetblacklist: []
 #shijian:仅仅作为提示使用，编码已经写死，引导键可以在key_binder下修改前缀
 #时间：osj 或者 /sj
 #日期：orq 或者 /rq

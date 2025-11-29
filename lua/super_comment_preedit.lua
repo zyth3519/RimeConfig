@@ -284,6 +284,37 @@ function SV.update_preedit(env, preedit)
         env._sv_last_pre         = preedit
     end
 end
+-- 对 cand.preedit 应用 tone_preedit/0..9 的映射（数字 -> 上标等）
+local function apply_tone_preedit(env, cand)
+    if not cand or not cand.preedit or cand.preedit == "" then
+        return
+    end
+
+    if not env.tone_map then
+        env.tone_map = {}
+        local cfg = env.engine.schema.config
+        for d = 0, 9 do
+            local k = tostring(d)
+            local v = cfg:get_string("tone_preedit/" .. k)
+            if v and v ~= "" then
+                env.tone_map[k] = v
+            end
+        end
+    end
+
+    local preedit = cand.preedit
+    local converted = preedit:gsub("([^%d%s]+)(%d+)", function(body, digits)
+        local mapped = digits:gsub("%d", function(d)
+            return env.tone_map[d] or d
+        end)
+        return body .. mapped
+    end)
+
+    if converted ~= preedit then
+        cand.preedit = converted
+    end
+end
+
 -- ----------------------
 -- 主函数：根据优先级处理候选词的注释和preedit
 -- ----------------------
@@ -342,34 +373,7 @@ function ZH.func(input, env)
         index = index + 1
 
         SV.update_preedit(env, preedit) --储存到环境变量
-        -- 这里开始：始终进行常规状态下的“数字→声调符号”的 preedit 转换（schema: tone_preedit/0..9）
-        -- 为啥不用系统带的转换：避免转写影响 Lua 拿到的原始 preedit
-        if not env.tone_map then
-            env.tone_map = {}
-            local cfg = env.engine.schema.config
-            for d = 0, 9 do
-                local k = tostring(d)
-                local v = cfg:get_string("tone_preedit/" .. k)
-                if v and v ~= "" then
-                    env.tone_map[k] = v
-                end
-            end
-        end
 
-        if preedit ~= "" then
-            -- 全局：把每个「字母+尾随数字」中的数字逐位映射（不会动分隔符/空格）
-            -- 例： "ni9 zl0 na li" -> "ni³ zl⁴ na li"
-            local converted = preedit:gsub("([%a]+)(%d+)", function(body, digits)
-                local mapped = digits:gsub("%d", function(d)
-                    return env.tone_map[d] or d
-                end)
-                return body .. mapped
-            end)
-
-            if converted ~= preedit then
-                genuine_cand.preedit = converted
-            end
-        end
         -- preedit相关处理只跳过 preedit，不影响注释
         if is_radical_mode then
             goto after_preedit
@@ -456,6 +460,7 @@ function ZH.func(input, env)
             genuine_cand.preedit = table.concat(input_parts)
         end
         ::after_preedit::
+        apply_tone_preedit(env, genuine_cand)
         if should_skip_candidate_comment then
             yield(genuine_cand)
             goto continue
