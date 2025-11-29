@@ -38494,7 +38494,6 @@ Tainan	Tainan pla.台南
 taint	taint n.污点;耻辱;感染 vt.污染;使腐败;沾染;腐蚀
 Taipei	Taipei n.台北
 Taiwan	Taiwan n.台湾
-Taiwanese	Taiwanese a.台湾的;台湾人的 n.台湾人
 take	take vt.拿;取;抓;带领;获得;就座;接受;吃;喝;吸收;采取;乘;需要;花费;产生;对 待 vi.拿;取;起作用;变得 n.拿;取;收成
 takedown	takedown n.拆抑
 taken	taken vbl.take的过去分词
