@@ -12,7 +12,6 @@ schema:
   dependencies:
     - wanxiang_mixedcode    #中英文混合词汇
     - wanxiang_reverse      # 部件拆字，反查及辅码
-    - wanxiang_charset      # 字符集过滤
 
 # 开关
 # reset: 默认状态。注释掉后，切换窗口时不会重置到默认状态。
@@ -93,7 +92,6 @@ engine:
     - script_translator@add_user_dict      #按需自造词
     - script_translator@user_dict_set      #使用自造词
   filters:
-    - lua_filter@*chars_filter                      #字符集过滤
     - reverse_lookup_filter@radical_reverse_lookup  #部件拆字滤镜，放在super_comment前面，进一步被超级注释处理以获得拼音编码的提示
     - lua_filter@*auto_phrase                       #无感造词，关闭调频的时候将汉字写入次翻译器，当没有英文候选的时候追加\上屏可完成英文造词
     - lua_filter@*super_comment_preedit             #超级注释模块、超级preedit，支持错词提示、辅助码显示，部件组字读音注释，有声调、无声调全拼编码的转换，支持个性化配置和关闭相应的功能，详情搜索super_comment_preedit进行详细配置
@@ -103,7 +101,7 @@ engine:
     - simplifier@s2hk                               #简繁切换港繁
     - simplifier@chinese_english                    #中英翻译滤镜
     - lua_filter@*super_sequence*F                  #手动排序，对高亮候选 ctrl+j左移动 ctrl+k 右移动 ctrl+0 移除位移
-    - lua_filter@*text_formatting_promote           #给自定义用户词格式化、英文候选格式化、排序、首选包裹成对符号，功能太多详见Lua文件
+    - lua_filter@*super_filter                      #功能太多详见Lua文件
     - uniquifier                                    # 去重
 
 grammar:
@@ -125,6 +123,10 @@ tips:
   # 禁用的 tips 类型，初始化 tips 数据库的时候会直接忽略相关规则，修改部署后生效
   # 可选项为：偏旁，符号，化学式，时间，符号，组字，翻译，表情，货币，车牌
   disabled_types: []
+
+#在8105基础上你可以通过黑白名单微调你自己的字符集过滤清单，主数据库位于lua/charset.bin不可编辑
+charsetlist: []
+charsetblacklist: []
 
 #shijian:仅仅作为提示使用，编码已经写死，引导键可以在key_binder下修改前缀
 #时间：osj 或者 /sj
@@ -520,7 +522,7 @@ key_binder:
 #通过快捷键Control+g开启字符集过滤
     - { when: has_menu, accept: "Control+g", toggle: charset_filter }
 #通过快捷键Control+q切换中文、英文、混合模式
-    - { when: composing, accept: "Control+q", toggle: zh_only }
+    - { when: has_menu, accept: "Control+q", toggle: zh_only }
 # 使用 tab 在不同音节之间跳转
     - { when: has_menu, accept: "Tab", send: "Control+Right" }
     - { when: composing, accept: "Tab", send: "Control+Right" }
