@@ -88,7 +88,21 @@ local function reset_session(env)
   env._ss_N             = nil
   env._ss_baseline_head = nil  -- 基线：包含你之前的手动分隔/空格
 end
-
+local function ulen(s)
+  if not s or s == "" then return 0 end
+  if utf8 and utf8.len then
+    local ok, n = pcall(utf8.len, s)
+    if ok and n then return n end
+  end
+  -- 兜底：简单按 UTF-8 码点数
+  local n = 0
+  if utf8 and utf8.codes then
+    for _ in utf8.codes(s) do n = n + 1 end
+    return n
+  end
+  -- 再兜底：直接 #s（有误差，但总比没有好）
+  return #s
+end
 function M.init(env)
   local cfg = env.engine.schema.config
   local delimiter = cfg:get_string("speller/delimiter") or " '"
@@ -102,7 +116,9 @@ function M.init(env)
     local cand = seg and seg:get_selected_candidate() or nil
     local pre  = cand and cand.preedit or nil
     env._last_preedit_lens = lens_from_string(pre, env.manual_delim, env.auto_delim)
-    env._last_input_head   = ctx.input
+    env._last_input_head = ctx.input
+    env._last_input_for_caret = ctx.input
+    env._last_caret_pos = ctx.caret_pos
   end)
 
   reset_session(env)
@@ -126,7 +142,19 @@ function M.func(key_event, env)
   if key_event.keycode ~= string.byte(md) then
     reset_session(env); return K_NOOP
   end
+  --用「上一帧」的光标位置判断是不是在中间编辑
+  do
+    local last_input = env._last_input_for_caret or ctx.input or ""
+    local last_caret = env._last_caret_pos
 
+    local total_len = ulen(last_input)
+    -- 只有「上一帧光标在末尾」我们才认定在玩超分段
+    if not last_caret or last_caret ~= total_len then
+      -- 上一帧光标不在末尾：说明用户在中间编辑，这次 ' 交给默认逻辑
+      reset_session(env)
+      return K_NOOP
+    end
+  end
   -- 把这次 ' 并入输入，统计尾部 ' 数
   local before = ctx.input or ""
   local after  = before .. md

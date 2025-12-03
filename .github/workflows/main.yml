@@ -59,7 +59,7 @@ jobs:
       - name: 更新词库
         run: |
           cd RimeConfig
-          7z x ./tmp/base-dicts.zip -o./tmp
+          7z x ./tmp/base-dicts.zip -o./tmp/base-dicts
           cp -rf ./tmp/base-dicts/* dicts
 
       - name: 判断是否需要更新
