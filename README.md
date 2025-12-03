@@ -86,7 +86,117 @@
 
 郑重说明：模型是一个优秀的大数据遍历能力的模块，他能方便的扩展词库数据的不足，非100%外显，它只消耗一些cpu的算力，占用极少的内存，而且他是不增大的固定的二进制数据，请区别于小而美的热加载数据看待。
 
-#### ②进阶custom patch法（已经尽量为你简化）强烈推荐，适用于长期稳定使用：
+#### ②东风破plum：  
+
+安装环境可用plum命令简单安装与更新，在保证安装小狼毫、中州韵、鼠须管等前端的前提下
+
+```
+macOS / Linux	已内置 bash，无需处理
+Windows	需要 Git Bash（安装 Git for Windows 时自动提供，）
+```
+注意：  
+Windows 的 PowerShell / CMD 不能直接运行东风破，必须用 Git Bash。  
+
+<details> <summary><strong>点击展开 / 收起 万象全部安装命令（可一键复制）</strong></summary>
+
+
+1. 先安装plum，这是维护在万象仓库plum分支的版本，去掉了默认方案，修改了默认路径，直接复制2个命令粘贴终端直接执行，打开终端的目录由你决定  
+```base
+git clone -b plum --depth 1 https://github.com/amzxyz/rime_wanxiang.git
+cd plum
+```
+2. 配置用户目录变量，检查状态是否正常：  
+对于小狼毫、鼠须管、Fcitx5已经默认配置了变量  
+```base
+export rime_frontend='rime/weasel'
+export rime_frontend='rime/squirrel'
+export rime_frontend='fcitx5/fcitx5-rime'
+```
+但对于Linux、Mac使用ibus、fcitx前端就需要自己设置变量，这个变量可以终端执行，但最好直接写入~/.zshrc  
+```base
+export rime_frontend=rime/ibus-rime
+export rime_frontend=fcitx/fcitx-rime
+```
+3. 有了上面的工具后你可以切换到刚刚拉取下来的脚本所在目录，执行以下对应的安装目录，即可实现安装和更新
+
+##### 基础版（完整）
+```bash
+bash rime-install amzxyz/rime_wanxiang@wanxiang-base:plum/full
+```
+
+##### 基础版（仅词库）
+```bash
+bash rime-install amzxyz/rime_wanxiang@wanxiang-base:plum/dicts
+```
+##### 自然码辅助版（完整）
+```bash
+bash rime-install amzxyz/rime_wanxiang@wanxiang-zrm-fuzhu:plum/full
+```
+
+##### 自然码辅助版（仅词库）
+```bash
+bash rime-install amzxyz/rime_wanxiang@wanxiang-zrm-fuzhu:plum/dicts
+```
+##### 墨奇辅助版（完整）
+```bash
+bash rime-install amzxyz/rime_wanxiang@wanxiang-moqi-fuzhu:plum/full
+```
+
+##### 墨奇辅助版（仅词库）
+```bash
+bash rime-install amzxyz/rime_wanxiang@wanxiang-moqi-fuzhu:plum/dicts
+```
+##### 小鹤辅助版（完整）
+```bash
+bash rime-install amzxyz/rime_wanxiang@wanxiang-flypy-fuzhu:plum/full
+```
+
+##### 小鹤辅助版（仅词库）
+```bash
+bash rime-install amzxyz/rime_wanxiang@wanxiang-flypy-fuzhu:plum/dicts
+```
+
+##### 虎码辅助版（完整）
+```bash
+bash rime-install amzxyz/rime_wanxiang@wanxiang-tiger-fuzhu:plum/full
+```
+
+##### 虎码辅助版（仅词库）
+```bash
+bash rime-install amzxyz/rime_wanxiang@wanxiang-tiger-fuzhu:plum/dicts
+```
+
+##### 五笔辅助版（完整）
+```bash
+bash rime-install amzxyz/rime_wanxiang@wanxiang-wubi-fuzhu:plum/full
+```
+
+##### 五笔辅助版（仅词库）
+```bash
+bash rime-install amzxyz/rime_wanxiang@wanxiang-wubi-fuzhu:plum/dicts
+```
+#### 汉心辅助版（完整）
+```bash
+bash rime-install amzxyz/rime_wanxiang@wanxiang-hanxin-fuzhu:plum/full
+```
+
+##### 汉心辅助版（仅词库）
+```bash
+bash rime-install amzxyz/rime_wanxiang@wanxiang-hanxin-fuzhu:plum/dicts
+```
+##### 首右辅助版（完整）
+```bash
+bash rime-install amzxyz/rime_wanxiang@wanxiang-shouyou-fuzhu:plum/full
+```
+
+##### 首右辅助版（仅词库）
+```bash
+bash rime-install amzxyz/rime_wanxiang@wanxiang-shouyou-fuzhu:plum/dicts
+```
+
+</details>
+
+**③进阶custom patch法（已经尽量为你简化）强烈推荐，适用于长期稳定使用：**
 
 其实快速运行中我们已经完成了custom patch的部署，里面还预设了一些示例，这些例子只是例子，请务必详细阅读每一行，保留有用的删除无用的，千万不要改完双拼就万事大吉了，每一行详细查阅、理解、修改。custom是对对应方案文件的最后一道补丁，是真正属于你自己的配置文件，他不会被升级所覆盖。
 
@@ -104,7 +214,7 @@ schema,default,weasel,squirrel
 
 更详细参照：[🚀 Rime 万象拼音输入方案 新手安装配置指南](https://docs.qq.com/doc/DQ0FqSXBmYVpWVFpy?rtkey=)
 
-**③脚本更新：**
+**④第三方脚本更新：**
 
 脚本的下载地址 [万象方案更新脚本](https://github.com/rimeinn/rime-wanxiang-update-tools)。这里以win版本的小狼毫为例，如果你是**中文系统**请下载更新脚本的 powershell **非utf-8版本**，具体文件名：`rime-wanxiang-update-windows.ps1` 。在使用万象之前，请安装小狼毫，安装小狼毫的过程中，请一切保持默认即可，等你熟悉之后可以自定义。本入门最终会带你一步步设置使用**小鹤双拼+墨奇辅助码**的方案。
 
@@ -116,17 +226,13 @@ schema,default,weasel,squirrel
 
 4. 在使用脚本更新之前，务必使用进阶custom patch法维护好你的配置，更新不会覆盖custom.yaml类文件
 
-④**自定义数据获取：**
+**⑤自定义数据获取：**
 
 在线custom目录随有三个数据源提供，按自己需求自行整理取用，这部分数据没有随zip方案包一起供应，需在线下载。
 
-- jm_flypy.txt 用于提供小鹤类型的简码，下载后复制到根目录custom_phrase.txt自定义库即可使用；
+- jm_flypy.txt 用于提供小鹤类型的简码，下载后复制到根目录custom_phrase.txt自定义库即可使用；  
 
-  
-
-- jm_zrm.txt 用于提供自然码类型的简码，下载后复制到根目录custom_phrase.txt自定义库即可使用；
-
-  
+- jm_zrm.txt 用于提供自然码类型的简码，下载后复制到根目录custom_phrase.txt自定义库即可使用；  
 
 - tips_user.txt tips用到的“翻译”类型的数据，下载后放置于lua/tips里面重新部署。
 
@@ -327,7 +433,7 @@ datetime_formats:
 
 **中文无感造词（仅PRO）：** 在关闭调频的情况下，通过逐步选字选词的方式上屏将为你记录整段，且不会产生小碎片，所造词汇与db用户词是一回事，遵循用户词管理的相关逻辑，其中直接上屏不造词。相比按需造词更加不打断输入。  
 
-**英文造词：** 例如当输入scx的时候没有任何候选，此时可以追加\，```scx\```可以触发创建候选，然后空格上屏他就记录到了en.userdb，导出和同步与用户词逻辑一致。  
+**英文造词：** 例如当输入scx的时候没有任何候选，此时可以追加\，```scx\```可以触发创建候选，但是有的时候我们想要任意编码进行英文造词，但是又有汉字在前面怎么办，本着一次不行就来两次的原则```nihao\\```末尾输入两个就可以了。然后空格上屏他就记录到了en.userdb，导出和同步与用户词逻辑一致。  
 
 **用户词删除：** 使用Ctrl+del是rime系统删除用户词,就可以将用户词标记为c<=0，这在rime系统中就表现为不使用，假性删除。
 
@@ -381,7 +487,9 @@ B 重复以上操作完成更多设备的添加和同步
 
 由于此流程为模拟rime同步的方式，rime的同步本质上就是多端的数据合并的过程，可靠性可能相较于原生较弱一些，尤其是iPhone可能遇到更多问题。
 
-**声调辅助回退（Lua）：** 万象是将7890用于代表1234声，轻声归并到了4，我们支持在例如输入ni9后发现我可能要4声，ni0，此时我们无需删除数字9而是直接输入对的0，类似手动在7890之间轮巡，能有效快速提升声调辅助的效率，减少使用负担，也是万象独创功能。
+**声调辅助回退（Lua）：** 万象是将7890用来代表1234声，轻声归并到了4，我们支持在例如输入ni9后发现我可能要4声，ni0，此时我们无需删除数字9而是直接输入对的0，类似手动在7890之间轮巡，能有效快速提升声调辅助的效率，减少使用负担，也是万象独创功能。
+
+**小键盘有妙用（Lua）：** auto模式：可配置输入中数字跟在字母后面不上屏。compose模式：可配置数字持续不上屏，不用区分先后。
 
 **删除键限制（Lua）：** 可以在输入中当持续按下删除编码为0时会卡住，抬起重新按下才能继续删除已经上屏内容，避免误删除上屏内容。目前仅PC可用，也是万象独创功能。
 
@@ -389,11 +497,11 @@ B 重复以上操作完成更多设备的添加和同步
 
 **Tab循环切换音节：**  当输入多个字词时想要给前面补充辅助码，可以多次按下tab循环切换，这种可能比那些复杂的快捷键好用一些，同样逻辑的按键还包含ctrl+tab相当于逐字确认，错了可以补充编码，对了继续按下直到全部上屏；  
 
-**“候选切割机”：** 这个功能是有候选的时候，通过按下ctrl+1~0中的10组组合键直接上屏首选前N个字，编码按现有音节分割后续编码保留，一般来说在输入句子的时候由于读音和构词的相似性，以及模型数据的偏差可能会出现错误的连续，这个时候恰当的切割让前面正确的直接上屏，残留的编码一般自动变为首选正确的选项了，此时上屏或继续切割或者使用tab补充编码。这个功能在base双拼中具备更高的确定性，而在pro版本中如果遇到直接辅助码的聚拢，那么此时候选估计与你初心不一致，此时可以考虑借助多次按下单引号来循环分词或许能得到你要的候选，如未得到直接esc重新输入更为高效。更为激进的用法直接上屏正确的部分，后面的编码直接遗弃，现在没有写进去，或许可以作为一个选项，如果你也像这样可以issue告诉我，我们可以改造成布尔选项；
+**“候选切割机”（Lua）：** 这个功能是有候选的时候，通过按下ctrl+1~0中的10组组合键直接上屏首选前N个字，编码按现有音节分割后续编码保留，一般来说在输入句子的时候由于读音和构词的相似性，以及模型数据的偏差可能会出现错误的连续，这个时候恰当的切割让前面正确的直接上屏，残留的编码一般自动变为首选正确的选项了，此时上屏或继续切割或者使用tab补充编码。这个功能在base双拼中具备更高的确定性，而在pro版本中如果遇到直接辅助码的聚拢，那么此时候选估计与你初心不一致，此时可以考虑借助多次按下单引号来循环分词或许能得到你要的候选，如未得到直接esc重新输入更为高效。更为激进的用法直接上屏正确的部分，后面的编码直接遗弃，现在没有写进去，或许可以作为一个选项，如果你也像这样可以issue告诉我，我们可以改造成布尔选项；
 
 **翻译模式：**  输入状态按下Ctrl+E快捷键进入翻译模式，原理是opencc查表进行中英文互译，能否翻译取决于词表的丰富度；
 
-**字符集过滤：** 默认开启过滤，写在charset.dict.yaml的就是可以通过的字表，默认为8105+𰻞𰻞，如果你想什么字在小字集模式可以通过可以写在这里，配套开关【小字集、大字集】，快捷键Ctrl+g 
+**字符集过滤（Lua）：** 默认开启过滤，写在charset.dict.yaml的就是可以通过的字表，默认为8105+𰻞𰻞，如果你想什么字在小字集模式可以通过可以写在这里，配套开关【小字集、大字集】，快捷键Ctrl+g 
 
 **万能键斜杠/：**   
  * 符号扩展输入： rime(大部分前端)是一种最小化ui的输入法，除了输入界面几乎看不到ui设置界面及符号表情面板的组件，因此我们在想要输入一些符号表情等特殊内容的时候会根据类型，设计一个触发条件，这个条件类似以什么编码开始作为标识、或者是某种tag状态。万象又是一个兼容多种输入类型的方案，我们无法找到一个绝对的空码字母作为触发条件，或多或少会冲突，因此我们选择了斜杠作为引导条件，例如/sx可以打出加减乘除等等，/yd可以打出圆点集合等等；  

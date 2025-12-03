@@ -11307,7 +11307,6 @@
 少安毋躁	sawz
 上半部分	sbbf
 誓不罢休	sbbx
-上半辈子	sbbz
 说不出口	sbck
 说不出来	sbcl
 恕不从命	sbcm
@@ -15589,8 +15588,6 @@
 相安无事	xawu
 相爱相杀	xaxs
 相爱相杀	xaxu
-下半部分	xbbf
-下半辈子	xbbz
 想不出来	xbcl
 下笔成章	xbcz
 想不到吧	xbdb

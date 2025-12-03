@@ -290,14 +290,31 @@ local function apply_tone_preedit(env, cand)
         return
     end
 
+    -- 用 context.input 判断是否有相邻数字
+    local input
+    local engine = env.engine
+    if engine and engine.context then
+        -- Rime 里一般是 string，保险起见兜个 nil
+        input = engine.context.input or ""
+    end
+
+    -- 如果整条输入串中存在相邻两个数字（例如 "li39"、"abc10" 等），
+    -- 则整体不做任何转换，直接返回，为了配合小键盘输入逻辑中包吃书字面大小一致性
+    if input and input ~= "" and input:match("%d%d") then
+        return
+    end
+
+    -- 懒加载 tone_map
     if not env.tone_map then
         env.tone_map = {}
-        local cfg = env.engine.schema.config
-        for d = 0, 9 do
-            local k = tostring(d)
-            local v = cfg:get_string("tone_preedit/" .. k)
-            if v and v ~= "" then
-                env.tone_map[k] = v
+        local cfg = engine and engine.schema and engine.schema.config
+        if cfg then
+            for d = 0, 9 do
+                local k = tostring(d)
+                local v = cfg:get_string("tone_preedit/" .. k)
+                if v and v ~= "" then
+                    env.tone_map[k] = v
+                end
             end
         end
     end
@@ -305,7 +322,7 @@ local function apply_tone_preedit(env, cand)
     local preedit = cand.preedit
     local converted = preedit:gsub("([^%d%s]+)(%d+)", function(body, digits)
         local mapped = digits:gsub("%d", function(d)
-            return env.tone_map[d] or d
+            return env.tone_map and env.tone_map[d] or d
         end)
         return body .. mapped
     end)
@@ -314,6 +331,7 @@ local function apply_tone_preedit(env, cand)
         cand.preedit = converted
     end
 end
+
 
 -- ----------------------
 -- 主函数：根据优先级处理候选词的注释和preedit
@@ -504,6 +522,7 @@ function ZH.func(input, env)
                 final_comment = az_comment
             end
         end
+
         -- 应用注释
         if final_comment ~= initial_comment then
             genuine_cand.comment = final_comment

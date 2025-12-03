@@ -5,7 +5,7 @@ local wanxiang = {}
 
 -- x-release-please-start-version
 
-wanxiang.version = "v13.5.2"
+wanxiang.version = "v13.6.3"
 
 -- x-release-please-end
 
@@ -206,7 +206,6 @@ function wanxiang.get_user_id()
     installation_file:close()
     return user_id
 end
-
 wanxiang.INPUT_METHOD_MARKERS = {
     ["Ⅰ"] = "pinyin", --全拼
     ["Ⅱ"] = "zrm", --自然码双拼

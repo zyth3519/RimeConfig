@@ -38,7 +38,7 @@ switches:
   - name: super_tips                    #开启后在输入编码后面的提示区显示实时的提示数据，受tips数据库影响，表情、翻译、车牌、符号等对应关系数据，并可实现句号上屏，不开启则默认，影响的是segment.prompt参数，归属：super_tips.lua
     states: [ 提示关, 提示开 ]
     reset: 1
-  - name: charset_filter               #字符集过滤，默认开启8105通规显示，即小字集，可通过开关实时开启全字集，快捷键配套ctrl+g,归属：chars_filter.lua
+  - name: charset_filter               #字符集过滤，默认开启8105通规显示，即小字集，可通过开关实时开启全字集，快捷键配套ctrl+g,归属：super_filter.lua
     states: [ 小字集, 大字集 ]
     reset: 1
   - name: char_priority                #多体现在编码重合但候选有单字或者多字的情况`引导的辅码查词时是否单字优先，全拼常见，类似于特定编码情况下、反查状态下的调序能力。归属：super_lookup.lua
@@ -58,6 +58,7 @@ engine:
     - lua_processor@*super_sequence*P           #手动排序，高亮候选 ctrl+j左移动 ctrl+k 右移动 ctrl+l 移除位移  ctrl+p 置顶
     - lua_processor@*limit_repeated             #用于限制最大候选长度以及最大重复输入声母编码长度，避免性能异常
     - lua_processor@*backspace_limit            #防止连续 Backspace 在编码为空时删除已上屏内容
+    - lua_processor@*kp_number_processor        #管理小键盘的处理逻辑，有输入中数字不上屏和数字一直不上屏设置可选
     - ascii_composer                            #处理英文模式及中英文切换
     - recognizer                                #与 matcher 搭配，处理符合特定规则的输入码，如网址、反查等 tags
     - key_binder                                #在特定条件下将按键绑定到其他按键，如重定义逗号、句号为候选翻页、开关快捷键等
@@ -102,6 +103,7 @@ engine:
     - simplifier@chinese_english                    #中英翻译滤镜
     - lua_filter@*super_sequence*F                  #手动排序，对高亮候选 ctrl+j左移动 ctrl+k 右移动 ctrl+0 移除位移
     - lua_filter@*super_filter                      #功能太多详见Lua文件
+    - lua_filter@*super_lookup                      #字词输入中反查辅助筛选
     - uniquifier                                    # 去重
 
 grammar:
@@ -456,9 +458,48 @@ recognizer:
     #add_user_dict: "^ac[A-Za-z/`']*$"   #引导式造词
     unicode: "^U[a-f0-9]+"              # U 作为触发前缀，响应 lua_translator@unicode，输出 Unicode 字符
     number: "^R[0-9]+[.]?[0-9]*"        # R 作为触发前缀, 响应 lua_translator@number_translator，数字金额大写
-    lunar: "^N[0-9]{1,8}"               # N 作为触发前缀，响应 lua_translator@shijian，公历转农历，输入 N20250515 得到「二〇二五年五月十五」
+    yr1: "^N0[1-9]?0?[1-9]?"
+    yr2: "^N1[02]?0?[1-9]?"
+    yr3: "^N0[1-9]?[1-2]?[1-9]?"
+    yr4: "^N1[02]?[1-2]?[1-9]?"
+    yr5: "^N0[1-9]?3?[01]?"
+    yr6: "^N1[02]?3?[01]?"
+    nyr1: "^N19?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?"
+    nyr2: "^N20?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?"
     calculator: "^V.*$"                 # V 作为触发前缀，计算器功能引导
     #add_user_dict: "^ac[A-Za-z/`']*$"      #自造词引导方式
+
+# 给 kp_number_processor 用的“命令模式 Lua 正则集合”
+# 能够细化哪些情况数字是用来当作输入编码的，不在正则范围的将用于上屏
+# 直接加载上面的正则会遇到不符合预期的情况，毕竟Lua正则逻辑与之不同
+kp_number:
+  #小键盘数字处理逻辑
+  #  "compose" : 小键盘数字始终参与编码
+  #  "auto"    : 输入中 push，空闲时 commit（默认）
+  kp_number_mode: auto
+  enable_mobile: false
+  patterns:
+    # /符号引导模式
+    - "^/[0-9]$"
+    - "^/10$"
+    - "^/[A-Za-z]+$"
+    # U模式
+    - "^U[%da-f]+$"
+    # R模式
+    - "^R[0-9]+%.?[0-9]*$"
+    # N模式
+    # Lua 不支持 {1,8}，改成等价写法：N 后 1~8 个数字
+    - "^N0[1-9]?0?[1-9]?$"
+    - "^N1[02]?0?[1-9]?$"
+    - "^N0[1-9]?[1-2]?[1-9]?$"
+    - "^N1[02]?[1-2]?[1-9]?$"
+    - "^N0[1-9]?3?[01]?$"
+    - "^N1[02]?3?[01]?$"
+    - "^N19?[0-9]?[0-9]?[01]?[0-2]?[0-3]?[0-9]?$"
+    - "^N20?[0-9]?[0-9]?[01]?[0-2]?[0-3]?[0-9]?$"
+    # 计算器模式
+    - "^V.*$"
+
 # 标点符号
 # punctuator 下面有三个子项：
 # 设置为一个映射，就自动上屏；设置为多个映射，如 '/' : [ '/', ÷ ] 则进行复选。
@@ -551,7 +592,7 @@ speller:
 #  auto_select: true
 #  auto_select_pattern: ^[a-z]+/|^[a-df-zA-DF-Z]\w{3}|^e\w{4}
   # 如果不想让什么标点直接上屏，可以加在 alphabet，或者编辑标点符号为两个及以上的映射，alphabet就是将字符纳入输入编码的范畴
-  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA7890`;/\
+  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA1234567890`;/\
   # initials 定义仅作为始码的按键，排除 ` 让单个的 ` 可以直接上屏
   initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA/
   delimiter: " '"        # 系统配置，第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
@@ -584,7 +625,7 @@ add_user_dict:
   user_dict: zc
   enable_completion: true # 提前显示尚未输入完整码的字〔仅 table_translator 有效〕
   enable_user_dict: false
-  enable_auto_phrase: true    # lua造词功能，在custom开启，相关功能位于super_comment_preedit，开启后：模型能造的句子不造词，现有的词不造词，只造词库没有的，选词可造词
+  enable_auto_phrase: true    # lua造词功能，在custom开启，相关功能位于auto_phrase.lua，开启后：模型能造的句子不造词，现有的词不造词，只造词库没有的，选词可造词
   spelling_hints: 50
   comment_format:
   prefix: "``"
