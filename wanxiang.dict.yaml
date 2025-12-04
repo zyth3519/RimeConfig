@@ -21,8 +21,4 @@ import_tables:
   - dicts/duoyin        #兼容词库，是基础词库的扩充，收录了多场景多种读音的词组
   - dicts/shici         #诗词
   - dicts/diming        #地名
-  - dicts/wu-hua-sheng-yi-yao #物化生医药
-  - dicts/shuxue        #数学
-  #- dicts/wuzhong       #物种多样性
-  #- dicts/dikuang       #地质矿物
 ...

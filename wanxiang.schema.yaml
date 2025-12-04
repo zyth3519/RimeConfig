@@ -8,7 +8,8 @@ schema:
   author:
     - amzxyz
   description: |
-    万象拼音标准版本，带声调的词库，支持语法模型，全拼、简拼、整句、声调辅助筛选，拥有超越大厂的输入体验！
+    请勾选【万象拼音】以启用，万象拼音标准版本，带声调的词库，支持语法模型，全拼、简拼、整句、声调辅助筛选，拥有超越大厂的输入体验！
+    【文本框输入：/pinyin全拼，/zrm自然码,/flypy小鹤，/mspy,/sogou,/pyjj等，详见README.md】
   dependencies:
     - wanxiang_mixedcode    #中英文混合词汇
     - wanxiang_reverse      # 部件拆字，反查及辅码
@@ -468,7 +469,8 @@ recognizer:
     nyr2: "^N20?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?"
     calculator: "^V.*$"                 # V 作为触发前缀，计算器功能引导
     #add_user_dict: "^ac[A-Za-z/`']*$"      #自造词引导方式
-
+    email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"                            # email @ 之后不上屏
+    url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"  # URL
 # 给 kp_number_processor 用的“命令模式 Lua 正则集合”
 # 能够细化哪些情况数字是用来当作输入编码的，不在正则范围的将用于上屏
 # 直接加载上面的正则会遇到不符合预期的情况，毕竟Lua正则逻辑与之不同
@@ -477,7 +479,6 @@ kp_number:
   #  "compose" : 小键盘数字始终参与编码
   #  "auto"    : 输入中 push，空闲时 commit（默认）
   kp_number_mode: auto
-  enable_mobile: false
   patterns:
     # /符号引导模式
     - "^/[0-9]$"
@@ -499,7 +500,15 @@ kp_number:
     - "^N20?[0-9]?[0-9]?[01]?[0-2]?[0-3]?[0-9]?$"
     # 计算器模式
     - "^V.*$"
-
+    # email
+    - "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
+    # URL 前缀几种：
+    - "^www[.].*$"
+    - "^https?:.*$"
+    - "^ftp[.:].*$"
+    - "^mailto:.*$"
+    - "^file:.*$"
+    - "^webdav:.*$"
 # 标点符号
 # punctuator 下面有三个子项：
 # 设置为一个映射，就自动上屏；设置为多个映射，如 '/' : [ '/', ÷ ] 则进行复选。
