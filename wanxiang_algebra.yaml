@@ -716,7 +716,8 @@ base:
       - xform/^([ae])(.*)$/$1$1$2/
       - xform/iu$/Ⓝ/
       - xform/[iu]a$/Ⓑ/
-      - xform/er$|ing$/Ⓠ/
+      - xform/er$/Ⓠ/
+      - xform/ing$/Ⓠ/
       - xform/[uv]an$/Ⓒ/
       - xform/[uv]e$|uai$/Ⓧ/
       - xform/^sh/Ⓘ/
@@ -2109,7 +2110,8 @@ reverse:
     - xform/iu(?=^|$|')/<n>/
     - xform/[iu]a(?=^|$|')/<b>/
     - xform/[uv]an(?=^|$|')/<c>/
-    - xform/[uv]e(?=^|$|')|uai(?=^|$|')/<x>/
+    - xform/[uv]e(?=^|$|')/<x>/
+    - xform/uai(?=^|$|')/<x>/
     - xform/ing(?=^|$|')|er(?=^|$|')/<q>/
     - xform/^sh/<i>/
     - xform/^ch/<u>/
@@ -2564,7 +2566,8 @@ mixed:
       - xform/'zh/'<v>/
       - xform/('|^)((?:<v>|<i>|<u>|[qrtysdghjklzxcn]))[uv]an(?=^|$|')/$1$2<c>/
       - xform/('|^)((?:<i>|<u>|[gh]))uai(?=^|$|')|('|^)([qyjlxn])[uv]e(?=^|$|')/$1$2<x>/
-      - xform/('|^)([qtypdjlxnm])ing(?=^|$|')|('|^)er(?=^|$|')/$1$2<q>/
+      - xform/('|^)([qtypdjlxnm])ing(?=^|$|')/$1$2<q>/
+      - xform/('|^)er(?=^|$|')/$1$2<q>/
       - xform/('|^)((?:<v>|<i>|<u>|[tsdghklzcn]))uo(?=^|$|')/$1$2<o>/
       - xform/('|^)((?:<v>|<i>|<u>|[qrtysdghjklzxc]))[uv]n(?=^|$|')/$1$2<z>/
       - xform/('|^)((?:<v>|<i>|[qrtysdghjklzxcn]))i?ong(?=^|$|')/$1$2<y>/
