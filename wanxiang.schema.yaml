@@ -64,7 +64,6 @@ engine:
     - recognizer                                #与 matcher 搭配，处理符合特定规则的输入码，如网址、反查等 tags
     - key_binder                                #在特定条件下将按键绑定到其他按键，如重定义逗号、句号为候选翻页、开关快捷键等
     - lua_processor@*key_binder                 #绑定按键扩展能力，支持正则扩展将按键生效情景更加细化
-    - lua_processor@*alt_jump                   #通过alt+字母进行跳转输入编码对应的字母，非完全版，asdt等按键被rime屏蔽了
     - speller                                   #拼写处理器，接受字符按键，编辑输入
     - punctuator                                #符号处理器，将单个字符按键直接映射为标点符号或文字
     - selector                                  #选字处理器，处理数字选字键〔可以换成别的哦〕、上、下候选定位、换页
