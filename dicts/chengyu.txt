@@ -11522,6 +11522,7 @@
 酸儿辣女	seln
 生而平等	sepd
 十二三岁	sess
+十二生肖	sesx
 萨尔瓦多	sewd
 死而无憾	sewh
 生而为人	sewr
@@ -13417,6 +13418,7 @@
 十二重楼	ueil
 生而平等	uepd
 十二三岁	uess
+十二生肖	ueux
 生而知之	uevv
 生而为人	uewr
 十二月份	ueyf
