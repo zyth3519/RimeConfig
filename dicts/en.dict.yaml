@@ -843,6 +843,7 @@ kva	Kva
 kwa	Kwa
 LAN	LAN
 LCD	LCD
+LLM	LLM
 LOL	LOL
 LSP	LSP
 lab	Lab
@@ -3674,6 +3675,7 @@ quit	Quit
 quiz	Quiz
 quod	Quod
 quot	Quot
+Qwen	Qwen
 RCEP	RCEP
 RFCs	RFCs
 RFID	RFID
@@ -4293,6 +4295,7 @@ Utah	Utah
 util	Util
 V2EX	V2EX
 VLAN	VLAN
+vLLM	VLLM
 VLSI	VLSI
 vail	Vail
 vain	Vain
@@ -13567,6 +13570,7 @@ Oliver	Oliver
 oliver	Oliver
 olives	Olives
 Olivia	Olivia
+ollama	Ollama
 omasum	Omasum
 onager	Onager
 OneKey	OneKey
@@ -20521,6 +20525,8 @@ lowness	Lowness
 loyally	Loyally
 loyalty	Loyalty
 lozenge	Lozenge
+lspatch	Lspatch
+lsposed	Lsposed
 Lubbock	Lubbock
 lucarne	Lucarne
 lucency	Lucency
@@ -28401,6 +28407,7 @@ lopsided	Lopsided
 lordling	Lordling
 lordship	Lordship
 Lorraine	Lorraine
+lossless	Lossless
 lothario	Lothario
 loudness	Loudness
 lovebird	Lovebird
@@ -35545,6 +35552,7 @@ knowledge	Knowledge
 Knoxville	Knoxville
 konimeter	Konimeter
 kymograph	Kymograph
+LM Studio	LMStudio
 labelling	Labelling
 labialise	Labialise
 labialize	Labialize
@@ -45768,6 +45776,7 @@ Live Photos	LivePhotos
 logarithmic	Logarithmic
 lookthrough	Lookthrough
 Los Angeles	LosAngeles
+LosslessCut	LosslessCut
 loudmouthed	Loudmouthed
 loudspeaker	Loudspeaker
 luminescent	Luminescent
@@ -48154,6 +48163,7 @@ horticulture	Horticulture
 housebreaker	Housebreaker
 housekeeping	Housekeeping
 housewarming	Housewarming
+Hugging Face	HuggingFace
 humanitarian	Humanitarian
 humanization	Humanization
 Hybrid drive	Hybriddrive
@@ -50835,6 +50845,8 @@ Kremlinologist	Kremlinologist
 latitudinarian	Latitudinarian
 Leicestershire	Leicestershire
 liberalization	Liberalization
+lossless audio	LosslessAudio
+lossless music	LosslessMusic
 macOS Catalina	MacOS
 macOS Monterey	MacOS
 macOS Catalina	MacOSCatalina
@@ -51494,6 +51506,7 @@ Language Reactor	LanguageReactor
 Laugh My Ass Off	LaughMyAssOff
 Laugh Out Loudly	LaughOutLoudly
 librime-octagram	Librime-octagram
+Lossless Scaling	LosslessScaling
 Music Television	MTV
 Mac OS X Cheetah	MacOSX
 Mac OS X Leopard	MacOSX
@@ -51703,6 +51716,7 @@ Java Development Kit	JDK
 Java Virtual Machine	JVM
 Java Development Kit	JavaDevelopmentKit
 Java Virtual Machine	JavaVirtualMachine
+lossless compression	LosslessCompression
 Microsoft Visual C++	MSVC
 Model-View-ViewModel	MVVM
 Windows Media Player	MediaPlayer

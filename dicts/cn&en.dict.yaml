@@ -1332,6 +1332,7 @@ Pro版本	Pro'bǎn'běn
 QQ表情包	QQ'biǎo'qíng'bāo
 QQ输入法	QQ'shū'rù'fǎ
 QR码支付	QR'mǎ'zhī'fù
+Qwen3	Qwen3
 RAM容量	RAM'róng'liàng
 RNA分析	RNA'fēn'xī
 RNA提取	RNA'tí'qǔ
@@ -1424,6 +1425,7 @@ hold住	hold'zhù
 会报503	huì'bào'503
 iOS版本	iOS'bǎn'běn
 iOS开发	iOS'kāi'fā
+剪vlog	jiǎn'vlog
 歼-10B	jiān-10B
 歼-10C	jiān-10C
 歼-11B	jiān-11B
@@ -1443,6 +1445,7 @@ iOS开发	iOS'kāi'fā
 立Flag	lì'Flag
 没人BB了	méi'rén'BB'le
 没有bug	méi'yǒu'bug
+拍vlog	pāi'vlog
 霹雳-10	pī'lì-10
 霹雳-15	pī'lì-15
 秦L DM	qín'L'DM
@@ -1563,6 +1566,8 @@ UEFI启动	UEFI'qǐ'dòng
 UPVC蝶阀	UPVC'dié'fá
 USB充电器	USB'chōng'diàn'qì
 VR虚拟现实	VR'xū'nǐ'xiàn'shí
+vlog剪辑	Vlog'jiǎn'jí
+vlog制作	Vlog'zhì'zuò
 Web3.0	Web3.0
 WiFi密码	WiFi'mì'mǎ
 WiFi信号	WiFi'xìn'hào
@@ -1636,6 +1641,7 @@ Email邮箱	Email'yóu'xiāng
 Emby公益服	Emby'gōng'yì'fú
 Excel表格	Excel'biǎo'gé
 FIFA世界杯	FIFA'shì'jiè'bēi
+GPT-5.1	GPT-5.1
 Git版本控制	Git'bǎn'běn'kòng'zhì
 GoPro相机	GoPro'xiàng'jī
 HTTPS安全	HTTPS'ān'quán
@@ -1746,6 +1752,7 @@ N_m3u8DL	N_m3u8DL
 NoSQL数据库	NoSQL'shù'jù'kù
 Python脚本	Python'jiǎo'běn
 Python语言	Python'yǔ'yán
+Qwen3-VL	Qwen3-VL
 Switch版本	Switch'bǎn'běn
 Taobao购物	Taobao'gòu'wù
 Tesla特斯拉	Tesla'tè'sī'lā
@@ -1830,6 +1837,7 @@ Backspace键	Backspace'jiàn
 Claude 3.5	Claude'3.5
 Claude 3.7	Claude'3.7
 Claude 4.1	Claude'4.1
+Gemini 3.0	Gemini'3.0
 .gitignore	Gitignore
 iPhone 3GS	IPhone3GS
 iPhone Air	IPhoneAir
@@ -1862,6 +1870,7 @@ Windows操作系统	Windows'cāo'zuò'xì'tǒng
 特斯拉Model YL	tè'sī'lā'Model'YL
 沃尔沃S90 PHEV	wò'ěr'wò'S'jiǔ'líng'PHEV
 Apple MPEG-4	AppleMPEG-4
+GPT-5.1 High	GPT5.1High
 JavaScript编程	JavaScript'biān'chéng
 Shadowrocket	Shadowrocket
 Claude 3 Opus	Claude'3'Opus
@@ -1882,6 +1891,7 @@ iPhone XS Max	IPhoneXSMax
 特斯拉Cybertruck	tè'sī'lā'Cybertruck
 Claude 3 Haiku	Claude'3'Haiku
 GPT-5 Thinking	GPT-5Thinking
+Gemini 3.0 Pro	Gemini'3.0'Pro
 iPhone 12 Mini	IPhone12Mini
 iPhone 13 Mini	IPhone13Mini
 iPhone 14 Plus	IPhone14Plus
@@ -1890,12 +1900,16 @@ iPhone 16 Plus	IPhone16Plus
 iPhone 6S Plus	IPhone6SPlus
 Claude 3 Sonnet	Claude'3'Sonnet
 Claude Opus 4.1	Claude'Opus'4.1
+Claude Opus 4.5	Claude'Opus'4.5
 Claude Sonnet 4	Claude'Sonnet'4
+GPT‑5.1 Instant	GPT5.1Instant
 AMD64（X86_64)架构	amd64
 AMD64（X86_64)架构	x86
 Claude 3.5 Haiku	Claude'3.5'Haiku
+GPT‑5.1 Thinking	GPT5.1Thinking
 Claude 3.5 Sonnet	Claude'3.5'Sonnet
 Claude 3.7 Sonnet	Claude'3.7'Sonnet
+Claude Sonnet 4.5	Claude'Sonnet'4.5
 iPhone 17 Pro Max	IPhone
 iPhone 11 Pro Max	IPhone11ProMax
 iPhone 12 Pro Max	IPhone12ProMax
