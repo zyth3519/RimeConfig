@@ -155,7 +155,7 @@ patch:
   # 取消注释以开启自动无词频造词
   #add_user_dict/enable_auto_phrase: true
   #按需造词全功能段落结束---------------------------------------------------------------
-  switches/@0/reset: 1
+  # switches/@0/reset: 1
 
 模糊音:
   __append:
