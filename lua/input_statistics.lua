@@ -1,16 +1,31 @@
--- github.com/amzxyz
+-- amzxyz@https://github.com/amzxyz/rime_wanxiang
 -- input_stats.lua
 -- Rime 统计增强版 (LevelDB / 滚动时间窗口 / 效率仪表盘 / 汉字提纯)
 -- 维度升级：1, 2, 3, 4, ≥5 字独立统计
--- UI优化：综合数据田字格布局，峰值与均速分开显示
 
 local userdb = require("lib/userdb")
--- 初始化数据库
+-- 1. 初始化数据库
 local db = userdb.LevelDb("lua/stats")
 
 -- 硬编码信息
 local schema_name = "万象拼音"
-local software_name = rime_api.get_distribution_code_name()
+local raw_software_name = rime_api.get_distribution_code_name()
+
+-- -----------------------------------------------------------------------------
+-- 平台信息处理中心
+-- -----------------------------------------------------------------------------
+local function process_platform_info(name, ver)
+    name = name or ""
+    ver = ver or ""
+    -- 1. 清洗版本号：去除第二个"-"及其后的内容 (例如 -gda909f96)
+    ver = ver:gsub("^(.-%-[^%-]+)%-.*$", "%1")
+    
+    -- 2. 平台名称本地化
+    if name == "Weasel" then name = "小狼毫" end
+    if name == "trime" then name = "同文输入法" end
+
+    return name, ver
+end
 
 -- -----------------------------------------------------------------------------
 -- 汉字识别核心逻辑
@@ -192,16 +207,12 @@ local function format_summary(title, data)
     local phrase_rate = 0
     if data.len > 0 then phrase_rate = (data.len - data.l1) / data.len * 100 end
 
-    -- 估算均速 (Average Speed)
-    -- 由于没有记录精确的打字时长，这里用一个经验公式估算：
-    -- 假设每次上屏平均耗时 1.5 - 2 秒左右，以此倒推一个大概的“均速”用于展示
-    -- 公式：字数 / (次数 * 2秒 / 60)
+    -- 估算均速
     local estimated_avg_spd = 0
     if data.cnt > 0 then
         estimated_avg_spd = math.floor(data.len / ((data.cnt * 2) / 60))
-        -- 修正：如果估算值超过峰值，说明上屏间隔极短（连打），则取峰值的 60%
-        if estimated_avg_spd > data.spd then estimated_avg_spd = math.floor(data.spd * 0.6) end
-        if estimated_avg_spd == 0 and data.len > 0 then estimated_avg_spd = data.len end -- 极少字数保底
+        if estimated_avg_spd > data.spd then estimated_avg_spd = math.floor(data.spd * 0.8) end
+        if estimated_avg_spd == 0 and data.len > 0 then estimated_avg_spd = data.len end
     end
 
     local p1 = (data.l1 / data.cnt) * 100
@@ -209,37 +220,41 @@ local function format_summary(title, data)
     local p3 = (data.l3 / data.cnt) * 100
     local p4 = (data.l4 / data.cnt) * 100
     local p_gt4 = (data.l_gt4 / data.cnt) * 100
-    local ver = rime_api.get_distribution_version() or ""
+    
+    local raw_ver = rime_api.get_distribution_version() or ""
+    local clean_name, clean_ver = process_platform_info(raw_software_name, raw_ver)
 
+    -- 在此处使用 math.floor()，因为 %d 不能接受浮点数
     return string.format(
         "※ %s统计 · 效率仪表盘\n" ..
-        "───────────────────\n" ..
+        "───────────────\n" ..
         "📊 综合数据\n" ..
-        "  总字数：%d\t上屏：%d\n" ..
-        "  峰值速：%d\t均速：%d\n" ..
-        "───────────────────\n" ..
+        "  均速：%d\t 上屏：%d\n" ..
+        "  峰速：%d\t 字数：%d\n" ..
+        "───────────────\n" ..
         "⚡ 核心效率\n" ..
         "  平均编码：%.2f 键/字\n" ..
         "  词组连打：%.1f %%\n" ..
-        "───────────────────\n" ..
+        "───────────────\n" ..
         "📈 字词分布\n" ..
         "  [1] %3d%% %s\n" ..
         "  [2] %3d%% %s\n" ..
         "  [3] %3d%% %s\n" ..
         "  [4] %3d%% %s\n" ..
-        "  [≥5] %2d%% %s\n" ..
-        "───────────────────\n" ..
+        "  [∞] %2d%% %s\n" ..
+        "───────────────\n" ..
         "◉ 方案：%s\n" ..
         "◉ 平台：%s %s",
-        title, data.len, data.cnt, 
-        data.spd, estimated_avg_spd, -- 峰值与均速并排
+        title, 
+        math.floor(estimated_avg_spd), math.floor(data.cnt),
+        math.floor(data.spd), math.floor(data.len),
         avg_code, phrase_rate,
-        p1, draw_bar(p1), 
-        p2, draw_bar(p2), 
-        p3, draw_bar(p3), 
-        p4, draw_bar(p4), 
-        p_gt4, draw_bar(p_gt4), -- 改为 ≥5
-        schema_name, software_name, ver
+        math.floor(p1), draw_bar(p1), 
+        math.floor(p2), draw_bar(p2), 
+        math.floor(p3), draw_bar(p3), 
+        math.floor(p4), draw_bar(p4), 
+        math.floor(p_gt4), draw_bar(p_gt4),
+        schema_name, clean_name, clean_ver
     )
 end
 
@@ -280,6 +295,7 @@ local function fini(env)
         env.stat_notifier:disconnect() 
         env.stat_notifier = nil
     end
+    -- 重新部署时关闭数据库，释放文件锁
     if db and db:loaded() then
         db:close()
     end
@@ -305,7 +321,7 @@ local function translator(input, seg, env)
     elseif input == "/ztj" then title = "七日"; data = aggregate_stats(7)
     elseif input == "/ytj" then title = "卅日"; data = aggregate_stats(30)
     elseif input == "/ntj" then title = "本年"; data = aggregate_stats(365)
-    elseif input == "/ttj" then title = "生涯"; data = aggregate_stats(0)
+    elseif input == "/tj" then title = "生涯"; data = aggregate_stats(0)
     end
 
     if data then
