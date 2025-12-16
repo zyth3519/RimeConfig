@@ -23,7 +23,8 @@ local function process_platform_info(name, ver)
     -- 2. 平台名称本地化
     if name == "Weasel" then name = "小狼毫" end
     if name == "trime" then name = "同文输入法" end
-
+    if name == "hamster3" then name = "元书输入法" end
+    if name == "hamster" then name = "仓输入法" end
     return name, ver
 end
 

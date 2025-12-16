@@ -79,13 +79,13 @@ engine:
   filters:
     - lua_filter@*super_sequence*F                  #手动排序，高亮候选 ctrl+j左移动 ctrl+k 右移动 ctrl+0 移除位移
     - reverse_lookup_filter@radical_reverse_lookup  #部件拆字滤镜，放在super_comment前面，进一步被超级注释处理以获得拼音编码的提示
+    - lua_filter@*super_lookup                      #字词输入中反查辅助筛选
     - lua_filter@*super_comment_preedit             #超级注释模块、超级preedit，支持错词提示、辅助码显示，部件组字读音注释，有声调、无声调全拼编码的转换，支持个性化配置和关闭相应的功能，详情搜索super_comment_preedit进行详细配置
     - simplifier@emoji                              #Emoji滤镜
     - simplifier@s2t                                #简繁切换通繁
     - simplifier@s2tw                               #简繁切换台繁
     - simplifier@s2hk                               #简繁切换港繁
     - simplifier@chinese_english                    #中英翻译滤镜
-    - lua_filter@*super_lookup                      #字词输入中反查辅助筛选
     - lua_filter@*super_filter                      #功能太多详见Lua文件
     - uniquifier                                    # 去重
 
@@ -273,6 +273,7 @@ wanxiang_lookup: #设置归属于super_lookup.lua
   tags: [ abc ]  # 检索当前tag的候选
   key: "`"       # 输入中反查引导符，要添加到 speller/alphabet
   lookup: [ wanxiang_reverse ] #反查滤镜数据库，万象都合并为一个了
+  data_source: [db]  #对于pro版本能从注释中加载词库辅助码，详情见Pro版本，base这里无需修改。
 
 # 处理符合特定规则的输入码，如网址、反查
 recognizer:
