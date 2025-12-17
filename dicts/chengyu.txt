@@ -3536,6 +3536,7 @@
 富贵在天	fgzt
 反躬自问	fgzw
 反躬自省	fgzx
+繁花似锦	fhsj
 非常抱歉	fibq
 非常必要	fiby
 风吹草动	ficd
@@ -9222,6 +9223,7 @@
 男女老少	nnls
 男女老少	nnlu
 男女老幼	nnly
+男男女女	nnnn
 男女平等	nnpd
 泥牛入海	nnrh
 年年岁岁	nnss
