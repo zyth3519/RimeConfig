@@ -252,15 +252,12 @@ patch:
     # k - g     开头
     - derive/^k/g
     - derive/^g/k
-    # an - ang
-    - derive/([ui]?)([āáǎàa])ng(.*)$/$1$2n$3
-    - derive/([ui]?)([āáǎàa])n(.*)$/$1$2ng$3
     # en - eng
-    - derive/([ēéěèe])ng(.*)$/$1n$2
-    - derive/([ēéěèe])n(.*)$/$1ng$2
+    - derive/(ē|é|ě|è|e)ng(.*)$/$1n$2
+    - derive/(ē|é|ě|è|e)n(.*)$/$1ng$2
     # in - ing
-    - derive/([īíǐìi])ng(.*)$/$1n$2
-    - derive/([īíǐìi])n(.*)$/$1ng$2
+    - derive/(ī|í|ǐ|ì|i)ng(.*)$/$1n$2
+    - derive/(ī|í|ǐ|ì|i)n(.*)$/$1ng$2
     # c - ch
     - derive/^c([^h]*)/ch$1
     - derive/^ch/c
