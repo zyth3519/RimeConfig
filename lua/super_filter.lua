@@ -628,9 +628,6 @@ local function emit_with_pipeline(cand, ctxs)
     cand = ctxs.unify_tail_span(cand)
     yield(cand)
 end
-
-
-
 -- ========= 主流程 =========
 function M.func(input, env)
     local ctx  = env and env.engine and env.engine.context or nil
@@ -641,31 +638,57 @@ function M.func(input, env)
         option_extended = ctx:get_option("charset_filter") or false
     end
 
-    -- 当前是否在反查/自造词/标点段：这些段不做过滤
+    -- 当前是否在反查/自造词/标点段
     local in_reverse_seg = is_reverse_lookup_segment(env)
 
-    -- 本次是否启用 charset 过滤：
-    --   1) env.charset 存在（schema 里定义了 wanxiang_charset）
-    --   2) 没开扩展开关（charset_filter = false 或未设）
-    --   3) 当前段不是反查/自造词/标点
+    -- 本次是否启用 charset 过滤
     local charset_strict = (env.charset ~= nil)
                            and (not option_extended)
                            and (not in_reverse_seg)
-    -- 输入为空：释放状态
+
+    -- 状态清理
     if not code or code == "" then
         env.cache, env.locked = nil, false
     end
-
-    -- composition 为空：只重置状态，不 return（避免输入 "\" 后空候选）
     if comp and comp:empty() then
         env.cache, env.locked = nil, false
     end
 
     local symbol = env.symbol
-    local code_has_symbol = symbol and #symbol == 1 and (find(code, symbol, 1, true) ~= nil)
-    -- 强制英文触发文本（末尾 \\）
+
+    -- 强制英文检测 (仅针对双击符号 \\)
     local force_english_text = nil
-    -- segmentation：用于判断最后一段是否"完全消耗"
+    local delimiter = nil
+    
+    -- 只有定义了符号，且输入长度足够才检测
+    if symbol and #symbol == 1 then
+        delimiter = symbol .. symbol -- 定义触发符为两个符号
+        if code and #code >= 3 then
+            local c_len = #code
+            -- 严格检测：末尾最后两个字符必须等于 "符号+符号"
+            if string.sub(code, c_len - 1, c_len) == delimiter then
+                -- 提取基础文本 (去掉末尾的 \\)
+                local base = string.sub(code, 1, c_len - 2)
+                if base and #base > 0 then
+                    -- 纯 ASCII 检查 (防止误把中文截断)
+                    local ascii_only = true
+                    for i = 1, #base do
+                        if string.byte(base, i) > 127 then 
+                            ascii_only = false; break 
+                        end
+                    end
+                    if ascii_only then
+                        force_english_text = base
+                    end
+                end
+            end
+        end
+    end
+    -- =======================================================
+
+    local code_has_symbol = symbol and #symbol == 1 and (find(code, symbol, 1, true) ~= nil)
+    
+    -- segmentation：用于保持原有的包裹/分段逻辑
     local last_seg, last_text, fully_consumed = nil, nil, false
     if code_has_symbol then
         last_seg = comp and comp:back()
@@ -680,10 +703,10 @@ function M.func(input, env)
         end
     end
 
-    -- 宽松尾部：失败时退化为整个 code（给兜底逻辑用）
+    -- 宽松尾部
     local tail_text = (last_seg and last_seg.start and last_seg._end) and sub(code, last_seg.start + 1, #code) or code
 
-    -- 解析 prefix\suffix（严格路径：需 fully_consumed）
+    -- 解析 prefix\suffix（保持原有包裹逻辑）
     local lock_now, wrap_key, keep_tail_len = false, nil, 0
     if code_has_symbol and last_text and symbol and #symbol == 1 then
         local pos = last_text:find(symbol, 1, true)
@@ -697,33 +720,10 @@ function M.func(input, env)
                 if k ~= "" and env.wrap_map[k] then wrap_key = k end
             end
         end
-
-        -- ★ 新增检测末尾是否为 "\\"
-        -- 只在最后一段完全消耗时生效，且至少要有 1 个字母在前面
-        if fully_consumed then
-            local len = #last_text
-            if len >= 3 and sub(last_text, len - 1, len) == symbol .. symbol then
-                local base = sub(last_text, 1, len - 2)  -- 去掉最后两个 '\'
-                if base and #base > 0 then
-                    -- 只接受纯 ASCII（防止误伤中文）
-                    local ascii_only = true
-                    for i = 1, #base do
-                        local b = byte(base, i)
-                        if b > 127 then
-                            ascii_only = false
-                            break
-                        end
-                    end
-                    if ascii_only then
-                        force_english_text = base
-                    end
-                end
-            end
-        end
     end
     env.locked = lock_now
 
-    -- code 上下文（供格式化/大写逻辑使用）
+    -- code 上下文
     local code_len       = #code
     local do_group       = (code_len >= 2 and code_len <= 6)
     local sort_window    = tonumber(env.settings.sort_window) or 30
@@ -740,14 +740,12 @@ function M.func(input, env)
         enable_cap    = enable_cap,
     }
 
-    -- 三态语言模式：en_only / zh_only / mixed
     local en_only, zh_only = false, false
     if ctx then
         en_only = ctx:get_option("en_only") or false
         zh_only = ctx:get_option("zh_only") or false
     end
 
-    -- 吞尾对齐：包裹时把 end 对齐到最后段，避免露出 \suffix
     local function unify_tail_span(c)
         if fully_consumed and wrap_key and last_seg and c and c._end ~= last_seg._end then
             local nc = Candidate(c.type, c.start, last_seg._end, c.text, c.comment)
@@ -757,7 +755,6 @@ function M.func(input, env)
         return c
     end
 
-    -- 产出上下文（统一传入）
     local emit_ctx = {
         env             = env,
         suppress_set    = nil,
@@ -771,7 +768,6 @@ function M.func(input, env)
         drop_sentence_after_completion = false,
     }
 
-    -- 生成包裹候选（统一写法）
     local function wrap_from_base(base_cand, key)
         if not base_cand or not key then return nil end
         local pair = env.wrap_map[key]; if not pair then return nil end
@@ -784,30 +780,33 @@ function M.func(input, env)
         nc.preedit = formatted.preedit
         return nc, (formatted.text or ""), wrapped
     end
-
-    -- ========= 改进的兜底逻辑：无候选时使用输入码 =========
+    -- 兜底逻辑 (处理无候选词的情况，如 scx\\)
     local function improved_fallback_emit()
-        if not code_has_symbol or not tail_text then
-            return false
+        -- 优先处理强制英文：只要触发符匹配，即使无其他候选也必须输出
+        if force_english_text then
+            local start_pos = (last_seg and last_seg.start) or 0
+            -- 关键点：end_pos 设为 #code，确保上屏时覆盖掉 "scx\\"
+            local end_pos   = #code 
+            local eng = Candidate("completion", start_pos, end_pos, force_english_text, "")
+            eng.preedit = force_english_text
+            
+            -- 这里不设 pipeline，直接输出，保证它一定是第一个
+            yield(eng) 
+            return true
         end
 
-        -- tail_text 通常是最后一段编码，例如 "nide\" 或 "nide\k"
+        -- 以下是原有的 Wrap/Completion 兜底逻辑
+        if not code_has_symbol or not tail_text then return false end
         local pos = tail_text:find(symbol, 1, true)
-        if not (pos and pos > 1) then
-            return false
-        end
-
-        local left  = sub(tail_text, 1, pos - 1)  -- "\" 前的部分
-        local right = sub(tail_text, pos + 1)     -- "\" 后的部分（可能为空）
-        if not (left and #left > 0) then
-            return false
-        end
+        if not (pos and pos > 1) then return false end
+        local left  = sub(tail_text, 1, pos - 1)
+        local right = sub(tail_text, pos + 1)
+        if not (left and #left > 0) then return false end
 
         local start_pos    = (last_seg and last_seg.start) or 0
         local end_pos_full = (last_seg and last_seg._end)  or #code
-        local base_text    = left   -- ★ 上屏文本只用 "\" 左边这段
+        local base_text    = left 
 
-        -- 情况 1："\suffix" 命中 wrap_key，走包裹候选
         local key = (right or ""):lower()
         if key ~= "" and env.wrap_map[key] then
             local base_cand = Candidate("completion", start_pos, end_pos_full, base_text, "")
@@ -821,16 +820,15 @@ function M.func(input, env)
             end
         end
 
-        -- 情况 2：只有一个结尾 "\"（right 为空）
-        -- 期望：整段编码被消费（不留下 "\" 残留），但只上屏 left。
         if not right or #right == 0 then
+            -- 如果只是 abc\ 且没触发英文逻辑，默认不干涉或按需输出
+            -- 如果你希望单 \ 不出候选，这里可以 return true 并不 yield
+            -- 原逻辑：
             local nc = Candidate("completion", start_pos, end_pos_full, base_text, "")
             emit_with_pipeline(nc, emit_ctx)
             return true
         end
 
-        -- 情况 3："\suffix" 但 suffix 不合法（既不是 wrap_key，也不想自动吃掉）
-        -- 只消费前半段，把 "\" + suffix 留在编码里，方便用户编辑
         local keep_tail = 1 + #(right or "")
         local end_pos_show = math.max(start_pos, end_pos_full - keep_tail)
         local nc = Candidate("completion", start_pos, end_pos_show, base_text, "")
@@ -844,29 +842,27 @@ function M.func(input, env)
         for cand in input:iter() do
             idx = idx + 1
             if idx == 1 and (not env.locked) then
-                -- 缓存"已格式化"的第一候选（确保后续 \ 包裹保持形态）
                 env.cache = clone_candidate(format_and_autocap(cand, code_ctx))
             end
 
             if idx == 1 then
-                -- 若有末尾 "\\", 先生成一个英文候选作为首选
+                -- 有候选词时，优先插入英文
                 if force_english_text then
-                    local start_pos = (last_seg and last_seg.start) or cand.start or 0
-                    local end_pos   = (last_seg and last_seg._end)  or (start_pos + #code)
+                    local start_pos = 0 
+                    local end_pos   = #code -- 覆盖全长，消除 \\
                     local eng = Candidate("completion", start_pos, end_pos, force_english_text, cand.comment)
-                    eng.preedit = cand.preedit
-                    -- 强制认为后续 sentence 都可以被干掉
+                    eng.preedit = force_english_text 
                     emit_ctx.drop_sentence_after_completion = true
                     emit_with_pipeline(eng, emit_ctx)
                 end
-                -- 判定：第一候选是否为表内英文，长度 >= 4
+                
                 if not emit_ctx.drop_sentence_after_completion then
                     local txt = cand.text or ""
                     if is_table_type(cand) and #txt >= 4 and has_english_token_fast(txt) then
                         emit_ctx.drop_sentence_after_completion = true
                     end
                 end
-                -- 仅锁定：置顶缓存，保留尾长（吞掉 \suffix）
+                
                 if (not force_english_text) and env.locked and (not wrap_key) and env.cache then
                     local start_pos = (last_seg and last_seg.start) or 0
                     local end_pos   = (last_seg and last_seg._end) or #code
@@ -880,7 +876,6 @@ function M.func(input, env)
                     goto continue_non_group
                 end
 
-                -- 锁定 + 命中包裹键：直接生成包裹候选
                 if wrap_key then
                     local base = env.cache or cand
                     local nc, base_text, wrapped_text = wrap_from_base(base, wrap_key)
@@ -894,14 +889,13 @@ function M.func(input, env)
                 end
             end
 
-            -- 常规产出
             emit_with_pipeline(cand, emit_ctx)
             ::continue_non_group::
         end
 
-        -- 上游 0 候选但包含 "\"：兜底产出
+        -- 如果没有候选 (idx == 0)，调用改进后的兜底逻辑
         if idx == 0 then
-            if improved_fallback_emit() then return end
+            improved_fallback_emit()
         end
         return
     end
@@ -925,15 +919,17 @@ function M.func(input, env)
         end
 
         if idx2 == 1 then
-            -- 若有末尾 "\\", 先插入英文候选
+            -- 分组模式下同样插入英文
             if force_english_text then
-                local start_pos = (last_seg and last_seg.start) or cand.start or 0
-                local end_pos   = (last_seg and last_seg._end)  or (start_pos + #code)
+                local start_pos = 0
+                local end_pos   = #code -- 覆盖全长
                 local eng = Candidate("completion", start_pos, end_pos, force_english_text, cand.comment)
-                eng.preedit = cand.preedit
+                eng.preedit = force_english_text 
+
                 emit_ctx.drop_sentence_after_completion = true
                 emit_with_pipeline(eng, emit_ctx)
             end
+
             if not emit_ctx.drop_sentence_after_completion then
                 local t = fast_type(cand)
                 local txt = cand.text or ""
@@ -943,9 +939,7 @@ function M.func(input, env)
             end
 
             local emitted = false
-            -- 仅锁定：置顶缓存，保留尾长（但 \\ 模式下跳过）
             if (not force_english_text) and env.locked and (not wrap_key) and env.cache then
-
                 local start_pos = (last_seg and last_seg.start) or 0
                 local end_pos   = (last_seg and last_seg._end) or #code
                 if keep_tail_len and keep_tail_len > 0 then
@@ -956,8 +950,6 @@ function M.func(input, env)
                 nc.preedit = base.preedit
                 emit_with_pipeline(nc, emit_ctx)
                 emitted = true
-
-            -- 锁定 + 包裹
             elseif wrap_key then
                 local base = env.cache or cand
                 local nc, base_text, wrapped_text = wrap_from_base(base, wrap_key)
@@ -975,12 +967,10 @@ function M.func(input, env)
             end
 
         elseif idx2 == 2 and mode == "unknown" then
-            -- 第二候选为 table/user_table：透传模式
             if is_table_type(cand) then
                 mode = "passthrough"
                 emit_with_pipeline(cand, emit_ctx)
             else
-                -- 分组模式：①不含字母(table/user_table) → ②其他
                 mode = "grouping"
                 grouped_cnt = 1
                 if is_table_type(cand) and (not has_english_token_fast(cand.text)) then
@@ -1016,15 +1006,12 @@ function M.func(input, env)
         end
     end
 
-    -- 上游 0 候选但包含 "\"：兜底产出（分组路径）
     if idx2 == 0 then
         improved_fallback_emit()
     end
 
-    -- 结束时刷新分组缓存
     if mode == "grouping" and not window_closed then
         flush_groups()
     end
 end
-
 return M
