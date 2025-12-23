@@ -131,7 +131,7 @@ function AP.func(input, env)
     end
 end
 
--- 造词（原逻辑 + 新增 '\' 英文造词）
+-- 造词（原逻辑 + 新增 '\' 英文造词 + 大小写双重存入）
 function AP.commit_handler(ctx, env)
     if not ctx or not ctx.composition then
         comment_cache = {}
@@ -145,25 +145,31 @@ function AP.commit_handler(ctx, env)
 
     ---------------------------------------------------
     -- ① 英文 + '\' 造词 —— 始终启用，只依赖 env.en_memory
-    -- 条件：
-    --   - raw_input 末尾为 '\'
-    --   - commit_text 为“ASCII 且至少 1 字母”的英文
-    -- 行为：
-    --   - text        = commit_text
-    --   - custom_code = 编码去掉末尾 '\' + 空格
     ---------------------------------------------------
     if raw_input ~= "" and raw_input:sub(-1) == "\\" and is_ascii_word(commit_text) then
         local code_body = raw_input:gsub("\\+$", "")   -- 去掉末尾连续 '\'
         code_body = code_body:gsub("%s+$", "")         -- 去掉尾部空白
 
         if code_body ~= "" and env.en_memory then
-            local entry = DictEntry()
-            entry.text        = commit_text          -- 上屏英文本身
-            entry.weight      = 1
-            entry.custom_code = code_body .. " "     -- 真实编码（无 '\') + 空格
+            -- 定义局部函数：执行写入操作
+            local function save_entry(code)
+                local entry = DictEntry()
+                entry.text        = commit_text          -- 上屏英文本身
+                entry.weight      = 1
+                entry.custom_code = code .. " "          -- 编码 + 空格
+                env.en_memory:update_userdict(entry, 1, "")
+            end
 
-            env.en_memory:update_userdict(entry, 1, "")
-            -- log.info(string.format("[auto_phrase] EN 造词：[%s], code=[%s]", entry.text, entry.custom_code))
+            -- 1. 写入原编码（无论大小写）
+            save_entry(code_body)
+
+            -- 2. 如果原编码包含大写字母（转小写后不等于原编码），额外写入一份全小写编码
+            local lower_code = string.lower(code_body)
+            if lower_code ~= code_body then
+                save_entry(lower_code)
+            end
+            
+            -- log.info(string.format("[auto_phrase] EN 造词：[%s], 原码=[%s], 小写码=[%s]", commit_text, code_body, lower_code))
         end
 
         comment_cache = {}
@@ -174,7 +180,6 @@ function AP.commit_handler(ctx, env)
     -- ② 中文自动造词：只在 env.memory 存在时工作
     ---------------------------------------------------
     if not env.memory then
-        -- 中文造词功能被关掉时，直接跳过这一段
         comment_cache = {}
         return
     end

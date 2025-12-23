@@ -427,6 +427,7 @@ end
 
 ------------------------------------------------------------
 -- 十一、把“合并结果”重写到我机导出（含 p=0）
+-- [优化]：增加内容比对，仅在内容实质发生变化时才写盘，避免无效刷新 mtime
 ------------------------------------------------------------
 local function rewrite_export_from_latest(latest)
     local ok = _sync_ready()
@@ -438,33 +439,61 @@ local function rewrite_export_from_latest(latest)
     local export_path = _path_join(dir, export_name)
     local manifest = _manifest_path(dir)
 
+    -- 1. 确保清单文件存在并包含当前文件（这部分本身开销极小，保留原逻辑或同样做排重均可）
     if not _file_exists(manifest) then local mf = io.open(manifest, "w"); if mf then mf:close() end end
     do
         local names = _read_lines(manifest); local seen = {}; for _, n in ipairs(names) do seen[_trim(n)] = true end
         if not seen[export_name] then names[#names + 1] = export_name; _write_lines(manifest, names) end
     end
 
-    local f = io.open(export_path, "w"); if not f then return end
+    -- 2. 【核心修改】在内存中构建即将写入的内容
+    local buffer = {}
+    
     local user_id = wanxiang.get_user_id()
-    if user_id then f:write("\001/user_id\t", user_id, "\n") end
-    f:write("\001/device_name\t", device_name, "\n")
+    if user_id then 
+        table.insert(buffer, "\001/user_id\t" .. user_id) 
+    end
+    table.insert(buffer, "\001/device_name\t" .. device_name)
 
     local inputs = {}
     for input, _ in pairs(latest) do inputs[#inputs + 1] = input end
     table.sort(inputs)
+    
     for _, input in ipairs(inputs) do
         local items, keys = latest[input], {}
         for item, _ in pairs(items) do keys[#keys + 1] = item end
         table.sort(keys)
         for _, item in ipairs(keys) do
             local a = items[item]
-            f:write(string.format("%s\ti=%s p=%s o=%s t=%s\n",
-                input, item, a.fixed_position or 0, a.offset or 0, a.updated_at or ""))
+            -- 构建行内容
+            local line = string.format("%s\ti=%s p=%s o=%s t=%s",
+                input, item, a.fixed_position or 0, a.offset or 0, a.updated_at or "")
+            table.insert(buffer, line)
         end
     end
 
-    f:close()
-    --log.info(string.format("[sequence] export rewritten (merged LWW, incl tombstones): %s", export_path))
+    -- 拼接成完整字符串 (末尾添加换行符以符合通常的文件习惯)
+    local new_content = table.concat(buffer, "\n") .. "\n"
+
+    -- 3. 【核心修改】读取旧文件内容进行对比
+    local old_content = nil
+    local f_read = io.open(export_path, "r")
+    if f_read then
+        old_content = f_read:read("*a") -- 读取全部内容
+        f_read:close()
+    end
+
+    -- 4. 【核心修改】只有内容不一致时才写入
+    -- 如果文件不存在(old_content为nil) 或者 内容不同，则写入
+    if old_content ~= new_content then
+        local f_write = io.open(export_path, "w")
+        if not f_write then return end
+        f_write:write(new_content)
+        f_write:close()
+        -- log.info(string.format("[sequence] export updated: %s", export_path))
+    else
+        -- log.info(string.format("[sequence] export skipped (no changes): %s", export_path))
+    end
 end
 
 ------------------------------------------------------------
