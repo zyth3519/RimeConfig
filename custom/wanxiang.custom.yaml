@@ -265,57 +265,7 @@ patch:
 #使用方案跟在拼写运算后面
 18jian:
   __append:
-    - xform/q/Q
-    - xform/w/W
-    - xform/e/W
-    - xform/r/R
-    - xform/t/R
-    - xform/y/Y
-    - xform/u/U
-    - xform/i/I
-    - xform/o/I
-    - xform/p/P
-    - xform/a/A
-    - xform/s/S
-    - xform/d/S
-    - xform/f/F
-    - xform/g/F
-    - xform/h/H
-    - xform/j/J
-    - xform/k/J
-    - xform/l/L
-    - xform/z/Z
-    - xform/x/X
-    - xform/c/X
-    - xform/v/V
-    - xform/b/B
-    - xform/n/B
-    - xform/m/M
+    - xlit/qwertyuiopasdfghjklzxcvbnm/QWWRRYUIIPASSFFHJJLZXXVBBM
 14jian:
   __append:
-    - xform/q/Q
-    - xform/w/Q
-    - xform/e/E
-    - xform/r/E
-    - xform/t/T
-    - xform/y/T
-    - xform/u/U
-    - xform/i/U
-    - xform/o/O
-    - xform/p/O
-    - xform/a/A
-    - xform/s/A
-    - xform/d/D
-    - xform/f/D
-    - xform/g/G
-    - xform/h/G
-    - xform/j/J
-    - xform/k/J
-    - xform/l/L
-    - xform/z/Z
-    - xform/x/Z
-    - xform/c/C
-    - xform/v/C
-    - xform/b/B
-    - xform/n/B
-    - xform/m/M
+    - xlit/qwertyuiopasdfghjklzxcvbnm/QQEETTUUOOAADDGGJJLZZCCBBM
