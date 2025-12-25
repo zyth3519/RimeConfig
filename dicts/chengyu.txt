@@ -11666,6 +11666,7 @@
 三好学生	shxu
 四海一家	shyj
 松鹤延年	shyn
+社会主义	shzy
 四处奔走	sibz
 四川大学	sidx
 搜肠刮肚	sigd
@@ -13481,6 +13482,7 @@
 收官之战	ugvv
 尸骨无存	ugwc
 深耕细作	ugxz
+社会主义	uhvy
 伤春悲秋	uibq
 生辰八字	uibz
 恃宠而骄	uiej
@@ -19406,9 +19408,9 @@
 字字箴言	zzzy
 自斟自饮	zzzy
 重中之重	zzzz
+自作主张	zzzz
 捉贼捉赃	zzzz
 浊者自浊	zzzz
-自作主张	zzzz
 神不知鬼不觉	sbzgbj
 神不知鬼不觉	ubvgbj
 柴米油盐酱醋茶	cmyyjcc
