@@ -3570,135 +3570,45 @@ preset_keyboards:
       - {click: num9, __include: conf/num_line}
       - {click: num0, __include: conf/num_line}
       # 第 1 行
-      # 第 1 行
-      - { click: 'q', long_click: '!', swipe_down: 1, __include: styl/key }
-      - { click: 'w', long_click: '@', swipe_down: 2, __include: styl/key }
-      - { click: 'e', long_click: '#', swipe_down: 3, __include: styl/key }
-      - {
-          click: 'r',
-          long_click: '$',
-          swipe_down: 4,
-          hint: 4,
-          __include: styl/key,
-        }
-      - { click: 't', long_click: '%', swipe_down: 5, __include: styl/key }
-      - { click: 'y', long_click: '^', swipe_down: 6, __include: styl/key }
-      - {
-          click: 'u',
-          long_click: '&',
-          swipe_down: 7,
-          hint: 7,
-          __include: styl/key,
-        }
-      - { click: 'i', long_click: '*', swipe_down: 8, __include: styl/key }
-      - { click: 'o', long_click: '"', swipe_down: 9, __include: styl/key }
-      - { click: 'p', long_click: "danyinhao", __include: styl/key }
+      - { click: 'q', long_click: '!', swipe_up: Q, __include: styl/key }
+      - { click: 'w', long_click: '@', swipe_up: W, __include: styl/key }
+      - { click: 'e', long_click: '#', swipe_up: E, __include: styl/key }
+      - { click: 'r', long_click: '$', swipe_up: R, __include: styl/key }
+      - { click: 't', long_click: '%', swipe_up: T, __include: styl/key }
+      - { click: 'y', long_click: '^', swipe_up: Y, __include: styl/key }
+      - { click: 'u', long_click: '&', swipe_up: U, __include: styl/key }
+      - { click: 'i', long_click: '*', swipe_up: I, __include: styl/key }
+      - { click: 'o', long_click: '"', swipe_up: O, __include: styl/key }
+      - { click: 'p', long_click: "danyinhao", swipe_up: P, __include: styl/key }
       # 第 2 行
       - { width: 5 }
-      - { click: 'a', long_click: select_all, __include: styl/key }
-      - {
-          click: 's',
-          long_click: 'shenglue',
-          __include: styl/key,
-        }
-      - {
-          click: 'd',
-          long_click: 'pozhe',
-          __include: styl/key,
-        }
-      - {
-          click: 'f',
-          long_click: '-',
-          __include: styl/key,
-        }
-      - {
-          click: 'g',
-          long_click: '=',
-          swipe_down: kb_edit,
-          hint: '<ɪ>',
-          __include: styl/key,
-        }
-      - {
-          click: 'h',
-          long_click: '[',
-          __include: styl/key,
-        }
-      - {
-          click: 'j',
-          long_click: ']',
-          __include: styl/key
-        }
-      - { click: 'k', long_click: ':', __include: styl/key}
-      - { click: 'l', long_click: ";", __include: styl/key}
+      - { click: 'a', long_click: select_all, swipe_up: A, __include: styl/key }
+      - { click: 's', long_click: 'shenglue', swipe_up: S, __include: styl/key }
+      - { click: 'd', long_click: 'pozhe', swipe_up: D, __include: styl/key }
+      - { click: 'f', long_click: '-', swipe_up: F, __include: styl/key }
+      - { click: 'g', long_click: '=', swipe_up: G, swipe_down: kb_edit, hint: '<ɪ>', __include: styl/key }
+      - { click: 'h', long_click: '[', swipe_up: H, __include: styl/key }
+      - { click: 'j', long_click: ']', swipe_up: J, __include: styl/key }
+      - { click: 'k', long_click: ':', swipe_up: K, __include: styl/key }
+      - { click: 'l', long_click: ";", swipe_up: L, __include: styl/key }
       # 第 3 行
-      #- { click: Shift_L, composing: split_word, width: 15, key_back_color: off_key_back_color }   
+      #- { click: Shift_L, composing: split_word, width: 15, key_back_color: off_key_back_color }
       - { click: Shift_L, width: 15, key_back_color: off_key_back_color }
-      - { click: 'z',long_click: 'rev', __include: styl/key }
-      - { click: 'x', long_click: cut, __include: styl/key }
-      - { click: 'c', long_click: copy, __include: styl/key }
-      - { click: 'v', long_click: paste, __include: styl/key }
-      - {
-          click: 'b',
-          long_click: '/',
-          __include: styl/key,
-        }
-      - {
-          click: 'n',
-          long_click: '\',
-          __include: styl/key,
-        }
-      - { click: 'm', long_click: '`', __include: styl/key }
-      - { click: BS, width: 15, key_back_color: off_key_back_color,
-          swipe_up: 'Escape',
-        }
+      - { click: 'z', long_click: 'rev', swipe_up: Z, __include: styl/key }
+      - { click: 'x', long_click: cut, swipe_up: X, __include: styl/key }
+      - { click: 'c', long_click: copy, swipe_up: C, __include: styl/key }
+      - { click: 'v', long_click: paste, swipe_up: V, __include: styl/key }
+      - { click: 'b', long_click: '/', swipe_up: B, __include: styl/key }
+      - { click: 'n', long_click: '\', swipe_up: N, __include: styl/key }
+      - { click: 'm', long_click: '`', swipe_up: M, __include: styl/key }
+      - { click: BS, width: 15, key_back_color: off_key_back_color, swipe_up: 'Escape' }
       # 第 4 行
-      - {
-          click: Keyboard_symbols,
-          long_click: Color_switch,
-          composing: Tab,
-          width: 11,
-          key_back_color: off_key_back_color,
-          __include: styl/off_key,
-        }     
-      - {
-          click: Keyboard_number,
-          width: 11, 
-          key_back_color: off_key_back_color,
-          __include: styl/off_key,
-          __patch: conf/key_height_last,
-        }  
-
-      - { click: 'douhao', 
-          label: ' ，',
-          long_click: '、', 
-          width: 10, 
-          __include: styl/key, 
-          } 
-      - {
-          click: space,                        
-#          long_click: VOICE_ASSIST,
-          swipe_up: Clear,
-          swipe_down: liquid_keyboard_clipboard,
-          key_symbol_offset_x: 0,
-          width: 32,
-          key_back_color: space_back_color,
-          hilited_key_back_color: hilited_space_back_color,
-        }        
-        
-      - {
-          click: 'juhao',
-          label: ' 。',
-          long_click: '?',
-          width: 10,
-          __include: styl/key,
-        }
-
-      - {
-          click: "xiegang",
-          width: 11,
-          key_back_color: off_key_back_color,
-          __include: styl/off_key,  
-        }
+      - { click: Keyboard_symbols, long_click: Color_switch, composing: Tab, width: 11, key_back_color: off_key_back_color, __include: styl/off_key }
+      - { click: Keyboard_number,width: 11, key_back_color: off_key_back_color,__include: styl/off_key, __patch: conf/key_height_last}
+      - { click: 'douhao', label: ' ，',long_click: '、', width: 10, __include: styl/key }
+      - { click: space, swipe_up: Clear, swipe_down: liquid_keyboard_clipboard, key_symbol_offset_x: 0,width: 32, key_back_color: space_back_color, hilited_key_back_color: hilited_space_back_color }
+      - { click: 'juhao', label: ' 。', long_click: '?', width: 10, __include: styl/key }
+      - { click: "xiegang", width: 11, key_back_color: off_key_back_color, __include: styl/off_key }
       - {
           click: Return,
           long_click: kb_func,
@@ -4226,7 +4136,8 @@ preset_keys:
   Settings: { label: 设置, send: SETTINGS }
   Color_settings: { label: 配色, send: SETTINGS, option: 'color' }
   Theme_settings: { label: 主题, send: SETTINGS, option: 'theme' }
-  Schema_settings: { label: 方案, send: SETTINGS, option: 'schema' }
+  Schema_settings1: { label: 方案, send: SETTINGS, option: 'schema' }
+  Schema_settings: { label: 方案, send: Menu }
   menu_keyboard: {label: 菜单, send: function, command: menu_keyboard}
   # trime键盘
 
