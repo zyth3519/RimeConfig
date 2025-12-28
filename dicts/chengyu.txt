@@ -15793,6 +15793,7 @@
 学贯中西	xgzx
 小鬼遭殃	xgzy
 血光之灾	xgzz
+心花怒放	xhnf
 纤尘不染	xibr
 新仇旧恨	xijh
 新春佳节	xijj
@@ -17137,7 +17138,9 @@
 越来越难	ylyn
 妖里妖气	ylyq
 一冷一热	ylyr
+越来越少	ylys
 摇了摇头	ylyt
+越来越少	ylyu
 有零有整	ylyv
 有来有往	ylyw
 越来越像	ylyx
