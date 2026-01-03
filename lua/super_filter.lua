@@ -552,7 +552,88 @@ local function init_charset_filter(env, cfg)
     -- charsetblacklist: 黑名单
     load_charset_list("charsetblacklist", env.charset_block)
 end
+-- =======================================================
+-- 基于英文模式Preedit的智能分段空格
+-- =======================================================
+local function restore_sentence_spacing(cand)
+    local guide = cand.preedit or ""
+    -- 如果 Preedit 没空格，说明没分段，直接返回
+    if not string.find(guide, " ") then return cand end
 
+    local text = cand.text
+    local text_len = #text
+    local parts = {}
+    local p = 1 -- 全局扫描指针
+    -- 辅助：取纯字母小写指纹
+    local function pure(s) return string.gsub(s, "[^a-zA-Z]", ""):lower() end
+    local function find_target_in_text(start_pos, target_fp)
+        -- 剪枝：如果剩下的长度比 target 还短，肯定没了
+        if (text_len - start_pos + 1) < #target_fp then return nil, nil end
+        -- 从 start_pos 开始，向后逐字尝试
+        for i = start_pos, text_len do
+            -- 首字母必须匹配，才值得进去做全词扫描
+            -- 比如 target="apple"，只有遇到 'a'/'A' 才进去看
+            local char_i = string.sub(text, i, i)
+            local first_char_fp = string.lower(char_i)
+            if first_char_fp == string.sub(target_fp, 1, 1) then
+                -- 潜入匹配：尝试从位置 i 开始凑齐 target
+                local scan_p = i
+                local letters_acc = ""
+                while scan_p <= text_len do
+                    local char = string.sub(text, scan_p, scan_p)
+                    -- 只收集字母
+                    if string.find(char, "[a-zA-Z]") then
+                        letters_acc = letters_acc .. string.lower(char)
+                    end
+                    if letters_acc == target_fp then
+                        -- 找到了！返回 (起点, 终点)
+                        return i, scan_p 
+                    end
+                    -- 剪枝：如果凑出来的字母已经比目标不一样或更长，说明不是这个
+                    -- 比如 target="app", 凑出了 "apx" -> 失败，跳出 while，继续外层 for
+                    if #letters_acc > #target_fp then break end
+                    if string.sub(letters_acc, 1, #letters_acc) ~= string.sub(target_fp, 1, #letters_acc) then break end
+                    scan_p = scan_p + 1
+                end
+            end
+        end
+        return nil, nil
+    end
+    -- 遍历 Preedit 的每一段
+    for seg in string.gmatch(guide, "%S+") do
+        local target = pure(seg)
+        if #target > 0 then
+            -- 在当前指针 p 往后无限寻找
+            local match_start, match_end = find_target_in_text(p, target)
+            if match_start then
+                -- 隔离病灶（中间跳过不匹配的）
+                if match_start > p then
+                    local lesion = string.sub(text, p, match_start - 1)
+                    table.insert(parts, lesion)
+                end
+                -- 存入正确单词
+                local valid_word = string.sub(text, match_start, match_end)
+                table.insert(parts, valid_word)
+                -- 更新指针
+                p = match_end + 1
+            else
+                -- 没找到：说明这个 preedit 词完全消失了（比如 preedit 有 5 个词，candidate 只有 4 个）
+                -- 策略：忽略这个 guide，继续用下一个 guide 找
+            end
+        end
+    end
+    -- 尾部处理
+    if p <= text_len then
+        local tail = string.sub(text, p)
+        if #parts > 0 then table.insert(parts, tail)
+        else table.insert(parts, tail) end
+    end
+    -- 重组
+    local new_text = table.concat(parts, " ")
+    local nc = Candidate(cand.type, cand.start, cand._end, new_text, cand.comment)
+    nc.preedit = cand.preedit
+    return nc
+end
 -- ========= 生命周期 =========
 function M.init(env)
     local cfg = env.engine and env.engine.schema and env.engine.schema.config or nil
@@ -650,37 +731,43 @@ local function emit_with_pipeline(cand, ctxs)
 
     local env = ctxs.env
 
-    -- ① 字符集过滤：只有在 charset_strict = true 时才启用
+    -- 1. 字符集过滤：只有在 charset_strict = true 时才启用
     if ctxs.charset_strict and cand.text and cand.text ~= "" then
         if not in_charset(env, cand.text) then
             return
         end
     end
-
-    -- ② 三态语言模式
+    -- 2. 准备变量
     local is_en = ctxs.is_english and ctxs.is_english(cand) or false
+    local BAGUA_SYMBOL = "\226\152\175"
+    local is_bagua_sentence = (fast_type(cand) == "sentence") and (cand.comment and string.find(cand.comment, BAGUA_SYMBOL))
 
-    if ctxs.en_only and (not is_en) then
-        return
-    end
+    -- 3. 三态语言过滤
+    if ctxs.zh_only and is_en then return end
+    if ctxs.en_only and (not is_en) then return end
 
-    if ctxs.zh_only and is_en then
-        return
-    end
-
-    -- **③ 若需抑制句子候选：删掉所有 type 为 sentence 的候选（除了首候选本身不会被标记）**
-    if ctxs.drop_sentence_after_completion then
-        if fast_type(cand) == "sentence" then
-            return
+    -- 4. 八卦图处理
+    if ctxs.en_only then
+        -- 英文模式：如果是八卦图，用 Preedit 还原空格
+        if is_bagua_sentence then
+            cand = restore_sentence_spacing(cand)
         end
+    elseif (not ctxs.zh_only) then
+        -- 混合模式：隐藏
+        if is_bagua_sentence then return end
     end
 
-    -- ④ 镜像抑制
+    -- 5. 抑制句子
+    if (not ctxs.en_only) and ctxs.drop_sentence_after_completion then
+        if fast_type(cand) == "sentence" then return end
+    end
+
+    -- 6 镜像抑制
     if ctxs.suppress_mirror and ctxs.suppress_set and ctxs.suppress_set[cand.text] then
         return
     end
 
-    -- ⑤ 格式化 + 大写 + span 对齐
+    -- 7 格式化 + 大写 + span 对齐
     cand = format_and_autocap(cand, ctxs.code_ctx)
     cand = ctxs.unify_tail_span(cand)
     yield(cand)
