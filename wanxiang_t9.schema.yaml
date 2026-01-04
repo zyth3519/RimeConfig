@@ -221,7 +221,7 @@ wanxiang_mixedcode:
   enable_sentence: false
   initial_quality: 2
   comment_format:
-    - xform/^.+$//
+    - xform/.*//
 
 # Emoji
 emoji:
