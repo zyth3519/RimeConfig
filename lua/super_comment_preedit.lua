@@ -496,7 +496,11 @@ function ZH.func(input, env)
                 final_comment = fz_comment
             end
         else
-            final_comment = ""
+            if initial_comment and string.find(initial_comment, "~") then --保留尾部临时英文标记
+                final_comment = initial_comment
+            else
+                final_comment = ""
+            end
         end
 
         -- ② 拆分注释
