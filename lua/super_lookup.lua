@@ -54,36 +54,83 @@ local function get_schema_rules(env)
     return main_rules or {}, xlit_rules or {}
 end
 
--- 【DB】构建编码
 local function expand_code_variant(main_projection, xlit_projection, part)
     local out, seen = {}, {}
-    local function add(s) if s and #s > 0 and not seen[s] then seen[s] = true out[#out + 1] = s end end
+    
+    -- 统一添加函数 (负责去重 + 顺序保持)
+    local function add(s) 
+        if s and #s > 0 and not seen[s] then 
+            seen[s] = true 
+            table.insert(out, s) 
+        end 
+    end
 
-    -- 1. 定义“种子”列表，首先放入原始编码 part
-    local seeds = { part }
+    -- 通用奇数位提取器 (1, 3, 5...)
+    -- 规则：纯小写字母 + 偶数长度
+    local function extract_odd_positions(s)
+        if not s or not s:match("^%l+$") or #s % 2 ~= 0 then return nil end
+        local res = ""
+        for i = 1, #s, 2 do res = res .. s:sub(i, i) end
+        return res
+    end
 
-    -- 2. 提取只有一个单引号编码，若成功则将其作为第二个“种子”加入列表
-    --    例如：part="ce'shi"，提取出 "cs" 加入 seeds
+    -- 检查奇偶位组合，如果是 [jqxy] + u，则生成对应的 v 版本
+    local function get_v_variant(s)
+        if not s or not s:match("^%l+$") or #s % 2 ~= 0 then return nil end
+        
+        local res = ""
+        local has_change = false
+        
+        for i = 1, #s, 2 do
+            local char_odd = s:sub(i, i)
+            local char_even = s:sub(i+1, i+1)
+            
+            if (char_odd == 'j' or char_odd == 'q' or char_odd == 'x' or char_odd == 'y') and char_even == 'v' then
+                res = res .. char_odd .. 'u'
+                has_change = true
+            else
+                res = res .. char_odd .. char_even
+            end
+        end
+        return has_change and res or nil
+    end
+
+    -- 预处理单引号特例 (ce'shi -> cs)全拼用
     local _, quote_count = part:gsub("'", "")
     if quote_count == 1 then
         local s1, s2 = part:match("^([^']*)'([^']*)$")
         if s1 and s2 and #s1 > 0 and #s2 > 0 then
-            local derived_code = s1:sub(1,1) .. s2:sub(1,1)
-            table.insert(seeds, derived_code)
+            add(s1:sub(1,1) .. s2:sub(1,1))
         end
     end
-    -- 3. 遍历所有种子（原始编码 + 缩写编码），统一进行规则投影
-    for _, code in ipairs(seeds) do
-        -- 应用 main_projection (非大写)
-        if main_projection then
-            local p = main_projection:apply(code, true)
-            if p and #p > 0 then add(p) end
+    -- 保留原始编码，用户可能加入直接的编码用
+    -- 只有纯小写字母 (ceui) 才保留，含符号(ce'shi)或大写(ABC)均不保留
+    if part:match("^%l+$") then
+        add(part)
+    end
+    -- 对“原始编码”进行奇位提取 (ceui -> cu)
+    -- extract_odd_positions 内部已经校验了 ^%l+$，所以这里直接调用即可
+    local raw_extracted = extract_odd_positions(part)
+    if raw_extracted then add(raw_extracted) end
+
+    -- 规则投影 (Main Projection)
+    if main_projection and not part:match('^%u+$') then
+        local p = main_projection:apply(part, true)
+        if p and #p > 0 then
+            -- A. 加入投影全码 (如 yuif)
+            add(p) 
+            -- B. 生成 v 变体 (如 yuif -> yvif)
+            local v_variant = get_v_variant(p)
+            if v_variant then add(v_variant) end
+            -- C. 对投影全码提取奇位 (如 yuif -> yi)
+            local proj_extracted = extract_odd_positions(p)
+            if proj_extracted then add(proj_extracted) end
         end
-        -- 应用 xlit_projection (大写笔画，不参与前面重复计算)
-        if code:match('^%u+$') and xlit_projection then
-            local xlit_result = xlit_projection:apply(code, true)
-            if xlit_result and #xlit_result > 0 then add(xlit_result) end
-        end
+    end
+    -- 大写反查 (Xlit)
+    if part:match('^%u+$') and xlit_projection then
+        local xlit_result = xlit_projection:apply(part, true)
+        if xlit_result and #xlit_result > 0 then add(xlit_result) end
     end
     return out
 end
