@@ -66,7 +66,7 @@ function AP.init(env)
     end
 
     -- 英文：enuser（不受 add_* 开关影响，始终尝试启用）
-    env.en_memory = Memory(env.engine, env.engine.schema, "wanxiang_mixedcode")
+    env.en_memory = Memory(env.engine, env.engine.schema, "wanxiang_english")
 
     -- 只要有一边需要，就挂上 commit/delete 通知
     if env.en_memory or env.memory then

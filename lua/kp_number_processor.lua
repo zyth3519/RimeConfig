@@ -162,6 +162,9 @@ function P.func(key, env)
     ------------------------------------------------------------------
     local kp_num = KP[key.keycode]
     if kp_num ~= nil then
+        if key:ctrl() or key:alt() or key:super() or key:shift() then
+            return wanxiang.RIME_PROCESS_RESULTS.kNoop
+        end
         local ch = tostring(kp_num)  -- "0".."9"
 
         if is_function_code_after_digit(env, context, ch) then
@@ -208,6 +211,9 @@ function P.func(key, env)
     local r = key:repr() or ""
 
     if r:match("^[0-9]$") then
+        if key:ctrl() or key:alt() or key:super() then
+             return wanxiang.RIME_PROCESS_RESULTS.kNoop
+        end
         -- 命令模式：只作为编码输入
         if is_function_code_after_digit(env, context, r) then
             if context then
