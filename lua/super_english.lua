@@ -22,8 +22,19 @@ local sub = string.sub
 local match = string.match
 local format = string.format
 
--- 1. 基础工具函数
+-- 辅助函数：获取候选类型
+local function fast_type(c)
+    local t = c.type
+    if t then return t end
+    local g = c.get_genuine and c:get_genuine() or nil
+    return (g and g.type) or ""
+end
 
+-- 辅助函数：判断是否为置顶表词汇
+local function is_table_type(c)
+    local t = fast_type(c)
+    return t == "user_table" or t == "fixed"
+end
 -- [Time] 封装统一的时间获取函数 (单位: 秒, 带小数)
 local function get_now()
     -- 使用用户指定的原生 API (毫秒转秒，以便和配置文件里的 0.5 秒兼容)
@@ -77,7 +88,6 @@ local function find_target_in_text(text, start_pos, target_fp)
 end
 
 -- 2. 核心逻辑：格式化与还原
--- [锚点切分] 修复 hi'vcs 等简拼分词问题 (保留修复)
 local function restore_sentence_spacing(cand, split_pattern, check_pattern)
     local guide = cand.preedit or ""
     if not find(guide, check_pattern) then return cand end
@@ -230,8 +240,8 @@ function F.init(env)
     env.delim_check_pattern = "[" .. escaped_delims .. "]" 
 
     env.prev_commit_is_eng = false
-    env.last_commit_time = 0 
-    
+    env.last_commit_time = 0   --记录上次提交时间
+    env.comp_start_time = nil  -- 记录本次输入开始的时间
     if env.engine.context then
         env.update_notifier = env.engine.context.update_notifier:connect(function(ctx)
             local curr_input = ctx.input
@@ -240,6 +250,13 @@ function F.init(env)
                 env.block_derivation = true
             else
                 env.block_derivation = false
+            end
+            -- 如果输入框为空，重置开始时间
+            if curr_input == "" then
+                env.comp_start_time = nil
+            -- 如果输入框不为空，且还没记录开始时间，说明是“刚刚开始打字”
+            elseif env.comp_start_time == nil then
+                env.comp_start_time = get_now()
             end
         end)
         env.commit_notifier = env.engine.context.commit_notifier:connect(function(ctx)
@@ -301,11 +318,12 @@ function F.func(input, env)
         
     -- [Check 2] 时间自然过期
     elseif effective_prev_is_eng and env.spacing_timeout > 0 then
-        local now = get_now()
-        -- now 是秒(带小数), last_commit_time 是秒(带小数), spacing_timeout 是配置的秒数(如 0.5)
-        if (now - env.last_commit_time) > env.spacing_timeout then
+        -- 取“输入开始时间”保证输入中
+        local check_time = env.comp_start_time or get_now()
+        -- 计算间隙：(开始打字时间 - 上次上屏时间)
+        if (check_time - env.last_commit_time) > env.spacing_timeout then
             effective_prev_is_eng = false
-            env.prev_commit_is_eng = false -- 更新状态避免重复计算
+            env.prev_commit_is_eng = false 
         end
     end
 
@@ -316,29 +334,41 @@ function F.func(input, env)
     }
 
     local single_char_injected = false
-    local c_lower, c_upper = nil, nil
+    local single_chars = {}
+    
     if code_len == 1 then
         local b = byte(curr_input)
-        if (b >= 65 and b <= 90) or (b >= 97 and b <= 122) then
-            local lower_t = lower(curr_input)
-            local upper_t = upper(curr_input)
-            c_lower = Candidate("completion", 0, 1, lower_t, "")
-            c_upper = Candidate("completion", 0, 1, upper_t, "")
-        else single_char_injected = true end
-    else single_char_injected = true end
+        local is_upper = (b >= 65 and b <= 90)
+        local is_lower = (b >= 97 and b <= 122)
+        
+        if is_upper or is_lower then
+            -- 根据输入大小写决定排序：输入 N -> [N, n]; 输入 n -> [n, N]
+            local t1 = curr_input
+            local t2 = is_upper and lower(curr_input) or upper(curr_input)
+            
+            table.insert(single_chars, Candidate("completion", 0, 1, t1, ""))
+            table.insert(single_chars, Candidate("completion", 0, 1, t2, ""))
+        else
+            single_char_injected = true 
+        end
+    else 
+        single_char_injected = true 
+    end
 
     for cand in input:iter() do
         local good_cand = restore_sentence_spacing(cand, env.split_pattern, env.delim_check_pattern)
         local fmt_cand = apply_formatting(good_cand, code_ctx)
         local is_ascii = is_ascii_phrase_fast(fmt_cand.text)
         
-        if not single_char_injected and is_ascii and c_lower then
+        local is_tbl = is_table_type(cand)
+
+        -- table/fixed 类型会先输出，直到遇到第一个 completion类型前，插入单字母
+        if not single_char_injected and is_ascii and #single_chars > 0 and not is_tbl then
             if not best_candidate_saved then
-                env.memory[curr_input] = { text = c_lower.text, preedit = c_lower.text }
+                env.memory[curr_input] = { text = single_chars[1].text, preedit = single_chars[1].text }
                 best_candidate_saved = true
             end
-            yield(c_lower)
-            yield(c_upper)
+            for _, c in ipairs(single_chars) do yield(c) end
             single_char_injected = true
             has_valid_candidate = true 
         end
@@ -359,13 +389,12 @@ function F.func(input, env)
         yield(fmt_cand)
     end
 
-    if not single_char_injected and c_lower then
+    if not single_char_injected and #single_chars > 0 then
         if not best_candidate_saved then
-            env.memory[curr_input] = { text = c_lower.text, preedit = c_lower.text }
+            env.memory[curr_input] = { text = single_chars[1].text, preedit = single_chars[1].text }
             best_candidate_saved = true
         end
-        yield(c_lower)
-        yield(c_upper)
+        for _, c in ipairs(single_chars) do yield(c) end
         has_valid_candidate = true
     end
 
