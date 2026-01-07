@@ -5,7 +5,7 @@ local wanxiang = {}
 
 -- x-release-please-start-version
 
-wanxiang.version = "v14.1.1"
+wanxiang.version = "v14.1.3"
 
 -- x-release-please-end
 
@@ -142,19 +142,40 @@ end
 ---按照优先顺序获取文件：用户目录 > 系统目录
 ---@param filename string 相对路径
 ---@retur string | nil
-function wanxiang.get_filename_with_fallback(filename)
-    local _path = filename:gsub("^/+", "") -- 去掉开头的斜杠
+-- 辅助函数：检测路径是否为绝对路径（以 / 或盘符开头）
+local function is_absolute_path(path)
+    if not path then return false end
+    if path:sub(1, 1) == "/" or path:sub(1, 1) == "\\" then
+        return true
+    end
+    if path:match("^[a-zA-Z]:[\\/]") then
+        return true 
+    end
+    return false
+end
 
-    local user_path = rime_api.get_user_data_dir() .. '/' .. _path
+function wanxiang.get_filename_with_fallback(filename)
+    local _path = filename:gsub("^[\\/]+", "")
+    local user_dir = rime_api.get_user_data_dir()
+    
+    if not is_absolute_path(user_dir) then
+        return filename
+    end
+
+    local user_path = user_dir .. "/" .. _path
     if wanxiang.file_exists(user_path) then
         return user_path
     end
 
-    local shared_path = rime_api.get_shared_data_dir() .. '/' .. _path
+    local shared_dir = rime_api.get_shared_data_dir()
+    
+    if not is_absolute_path(shared_dir) then
+        return filename
+    end
+    local shared_path = shared_dir .. "/" .. _path
     if wanxiang.file_exists(shared_path) then
         return shared_path
     end
-
     return nil
 end
 

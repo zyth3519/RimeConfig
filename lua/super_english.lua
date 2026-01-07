@@ -234,7 +234,7 @@ function F.init(env)
     if cfg then
         delimiter_str = cfg:get_string('speller/delimiter') or delimiter_str
     end
-    
+    env.delimiter_char = sub(delimiter_str, 1, 1)  --提取自动分词符号
     local escaped_delims = gsub(delimiter_str, "([%%%^%$%(%)%%%.%[%]%*%+%-%?])", "%%%1")
     env.split_pattern = "[^" .. escaped_delims .. "]+"     
     env.delim_check_pattern = "[" .. escaped_delims .. "]" 
@@ -423,17 +423,28 @@ function F.func(input, env)
             local output_text = ""
             local output_preedit = ""
             
-            if has_spacing then
-                output_text = anchor.text .. diff
-                output_preedit = (anchor.preedit or anchor.text) .. diff
-            elseif last_len > 3 then
-                local spacer = " "
-                if sub(anchor.text, -1) == " " then spacer = "" end
-                output_text = anchor.text .. spacer .. diff
-                output_preedit = (anchor.preedit or anchor.text) .. spacer .. diff
+            -- 英文构造策略
+            if is_ascii_phrase_fast(anchor.text) then
+                -- === 英文逻辑：拼接 diff，长词加空格 ===
+                if has_spacing then
+                    output_text = anchor.text .. diff
+                    output_preedit = (anchor.preedit or anchor.text) .. diff
+                elseif last_len > 3 then
+                    local spacer = " "
+                    if sub(anchor.text, -1) == " " then spacer = "" end
+                    output_text = anchor.text .. spacer .. diff
+                    output_preedit = (anchor.preedit or anchor.text) .. spacer .. diff
+                else
+                    output_text = curr_input
+                    output_preedit = curr_input
+                end
             else
-                output_text = curr_input
-                output_preedit = curr_input
+                -- 中文逻辑：只显示历史词 (anchor)，丢弃 diff
+                -- 输入 nil -> anchor="你", diff="l" 注释 "~"
+                output_text = anchor.text
+                
+                -- preedit 依然保留 diff，但中间加入自动分词符号
+                output_preedit = (anchor.preedit or anchor.text) .. env.delimiter_char .. diff
             end
             
             output_text = apply_segment_formatting(output_text, curr_input)

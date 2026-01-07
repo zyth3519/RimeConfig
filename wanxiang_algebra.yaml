@@ -1100,8 +1100,8 @@ pro:
       - xform/^(.*)ḿ(.*)(;.*)$/$1m$2②$3/
       - xform/^(.*)m̀(.*)(;.*)$/$1m$2④$3/
       - xlit/①②③④/7890
-      - derive/^ng(\d)$/eng$1/
-      - xform/^n(\d)/en$1/
+      - derive/^ng(\d)(;.*)$/eng$1$2/
+      - xform/^n(\d)(;.*)/en$1$2/
       - xform/^m(\d)(;.*)/me$1$2/
       - derive/^([jqxy])u(\d)(;.*)$/$1v$2$3/
       - derive/^([aoe])([ioun])(\d)(;.*)$/$1$1$2$3$4/ # 注释释放非原本自然码规则
@@ -1305,8 +1305,8 @@ pro:
       - xform/^(.*)ḿ(.*)(;.*)$/$1m$2②$3/
       - xform/^(.*)m̀(.*)(;.*)$/$1m$2④$3/
       - xlit/①②③④/7890
-      - derive/^ng(\d)$/eng$1/
-      - xform/^n(\d)/en$1/
+      - derive/^ng(\d)(;.*)$/eng$1$2/
+      - xform/^n(\d)(;.*)/en$1$2/
       - xform/^m(\d)(;.*)/me$1$2/
       - derive/^([jqxy])u(\d)(;.*)$/$1v$2$3/
       - derive/^([aoe])([ioun])(\d)(;.*)$/$1$1$2$3$4/
@@ -1373,8 +1373,8 @@ pro:
       - xform/^(.*)ḿ(.*)(;.*)$/$1m$2②$3/
       - xform/^(.*)m̀(.*)(;.*)$/$1m$2④$3/
       - xlit/①②③④/7890
-      - derive/^ng(\d)$/eng$1/
-      - xform/^n(\d)/en$1/
+      - derive/^ng(\d)(;.*)$/eng$1$2/
+      - xform/^n(\d)(;.*)/en$1$2/
       - xform/^m(\d)(;.*)/me$1$2/
       - derive/^([jqxy])u(\d)(;.*)$/$1v$2$3/
       - derive/^([aoe].*)(\d)(;.*)$/o$1$2$3/
@@ -1444,8 +1444,8 @@ pro:
       - xform/^(.*)ḿ(.*)(;.*)$/$1m$2②$3/
       - xform/^(.*)m̀(.*)(;.*)$/$1m$2④$3/
       - xlit/①②③④/7890
-      - derive/^ng(\d)$/eng$1/
-      - xform/^n(\d)/en$1/
+      - derive/^ng(\d)(;.*)$/eng$1$2/
+      - xform/^n(\d)(;.*)/en$1$2/
       - xform/^m(\d)(;.*)/me$1$2/
       - derive/^([jqxy])u(\d)(;.*)$/$1v$2$3/
       - derive/^([aoe].*)(\d)(;.*)$/o$1$2$3/
@@ -1515,8 +1515,8 @@ pro:
       - xform/^(.*)ḿ(.*)(;.*)$/$1m$2②$3/
       - xform/^(.*)m̀(.*)(;.*)$/$1m$2④$3/
       - xlit/①②③④/7890
-      - derive/^ng(\d)$/eng$1/
-      - xform/^n(\d)/en$1/
+      - derive/^ng(\d)(;.*)$/eng$1$2/
+      - xform/^n(\d)(;.*)/en$1$2/
       - xform/^m(\d)(;.*)/me$1$2/
       - derive/^([jqxy])u(\d)(;.*)$/$1v$2$3/
       - xform/^([aoe].*)(\d)(;.*)$/o$1$2$3/
@@ -1585,8 +1585,8 @@ pro:
       - xform/^(.*)ḿ(.*)(;.*)$/$1m$2②$3/
       - xform/^(.*)m̀(.*)(;.*)$/$1m$2④$3/
       - xlit/①②③④/7890
-      - derive/^ng(\d)$/eng$1/
-      - xform/^n(\d)/en$1/
+      - derive/^ng(\d)(;.*)$/eng$1$2/
+      - xform/^n(\d)(;.*)$/en$1$2/
       - xform/^m(\d)(;.*)/me$1$2/
       - xform/^([aoe].*)(\d)(;.*)$/Ⓞ$1$2$3/
       - xform/ei(\d)(;.*)$/Ⓠ$1$2/
@@ -1600,7 +1600,7 @@ pro:
       - xform/i?ong(\d)(;.*)$/Ⓢ$1$2/
       - xform/[iu]a(\d)(;.*)$/Ⓓ$1$2/
       - xform/en(\d)(;.*)$/Ⓕ$1$2/
-      - xform/eng(\d)(;.*)$/Ⓖ$$1$2/
+      - xform/eng(\d)(;.*)$/Ⓖ$1$2/
       - xform/ang(\d)(;.*)$/Ⓗ$1$2/
       - xform/an(\d)(;.*)$/Ⓙ$1$2/
       - xform/iao(\d)(;.*)$/Ⓩ$1$2/
@@ -1652,8 +1652,8 @@ pro:
       - xform/^(.*)ḿ(.*)(;.*)$/$1m$2②$3/
       - xform/^(.*)m̀(.*)(;.*)$/$1m$2④$3/
       - xlit/①②③④/7890
-      - derive/^ng(\d)$/eng$1/
-      - xform/^n(\d)/en$1/
+      - derive/^ng(\d)(;.*)$/eng$1$2/
+      - xform/^n(\d)(;.*)/en$1$2/
       - xform/^m(\d)(;.*)/me$1$2/
       - derive/^([jqxy])u(\d)(;.*)$/$1v$2$3/
       - derive/^([aoe].*)(\d)(;.*)$/o$1$2$3/
@@ -1721,8 +1721,8 @@ pro:
       - xform/^(.*)ḿ(.*)(;.*)$/$1m$2②$3/
       - xform/^(.*)m̀(.*)(;.*)$/$1m$2④$3/
       - xlit/①②③④/7890
-      - derive/^ng(\d)$/eng$1/
-      - xform/^n(\d)/en$1/
+      - derive/^ng(\d)(;.*)$/eng$1$2/
+      - xform/^n(\d)(;.*)/en$1$2/
       - xform/^m(\d)(;.*)/me$1$2/
       - derive/^([jqxy])u(\d)(;.*)$/$1v$2$3/
       - derive/^([aoe])([ioun])(\d)(;.*)$/$1$1$2$3$4/
