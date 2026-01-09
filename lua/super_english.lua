@@ -21,7 +21,7 @@ local lower = string.lower
 local sub = string.sub
 local match = string.match
 local format = string.format
-
+local STICKY_BUFFER_SIZE = 2  --输入/\的情况下，继续输入3个单词不加空格，适合网址路径
 -- 辅助函数：获取候选类型
 local function fast_type(c)
     local t = c.type
@@ -48,12 +48,43 @@ end
 local function pure(s)
     return gsub(s, "[^a-zA-Z]", ""):lower()
 end
-
+local no_spacing_words = {
+    ["http"]  = true,
+    ["https"] = true,
+    ["www"]   = true,
+    ["ftp"]   = true,
+    ["ssh"]   = true,
+    ["mailto"]= true,
+    ["file"]  = true,
+    ["tel"]   = true,
+}
+local allowed_ascii_symbols = {
+    [33] = true,  -- !
+    [39] = true,  -- ' (Don't)
+    [44] = true,  -- ,
+    [45] = true,  -- - (Co-op)
+    [46] = true,  -- .
+    [63] = true,  -- ?
+    [92] = true,  -- \
+    -- 数字 0-9 (ASCII 48-57)
+    [48]=true, [49]=true, [50]=true, [51]=true, [52]=true,
+    [53]=true, [54]=true, [55]=true, [56]=true, [57]=true,
+}
+-- 规则：只允许 字母(A-Za-z) 和 上面配置表里的符号
 local function is_ascii_phrase_fast(s)
-    if s == "" then return false end
-    for i = 1, #s do
+    if not s or s == "" then return false end
+    local len = #s
+    for i = 1, len do
         local b = byte(s, i)
-        if b > 127 then return false end 
+        -- 1. 判断是否为大写字母 A-Z (65-90)
+        local is_upper = (b >= 65 and b <= 90)
+        -- 2. 判断是否为小写字母 a-z (97-122)
+        local is_lower = (b >= 97 and b <= 122)
+        -- 3. 判断是否为白名单符号
+        local is_allowed_sym = allowed_ascii_symbols[b]
+        if not (is_upper or is_lower or is_allowed_sym) then
+            return false
+        end
     end
     return true
 end
@@ -242,6 +273,9 @@ function F.init(env)
     env.prev_commit_is_eng = false
     env.last_commit_time = 0   --记录上次提交时间
     env.comp_start_time = nil  -- 记录本次输入开始的时间
+    env.spacing_active = false  
+    env.decision_locked = false 
+    env.sticky_countdown = 0    -- 粘性倒计时
     if env.engine.context then
         env.update_notifier = env.engine.context.update_notifier:connect(function(ctx)
             local curr_input = ctx.input
@@ -261,12 +295,31 @@ function F.init(env)
         end)
         env.commit_notifier = env.engine.context.commit_notifier:connect(function(ctx)
             local commit_text = ctx:get_commit_text()
-            local is_eng = is_ascii_phrase_fast(commit_text)
-            if not is_eng then
-                local clean = gsub(commit_text, "%s+$", "") 
-                if clean == "," or clean == "." or clean == "!" or clean == "?" then is_eng = true end
-            end
+            -- 1. 先剔除空格，防止死循环
+            local text_no_space = gsub(commit_text, "%s", "")
+            local is_eng = is_ascii_phrase_fast(text_no_space)
             
+            -- 2. 粘性触发 (结尾是 / 或 \)
+            if find(text_no_space, "[/\\\\]$") then
+                env.sticky_countdown = STICKY_BUFFER_SIZE
+                is_eng = false 
+            -- 3. 粘性缓冲期 (倒计时)
+            elseif env.sticky_countdown > 0 then
+                if is_eng then
+                    -- 只要是英文，消耗一次缓冲，并强制不加空格
+                    env.sticky_countdown = env.sticky_countdown - 1
+                    is_eng = false 
+                else
+                    -- 遇到非英文(中文等)，打断缓冲
+                    env.sticky_countdown = 0
+                end
+            -- 4. 普通黑名单 (http等)
+            elseif is_eng then
+                local clean = gsub(commit_text, "%s+$", ""):lower()
+                if no_spacing_words[clean] then
+                    is_eng = false
+                end
+            end
             env.prev_commit_is_eng = is_eng
             -- 仅英文上屏更新时间戳 (使用 rime_api 获取)
             if is_eng then
@@ -402,7 +455,8 @@ function F.func(input, env)
     if not has_valid_candidate then
         -- 如果设置了拦截标志 (意味着刚刚从反查模式退出来)，则即使有记忆也不派生！
         if env.block_derivation then return end
-        if not has_letters(curr_input) then return end 
+        if find(curr_input, "^[/]") then return end
+        if not has_letters(curr_input) then return end
         local anchor = nil
         local diff = ""
         
