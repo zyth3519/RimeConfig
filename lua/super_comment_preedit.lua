@@ -478,11 +478,11 @@ function ZH.func(input, env)
             genuine_cand.preedit = table.concat(input_parts)
         end
         ::after_preedit::
-        apply_tone_preedit(env, genuine_cand)
         if should_skip_candidate_comment then
             yield(genuine_cand)
             goto continue
         end
+        apply_tone_preedit(env, genuine_cand)
         -- 进入注释处理阶段
         -- ① 辅助码注释或者声调注释
         if is_comment_hint then
