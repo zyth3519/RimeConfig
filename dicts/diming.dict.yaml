@@ -60861,6 +60861,7 @@ sort: by_weight
 银林山庄	yín lín shān zhuāng	1
 尹灵芝镇	yǐn líng zhī zhèn	1
 荫柳棵村	yīn liǔ kē cūn	1
+尹六窑子	yǐn liù yáo zi	1
 饮马鞍村	yìn mǎ ān cūn	1
 饮马池村	yìn mǎ chí cūn	1
 饮马沟村	yìn mǎ gōu cūn	1
@@ -64535,8 +64536,10 @@ sort: by_weight
 八五九农场	bā wǔ jiǔ nóng chǎng	1
 八五〇农场	bā wǔ líng nóng chǎng	1
 八五六农场	bā wǔ liù nóng chǎng	1
+八五七农场	bā wǔ qī nóng chǎng	1
 八五三农场	bā wǔ sān nóng chǎng	1
 八五四农场	bā wǔ sì nóng chǎng	1
+八五五农场	bā wǔ wǔ nóng chǎng	1
 八仙桥街道	bā xiān qiáo jiē dào	1
 坝心彝族乡	bà xīn yí zú xiāng	1
 巴彦查干乡	bā yàn chá gàn xiāng	1
@@ -65946,6 +65949,7 @@ sort: by_weight
 经济发达镇	jīng jì fā dá zhèn	1
 经济开发区	jīng jì kāi fā qū	1
 经济开发区	jīng jì kāi fā qū	1
+经济开发区	jīng jì kāi fā qū
 经济开发区	jīng jì kāi fā qū
 京泰路街道	jīng tài lù jiē dào	1
 敬亭山街道	jìng tíng shān jiē dào	1
@@ -69346,7 +69350,9 @@ sort: by_weight
 当阳市玉阳街道	dāng yáng shì yù yáng jiē dào	1
 道县大坪铺农场	dào xiàn dà píng pù nóng chǎng	1
 第二良种繁殖场	dì èr liáng zhǒng fán zhí chǎng	1
+第九师一六二团	dì jiǔ shī yī liù èr tuán	1
 迪庆藏族自治州	dí qìng zàng zú zì zhì zhōu	1
+第十二师养禽场	dì shí èr shī yǎng qín chǎng	1
 第十师一八四团	dì shí shī yī bā sì tuán	1
 地质新村街街道	dì zhì xīn cūn jiē jiē dào	1
 电子信息产业园	diàn zǐ xìn xī chǎn yè yuán
@@ -69399,6 +69405,7 @@ sort: by_weight
 高密市醴泉街道	gāo mì shì lǐ quán jiē dào	1
 高密市密水街道	gāo mì shì mì shuǐ jiē dào	1
 高新技术开发区	gāo xīn jì shù kāi fā qū	1
+高新技术开发区	gāo xīn jì shù kāi fā qū
 高新开发区街道	gāo xīn kāi fā qū jiē dào	1
 高新区东风街道	gāo xīn qū dōng fēng jiē dào	1
 高新区紫贞街道	gāo xīn qū zǐ zhēn jiē dào	1
@@ -69623,6 +69630,15 @@ sort: by_weight
 宁蒗彝族自治县	níng làng yí zú zì zhì xiàn	1
 宁夏回族自治区	níng xià huí zú zì zhì qū	1
 牛场苗族彝族乡	niú chǎng miáo zú yí zú xiāng	1
+农九师团结农场	nóng jiǔ shī tuán jié nóng chǎng	1
+农九师一六八团	nóng jiǔ shī yī liù bā tuán	1
+农九师一六六团	nóng jiǔ shī yī liù liù tuán	1
+农九师一六七团	nóng jiǔ shī yī liù qī tuán	1
+农九师一六一团	nóng jiǔ shī yī liù yì tuán	1
+农九师一七零团	nóng jiǔ shī yī qī líng tuán	1
+农六师红旗农场	nóng liù shī hóng qí nóng chǎng	1
+农六师新湖农场	nóng liù shī xīn hú nóng chǎng	1
+农三师红旗农场	nóng sān shī hóng qí nóng chǎng	1
 牌坊回族满族乡	pái fāng huí zú mǎn zú xiāng	1
 潘家湾土家族乡	pān jiā wān tǔ jiā zú xiāng	1
 炮团侗族苗族乡	pào tuán dòng zú miáo zú xiāng	1
@@ -69637,9 +69653,11 @@ sort: by_weight
 濮阳县户部寨镇	pú yáng xiàn hù bù zhài zhèn	1
 濮阳县清河头乡	pú yáng xiàn qīng hé tóu xiāng	1
 濮阳县王称堌镇	pú yáng xiàn wáng chēng gù zhèn	1
+蕲春经济开发区	qí chūn jīng jì kāi fā qū
 启东滨海工业园	qǐ dōng bīn hǎi gōng yè yuán
 启东江海产业园	qǐ dōng jiāng hǎi chǎn yè yuán
 启东经济开发区	qǐ dōng jīng jì kāi fā qū	1
+七十团中心团场	qī shí tuán zhōng xīn tuán chǎng	1
 栖霞经济开发区	qī xiá jīng jì kāi fā qū	1
 祁县经济开发区	qí xiàn jīng jì kāi fā qū	1
 钱家营矿区街道	qián jiā yíng kuàng qū jiē dào	1
@@ -69687,6 +69705,9 @@ sort: by_weight
 生物科技产业园	shēng wù kē jì chǎn yè yuán
 生物医药产业园	shēng wù yī yào chǎn yè yuán
 石场苗族彝族乡	shí chǎng miáo zú yí zú xiāng	1
+十二师三坪农场	shí èr shī sān píng nóng chǎng	1
+十二师五一农场	shí èr shī wǔ yī nóng chǎng	1
+十二师西山农场	shí èr shī xī shān nóng chǎng	1
 石林彝族自治县	shí lín yí zú zì zhì xiàn	1
 食品工业管理处	shí pǐn gōng yè guǎn lǐ chù
 十字回族苗族乡	shí zì huí zú miáo zú xiāng	1
@@ -69822,6 +69843,10 @@ sort: by_weight
 宜城经济开发区	yí chéng jīng jì kāi fā qū	1
 宜春经济开发区	yí chūn jīng jì kāi fā qū
 宜春市宜阳新区	yí chūn shì yí yáng xīn qū
+一二六团生活区	yī èr liù tuán shēng huó qū	1
+一二七团生活区	yī èr qī tuán shēng huó qū	1
+一二三团生活区	yī èr sān tuán shēng huó qū	1
+一二四团生活区	yī èr sì tuán shēng huó qū	1
 伊犁州平原林场	yī lí zhōu píng yuán lín chǎng	1
 伊通满族自治县	yī tōng mǎn zú zì zhì xiàn	1
 宜兴经济开发区	yí xīng jīng jì kāi fā qū	1
@@ -69998,7 +70023,6 @@ sort: by_weight
 晋江市经济开发区	jìn jiāng shì jīng jì kāi fā qū	1
 金子岩侗族苗族乡	jīn zi yán dòng zú miáo zú xiāng	1
 井冈山自然保护区	jǐng gāng shān zì rán bǎo hù qū	1
-经济开发区管委会	jīng jì kāi fā qū guǎn wěi huì
 京津中关村科技城	jīng jīn zhōng guān cūn kē jì chéng
 静乐县居民办事处	jìng lè xiàn jū mín bàn shì chù
 九成监狱管理分局	jiǔ chéng jiān yù guǎn lǐ fēn jú
@@ -70172,6 +70196,7 @@ sort: by_weight
 瑶海社区服务中心	yáo hǎi shè qū fú wù zhōng xīn
 伊斯拉木阿瓦提乡	yī sī lā mù ā wǎ tí xiāng	1
 伊吾县工业加工区	yī wú xiàn gōng yè jiā gōng qū	1
+伊吾县山南开发区	yī wú xiàn shān nán kāi fā qū	1
 英山县经济开发区	yīng shān xiàn jīng jì kāi fā qū	1
 玉龙纳西族自治县	yù lóng nà xī zú zì zhì xiàn	1
 圆陀角旅游度假区	yuán tuó jiǎo lǚ yóu dù jià qū	1
@@ -70223,25 +70248,6 @@ sort: by_weight
 保亭黎族苗族自治县	bǎo tíng lí zú miáo zú zì zhì xiàn	1
 北京经济技术开发区	běi jīng jīng jì jì shù kāi fā qū	1
 北京雁栖经济开发区	běi jīng yàn qī jīng jì kāi fā qū	1
-兵团第九师一六二团	bīng tuán dì jiǔ shī yī liù èr tuán	1
-兵团第十二师养禽场	bīng tuán dì shí èr shī yǎng qín chǎng	1
-兵团农九师团结农场	bīng tuán nóng jiǔ shī tuán jié nóng chǎng	1
-兵团农九师一六八团	bīng tuán nóng jiǔ shī yī liù bā tuán	1
-兵团农九师一六六团	bīng tuán nóng jiǔ shī yī liù liù tuán	1
-兵团农九师一六七团	bīng tuán nóng jiǔ shī yī liù qī tuán	1
-兵团农九师一六一团	bīng tuán nóng jiǔ shī yī liù yì tuán	1
-兵团农九师一七零团	bīng tuán nóng jiǔ shī yī qī líng tuán	1
-兵团农六师红旗农场	bīng tuán nóng liù shī hóng qí nóng chǎng	1
-兵团农六师新湖农场	bīng tuán nóng liù shī xīn hú nóng chǎng	1
-兵团农三师红旗农场	bīng tuán nóng sān shī hóng qí nóng chǎng	1
-兵团七十团中心团场	bīng tuán qī shí tuán zhōng xīn tuán chǎng	1
-兵团十二师三坪农场	bīng tuán shí èr shī sān píng nóng chǎng	1
-兵团十二师五一农场	bīng tuán shí èr shī wǔ yī nóng chǎng	1
-兵团十二师西山农场	bīng tuán shí èr shī xī shān nóng chǎng	1
-兵团一二六团生活区	bīng tuán yī èr liù tuán shēng huó qū	1
-兵团一二七团生活区	bīng tuán yī èr qī tuán shēng huó qū	1
-兵团一二三团生活区	bīng tuán yī èr sān tuán shēng huó qū	1
-兵团一二四团生活区	bīng tuán yī èr sì tuán shēng huó qū	1
 博尔塔拉蒙古自治州	bó ěr tǎ lā méng gǔ zì zhì zhōu	1
 博孜墩柯尔克孜族乡	bó zī dūn kē ěr kè zī zú xiāng	1
 布依鲁克塔吉克族乡	bù yī lǔ kè tǎ jí kè zú xiāng	1
@@ -70455,6 +70461,7 @@ sort: by_weight
 土城子满族朝鲜族乡	tǔ chéng zǐ mǎn zú cháo xiǎn zú xiāng	1
 图木舒克市图木舒克	tú mù shū kè shì tú mù shū kè	1
 屯留经济技术开发区	tún liú jīng jì jì shù kāi fā qū	1
+万福经济技术开发区	wàn fú jīng jì jì shù kāi fā qū
 威海经济技术开发区	wēi hǎi jīng jì jì shù kāi fā qū	1
 巍山彝族回族自治县	wēi shān yí zú huí zú zì zhì xiàn	1
 文山壮族苗族自治州	wén shān zhuàng zú miáo zú zì zhì zhōu	1
@@ -70576,7 +70583,6 @@ sort: by_weight
 佛宝山生态综合开发区	fó bǎo shān shēng tài zōng hé kāi fā qū	1
 富锦市国营果树示范场	fù jǐn shì guó yíng guǒ shù shì fàn chǎng	1
 甘肃省甘南藏族自治州	gān sù shěng gān nán zàng zú zì zhì zhōu	1
-高新技术开发区管委会	gāo xīn jì shù kāi fā qū guǎn wěi huì
 高新区高新技术产业园	gāo xīn qū gāo xīn jì shù chǎn yè yuán
 贡山独龙族怒族自治县	gòng shān dú lóng zú nù zú zì zhì xiàn	1
 官和侗族土家族苗族乡	guān hé dòng zú tǔ jiā zú miáo zú xiāng	1
@@ -70611,6 +70617,7 @@ sort: by_weight
 康克尔柯尔克孜民族乡	kāng kè ěr kē ěr kè zī mín zú xiāng	1
 科克亚尔柯尔克孜族乡	kē kè yà ěr kē ěr kè zī zú xiāng	1
 昆明阳宗海风景名胜区	kūn míng yáng zōng hǎi fēng jǐng míng shèng qū	1
+拉萨市经济技术开发区	lā sà shì jīng jì jì shù kāi fā qū
 兰坪白族普米族自治县	lán píng bái zú pǔ mǐ zú zì zhì xiàn	1
 乐亭县城区工业聚集区	lào tíng xiàn chéng qū gōng yè jù jí qū	1
 黎城县经济技术开发区	lí chéng xiàn jīng jì jì shù kāi fā qū	1
@@ -70637,7 +70644,6 @@ sort: by_weight
 彭水苗族土家族自治县	péng shuǐ miáo zú tǔ jiā zú zì zhì xiàn	1
 坪梅矿务局梅田管理区	píng méi kuàng wù jú méi tián guǎn lǐ qū	1
 坪梅矿务局坪石管理区	píng méi kuàng wù jú píng shí guǎn lǐ qū	1
-蕲春经济开发区管委会	qí chūn jīng jì kāi fā qū guǎn wěi huì
 黔东南苗族侗族自治州	qián dōng nán miáo zú dòng zú zì zhì zhōu	1
 黔江土家族苗族自治县	qián jiāng tǔ jiā zú miáo zú zì zhì xiàn	1
 黔南布依族苗族自治州	qián nán bù yī zú miáo zú zì zhì zhōu	1
@@ -70863,7 +70869,6 @@ sort: by_weight
 徐庄高新技术产业开发区	xú zhuāng gāo xīn jì shù chǎn yè kāi fā qū	1
 燕郊高新技术产业开发区	yān jiāo gāo xīn jì shù chǎn yè kāi fā qū	1
 烟台高新技术产业开发区	yān tái gāo xīn jì shù chǎn yè kāi fā qū	1
-伊吾县山南开发区管委会	yī wú xiàn shān nán kāi fā qū guǎn wěi huì	1
 音河达斡尔鄂温克民族乡	yīn hé dá wò ěr è wēn kè mín zú xiāng	1
 永吉经济开发区特殊乡镇	yǒng jí jīng jì kāi fā qū tè shū xiāng zhèn	1
 豫东综合物流产业聚集区	yù dōng zōng hé wù liú chǎn yè jù jí qū	1
@@ -70912,7 +70917,6 @@ sort: by_weight
 天水市农业高新技术示范区	tiān shuǐ shì nóng yè gāo xīn jì shù shì fàn qū	1
 通辽市嘎达苏种畜繁育中心	tōng liáo shì gā dá sū zhǒng chù fán yù zhōng xīn
 通辽市高林屯种畜繁育中心	tōng liáo shì gāo lín tún zhǒng chù fán yù zhōng xīn
-万福经济技术开发区管委会	wàn fú jīng jì jì shù kāi fā qū guǎn wěi huì
 威海火炬高技术产业开发区	wēi hǎi huǒ jù gāo jì shù chǎn yè kāi fā qū	1
 武乡县现代农业产业示范区	wǔ xiāng xiàn xiàn dài nóng yè chǎn yè shì fàn qū	1
 五原县隆兴昌镇荣丰办事处	wǔ yuán xiàn lóng xīng chāng zhèn róng fēng bàn shì chù
@@ -70954,7 +70958,6 @@ sort: by_weight
 经济技术开发区通海路管理处	jīng jì jì shù kāi fā qū tōng hǎi lù guǎn lǐ chù
 克孜勒苏柯尔克孜自治州林场	kè zī lè sū kē ěr kè zī zì zhì zhōu lín chǎng	1
 昆明国家高新技术产业开发区	kūn míng guó jiā gāo xīn jì shù chǎn yè kāi fā qū	1
-拉萨市经济技术开发区管委会	lā sà shì jīng jì jì shù kāi fā qū guǎn wěi huì
 廊坊龙河高新技术产业开发区	láng fāng lóng hé gāo xīn jì shù chǎn yè kāi fā qū	1
 莲花山白盆珠省级自然保护区	lián huā shān bái pén zhū shěng jí zì rán bǎo hù qū	1
 辽宁葫芦岛八家子经济开发区	liáo níng hú lu dǎo bā jiā zǐ jīng jì kāi fā qū	1

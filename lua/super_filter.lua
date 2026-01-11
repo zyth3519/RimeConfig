@@ -28,7 +28,7 @@ local M = {}
 
 local byte, find, gsub, upper, sub = string.byte, string.find, string.gsub, string.upper, string.sub
 
--- ========= 工具 =========
+--  工具 
 local function fast_type(c)
     local t = c.type
     if t then return t end
@@ -72,32 +72,20 @@ local function has_english_token_fast(s)
     return false
 end
 
--- ========= 英文候选判定 =========
--- 使用现有的 has_english_token_fast 叠加 is_table_type：
---   - 若不属于 table/user_table/fixed：只要含英文 token 即视为英文候选
---   - 若属于 table/user_table/fixed：要求“只含 ASCII”（没有中文），且含英文 token
+-- 纯ASCII判定
 local function is_english_candidate(cand)
-    if not cand or not cand.text or cand.text == "" then return false end
-    local txt = cand.text
-
+    local txt = cand and cand.text
+    if not txt or txt == "" then return false end
     if not has_english_token_fast(txt) then
         return false
     end
-
-    if is_table_type(cand) then
-        -- 表内候选如果混有非 ASCII（大概率是中文），就不当英文处理
-        for i = 1, #txt do
-            local b = byte(txt, i)
-            if b > 127 then
-                return false
-            end
-        end
+    if string.find(txt, "[\128-\255]") then
+        return false
     end
-
     return true
 end
 
--- ========= 文本格式化（转义 + 自动大写）=========
+--  文本格式化（转义 + 自动大写）
 local escape_map = {
     ["\\n"] = "\n", ["\\t"] = "\t", ["\\r"] = "\r",
     ["\\\\"] = "\\", ["\\s"] = " ", ["\\d"] = "-",
@@ -137,7 +125,7 @@ local function clone_candidate(c)
     return nc
 end
 
--- ========= 包裹映射 =========
+--  包裹映射 
 local default_wrap_map = {
     -- 单字母：常用成对括号/引号（每项恰好两个字符）
     a = "[]",        -- 方括号
@@ -167,14 +155,14 @@ local default_wrap_map = {
     y = "⟪⟫",       -- 双角括号
     z = "{}",        -- 花括号
 
-    -- ===== 扩展括号族 / 引号 =====
+    --  扩展括号族 / 引号 
     dy = "''",       -- 英文单引号
     sy = "\"\"",     -- 英文双引号
     zs = "“”",       -- 中文弯双引号
     zd = "‘’",       -- 中文弯单引号
     fy = "``",       -- 反引号
 
-    -- ===== 双字母括号族 =====
+    --  双字母括号族 
     aa = "〚〛",      -- 双中括号
     bb = "〘〙",      -- 双中括号（小）
     cc = "〚〛",      -- 双中括号（重复，可用于 Lua 匹配）
@@ -201,7 +189,7 @@ local default_wrap_map = {
     yy = "⌠⌡",      -- 数学 / 程序符号
     zz = "⟅⟆",      -- 数学 / 装饰括号
 
-    -- ===== Markdown / 标记 =====
+    --  Markdown / 标记 
     md = "**|**",      -- Markdown 粗体
     jc = "**|**",      -- 加粗
     it = "__|__",      -- 斜体
@@ -222,7 +210,7 @@ local default_wrap_map = {
     br = "|  ",        -- 换行
     cm = "<!--|-->",   -- 注释
 
-    -- ===== 运算与标记符 =====
+    --  运算与标记符 
     pl = "++",
     mi = "--",
     sl = "//",
@@ -292,7 +280,7 @@ local function precompile_wrap_parts(wrap_map, delimiter)
     end
     return parts
 end
--- ========= 字符集过滤工具 =========
+--  字符集过滤工具 
 -- 单个码点是否在 charset 里（带缓存，考虑白名单 + 黑名单）
 local function codepoint_in_charset(env, codepoint)
     if not env then
@@ -390,7 +378,7 @@ local function is_reverse_lookup_segment(env)
         or seg:has_tag("add_user_dict")
         or seg:has_tag("punct")
 end
--- ========= 字符集过滤初始化 =========
+--  字符集过滤初始化 
 -- 从 schema 里读取 charsetlist / charsetblacklist
 local function init_charset_filter(env, cfg)
     -- 主字符集（表滤镜）
@@ -441,7 +429,7 @@ local function init_charset_filter(env, cfg)
     load_charset_list("charsetblacklist", env.charset_block)
 end
 
--- ========= 生命周期 =========
+--  生命周期 
 function M.init(env)
     local cfg = env.engine and env.engine.schema and env.engine.schema.config or nil
     env.wrap_map   = cfg and load_mapping_from_config(cfg) or default_wrap_map
@@ -489,7 +477,7 @@ end
 
 function M.fini(env)
 end
--- ========= 统一产出通道 =========
+--  统一产出通道 
 -- ctxs:
 --   charset          : 字符集过滤
 --   suppress_set     : { [text] = true } 阻止镜像文本
@@ -542,7 +530,7 @@ local function emit_with_pipeline(cand, ctxs)
     cand = ctxs.unify_tail_span(cand)
     yield(cand)
 end
--- ========= 主流程 =========
+--  主流程 
 function M.func(input, env)
     local ctx  = env and env.engine and env.engine.context or nil
     local code = ctx and (ctx.input or "") or ""
@@ -701,7 +689,7 @@ function M.func(input, env)
         return true
     end
 
-    -- ===== 非分组路径 =====
+    --  非分组路径 
     if not do_group then
         local idx = 0
         for cand in input:iter() do
@@ -755,7 +743,7 @@ function M.func(input, env)
         return
     end
 
-    -- ===== 分组路径（2..6 码）=====
+    --  分组路径（2..6 码）
     local idx2, mode, grouped_cnt = 0, "unknown", 0
     local window_closed = false
     local group2_others = {}
