@@ -488,7 +488,9 @@ end
 --   is_english       : 函数(cand) → bool
 local function emit_with_pipeline(cand, ctxs)
     if not cand then return end
-
+    if ctxs.pinned_set and ctxs.pinned_set[cand.text] then
+        return
+    end
     local env = ctxs.env
 
     -- ① 字符集过滤：只有在 charset_strict = true 时才启用
@@ -611,7 +613,18 @@ function M.func(input, env)
         en_only = ctx:get_option("en_only") or false
         zh_only = ctx:get_option("zh_only") or false
     end
-
+    -- 全拼输入 bun 置顶“不能”逻辑
+    local pinned_set = nil
+    if code == "bun" then
+        local s_id = wanxiang.get_input_method_type(env)
+        if s_id == "pinyin" then
+            local text = "不能"
+            local c = Candidate("fixed", 0, #code, text, "")
+            c.preedit = "bu n"
+            yield(c)
+            pinned_set = { [text] = true } -- 记录到表中，供 emit_with_pipeline 去重
+        end
+    end
     local function unify_tail_span(c)
         if fully_consumed and wrap_key and last_seg and c and c._end ~= last_seg._end then
             local nc = Candidate(c.type, c.start, last_seg._end, c.text, c.comment)
