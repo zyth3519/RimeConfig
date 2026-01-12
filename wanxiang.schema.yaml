@@ -399,7 +399,7 @@ wanxiang_english:
   user_dict: en
   enable_completion: true
   enable_sentence: true
-  initial_quality: 2
+  initial_quality: 2.1
   comment_format:  #这里很重要如果残留带声调字母，剩余编码提示计算出错引发程序崩溃
     - xform/^~.+$//
   #英文自动加空格，除关闭外共有3种模式可供选择
@@ -413,7 +413,7 @@ wanxiang_mixedcode:
   db_class: stabledb
   enable_completion: true
   enable_sentence: false
-  initial_quality: 2.1
+  initial_quality: 2
   comment_format:  #这里很重要如果残留带声调字母，剩余编码提示计算出错引发程序崩溃
     - xform/.*//
 
@@ -492,7 +492,7 @@ recognizer:
     calculator: "^V.*$"                 # V 作为触发前缀，计算器功能引导
     #add_user_dict: "^ac[A-Za-z/`']*$"      #自造词引导方式
     email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"                            # email @ 之后不上屏
-    url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"  # URL
+    url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$"  # URL
 
 # 标点符号
 # punctuator 下面有三个子项：
