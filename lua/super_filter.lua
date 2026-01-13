@@ -54,17 +54,6 @@ local function has_english_token_fast(s)
             if b >= 0x61 and b <= 0x7A then
                 return true
             end
-            -- 你自己想认的几个 ASCII 符号：
-            -- 空格、#、-、@、'
-            if b == 0x20   -- space
-               or b == 0x23  -- '#'
-               or b == 0x2D  -- '-'
-               or b == 0x40  -- '@'
-               or b == 0x27  -- '\''
-            then
-                return true
-            end
-            -- 如果想再加别的 ASCII 标点，也在这里列
         else
             -- b >= 0x80: UTF-8 非 ASCII 字节，直接跳过
         end
@@ -85,40 +74,53 @@ local function is_english_candidate(cand)
     return true
 end
 
---  文本格式化（转义 + 自动大写）
+--  文本格式化
 local escape_map = {
-    ["\\n"] = "\n", ["\\t"] = "\t", ["\\r"] = "\r",
-    ["\\\\"] = "\\", ["\\s"] = " ", ["\\d"] = "-",
+    ["\\n"] = "\n",            -- 换行
+    ["\\r"] = "\r",            -- 回车
+    ["\\t"] = "\t",            -- 制表符
+    ["\\s"] = " ",             -- 空格
+    ["\\z"] = "\226\128\139",  -- 零宽空格 (隐形阻断符)
 }
-local esc_pattern = "\\[ntrsd\\\\]"
+
+local utf8_char_pattern = "[%z\1-\127\194-\244][\128-\191]*"
 
 local function apply_escape_fast(text)
-    if not text or find(text, "\\", 1, true) == nil then return text, false end
-    local new_text = gsub(text, esc_pattern, function(esc) return escape_map[esc] or esc end)
+    -- 快速预检
+    if not text or (not find(text, "\\", 1, true) and not find(text, "{", 1, true)) then 
+        return text, false 
+    end
+
+    local new_text = text
+    if find(new_text, "\\{", 1, true) then
+        new_text = gsub(new_text, "\\{", "\1")
+    end
+    if find(new_text, "\\", 1, true) then
+        new_text = gsub(new_text, "\\[ntrsz]", escape_map)
+    end
+    if find(new_text, "{", 1, true) then
+        new_text = gsub(new_text, "(" .. utf8_char_pattern .. ")%{(%d+)}", function(char, count)
+            local n = tonumber(count)
+            if n and n > 0 and n < 200 then
+                return string.rep(char, n)
+            end
+            return char .. "{" .. count .. "}"
+        end)
+    end
+    if find(new_text, "\1", 1, true) then
+        new_text = gsub(new_text, "\1", "{")
+    end
     return new_text, new_text ~= text
 end
-
 local function format_and_autocap(cand)
     local text = cand.text
     if not text or text == "" then return cand end
-    local changed = false
-    -- 转义替换 (\n, \t, \s 等)
-    -- 必须先处理转义，因为转义可能会改变字符串开头 (如 \sApple -> Apple)
-    if find(text, "\\", 1, true) then
-        local t2, ch = apply_escape_fast(text)
-        if ch then 
-            text = t2
-            changed = true
-        end
-    end
-    -- 输出结果
+    local t2, changed = apply_escape_fast(text)
     if not changed then return cand end
-    
-    local nc = Candidate(cand.type, cand.start, cand._end, text, cand.comment)
+    local nc = Candidate(cand.type, cand.start, cand._end, t2, cand.comment)
     nc.preedit = cand.preedit
     return nc
 end
-
 local function clone_candidate(c)
     local nc = Candidate(c.type, c.start, c._end, c.text, c.comment)
     nc.preedit = c.preedit
@@ -488,9 +490,6 @@ end
 --   is_english       : 函数(cand) → bool
 local function emit_with_pipeline(cand, ctxs)
     if not cand then return end
-    if ctxs.pinned_set and ctxs.pinned_set[cand.text] then
-        return
-    end
     local env = ctxs.env
 
     -- ① 字符集过滤：只有在 charset_strict = true 时才启用
@@ -613,18 +612,7 @@ function M.func(input, env)
         en_only = ctx:get_option("en_only") or false
         zh_only = ctx:get_option("zh_only") or false
     end
-    -- 全拼输入 bun 置顶“不能”逻辑
-    local pinned_set = nil
-    if code == "bun" then
-        local s_id = wanxiang.get_input_method_type(env)
-        if s_id == "pinyin" then
-            local text = "不能"
-            local c = Candidate("fixed", 0, #code, text, "")
-            c.preedit = "bu n"
-            yield(c)
-            pinned_set = { [text] = true } -- 记录到表中，供 emit_with_pipeline 去重
-        end
-    end
+
     local function unify_tail_span(c)
         if fully_consumed and wrap_key and last_seg and c and c._end ~= last_seg._end then
             local nc = Candidate(c.type, c.start, last_seg._end, c.text, c.comment)
