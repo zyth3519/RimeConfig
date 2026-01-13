@@ -470,6 +470,7 @@ wanxiang_lookup: #设置归属于super_lookup.lua
   key: "`"       # 输入中反查引导符，要添加到 speller/alphabet
   lookup: [ wanxiang_reverse ] #反查滤镜数据库，万象都合并为一个了
   data_source: [db]  #对于pro版本能从注释中加载词库辅助码，详情见Pro版本，base这里无需修改。
+  enable_tone: true  #启用声调反查
 
 # 处理符合特定规则的输入码，如网址、反查
 recognizer:
