@@ -81,23 +81,13 @@ engine:
     - reverse_lookup_filter@radical_reverse_lookup  #部件拆字滤镜，放在super_comment前面，进一步被超级注释处理以获得拼音编码的提示
     - lua_filter@*super_lookup                      #字词输入中反查辅助筛选
     - lua_filter@*super_filter                      #功能太多详见Lua文件
-    - simplifier@emoji                              #Emoji滤镜
-    - simplifier@s2t                                #简繁切换通繁
-    - simplifier@s2tw                               #简繁切换台繁
-    - simplifier@s2hk                               #简繁切换港繁
-    - simplifier@chinese_english                    #中英翻译滤镜
+    - lua_filter@*super_replacer                    #用来替代OpenCC的处理器
     - lua_filter@*super_sequence*F                  #手动排序，高亮候选 ctrl+j左移动 ctrl+k 右移动 ctrl+0 移除位移
     - uniquifier                                    # 去重
 
 t9:
   isDisplayOriginalPreedit: false
 
-
-
-super_comment:                  # 超级注释模块，子项配置 true 开启，false 关闭
-  candidate_length: 1           # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理
-  corrector_type: "〔comment〕"  # 错音措字，随意更换左右括号，比如"〔comment〕" 不加括号为无括号，comment占位不能动
-  chaifen: "〔chaifen〕"         # 拆分显示，随意更换左右括号，比如"〔chaifen〕" 不加括号为无括号，chaifen占位不能动
 
 # Tips 配置项
 tips:
@@ -229,36 +219,65 @@ wanxiang_mixedcode:
   comment_format:
     - xform/.*//
 
-# Emoji
-emoji:
-  option_name: emoji
-  opencc_config: emoji.json
-  inherit_comment: false  # 在反查中，emoji 返回空注释
-
-
-#中文转英文
-chinese_english:
-  option_name: chinese_english
-  opencc_config: chinese_english.json
-  tips: char
-  inherit_comment: false
-
-# 简繁切换
-s2t:
-  option_name: s2t
-  opencc_config: s2t.json  # s2t.json | s2hk.json | s2tw.json | s2twp.json
-  tips: none               # 转换提示: all 都显示 | char 仅单字显示 | none 不显示。
-  tags: [ abc ]            # 限制在对应 tag，不对其他如反查的内容做简繁转换
-
-s2hk:
-  opencc_config: s2hk.json
-  option_name: s2hk
-  tags: [abc]
-
-s2tw:
-  opencc_config: s2tw.json
-  option_name: s2tw
-  tags: [abc]
+super_replacer:
+    db_name: lua/replacer
+    delimiter: "|"
+    comment_format: "〔%s〕"
+    chain: true   #true表示流水线作业，上一个option产出交给下一个处理，典型的s2t>t2hk=s2hk，false就是并行，直接用text转换
+    types:
+      # 场景1：输入 '哈哈' -> 变成 '1.哈哈 2.😄'
+      - option: emoji           # 开关名称与上面开关名称保持一致
+        mode: append            # 新增候选append 替换原候选replace 替换注释comment
+        comment_mode: none      # 注释模式: "append"(原候选注释继承), "text"(原候选文本放在注释), "none"(空，默认)
+        tags: [abc]             # 生效的tag
+        prefix: "_em_"          # 前缀用于区分同一个数据库的不同用途数据
+        files:
+          - lua/data/emoji.txt
+      # 场景2：输入 'hello' -> 显示 'hello 〔你好 | 哈喽〕'
+      - option: chinese_english
+        mode: append        # <--- 添加注释模式
+        comment_mode: none
+        tags: [abc]
+        prefix: "_en_"
+        files:
+          - lua/data/english_chinese.txt
+          - lua/data/chinese_english.txt
+      # 场景3：用于常驻的直接替换 option: true
+      - option: true
+        mode: append         # <--- 新增候选模式
+        comment_mode: none
+        tags: [abc]
+        prefix: "_ot_"
+        files:
+          - lua/data/others.txt
+      # 场景4：用于简繁转换的直接替换
+      - option: [ s2t, s2hk, s2tw ]   #后面依赖这条流水线有一个开关为true这条流水线就能工作
+        mode: replace         # <--- 替换原候选模式
+        comment_mode: append
+        sentence: true        # <--- 句子级别替换
+        tags: [abc]
+        prefix: "_s2t_"
+        files:
+          - lua/data/STCharacters.txt
+          - lua/data/STPhrases.txt
+      - option: s2hk
+        mode: replace         # <--- 替换原候选模式
+        comment_mode: append
+        sentence: true        # <--- 句子级别替换
+        tags: [abc]
+        prefix: "_s2hk_"
+        files:
+          - lua/data/HKVariants.txt
+          - lua/data/HKVariantsRevPhrases.txt
+      - option: s2tw
+        mode: replace         # <--- 替换原候选模式
+        comment_mode: append
+        sentence: true        # <--- 句子级别替换
+        tags: [abc]
+        prefix: "_s2tw_"
+        files:
+          - lua/data/TWVariants.txt
+          - lua/data/TWVariantsRevPhrases.txt
 
 # 部件拆字反查
 wanxiang_reverse:
@@ -340,8 +359,8 @@ speller:
 #  auto_select: true
 #  auto_select_pattern: ^[a-z]+/|^[a-df-zA-DF-Z]\w{3}|^e\w{4}
   # 如果不想让什么标点直接上屏，可以加在 alphabet，或者编辑标点符号为两个及以上的映射，alphabet就是将字符纳入输入编码的范畴
-  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA987654321`/\
-  initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA987654321
+  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA9876543210`/\
+  initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA9876543210
   delimiter: " '"        # 系统配置，第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
   visual_delimiter: " "  # super_preedit.lua配置：是否让分隔符号跟着一起转换，例如nǐ'hǎo 在实际使用中表现出视觉拥挤，我们可以让delimiter平时是'转换为拼音的时候使用空格nǐ hǎo，更符合实际。
   tone_isolate: true     # super_preedit.lua配置：是否将数字声调从转换后拼音中隔离出来（true=隔离， false 直接参与转换）例如：nǐ3
