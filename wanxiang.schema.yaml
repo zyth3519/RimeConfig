@@ -101,11 +101,7 @@ engine:
     - lua_filter@*super_filter                      #comment前,相关功能见Lua文件
     - lua_filter@*super_english                     #comment前,负责英文方案及中英混输中英文单词格式化，语句流，自动加空格等策略
     - lua_filter@*super_comment_preedit             #OpenCC前，超级注释模块、超级preedit，支持错词提示、辅助码显示，部件组字读音注释，有声调、无声调全拼编码的转换，支持个性化配置和关闭相应的功能，详情搜索super_comment_preedit进行详细配置
-    - simplifier@emoji                              #Emoji滤镜
-    - simplifier@s2t                                #简繁切换通繁
-    - simplifier@s2tw                               #简繁切换台繁
-    - simplifier@s2hk                               #简繁切换港繁
-    - simplifier@chinese_english                    #中英翻译滤镜
+    - lua_filter@*super_replacer                    #用来替代OpenCC的处理器
     - lua_filter@*super_sequence*F                  #手动排序，对高亮候选 ctrl+j左移动 ctrl+k 右移动 ctrl+0 移除位移
     - uniquifier                                    # 去重
 
@@ -122,6 +118,66 @@ super_comment:                  # 超级注释模块，子项配置 true 开启�
   candidate_length: 2           # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理
   corrector_type: "〔comment〕"  # 随意更换左右括号，比如"〔comment〕" 不加括号为无括号，comment占位不能动
   chaifen: "〔chaifen〕"         # 随意更换左右括号，比如"〔chaifen〕" 不加括号为无括号，chaifen占位不能动
+
+super_replacer:
+    db_name: lua/replacer
+    delimiter: "|"
+    comment_format: "〔%s〕"
+    chain: true   #true表示流水线作业，上一个option产出交给下一个处理，典型的s2t>t2hk=s2hk，false就是并行，直接用text转换
+    types:
+      # 场景1：输入 '哈哈' -> 变成 '1.哈哈 2.😄'
+      - option: emoji           # 开关名称与上面开关名称保持一致
+        mode: append            # 新增候选append 替换原候选replace 替换注释comment
+        comment_mode: none      # 注释模式: "append"(原候选注释继承), "text"(原候选文本放在注释), "none"(空，默认)
+        tags: [abc]             # 生效的tag
+        prefix: "_em_"          # 前缀用于区分同一个数据库的不同用途数据
+        files:
+          - lua/data/emoji.txt
+      # 场景2：输入 'hello' -> 显示 'hello 〔你好 | 哈喽〕'
+      - option: chinese_english
+        mode: append        # <--- 添加注释模式
+        comment_mode: none
+        tags: [abc]
+        prefix: "_en_"
+        files:
+          - lua/data/english_chinese.txt
+          - lua/data/chinese_english.txt
+      # 场景3：用于常驻的直接替换 option: true
+      - option: true
+        mode: append         # <--- 新增候选模式
+        comment_mode: none
+        tags: [abc]
+        prefix: "_ot_"
+        files:
+          - lua/data/others.txt
+      # 场景4：用于简繁转换的直接替换
+      - option: [ s2t, s2hk, s2tw ]   #后面依赖这条流水线有一个开关为true这条流水线就能工作
+        mode: replace         # <--- 替换原候选模式
+        comment_mode: append
+        sentence: true        # <--- 句子级别替换
+        tags: [abc]
+        prefix: "_s2t_"
+        files:
+          - lua/data/STCharacters.txt
+          - lua/data/STPhrases.txt
+      - option: s2hk
+        mode: replace         # <--- 替换原候选模式
+        comment_mode: append
+        sentence: true        # <--- 句子级别替换
+        tags: [abc]
+        prefix: "_s2hk_"
+        files:
+          - lua/data/HKVariants.txt
+          - lua/data/HKVariantsRevPhrases.txt
+      - option: s2tw
+        mode: replace         # <--- 替换原候选模式
+        comment_mode: append
+        sentence: true        # <--- 句子级别替换
+        tags: [abc]
+        prefix: "_s2tw_"
+        files:
+          - lua/data/TWVariants.txt
+          - lua/data/TWVariantsRevPhrases.txt
 
 # Tips 配置项
 tips:
@@ -416,38 +472,6 @@ wanxiang_mixedcode:
   initial_quality: 2
   comment_format:  #这里很重要如果残留带声调字母，剩余编码提示计算出错引发程序崩溃
     - xform/.*//
-
-# Emoji
-emoji:
-  option_name: emoji
-  opencc_config: emoji.json
-  tags: [abc]
-  inherit_comment: false
-
-
-#中文转英文
-chinese_english:
-  option_name: chinese_english
-  opencc_config: chinese_english.json
-  tips: char
-  inherit_comment: false
-
-# 简繁切换
-s2t:
-  option_name: s2t
-  opencc_config: s2t.json  # s2t.json | s2hk.json | s2tw.json | s2twp.json
-  tips: none               # 转换提示: all 都显示 | char 仅单字显示 | none 不显示。
-  tags: [ abc ]            # 限制在对应 tag，不对其他如反查的内容做简繁转换
-
-s2hk:
-  opencc_config: s2hk.json
-  option_name: s2hk
-  tags: [abc]
-
-s2tw:
-  opencc_config: s2tw.json
-  option_name: s2tw
-  tags: [abc]
 
 # 部件拆字反查
 wanxiang_reverse:

@@ -3,7 +3,7 @@
   --tags: [ abc ]  # 检索当前tag的候选
   --key: "`"       # 输入中反查引导符
   --lookup: [ wanxiang_reverse ] #反查滤镜数据库
-  --data_source: [ comment, db ] # 优先级：写在前面优先。即使只写db，只要开启enable_tone也能从注释获取声调。
+  --data_source: [ aux, db ] # 优先级：写在前面优先。即使只写db，只要开启enable_tone也能从注释获取声调。
   --enable_tone: true  #启用声调反查
 
 -- 工具函数：转义正则特殊字符
@@ -25,7 +25,7 @@ local function get_utf8_len(s)
     local _, count = string.gsub(s, "[^\128-\193]", "")
     return count
 end
--- 提取声调数字 (无声调/轻声 -> 默认归为 4)
+-- 提取声调数字 (无声调/轻声 -> 默认归为 0)
 local function get_tone_from_pinyin(pinyin)
     if not pinyin or #pinyin == 0 then return nil end
     for char, tone in pairs(tones_map) do
@@ -35,6 +35,7 @@ local function get_tone_from_pinyin(pinyin)
     end
     return "0"
 end
+
 -- 规则加载
 local function parse_and_separate_rules(schema_id)
     if not schema_id or #schema_id == 0 then return nil, nil end
@@ -171,6 +172,7 @@ local function match_fuzzy_recursive(codes_sequence, idx, input_str, input_idx, 
         for _, code in ipairs(codes) do
             local skip = false
             if is_phrase_mode and #code > 3 then skip = true end
+
             if code:match("^%d+$") then skip = true end
             if not skip then
                 local i_curr = input_idx
@@ -220,22 +222,22 @@ local function parse_comment_codes(comment, pattern, target_len, enable_tone)
         local codes_part
         
         if p1 then
-            -- 有分号：前面是音/拼音，后面是码
             pinyin_part = part:sub(1, p1 - 1)
             codes_part = part:sub(p2 + 1)
         else
-            -- 无分号：整体是音/拼音，无码
             pinyin_part = part
             codes_part = ""
         end
         
         local codes_list = {}
+        -- 1. 提取辅码
         if #codes_part > 0 then
             for c in codes_part:gmatch("[^,]+") do 
                 local trimmed = c:gsub("^%s+", ""):gsub("%s+$", "")
                 if #trimmed > 0 then table.insert(codes_list, trimmed) end
             end
         end
+        -- 2. 提取声调 (如果开启)
         if enable_tone then
             local tone = get_tone_from_pinyin(pinyin_part)
             if tone then
@@ -252,33 +254,32 @@ local f = {}
 function f.init(env)
     local config = env.engine.schema.config
     
-    -- 1. 先读取是否开启声调过滤 (默认为 true)
+    -- 1. 开启声调
     env.enable_tone = config:get_bool('wanxiang_lookup/enable_tone')
     if env.enable_tone == nil then env.enable_tone = true end
 
-    -- 2. 读取数据源 data_source
+    -- 2. 读取数据源
     local sources_list = config:get_list('wanxiang_lookup/data_source')
     env.data_sources = {}
     
-    -- 临时标记，判断配置里是否显式包含了 comment
-    local config_has_comment_source = false
+    local config_has_aux_source = false
     env.has_db = false
     
     if sources_list and sources_list.size > 0 then
         for i = 0, sources_list.size - 1 do
             local s = sources_list:get_value_at(i).value
             table.insert(env.data_sources, s)
-            if s == 'aux' then config_has_comment_source = true end
+            if s == 'aux' then config_has_aux_source = true end
             if s == 'db' then env.has_db = true end
         end
     else
         env.data_sources = { 'aux', 'db' }
-        config_has_comment_source = true
+        config_has_aux_source = true
         env.has_db = true
     end
 
-    -- 只要配置里用了 comment 做数据源，或者开启了 enable_tone (需要从注释借声调)，都必须解析注释。
-    env.has_comment = config_has_comment_source or env.enable_tone
+    -- 核心逻辑：只要配置了 aux 源，或者开启了 enable_tone (需要借声调)，就必须解析注释
+    env.has_comment = config_has_aux_source or env.enable_tone
 
     env.db_table = nil
     if env.has_db then
@@ -339,6 +340,13 @@ function f.init(env)
 end
 
 function f.func(input, env)
+    local context = env.engine.context
+    local seg = context.composition:back()
+
+    if not seg or not f.tags_match(seg, env) then
+        for cand in input:iter() do yield(cand) end
+        return
+    end
     if #env.data_sources == 0 then
         for cand in input:iter() do yield(cand) end
         return
@@ -387,7 +395,7 @@ function f.func(input, env)
 
         local raw_data = {}
         
-        -- A: Comment Data
+        -- 数据加载 A: Aux Data (From Comment)
         if env.has_comment then
             local genuine = cand:get_genuine()
             local comment_text = genuine and genuine.comment or ""
@@ -398,12 +406,14 @@ function f.func(input, env)
                     env.cache_size = env.cache_size + 1
                 end
                 if comment_cache[cache_key] then
-                    raw_data.comment = comment_cache[cache_key]
+                    raw_data.aux = comment_cache[cache_key]
+                    -- 同时赋给 _comment_internal，用于 data_source: [db] 借用声调
+                    raw_data._comment_internal = comment_cache[cache_key]
                 end
             end
         end
 
-        -- B: DB Data
+        -- 数据加载 B: DB Data
         if env.has_db then
             raw_data.db = {}
             local i = 0
@@ -418,12 +428,13 @@ function f.func(input, env)
             end
         end
 
-        -- 提取借用声调 (总是尝试从 raw_data.comment 提取，即使 data_source 只有 db)
+        -- 提取借用声调 (即使 config 里只写了 db，这里也要尝试从注释里借声调)
         local borrowed_tones = {} 
-        if raw_data.comment then
-            for k, codes in ipairs(raw_data.comment) do
+        if raw_data._comment_internal then
+            for k, codes in ipairs(raw_data._comment_internal) do
                 borrowed_tones[k] = {}
                 for _, c in ipairs(codes) do
+                    -- parse_comment_codes 会把声调数字也放入 list，这里提取出来备用
                     if c:match("^%d+$") then borrowed_tones[k][c] = true end
                 end
             end
@@ -439,7 +450,7 @@ function f.func(input, env)
                     for k, tone_input in ipairs(tone_filter_seq) do
                         if k > #codes_seq then break end
                         local has_tone = list_contains(codes_seq[k], tone_input)
-                        -- 如果是 db 源且自身没匹配到声调，尝试查阅 borrowed_tones
+                        -- 如果是 db 源且自身没匹配到声调，尝试查阅 borrowed_tones (从注释借来的)
                         if not has_tone and source_type == 'db' then
                             if borrowed_tones[k] and borrowed_tones[k][tone_input] then has_tone = true end
                         end

@@ -239,7 +239,7 @@ go语言脚本： https://github.com/ca-x/rime-wanxiang-updater
 
 - jm_zrm.txt 用于提供自然码类型的简码，下载后复制到根目录custom_phrase.txt自定义库即可使用；  
 
-- tips_user.txt tips用到的“翻译”类型的数据，下载后放置于lua/tips里面重新部署。
+- tips_user.txt tips用到的“翻译”类型的数据，下载后放置于lua/data 里面重新部署。
 
 ### 答疑
 
