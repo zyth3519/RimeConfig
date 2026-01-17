@@ -13,7 +13,7 @@ super_replacer:
       # 场景1：输入 '哈哈' -> 变成 '1.哈哈 2.😄'
       - option: emoji           # 开关名称与上面开关名称保持一致
         mode: append            # 新增候选append 替换原候选replace 替换注释comment
-        comment_mode: none      # 注释模式: "append"(默认), "text"(原文), "none"(无)
+        comment_mode: none      # 注释模式: "append"(原候选注释继承), "text"(原候选文本放在注释), "none"(空，默认)
         tags: [abc]             # 生效的tag
         prefix: "_em_"          # 前缀用于区分同一个数据库的不同用途数据
         files:
@@ -39,6 +39,7 @@ super_replacer:
       - option: [ s2t, s2hk, s2tw ]   #后面依赖这条流水线有一个开关为true这条流水线就能工作
         mode: replace         # <--- 替换原候选模式
         comment_mode: append
+        sentence: true        # <--- 句子级别替换
         tags: [abc]
         prefix: "_s2t_"
         files:
@@ -47,6 +48,7 @@ super_replacer:
       - option: s2hk
         mode: replace         # <--- 替换原候选模式
         comment_mode: append
+        sentence: true        # <--- 句子级别替换
         tags: [abc]
         prefix: "_s2hk_"
         files:
@@ -55,6 +57,7 @@ super_replacer:
       - option: s2tw
         mode: replace         # <--- 替换原候选模式
         comment_mode: append
+        sentence: true        # <--- 句子级别替换
         tags: [abc]
         prefix: "_s2tw_"
         files:
@@ -236,9 +239,16 @@ function M.init(env)
                         if val then insert(triggers, val) end
                     end
                 else
-                    local val = config:get_string(key_path)
-                    if val then insert(triggers, val) else
-                        if config:get_bool(key_path) == true then insert(triggers, true) end
+                    -- 1. 如果配置写的是 true (bool)，get_bool 返回 true，我们插入布尔值 true。
+                    -- 2. 如果配置写的是 s2t (string)，get_bool 返回 false (或nil)，我们进入 else 读字符串。
+                    if config:get_bool(key_path) == true then 
+                        insert(triggers, true) 
+                    else
+                        local val = config:get_string(key_path)
+                        -- 只有当它不是 "true" 字符串时才插入，防止双重解析（虽然上面的if已经拦截了）
+                        if val and val ~= "true" then
+                            insert(triggers, val)
+                        end
                     end
                 end
             end
@@ -300,28 +310,20 @@ function M.init(env)
         end
     end
 
-    -- 3. DB 初始化
+    -- 3. DB 初始化 (后面逻辑保持不变)
     if not userdb then return end
     local ok, db = pcall(function() local d = userdb.LevelDb(db_name); d:open(); return d end)
 
     if ok and db then
         env.db = db
-        
-        -- Wanxiang 版本控制核心逻辑 ★★★
         local db_version = db:meta_fetch("_wanxiang_ver") or ""
         local old_delim = db:meta_fetch("_delim")
-        
         local need_rebuild = false
-        
-        -- 1. 检查版本号字符串是否一致 (例如 "v14.0.5" vs "v14.0.6")
         if current_version ~= db_version then need_rebuild = true end
-        
-        -- 2. 分隔符变了也需要重建
         if env.delimiter ~= old_delim then need_rebuild = true end
         
         if need_rebuild then
             if rebuild(tasks, db) then
-                -- 写入新的版本号字符串
                 db:meta_update("_wanxiang_ver", current_version)
                 db:meta_update("_delim", env.delimiter)
                 if log and log.info then 

@@ -423,11 +423,11 @@ function F.func(input, env)
     for cand in input:iter() do
         local good_cand = restore_sentence_spacing(cand, env.split_pattern, env.delim_check_pattern)
         local fmt_cand = apply_formatting(good_cand, code_ctx)
-        local is_ascii = is_ascii_phrase_fast(fmt_cand.text)
-        
+        local is_ascii = is_ascii_phrase_fast(good_cand.text) 
         local is_tbl = is_table_type(cand)
 
-        -- table/fixed 类型会先输出，直到遇到第一个 completion类型前，插入单字母
+        -- [策略1]：如果是普通词(completion)，还没输出单字母，则“插队”到它前面
+        -- 场景：无高频词时，输出 A, a, able...
         if not single_char_injected and is_ascii and #single_chars > 0 and not is_tbl then
             if not best_candidate_saved then
                 env.memory[curr_input] = { text = single_chars[1].text, preedit = single_chars[1].text }
@@ -442,7 +442,6 @@ function F.func(input, env)
         
         if not is_garbage then
             has_valid_candidate = true
-            -- 如果处于拦截状态，就不要把脏数据写进内存了
             if not best_candidate_saved and cand.comment ~= "~" and not env.block_derivation then
                 env.memory[curr_input] = {
                     text = fmt_cand.text,
@@ -451,16 +450,20 @@ function F.func(input, env)
                 best_candidate_saved = true
             end
         end
+        
         yield(fmt_cand)
-    end
 
-    if not single_char_injected and #single_chars > 0 then
-        if not best_candidate_saved then
-            env.memory[curr_input] = { text = single_chars[1].text, preedit = single_chars[1].text }
-            best_candidate_saved = true
+        -- [策略2]：如果是用户词(user_table/fixed)，且还没输出单字母，则“紧随”其后输出
+        -- 场景：有高频词时，输出 AA, A, a, AB...
+        if not single_char_injected and is_ascii and #single_chars > 0 and is_tbl then
+             if not best_candidate_saved then
+                env.memory[curr_input] = { text = single_chars[1].text, preedit = single_chars[1].text }
+                best_candidate_saved = true
+            end
+            for _, c in ipairs(single_chars) do yield(c) end
+            single_char_injected = true
+            has_valid_candidate = true 
         end
-        for _, c in ipairs(single_chars) do yield(c) end
-        has_valid_candidate = true
     end
 
     -- [Phase 3] 构造补全
