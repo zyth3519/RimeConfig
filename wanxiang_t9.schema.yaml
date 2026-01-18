@@ -365,13 +365,13 @@ speller:
   visual_delimiter: " "  # super_preedit.lua配置：是否让分隔符号跟着一起转换，例如nǐ'hǎo 在实际使用中表现出视觉拥挤，我们可以让delimiter平时是'转换为拼音的时候使用空格nǐ hǎo，更符合实际。
   tone_isolate: true     # super_preedit.lua配置：是否将数字声调从转换后拼音中隔离出来（true=隔离， false 直接参与转换）例如：nǐ3
   algebra:
-    - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜüńňǹḿm̀/aaaaooooeeeeiiiiuuuuvvvvvnnnmmm/
     - xform/^(.*);.*$/$1/
+    - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜüńňǹḿm̀/aaaaooooeeeeiiiiuuuuvvvvvnnnmmm/
     - derive/^ng$/eng/
     - xform/^n$/en/
     - xform/^m$/me/
-    - abbrev/^([a-z]).+$/$1/
-    - abbrev/^([zcs]h).+$/$1/
+    - abbrev/^([a-z]).+$/\U$1/
+    - abbrev/^([zcs]h).+$/\U$1/
     - derive/^([nl])ve$/$1ue/
     - derive/^([jqxy])u/$1v/
     - derive/un$/uen/
@@ -382,20 +382,14 @@ speller:
     - derive/ong$/on/
     - derive/ao$/oa/
     - derive/([iu])a(o|ng?)$/a$1$2/
-    - derive/[abc]/2/
-    - derive/[def]/3/
-    - derive/[hgi]/4/
-    - derive/[jkl]/5/
-    - derive/[omn]/6/
-    - derive/[pqrs]/7/
-    - derive/[tuv]/8/
-    - derive/[wxyz]/9/
+    - xform/^(.*)$/\L$1/
+    - xlit/abcdefghijklmnopqrstuvwxyz/22233344455566677778889999/
 
 grammar:
   language: wanxiang-lts-zh-hans
-  collocation_max_length: 6
-  collocation_min_length: 3
+  collocation_max_length: 7
+  collocation_min_length: 2
   collocation_penalty: -10
   non_collocation_penalty: -20
-  weak_collocation_penalty: -45
+  weak_collocation_penalty: -35
   rear_penalty: -12
