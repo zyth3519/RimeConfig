@@ -40,8 +40,8 @@ switches:
     states: [ 提示关, 提示开 ]
     reset: 1
   - name: charset_filter               #字符集过滤，默认开启8105通规显示，即小字集，可通过开关实时开启全字集，快捷键配套ctrl+g,归属：super_filter.lua
-    states: [ 小字集, 大字集 ]
-    reset: 1
+    states: [ 大字集, 小字集 ]
+    reset: 0
   - name: char_priority                #多体现在编码重合但候选有单字或者多字的情况`引导的辅码查词时是否单字优先，全拼常见，类似于特定编码情况下、反查状态下的调序能力。归属：super_lookup.lua
     states: [词组先, 单字先]
   - options: [ mixed, zh_only, en_only ]
@@ -179,15 +179,47 @@ super_replacer:
           - lua/data/TWVariants.txt
           - lua/data/TWVariantsRevPhrases.txt
 
+# 字符集过滤lua
+# a,通用规范汉字表
+# b,GB2312,
+# g,GBK,
+# T,Big5,(台港澳常用)
+# j,简体,OpenCC (t2s)
+# f,通用繁体,OpenCC (s2t)
+# h,香港繁体, OpenCC (s2hk)
+# t,台湾繁体, OpenCC (s2tw)
+# u,基本区,U+4E00 - U+9FFF
+# A-I,扩展 A-I 区,U+3400 及各扩展区 (支持到 Ext-I)
+# c,兼容区汉字
+# 你可以通过黑白名单微调你自己每个开关下面的字符集过滤清单，主数据库位于lua/charset.reverse.bin不可编辑
+# 你可以按上面提到的规则代号在base处填写上基础集，还可以在每一个开关的开白名单设置微调数据，就像默认添加的字符集过滤在8105基础上新增了一些
+# 你可以定义多个开关，多个开启状态的开关求并集，比如charset_filter开着，s2hk也开着，那么就会显示这两个集合的所有汉字
+# 优雅的地方在于s2hk开着，charset_filter关着 我们照样能使用 港繁能用到的所有字，是真正的本体，无关字会被过滤，而当都开着则是享受简体转换成繁体的后的结果
+# 这个设计真正的兼容了简繁转换与字符集过滤的矛盾，还能满足用户多种自定义需求，你可以在开关增加类别，并在charset下面新增option类去选择按照字区去过滤，等多种组合方式
+charset:
+  - option: charset_filter
+    base: a  #可以填入多个类别如aj
+    addlist:
+      - "诶濛硷氽尛躝〇冇吔咗囧屌鲶芶咲畑垅𰻝𰻞"
+    blacklist: []
+  - option: s2t
+    base: f
+    addlist: []
+    blacklist: []
+  - option: s2hk
+    base: h
+    addlist: []
+    blacklist: []
+  - option: s2tw
+    base: t
+    addlist: []
+    blacklist: []
+
 # Tips 配置项
 tips:
   # 禁用的 tips 类型，初始化 tips 数据库的时候会直接忽略相关规则，修改部署后生效
   # 可选项为：偏旁，符号，化学式，时间，符号，组字，翻译，表情，货币，车牌
   disabled_types: []
-
-#在8105基础上你可以通过黑白名单微调你自己的字符集过滤清单，主数据库位于lua/charset.bin不可编辑
-charsetlist: []
-charsetblacklist: []
 
 # 给 kp_number_processor 用的小键盘模式，能自动读取recognizer下面正则与之功能对齐
 kp_number_mode: auto
