@@ -18,7 +18,7 @@
 --   - ctx:get_option("en_only") == true → 仅英文：只保留英文候选
 --   - ctx:get_option("zh_only") == true → 仅中文：丢弃英文候选
 --   - 两者都 false → 混合模式：中英都输出
--- 功能E 字符集过滤，默认8105+𰻝𰻝，可以在方案中定义黑白名单来实现用户自己的范围微调charsetlist: []和charsetblacklist: [𰻝, 𰻞]
+-- 功能E 字符集过滤，默认8105+𰻝𰻝，可以在方案中定义黑白名单来实现用户自己的范围微调addlist: []和blacklist: [𰻝, 𰻞]
 -- 功能F 由于在混输场景中输入comment commit等等之类的英文时候，由于直接辅助码的派生能力，会将三个好不想干的单字组合在一起，这会造成不好的体验
 --      因此在首选已经是英文的时候，且type=completion且大于等于4个字符，这个时候后面如果有type=sentence的派生词则直接干掉，这个还要依赖，表翻译器
 --      权重设置与主翻译器不可相差太大
@@ -26,9 +26,12 @@
 local wanxiang = require("wanxiang")
 local M = {}
 
+-- 性能优化：本地化字符串函数
 local byte, find, gsub, upper, sub = string.byte, string.find, string.gsub, string.upper, string.sub
+local utf8_codes = utf8.codes -- 本地化 utf8 迭代器
 
---  工具 
+-- ================= 工具函数 =================
+
 local function fast_type(c)
     local t = c.type
     if t then return t end
@@ -46,16 +49,10 @@ local function has_english_token_fast(s)
     for i = 1, len do
         local b = byte(s, i)
         if b < 0x80 then
-            -- A-Z
-            if b >= 0x41 and b <= 0x5A then
+            -- A-Z (0x41-0x5A) or a-z (0x61-0x7A)
+            if (b >= 0x41 and b <= 0x5A) or (b >= 0x61 and b <= 0x7A) then
                 return true
             end
-            -- a-z
-            if b >= 0x61 and b <= 0x7A then
-                return true
-            end
-        else
-            -- b >= 0x80: UTF-8 非 ASCII 字节，直接跳过
         end
     end
     return false
@@ -68,27 +65,28 @@ local function is_english_candidate(cand)
     if not has_english_token_fast(txt) then
         return false
     end
-    if string.find(txt, "[\128-\255]") then
+    -- 使用局部变量 find，而非 string.find
+    if find(txt, "[\128-\255]") then
         return false
     end
     return true
 end
 
---  文本格式化
+-- ================= 文本格式化 =================
+
 local escape_map = {
     ["\\n"] = "\n",            -- 换行
     ["\\r"] = "\r",            -- 回车
     ["\\t"] = "\t",            -- 制表符
     ["\\s"] = " ",             -- 空格
-    ["\\z"] = "\226\128\139",  -- 零宽空格 (隐形阻断符)
+    ["\\z"] = "\226\128\139",  -- 零宽空格
 }
 
 local utf8_char_pattern = "[%z\1-\127\194-\244][\128-\191]*"
 
 local function apply_escape_fast(text)
-    -- 快速预检
-    if not text or (not find(text, "\\", 1, true) and not find(text, "{", 1, true)) then 
-        return text, false 
+    if not text or (not find(text, "\\", 1, true) and not find(text, "{", 1, true)) then
+        return text, false
     end
 
     local new_text = text
@@ -112,6 +110,7 @@ local function apply_escape_fast(text)
     end
     return new_text, new_text ~= text
 end
+
 local function format_and_autocap(cand)
     local text = cand.text
     if not text or text == "" then return cand end
@@ -121,13 +120,13 @@ local function format_and_autocap(cand)
     nc.preedit = cand.preedit
     return nc
 end
+
 local function clone_candidate(c)
     local nc = Candidate(c.type, c.start, c._end, c.text, c.comment)
     nc.preedit = c.preedit
     return nc
 end
-
---  包裹映射 
+--  包裹映射
 local default_wrap_map = {
     -- 单字母：常用成对括号/引号（每项恰好两个字符）
     a = "[]",        -- 方括号
@@ -157,14 +156,14 @@ local default_wrap_map = {
     y = "⟪⟫",       -- 双角括号
     z = "{}",        -- 花括号
 
-    --  扩展括号族 / 引号 
+    --  扩展括号族 / 引号
     dy = "''",       -- 英文单引号
     sy = "\"\"",     -- 英文双引号
     zs = "“”",       -- 中文弯双引号
     zd = "‘’",       -- 中文弯单引号
     fy = "``",       -- 反引号
 
-    --  双字母括号族 
+    --  双字母括号族
     aa = "〚〛",      -- 双中括号
     bb = "〘〙",      -- 双中括号（小）
     cc = "〚〛",      -- 双中括号（重复，可用于 Lua 匹配）
@@ -191,7 +190,7 @@ local default_wrap_map = {
     yy = "⌠⌡",      -- 数学 / 程序符号
     zz = "⟅⟆",      -- 数学 / 装饰括号
 
-    --  Markdown / 标记 
+    --  Markdown / 标记
     md = "**|**",      -- Markdown 粗体
     jc = "**|**",      -- 加粗
     it = "__|__",      -- 斜体
@@ -212,7 +211,7 @@ local default_wrap_map = {
     br = "|  ",        -- 换行
     cm = "<!--|-->",   -- 注释
 
-    --  运算与标记符 
+    --  运算与标记符
     pl = "++",
     mi = "--",
     sl = "//",
@@ -245,15 +244,7 @@ local function load_mapping_from_config(config)
     return symbol_map
 end
 
-local function utf8_chars(s)
-    local chars = {}
-    for ch in s:gmatch("[%z\1-\127\194-\244][\128-\191]*") do
-        table.insert(chars, ch)
-    end
-    return chars
-end
-
--- wrap_map 预编译为左右两部分
+-- 优化：删除 utf8_chars 函数，直接在预编译中使用 utf8_codes
 local function precompile_wrap_parts(wrap_map, delimiter)
     delimiter = delimiter or "|"
     local parts = {}
@@ -261,177 +252,224 @@ local function precompile_wrap_parts(wrap_map, delimiter)
         if not wrap_str or wrap_str == "" then
             parts[k] = { l = "", r = "" }
         else
-            local pos = string.find(wrap_str, delimiter, 1, true)
+            local pos = find(wrap_str, delimiter, 1, true)
             if pos then
-                local left = string.sub(wrap_str, 1, pos - 1) or ""
-                local right = string.sub(wrap_str, pos + 1) or ""
+                local left = sub(wrap_str, 1, pos - 1) or ""
+                local right = sub(wrap_str, pos + 1) or ""
                 parts[k] = { l = left, r = right }
             else
-                local chars = utf8_chars(wrap_str)
-                if #chars == 0 then
+                -- 优化：使用 utf8_codes 避免创建 table
+                local first, last
+                local count = 0
+                for _, cp in utf8_codes(wrap_str) do
+                    local char = utf8.char(cp)
+                    if count == 0 then first = char end
+                    last = char
+                    count = count + 1
+                end
+               
+                if count == 0 then
                     parts[k] = { l = "", r = "" }
-                elseif #chars == 1 then
-                    parts[k] = { l = chars[1], r = "" }
-                elseif #chars == 2 then
-                    parts[k] = { l = chars[1], r = chars[2] }
+                elseif count == 1 then
+                    parts[k] = { l = first, r = "" }
+                elseif count == 2 then
+                    parts[k] = { l = first, r = last } -- 修正：双字时左右各一
                 else
-                    parts[k] = { l = chars[1], r = chars[#chars] }
+                    parts[k] = { l = first, r = last } -- 多字时首尾各一
                 end
             end
         end
     end
     return parts
 end
---  字符集过滤工具 
--- 单个码点是否在 charset 里（带缓存，考虑白名单 + 黑名单）
-local function codepoint_in_charset(env, codepoint)
-    if not env then
-        return true
-    end
 
-    local memo = env.charset_memo
-    if memo and memo[codepoint] ~= nil then
-        return memo[codepoint]
-    end
+-- ================= 字符集过滤核心 =================
 
-    -- 黑名单：优先级最高，命中就直接 false
-    if env.charset_block and env.charset_block[codepoint] then
-        if memo then memo[codepoint] = false end
-        return false
-    end
-
-    -- 白名单：命中就直接 true
-    if env.charset_extra and env.charset_extra[codepoint] then
-        if memo then memo[codepoint] = true end
-        return true
-    end
-
-    -- 没有主表（没配 wanxiang_charset），那就只靠黑白名单
-    if not env.charset then
-        local ok = true   -- 不在黑名单就算通过；白名单已经在上面处理过了
-        if memo then memo[codepoint] = ok end
-        return ok
-    end
-
-    -- 正常情况：用表滤镜查一遍
-    local ch = utf8.char(codepoint)
-    local ok = env.charset:lookup(ch) ~= ""
-
-    if memo then memo[codepoint] = ok end
-    return ok
-end
-
---[[ 整个 text 是否通过“字符集过滤”
--- 规则：只检查「汉字」，非汉字（英文/符号）直接视为通过；
---      只要出现一个不在 charset 的汉字，就整条候选丢弃。
-local function in_charset(env, text)
-    if not env or not env.charset or not text or text == "" then
-        return true
-    end
-    for _, cp in utf8.codes(text) do
-        local ch = utf8.char(cp)
-        if wanxiang.IsChineseCharacter(ch) then
-            if not codepoint_in_charset(env, cp) then
-                return false
-            end
+-- 检查交集
+local function check_intersection(db_attr, config_base_set)
+    if not db_attr or db_attr == "" then return false end
+    for i = 1, #db_attr do
+        -- 优化：使用局部变量 sub
+        local c = sub(db_attr, i, i)
+        if config_base_set[c] then
+            return true
         end
     end
-    return true
-end]]--
--- 整个 text 是否通过“字符集过滤”
--- 现在只对【单个汉字】做过滤，多字词/非汉字候选都直接通过
-local function in_charset(env, text)
-    if not env or not env.charset or not text or text == "" then
-        return true
-    end
-    -- 统计码点数，只要不是恰好 1 个码点，就不做过滤
-    local cp, count = nil, 0
-    for _, c in utf8.codes(text) do
-        cp = c
-        count = count + 1
-        if count > 1 then
-            return true    -- 多字词：直接通过
-        end
-    end
-    if count ~= 1 or not cp then
-        return true
-    end
-    local ch = utf8.char(cp)
-    if not wanxiang.IsChineseCharacter(ch) then
-        return true       -- 单个但不是汉字：直接通过
-    end
-    -- 单个汉字：按 charset + 黑白名单过滤
-    return codepoint_in_charset(env, cp)
+    return false
 end
--- 当前 composition 的最后一个 seg 是否属于「反查/造词/标点」之类
-local function is_reverse_lookup_segment(env)
-    if not env or not env.engine or not env.engine.context then
-        return false
-    end
-    local comp = env.engine.context.composition
-    if not comp then
-        return false
-    end
-    local seg = comp:back()
-    if not seg then
-        return false
-    end
-    return seg:has_tag("wanxiang_reverse")
-        or seg:has_tag("add_user_dict")
-        or seg:has_tag("punct")
-end
---  字符集过滤初始化 
--- 从 schema 里读取 charsetlist / charsetblacklist
+
+-- 初始化字符集过滤配置
 local function init_charset_filter(env, cfg)
-    -- 主字符集（表滤镜）
+    -- 1. 加载数据库文件
     local dist = (rime_api.get_distribution_code_name() or ""):lower()
-
     local charsetFile
     if dist == "weasel" then
-        -- 小狼毫：直接用相对路径，避免 Win 上绝对路径 + ReverseDb 的兼容问题
-        charsetFile = "lua/charset.bin"
+        charsetFile = "lua/data/charset.reverse.bin"
     else
-        -- 其他前端：正常用 fallback 找到 user/shared 目录里的绝对路径
-        charsetFile = wanxiang.get_filename_with_fallback("lua/charset.bin") or "lua/charset.bin"
+        charsetFile = wanxiang.get_filename_with_fallback("lua/data/charset.reverse.bin") or "lua/data/charset.reverse.bin"
     end
-
-    env.charset       = ReverseDb(charsetFile)
-    env.charset_memo  = {}
-    env.charset_extra = {}  -- 白名单
-    env.charset_block = {}  -- 黑名单
-
-    if not cfg then
-        return
+   
+    env.charset_db = nil
+    if ReverseDb then
+        local ok, db = pcall(function() return ReverseDb(charsetFile) end)
+        if ok and db then env.charset_db = db end
     end
+    env.db_memo = {}
+    env.filters = {}
 
-    -- 通用读取函数：把一个 list 里所有码点放入 target 表
-    local function load_charset_list(key, target_table)
-        local ok_list, list = pcall(function()
-            return cfg:get_list(key)
-        end)
-        if not ok_list or not list or list.size <= 0 then
-            return
-        end
+    if not cfg then return end
+   
+    local root_path = "charset"
+    local list = cfg:get_list(root_path)
+    if not list then return end
 
-        for i = 0, list.size - 1 do
-            local item = list:get_value_at(i)
-            if item then
-                local v = item:get_string()
-                if v and #v > 0 then
-                    for _, cp in utf8.codes(v) do
-                        target_table[cp] = true
+    local list_size = list.size
+    for i = 0, list_size - 1 do
+        local entry_path = root_path .. "/@" .. i
+       
+        -- 解析开关
+        local triggers = {}
+        local opts_keys = {"option", "options"}
+        for _, key in ipairs(opts_keys) do
+            local key_path = entry_path .. "/" .. key
+            local sub_list = cfg:get_list(key_path)
+            if sub_list then
+                for k = 0, sub_list.size - 1 do
+                    local val = cfg:get_string(key_path .. "/@" .. k)
+                    if val and val ~= "" then table.insert(triggers, val) end
+                end
+            else
+                if cfg:get_bool(key_path) == true then
+                    table.insert(triggers, "true")
+                else
+                    local val = cfg:get_string(key_path)
+                    if val and val ~= "" and val ~= "true" then
+                        table.insert(triggers, val)
                     end
                 end
             end
         end
+
+        if #triggers > 0 then
+            -- 物理隔离变量
+            local rule_base_set = {}
+            local rule_add = {}
+            local rule_ban = {}
+
+            -- 解析 Base
+            local base_str = cfg:get_string(entry_path .. "/base")
+            if base_str and #base_str > 0 then
+                for j = 1, #base_str do
+                    rule_base_set[sub(base_str, j, j)] = true
+                end
+            end
+
+            -- 解析 Addlist (内联处理，避免闭包开销)
+            local function load_list_to_map(list_name, map)
+                local lp = entry_path .. "/" .. list_name
+                local sl = cfg:get_list(lp)
+                if sl then
+                    for k = 0, sl.size - 1 do
+                        local val = cfg:get_string(lp .. "/@" .. k)
+                        if val and val ~= "" then
+                            for _, cp in utf8_codes(val) do map[cp] = true end
+                        end
+                    end
+                end
+            end
+
+            load_list_to_map("addlist", rule_add)
+            load_list_to_map("blacklist", rule_ban)
+
+            table.insert(env.filters, {
+                options  = triggers,
+                base_set = rule_base_set,
+                add      = rule_add,
+                ban      = rule_ban
+            })
+        end
     end
-    -- charsetlist: 白名单
-    load_charset_list("charsetlist", env.charset_extra)
-    -- charsetblacklist: 黑名单
-    load_charset_list("charsetblacklist", env.charset_block)
 end
 
---  生命周期 
+-- 核心判定逻辑
+local function codepoint_in_charset(env, ctx, codepoint, text)
+    if not env.charset_db then return true end
+
+    local filters = env.filters
+    if not filters or #filters == 0 then return true end
+
+    local active_options_count = 0
+
+    for _, rule in ipairs(filters) do
+        -- 检查开关
+        local is_rule_active = false
+        for _, opt_name in ipairs(rule.options) do
+            if opt_name == "true" or ctx:get_option(opt_name) then
+                is_rule_active = true
+                break
+            end
+        end
+
+        if is_rule_active then
+            active_options_count = active_options_count + 1
+           
+            -- 1. 黑名单 (最高优先级)
+            if rule.ban[codepoint] then
+            -- 2. 白名单 (次高优先级)
+            elseif rule.add[codepoint] then
+                return true -- 显式白名单，直接放行 (Short-circuit)
+           
+            -- 3. Base 属性检查
+            else
+                local attr = env.db_memo[text]
+                if attr == nil then
+                    attr = env.charset_db:lookup(text)
+                    env.db_memo[text] = attr
+                end
+               
+                if check_intersection(attr, rule.base_set) then
+                    return true -- 属性符合，直接放行 (Short-circuit)
+                end
+            end
+        end
+    end
+
+    -- 如果没有开启任何规则 -> 显示所有
+    if active_options_count == 0 then
+        return true
+    end
+
+    -- 开启了规则，但没有任何一个规则返回 true -> 隐藏
+    return false
+end
+
+local function in_charset(env, ctx, text)
+    if not text or text == "" then return true end
+   
+    local cp_count = 0
+    local target_cp = nil
+    for _, cp in utf8_codes(text) do
+        cp_count = cp_count + 1
+        if cp_count > 1 then return true end
+        target_cp = cp
+    end
+   
+    if cp_count == 0 or not target_cp then return true end
+    local char = utf8.char(target_cp)
+
+    if not wanxiang.IsChineseCharacter(char) then return true end
+
+    return codepoint_in_charset(env, ctx, target_cp, char)
+end
+local function is_reverse_lookup_segment(env)
+    if not env or not env.engine or not env.engine.context then return false end
+    local comp = env.engine.context.composition
+    if not comp or comp:empty() then return false end
+    local seg = comp:back()
+    return seg and (seg:has_tag("wanxiang_reverse") or seg:has_tag("add_user_dict") or seg:has_tag("punct"))
+end
+
+--  生命周期
 function M.init(env)
     local cfg = env.engine and env.engine.schema and env.engine.schema.config or nil
     env.wrap_map   = cfg and load_mapping_from_config(cfg) or default_wrap_map
@@ -473,13 +511,13 @@ function M.init(env)
         local ok_win, win = pcall(function() return cfg:get_string("paired_symbols/sort_window") end)
         if ok_win and tonumber(win) then env.settings.sort_window = tonumber(win) end
     end
-        -- 字符集过滤 
+        -- 字符集过滤
     init_charset_filter(env, cfg)
 end
 
 function M.fini(env)
 end
---  统一产出通道 
+--  统一产出通道
 -- ctxs:
 --   charset          : 字符集过滤
 --   suppress_set     : { [text] = true } 阻止镜像文本
@@ -493,8 +531,8 @@ local function emit_with_pipeline(cand, ctxs)
     local env = ctxs.env
 
     -- ① 字符集过滤：只有在 charset_strict = true 时才启用
-    if ctxs.charset_strict and cand.text and cand.text ~= "" then
-        if not in_charset(env, cand.text) then
+    if ctxs.charset_active and cand.text and cand.text ~= "" then
+        if not in_charset(env, ctxs.ctx, cand.text) then
             return
         end
     end
@@ -531,22 +569,19 @@ local function emit_with_pipeline(cand, ctxs)
     cand = ctxs.unify_tail_span(cand)
     yield(cand)
 end
---  主流程 
+--  主流程
 function M.func(input, env)
     local ctx  = env and env.engine and env.engine.context or nil
     local code = ctx and (ctx.input or "") or ""
     local comp = ctx and ctx.composition or nil
-    local option_extended = false
-    if ctx then
-        option_extended = ctx:get_option("charset_filter") or false
-    end
 
-    -- 当前是否在反查/自造词/标点段
+
     local in_reverse_seg = is_reverse_lookup_segment(env)
 
     -- 本次是否启用 charset 过滤
-    local charset_strict = (env.charset ~= nil)
-                           and (not option_extended)
+    -- 逻辑改为：只要有规则，且不在反查模式下，就激活检查。
+    -- 具体到底显示还是隐藏，由 codepoint_in_charset 内部根据开关状态决定。
+    local charset_active = (env.filters and #env.filters > 0)
                            and (not in_reverse_seg)
 
     -- 状态清理
@@ -559,7 +594,7 @@ function M.func(input, env)
 
     local symbol = env.symbol
     local code_has_symbol = symbol and #symbol == 1 and (find(code, symbol, 1, true) ~= nil)
-    
+   
     -- segmentation：用于保持原有的包裹/分段逻辑
     local last_seg, last_text, fully_consumed = nil, nil, false
     if code_has_symbol then
@@ -624,6 +659,7 @@ function M.func(input, env)
 
     local emit_ctx = {
         env             = env,
+        ctx             = ctx,
         suppress_set    = nil,
         suppress_mirror = env.suppress_mirror,
         code_ctx        = code_ctx,
@@ -631,7 +667,7 @@ function M.func(input, env)
         en_only         = en_only,
         zh_only         = zh_only,
         is_english      = is_english_candidate,
-        charset_strict  = charset_strict,
+        charset_active  = charset_active,
         drop_sentence_after_completion = false,
     }
 
@@ -659,7 +695,7 @@ function M.func(input, env)
 
         local start_pos    = (last_seg and last_seg.start) or 0
         local end_pos_full = (last_seg and last_seg._end)  or #code
-        local base_text    = left 
+        local base_text    = left
 
         local key = (right or ""):lower()
         if key ~= "" and env.wrap_map[key] then
@@ -690,7 +726,7 @@ function M.func(input, env)
         return true
     end
 
-    --  非分组路径 
+    --  非分组路径
     if not do_group then
         local idx = 0
         for cand in input:iter() do
@@ -706,7 +742,7 @@ function M.func(input, env)
                         emit_ctx.drop_sentence_after_completion = true
                     end
                 end
-                
+               
                 if env.locked and (not wrap_key) and env.cache then
                     local start_pos = (last_seg and last_seg.start) or 0
                     local end_pos   = (last_seg and last_seg._end) or #code

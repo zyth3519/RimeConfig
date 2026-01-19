@@ -28,6 +28,9 @@ switches:
     states: [表情关, 表情开]
   - name: chinese_english               #候选进入翻译模式滤镜，会显示在相应的候选后面，万象侧重于tips提示，避免候选被占用，归属opencc 翻译滤镜
     states: [ 翻译关, 翻译开 ]
+  - name: charset_filter               #字符集过滤，默认开启8105通规显示，即小字集，可通过开关实时开启全字集，快捷键配套ctrl+g,归属：super_filter.lua
+    states: [ 大字集, 小字集 ]
+    reset: 0
   - options: [ raw_input, tone_display, full_pinyin ]   #开启后在输入编码的位置实时转换为带声调全拼或者不带声调全拼，不开启则采用系统配置原始编码，影响的是preedit_format,归属：super_preedit.lua
     states: [ 原编码, 有声调, 无声调 ]
 #    reset: 2     #对于开关组从0开始数，第几个就reset几可设为默认
@@ -78,7 +81,7 @@ engine:
     - table_translator@wanxiang_mixedcode  #中英等混合词汇表导入
     - table_translator@wanxiang_reverse    #挂接部件组字和笔画反查
   filters:
-    - reverse_lookup_filter@radical_reverse_lookup  #部件拆字滤镜，放在super_comment前面，进一步被超级注释处理以获得拼音编码的提示
+    - reverse_lookup_filter@reverse_lookup  #部件拆字滤镜，放在super_comment前面，进一步被超级注释处理以获得拼音编码的提示
     - lua_filter@*super_lookup                      #字词输入中反查辅助筛选
     - lua_filter@*super_filter                      #功能太多详见Lua文件
     - lua_filter@*super_replacer                    #用来替代OpenCC的处理器
@@ -88,6 +91,41 @@ engine:
 t9:
   isDisplayOriginalPreedit: false
 
+# 字符集过滤lua
+# a,通用规范汉字表
+# b,GB2312,
+# g,GBK,
+# T,Big5,(台港澳常用)
+# j,简体,OpenCC (t2s)
+# f,通用繁体,OpenCC (s2t)
+# h,香港繁体, OpenCC (s2hk)
+# t,台湾繁体, OpenCC (s2tw)
+# u,基本区,U+4E00 - U+9FFF
+# A-I,扩展 A-I 区,U+3400 及各扩展区 (支持到 Ext-I)
+# c,兼容区汉字
+# 你可以通过黑白名单微调你自己每个开关下面的字符集过滤清单，主数据库位于lua/charset.reverse.bin不可编辑
+# 你可以按上面提到的规则代号在base处填写上基础集，还可以在每一个开关的开白名单设置微调数据，就像默认添加的字符集过滤在8105基础上新增了一些
+# 你可以定义多个开关，多个开启状态的开关求并集，比如charset_filter开着，s2hk也开着，那么就会显示这两个集合的所有汉字
+# 优雅的地方在于s2hk开着，charset_filter关着 我们照样能使用 港繁能用到的所有字，是真正的本体，无关字会被过滤，而当都开着则是享受简体转换成繁体的后的结果
+# 这个设计真正的兼容了简繁转换与字符集过滤的矛盾，还能满足用户多种自定义需求，你可以在开关增加类别，并在charset下面新增option类去选择按照字区去过滤，等多种组合方式
+charset:
+  - option: charset_filter
+    base: a  #可以填入多个类别如aj
+    addlist:
+      - "诶濛硷氽尛躝〇冇吔咗囧屌鲶芶咲畑垅𰻝𰻞"
+    blacklist: []
+  - option: s2t
+    base: f
+    addlist: []
+    blacklist: []
+  - option: s2hk
+    base: h
+    addlist: []
+    blacklist: []
+  - option: s2tw
+    base: t
+    addlist: []
+    blacklist: []
 
 # Tips 配置项
 tips:
@@ -289,7 +327,7 @@ wanxiang_reverse:
   tips: "〔反查：部件|笔画〕"
 
 # 部件拆字滤镜
-radical_reverse_lookup:
+reverse_lookup:
   tags: [ wanxiang_reverse ]  #起作用tag范围
   overwrite_comment: true   #是否覆盖其他提示
   dictionary: wanxiang      #带音调的词典
@@ -370,8 +408,9 @@ speller:
     - derive/^ng$/eng/
     - xform/^n$/en/
     - xform/^m$/me/
-    - abbrev/^([a-z]).+$/\U$1/
-    - abbrev/^([zcs]h).+$/\U$1/
+    - derive/^(.*)$/\U$1/
+    - abbrev/^([A-Z]).+$/$1/
+    - abbrev/^([zcs]h).+$/$1/
     - derive/^([nl])ve$/$1ue/
     - derive/^([jqxy])u/$1v/
     - derive/un$/uen/
@@ -382,8 +421,15 @@ speller:
     - derive/ong$/on/
     - derive/ao$/oa/
     - derive/([iu])a(o|ng?)$/a$1$2/
-    - xform/^(.*)$/\L$1/
-    - xlit/abcdefghijklmnopqrstuvwxyz/22233344455566677778889999/
+    - derive/[ABC]/2/
+    - derive/[DEF]/3/
+    - derive/[GHI]/4/
+    - derive/[JKL]/5/
+    - derive/[MNO]/6/
+    - derive/[PQRS]/7/
+    - derive/[TUV]/8/
+    - derive/[WXYZ]/9/
+
 
 grammar:
   language: wanxiang-lts-zh-hans
