@@ -14,12 +14,8 @@
 -- 镜像：
 --   - schema: paired_symbols/mirror (bool，默认 true)
 --   - 包裹后可抑制"包裹前文本/包裹后文本"再次出现在后续候选里
--- 功能 D：三态语言模式（通过 options 控制，仅在输出层过滤，不改变内部逻辑）
---   - ctx:get_option("en_only") == true → 仅英文：只保留英文候选
---   - ctx:get_option("zh_only") == true → 仅中文：丢弃英文候选
---   - 两者都 false → 混合模式：中英都输出
--- 功能E 字符集过滤，默认8105+𰻝𰻝，可以在方案中定义黑白名单来实现用户自己的范围微调addlist: []和blacklist: [𰻝, 𰻞]
--- 功能F 由于在混输场景中输入comment commit等等之类的英文时候，由于直接辅助码的派生能力，会将三个好不想干的单字组合在一起，这会造成不好的体验
+-- 功能D 字符集过滤，默认8105+𰻝𰻝，可以在方案中定义黑白名单来实现用户自己的范围微调addlist: []和blacklist: [𰻝, 𰻞]
+-- 功能E 由于在混输场景中输入comment commit等等之类的英文时候，由于直接辅助码的派生能力，会将三个好不想干的单字组合在一起，这会造成不好的体验
 --      因此在首选已经是英文的时候，且type=completion且大于等于4个字符，这个时候后面如果有type=sentence的派生词则直接干掉，这个还要依赖，表翻译器
 --      权重设置与主翻译器不可相差太大
 
@@ -57,7 +53,6 @@ local function has_english_token_fast(s)
     end
     return false
 end
-
 -- 纯ASCII判定
 local function is_english_candidate(cand)
     local txt = cand and cand.text
@@ -71,8 +66,6 @@ local function is_english_candidate(cand)
     end
     return true
 end
-
--- ================= 文本格式化 =================
 
 local escape_map = {
     ["\\n"] = "\n",            -- 换行
@@ -283,8 +276,6 @@ local function precompile_wrap_parts(wrap_map, delimiter)
     return parts
 end
 
--- ================= 字符集过滤核心 =================
-
 -- 检查交集
 local function check_intersection(db_attr, config_base_set)
     if not db_attr or db_attr == "" then return false end
@@ -461,13 +452,6 @@ local function in_charset(env, ctx, text)
 
     return codepoint_in_charset(env, ctx, target_cp, char)
 end
-local function is_reverse_lookup_segment(env)
-    if not env or not env.engine or not env.engine.context then return false end
-    local comp = env.engine.context.composition
-    if not comp or comp:empty() then return false end
-    local seg = comp:back()
-    return seg and (seg:has_tag("wanxiang_reverse") or seg:has_tag("add_user_dict") or seg:has_tag("punct"))
-end
 
 --  生命周期
 function M.init(env)
@@ -513,19 +497,24 @@ function M.init(env)
     end
         -- 字符集过滤
     init_charset_filter(env, cfg)
+    local schema_id = env.engine.schema.schema_id
+    env.enable_taichi_filter = (schema_id == "wanxiang" or schema_id == "wanxiang_pro")
 end
 
 function M.fini(env)
+    env.charset_db = nil
+    env.db_memo = nil
+    env.filters = nil
+    env.wrap_map = nil
+    env.wrap_parts = nil
 end
 --  统一产出通道
 -- ctxs:
 --   charset          : 字符集过滤
---   suppress_set     : { [text] = true } 阻止镜像文本
+--   suppress_set     : { [text] = true } 阻止镜像文本 
 --   suppress_mirror  : bool
 --   code_ctx         : 编码上下文
 --   unify_tail_span  : 尾部 span 对齐函数
---   en_only / zh_only: 三态语言模式
---   is_english       : 函数(cand) → bool
 local function emit_with_pipeline(cand, ctxs)
     if not cand then return end
     local env = ctxs.env
@@ -536,35 +525,28 @@ local function emit_with_pipeline(cand, ctxs)
             return
         end
     end
-
-    -- ② 三态语言模式
-    local is_en = ctxs.is_english and ctxs.is_english(cand) or false
-    if (not ctxs.en_only) and is_en then
-        if cand.comment and string.find(cand.comment, "\226\152\175") then
-            return -- 包含☯的英文句子直接丢弃，不输出
+    -- 如果是英文句子，且注释包含 ☯ (\226\152\175)，则丢弃
+    if ctxs.enable_taichi_filter then
+        -- 只有在 wanxiang 或 wanxiang_pro 方案下才执行此过滤
+        if cand.text and has_english_token_fast(cand.text) then
+            if cand.comment and find(cand.comment, "\226\152\175") then
+                return 
+            end
         end
     end
-    if ctxs.en_only and (not is_en) then
-        return
-    end
-
-    if ctxs.zh_only and is_en then
-        return
-    end
-
-    -- **③ 若需抑制句子候选：删掉所有 type 为 sentence 的候选（除了首候选本身不会被标记）**
+    -- ② 若需抑制句子候选：删掉所有 type 为 sentence 的候选（除了首候选本身不会被标记）**
     if ctxs.drop_sentence_after_completion then
         if fast_type(cand) == "sentence" then
             return
         end
     end
 
-    -- ④ 镜像抑制
+    -- ③ 镜像抑制
     if ctxs.suppress_mirror and ctxs.suppress_set and ctxs.suppress_set[cand.text] then
         return
     end
 
-    -- ⑤ 格式化 + 大写 + span 对齐
+    -- ④ 格式化 + 大写 + span 对齐
     cand = format_and_autocap(cand)
     cand = ctxs.unify_tail_span(cand)
     yield(cand)
@@ -575,15 +557,13 @@ function M.func(input, env)
     local code = ctx and (ctx.input or "") or ""
     local comp = ctx and ctx.composition or nil
 
+    local is_functional = false
+    if ctx and wanxiang and wanxiang.is_function_mode_active then
+        is_functional = wanxiang.is_function_mode_active(ctx)
+    end
 
-    local in_reverse_seg = is_reverse_lookup_segment(env)
-
-    -- 本次是否启用 charset 过滤
-    -- 逻辑改为：只要有规则，且不在反查模式下，就激活检查。
-    -- 具体到底显示还是隐藏，由 codepoint_in_charset 内部根据开关状态决定。
-    local charset_active = (env.filters and #env.filters > 0)
-                           and (not in_reverse_seg)
-
+    local charset_active = (env.filters and #env.filters > 0) 
+                           and (not is_functional)
     -- 状态清理
     if not code or code == "" then
         env.cache, env.locked = nil, false
@@ -642,12 +622,6 @@ function M.func(input, env)
         pure_code_lc  = pure_code_lc,
     }
 
-    local en_only, zh_only = false, false
-    if ctx then
-        en_only = ctx:get_option("en_only") or false
-        zh_only = ctx:get_option("zh_only") or false
-    end
-
     local function unify_tail_span(c)
         if fully_consumed and wrap_key and last_seg and c and c._end ~= last_seg._end then
             local nc = Candidate(c.type, c.start, last_seg._end, c.text, c.comment)
@@ -664,10 +638,9 @@ function M.func(input, env)
         suppress_mirror = env.suppress_mirror,
         code_ctx        = code_ctx,
         unify_tail_span = unify_tail_span,
-        en_only         = en_only,
-        zh_only         = zh_only,
-        is_english      = is_english_candidate,
         charset_active  = charset_active,
+        is_english      = is_english_candidate,
+        enable_taichi_filter = env.enable_taichi_filter,
         drop_sentence_after_completion = false,
     }
 

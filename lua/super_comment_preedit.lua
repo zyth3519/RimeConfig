@@ -563,11 +563,7 @@ function ZH.func(input, env)
                 final_comment = az_comment
             end
         end
-        if cand.type == "user_phrase" then  -- 用户字典
-            final_comment = final_comment .. "⋆"
-        elseif cand.type == "sentence" then  -- 造句
-            final_comment = final_comment .. "∞"
-        end
+
         -- 应用注释
         if final_comment ~= initial_comment then
             genuine_cand.comment = final_comment
