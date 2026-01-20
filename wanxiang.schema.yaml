@@ -44,8 +44,7 @@ switches:
     reset: 0
   - name: char_priority                #多体现在编码重合但候选有单字或者多字的情况`引导的辅码查词时是否单字优先，全拼常见，类似于特定编码情况下、反查状态下的调序能力。归属：super_lookup.lua
     states: [词组先, 单字先]
-  - options: [ mixed, zh_only, en_only ]
-    states: [ 混合输入, 仅中文, 仅英文 ]
+
 
 # 输入引擎
 engine:
@@ -496,6 +495,7 @@ wanxiang_english:
   #支持设置延时销毁加空格状态，单位秒,0不超时，大于0为超时时间，极大的保证了连续输入的体验。
   english_spacing: smart
   spacing_timeout: 5
+
 wanxiang_mixedcode:
   dictionary: wanxiang_mixedcode
   db_class: stabledb
@@ -613,7 +613,9 @@ key_binder:
     - { when: has_menu, accept: "Control+g", toggle: charset_filter }
     - { when: composing, accept: "Control+g", toggle: charset_filter }
 #通过快捷键Shift+space开启输入模式切换
-    - { when: always, accept: "Shift+space", toggle: zh_only }
+    #- { when: always, accept: Shift+space, select: wanxiang }  #直接跳转指定方案
+    #- { when: always, accept: Shift+space, select: wanxiang_pro }  #直接跳转指定方案
+    - { when: always, accept: Shift+space, select: .next }  #下一个方案
 # 使用 tab 在不同音节之间跳转
     - { when: has_menu, accept: "Tab", send: "Control+Right" }
     - { when: composing, accept: "Tab", send: "Control+Right" }
