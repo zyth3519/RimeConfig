@@ -301,6 +301,13 @@ end
 function F.func(input, env)
     local ctx = env.engine.context
     local curr_input = ctx.input
+    if not has_letters(curr_input) then
+        for cand in input:iter() do
+            yield(cand)
+        end
+        return 
+    end
+    -- ===
     local has_valid_candidate = false
     local best_candidate_saved = false
     local code_len = #curr_input
@@ -434,9 +441,11 @@ function F.func(input, env)
     end
 
     -- [Phase 3] 历史回溯构造 (Strictly fallback)
-    -- [恢复功能] 无候选时，尝试从历史构造
     if not has_valid_candidate then
-        if not env.block_derivation and has_letters(curr_input) and not find(curr_input, "^[/]") then
+        if find(curr_input, "^[/]") then 
+            return 
+        end
+        if not env.block_derivation and has_letters(curr_input) then
             local anchor = nil
             local diff = ""
             for i = #curr_input - 1, 1, -1 do
