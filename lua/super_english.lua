@@ -442,7 +442,8 @@ function F.func(input, env)
 
     -- [Phase 3] 历史回溯构造 (Strictly fallback)
     if not has_valid_candidate then
-        if find(curr_input, "^[/]") then 
+        if env.block_derivation then return end
+        if find(curr_input, "^[/]") then
             return 
         end
         if not env.block_derivation and has_letters(curr_input) then

@@ -76,9 +76,8 @@ engine:
     - table_translator@custom_phrase       #自定义短语 custom_phrase.txt，用于置顶自定义编码候选词
     - table_translator@chengyu             #简码成语词汇表导入
     - table_translator@wanxiang_mixedcode  #中英等混合词汇表导入
-    - table_translator@wanxiang_reverse    #挂接部件组字和笔画反查
+    - reverse_lookup_translator@wanxiang_reverse    #挂接部件组字和笔画反查
   filters:
-    - reverse_lookup_filter@reverse_lookup  #部件拆字滤镜，放在super_comment前面，进一步被超级注释处理以获得拼音编码的提示
     - lua_filter@*super_lookup                      #字词输入中反查辅助筛选
     - lua_filter@*super_filter                      #功能太多详见Lua文件
     - lua_filter@*super_replacer                    #用来替代OpenCC的处理器
@@ -318,16 +317,8 @@ super_replacer:
 wanxiang_reverse:
   tag: wanxiang_reverse
   dictionary: wanxiang_reverse
-  db_class: stabledb
-  enable_user_dict: false
-  prefix: "`"  # 反查前缀（反查时前缀会消失影响打英文所以设定为两个字母，或可改成一个非字母符号），与 recognizer/patterns/radical_lookup 匹配
-  tips: "〔反查：部件|笔画〕"
-
-# 部件拆字滤镜
-reverse_lookup:
-  tags: [ wanxiang_reverse ]  #起作用tag范围
-  overwrite_comment: true   #是否覆盖其他提示
-  dictionary: wanxiang      #带音调的词典
+  prefix: "`"  # 反查前缀（反查时前缀会消失），与 recognizer/patterns/wanxiang_reverse 匹配
+  tips: "〔反查：拆分|笔画〕"
 
 wanxiang_lookup: #设置归属于super_lookup.lua
   tags: [ abc ]  # 检索当前tag的候选
@@ -377,7 +368,7 @@ key_binder:
   # Lua 配置: shijian.lua 的引导符，涉及：日期、时间、节日、节气、生日、问候模板等功能
   shijian_keys: ["/", "o"]
   # Lua 配置: 超级tips上屏按键
-  tips_key: "period"   #修改时候去default找
+  tips_key: "comma"   #修改时候去default找
   # Lua 配置: 以词定字（上屏当前词句的第一个或最后一个字），和中括号翻页有冲突
   select_first_character: "bracketleft"  # 左中括号 [
   select_last_character: "bracketright"  # 右中括号 ]
@@ -407,25 +398,13 @@ speller:
     - xform/^m$/me/
     - derive/^(.*)$/\U$1/
     - abbrev/^([A-Z]).+$/$1/
-    - abbrev/^([zcs]h).+$/$1/
+    - abbrev/^([ZCS]H).+$/$1/
     - derive/^([nl])ve$/$1ue/
+    - derive/^([NL])VE$/$1UE/
     - derive/^([jqxy])u/$1v/
-    - derive/un$/uen/
-    - derive/ui$/uei/
-    - derive/iu$/iou/
-    - derive/([aeiou])ng$/$1gn/
-    - derive/([dtngkhrzcs])o(u|ng)$/$1o/
-    - derive/ong$/on/
-    - derive/ao$/oa/
-    - derive/([iu])a(o|ng?)$/a$1$2/
-    - derive/[ABC]/2/
-    - derive/[DEF]/3/
-    - derive/[GHI]/4/
-    - derive/[JKL]/5/
-    - derive/[MNO]/6/
-    - derive/[PQRS]/7/
-    - derive/[TUV]/8/
-    - derive/[WXYZ]/9/
+    - derive/^([JQXY])U/$1V/
+    - xlit/ABCDEFGHIJKLMNOPQRSTUVWXYZ/22233344455566677778889999/
+
 
 
 grammar:
