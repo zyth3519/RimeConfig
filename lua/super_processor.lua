@@ -563,8 +563,16 @@ local function handle_number_logic(key, env, ctx)
         if wanxiang.is_function_mode_active then
             is_func_mode = wanxiang.is_function_mode_active(ctx)
         end
+        local is_first_cand_has_eng = false
+        local cand = ctx:get_selected_candidate()
+        if cand then
+            if cand.text:match("[a-zA-Z]") then
+                is_first_cand_has_eng = true
+            end
+        end
+
         -- 如果是反查模式 OR 功能模式，状态设为 idle (不回退)
-        if input:find(env.lookup_key, 1, true) or is_func_mode then
+        if input:find(env.lookup_key, 1, true) or is_func_mode or is_first_cand_has_eng then
             env.tone_state = "idle"
             -- 这里不 return，因为数字键可能还有“正则拦截”或“候选选词”的任务
         else
