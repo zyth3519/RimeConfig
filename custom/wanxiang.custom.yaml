@@ -10,17 +10,131 @@ patch:
     #- userxx                                  #导入根目录下名称为userxx.dict.yaml的自定义固定词典，编码要与固定词库一致，编码权重都不要少，形如姓名、专有名词公司名称等等
   #下面是候选数量
   menu/page_size: 6  #不要超过6，7890用于代表声调1234，6个管够你用了，如果你非要10个，不要问我😜。
-  #下面是超级注释相关
+
   super_comment:                  # 超级注释模块，子项配置 true 开启，false 关闭
-    candidate_length: 1           # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理
-    corrector_type: "〔comment〕"  # 错音措字，随意更换左右括号，比如"〔comment〕" 不加括号为无括号，comment占位不能动
-    chaifen: "〔chaifen〕"         # 拆分显示，随意更换左右括号，比如"〔chaifen〕" 不加括号为无括号，chaifen占位不能动
+    candidate_length: 2           # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理
+    corrector_type: "〔comment〕"  # 随意更换左右括号，比如"〔comment〕" 不加括号为无括号，comment占位不能动
 
-  #在8105基础上你可以通过黑白名单微调你自己的字符集过滤清单，主数据库位于lua/charset.bin不可编辑
-  charsetlist: [你]
-  charsetblacklist: [鹵, 彔]
+  super_replacer:
+      db_name: lua/replacer
+      delimiter: "|"
+      comment_format: "〔%s〕"
+      chain: true   #true表示流水线作业，上一个option产出交给下一个处理，典型的s2t>t2hk=s2hk，false就是并行，直接用text转换
+      types:
+        # 场景1：输入 '哈哈' -> 变成 '1.哈哈 2.😄'
+        - option: emoji           # 开关名称与上面开关名称保持一致
+          mode: append            # 新增候选append 替换原候选replace 替换注释comment
+          comment_mode: none      # 注释模式: "append"(原候选注释继承), "text"(原候选文本放在注释), "none"(空，默认)
+          tags: [abc]             # 生效的tag
+          prefix: "_em_"          # 前缀用于区分同一个数据库的不同用途数据
+          files:
+            - lua/data/emoji.txt
+        # 场景2：输入 'hello' -> 显示 'hello 〔你好 | 哈喽〕'
+        - option: chinese_english
+          mode: append        # <--- 添加注释模式
+          comment_mode: none
+          tags: [abc]
+          prefix: "_en_"
+          files:
+            - lua/data/english_chinese.txt
+            - lua/data/chinese_english.txt
+        # 场景3：用于常驻的直接替换 option: true
+        - option: true
+          mode: append         # <--- 新增候选模式
+          comment_mode: none
+          tags: [abc]
+          prefix: "_ot_"
+          files:
+            - lua/data/others.txt
+        # 场景4：用于简繁转换的直接替换
+        - option: [ s2t, s2hk, s2tw ]   #后面依赖这条流水线有一个开关为true这条流水线就能工作
+          mode: replace         # <--- 替换原候选模式
+          comment_mode: append
+          sentence: true        # <--- 句子级别替换
+          tags: [abc]
+          prefix: "_s2t_"
+          files:
+            - lua/data/STCharacters.txt
+            - lua/data/STPhrases.txt
+        - option: s2hk
+          mode: replace         # <--- 替换原候选模式
+          comment_mode: append
+          sentence: true        # <--- 句子级别替换
+          tags: [abc]
+          prefix: "_s2hk_"
+          files:
+            - lua/data/HKVariants.txt
+            - lua/data/HKVariantsRevPhrases.txt
+        - option: s2tw
+          mode: replace         # <--- 替换原候选模式
+          comment_mode: append
+          sentence: true        # <--- 句子级别替换
+          tags: [abc]
+          prefix: "_s2tw_"
+          files:
+            - lua/data/TWVariants.txt
+            - lua/data/TWVariantsRevPhrases.txt
 
-  #下面用于对/rq和N20250101这样的日期候选自定义（顺序、类型、候选个数）由你完全掌控，前面是对于公历后面默认携带农历
+  # 字符集过滤lua
+  # a,通用规范汉字表
+  # b,GB2312,
+  # g,GBK,
+  # T,Big5,(台港澳常用)
+  # j,简体,OpenCC (t2s)
+  # f,通用繁体,OpenCC (s2t)
+  # h,香港繁体, OpenCC (s2hk)
+  # t,台湾繁体, OpenCC (s2tw)
+  # u,基本区,U+4E00 - U+9FFF
+  # A-I,扩展 A-I 区,U+3400 及各扩展区 (支持到 Ext-I)
+  # c,兼容区汉字
+  # 你可以通过黑白名单微调你自己每个开关下面的字符集过滤清单，主数据库位于lua/charset.reverse.bin不可编辑
+  # 你可以按上面提到的规则代号在base处填写上基础集，还可以在每一个开关的开白名单设置微调数据，就像默认添加的字符集过滤在8105基础上新增了一些
+  # 你可以定义多个开关，多个开启状态的开关求并集，比如charset_filter开着，s2hk也开着，那么就会显示这两个集合的所有汉字
+  # 优雅的地方在于s2hk开着，charset_filter关着 我们照样能使用 港繁能用到的所有字，是真正的本体，无关字会被过滤，而当都开着则是享受简体转换成繁体的后的结果
+  # 这个设计真正的兼容了简繁转换与字符集过滤的矛盾，还能满足用户多种自定义需求，你可以在开关增加类别，并在charset下面新增option类去选择按照字区去过滤，等多种组合方式
+  charset:
+    - option: charset_filter
+      base: a  #可以填入多个类别如aj
+      addlist:
+        - "诶濛硷氽尛躝〇冇吔咗囧屌鲶芶咲畑垅𰻝𰻞"
+      blacklist: []
+    - option: s2t
+      base: f
+      addlist: []
+      blacklist: []
+    - option: s2hk
+      base: h
+      addlist: []
+      blacklist: []
+    - option: s2tw
+      base: t
+      addlist: []
+      blacklist: []
+
+  # Tips 配置项
+  tips:
+    # 禁用的 tips 类型，初始化 tips 数据库的时候会直接忽略相关规则，修改部署后生效
+    # 可选项为：偏旁，符号，化学式，时间，符号，组字，翻译，表情，货币，车牌
+    disabled_types: []
+
+  # 给 kp_number_processor 用的小键盘模式，能自动读取recognizer下面正则与之功能对齐
+  kp_number_mode: auto
+    #小键盘数字处理逻辑
+    #  "compose" : 小键盘数字始终不上屏参与编码
+    #  "auto"    : 输入中 push，空闲时 commit（默认）
+
+  #shijian:仅仅作为提示使用，编码已经写死，引导键可以在key_binder下修改前缀
+  #时间：osj 或者 /sj
+  #日期：orq 或者 /rq
+  #农历：onl 或者 /nl
+  #星期：oxq 或者 /xq
+  #今年第几周：oww 或者 /ww
+  #节气：ojq 或者 /jq
+  #日期+时间：odt 或者 /dt
+  #时间戳：ott 或者 /tt
+  #大写N日期：N20250315 或者N0312不带年
+  #节日：ojr 或者 /jr
+  #问候模板：/day 或者 oday
   # 通用日期时间格式化函数（供 /rq、/sj、/dt、N0101、N20150101 场景复用）
   # 支持转义：
   #   \X       —— 转义单个字符 X，按字面量输出（如 \Y \m \H 等）
@@ -69,18 +183,14 @@ patch:
     - "YmdHMS"
     - "Y年m月d日 H点M分"
     - "y/m/d I:M p"
-  #下面用来改变你的windows小狼毫右下角软件图标
-  #schema/+:
-  #  icon: "icons/zhong.ico"
-  #  ascii_icon: "icons/ying.ico"
-  #下面这个可以改变tips上屏的按键
-  key_binder/tips_key: "comma"   #修改时候去default找，默认是逗号
-  key_binder/sequence: # Lua 配置：手动排序的快捷键 super_sequence.lua，不要用方向键，各种冲突，一定要避免冲突
-    up: "Control+j"    # 上移
-    down: "Control+k"  # 下移
-    reset: "Control+l" # 重置
-    pin: "Control+p"   # 置顶
-  # 快符功能：
+
+  #常规状态下数字转换成相应的字符，由超级preedit接管
+  tone_preedit:
+    "7": "¹"
+    "8": "²"
+    "9": "³"
+    "0": "⁴"
+
   # a/、单字母组合，触发预设编码自动上屏快符，支持将值设为"repeat" 以支持对应按键重复上屏功能，custom>schema>lua最终合并键值
   # 现在就支持26字母快符，结合成对符号输入，这边的压力小一些
   quick_symbol_text:
@@ -136,17 +246,17 @@ patch:
       l: "〈〉"       # 书名号（单）
       m: "‹›"        # 法文单书名号
       n: "«»"        # 法文双书名号
-      o: "⦅⦆"         # 白圆括号
+      o: "⦅⦆"        # 白圆括号
       p: "⦇⦈"        # 白方括号
       q: "()"        # 圆括号
-      r: "|儿"        #儿化候选
+      r: "〖〗"        # 花括号扩展 / 装饰括号
       s: "［］"       # 全角方括号
       t: "⟨⟩"        # 数学角括号
-      u: "〈〉"       # 数学尖括号
-      v: "〖〗"       # 装饰花括号
+      u: "〈〉"        # 数学尖括号
+      v: "❰❱"        # 装饰角括号
       w: "（）"       # 全角圆括号
       x: "｛｝"       # 全角花括号
-      y: "⟪⟫"        # 双角括号
+      y: "⟪⟫"       # 双角括号
       z: "{}"        # 花括号
 
       # ===== 扩展括号族 / 引号 =====
@@ -219,6 +329,19 @@ patch:
       ex: "!!"
       qu: "??"
       sb: "sb"
+
+  #下面用来改变你的windows小狼毫右下角软件图标
+  #schema/+:
+  #  icon: "icons/zhong.ico"
+  #  ascii_icon: "icons/ying.ico"
+  #下面这个可以改变tips上屏的按键
+  key_binder/tips_key: "comma"   #修改时候去default找，默认是逗号
+  key_binder/sequence: # Lua 配置：手动排序的快捷键 super_sequence.lua，不要用方向键，各种冲突，一定要避免冲突
+    up: "Control+j"    # 上移
+    down: "Control+k"  # 下移
+    reset: "Control+l" # 重置
+    pin: "Control+p"   # 置顶
+
 
   #translator/enable_user_dict: true  # 是否开启自动调频用户词，如果你希望使用下面``造词功能，请保持false，因为两个跨翻译器会造成词汇不能正常记录
 

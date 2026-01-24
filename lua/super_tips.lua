@@ -150,10 +150,14 @@ local function update_tips_prompt(context, env)
     if not segment then return end
 
     local cand = context:get_selected_candidate() or {}
-    
-    if segment.selected_index == 0 then
+
+    local page_size = env.engine.schema.page_size
+    -- 只要在第一页，都支持编码匹配，且翻页后失效
+    if segment.selected_index < page_size then
+        -- 在第一页：同时尝试匹配 [编码] 和 [候选词]
         env.current_tip = tips.get_tip({ context.input, cand.text })
     else
+        -- 翻页后只匹配 [候选词]
         env.current_tip = tips.get_tip(cand.text)
     end
 
