@@ -2,7 +2,7 @@
 # encoding: utf-8
 schema:
   schema_id: wanxiang_t9
-  name: 万象・仓九
+  name: 万象・九宫格
   version: "LTS"
   author:
     - amzxyz
@@ -397,8 +397,8 @@ speller:
     - xform/^n$/en/
     - xform/^m$/me/
     - derive/^(.*)$/\U$1/
-    - abbrev/^([A-Z]).+$/$1/
-    - abbrev/^([ZCS]H).+$/$1/
+    #- abbrev/^([A-Z]).+$/$1/
+    #- abbrev/^([ZCS]H).+$/$1/
     - derive/^([nl])ve$/$1ue/
     - derive/^([NL])VE$/$1UE/
     - derive/^([jqxy])u/$1v/
