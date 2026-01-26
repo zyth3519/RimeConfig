@@ -19484,7 +19484,7 @@ Dobbs	Dobbs
 Doberman	Doberman
 dobsonfly	dobsonfly
 doc	doc
-Doc	Doc
+docx	docx
 DocBook	DocBook
 docile	docile
 docility	docility
@@ -34330,7 +34330,6 @@ jabbed	jabbed
 jabber	jabber
 jabbing	jabbing
 jabiru	jabiru
-Jablonsky	Jablonsky
 jabot	jabot
 jabs	jabs
 jacal	jacal
@@ -48880,6 +48879,7 @@ PPR	PPR
 PPT	PPT
 PowerPoint	PPT
 Microsoft PowerPoint	PPT
+pptx	pptx
 PR	PR
 pull requests	PR
 practicability	practicability
@@ -70996,6 +70996,7 @@ xi	xi
 xiphoid	xiphoid
 xla	xla
 xls	xls
+xlsx	xlsx
 xmas	xmas
 xmind	xmind
 XML	XML
