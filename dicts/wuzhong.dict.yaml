@@ -15,6 +15,7 @@ sort: by_weight
 豹属	bào shǔ	80
 鲍属	bào shǔ	70
 鸨属	bǎo shǔ	49
+薄叶	báo yè	343
 贝属	bèi shǔ	351
 鹎属	bēi shǔ	59
 鲾属	bī shǔ	60
@@ -28,11 +29,14 @@ sort: by_weight
 鲳属	chāng shǔ	67
 鲿属	cháng shǔ	48
 梣属	chén shǔ	64
+齿叶	chǐ yè	309
 椆属	chóu shǔ	68
 鯙属	chún shǔ	79
 鹑属	chún shǔ	59
 莼属	chún shǔ	41
 葱属	cōng shǔ	336
+翠叶	cuì yè	341
+大叶	dà yè	498
 稻属	dào shǔ	52
 德属	dé shǔ	417
 貂属	diāo shǔ	78
@@ -42,6 +46,7 @@ sort: by_weight
 鮗属	dōng shǔ	58
 鸫属	dōng shǔ	51
 椴属	duàn shǔ	72
+多叶	duō yè	352
 鳄目	è mù	322
 鳄属	è shǔ	68
 鹗属	è shǔ	66
@@ -71,8 +76,10 @@ sort: by_weight
 貉属	háo shǔ	44
 荷属	hé shǔ	506
 鹤属	hè shǔ	49
+黑叶	hēi yè	273
 鸻属	héng shǔ	43
 猴属	hóu shǔ	65
+厚叶	hòu yè	337
 狐属	hú shǔ	67
 鳠属	hù shǔ	47
 桦属	huà shǔ	43
@@ -81,6 +88,7 @@ sort: by_weight
 獾属	huān shǔ	46
 鳇属	huáng shǔ	64
 蛔属	huí shǔ	59
+灰叶	huī yè	284
 蓟属	jì shǔ	266
 荠属	jì shǔ	222
 麂属	jǐ shǔ	72
@@ -91,12 +99,16 @@ sort: by_weight
 菅属	jiān shǔ	60
 鳒属	jiān shǔ	51
 鲣属	jiān shǔ	47
+尖叶	jiān yè	381
+剑叶	jiàn yè	302
 鳉属	jiāng shǔ	57
 姜属	jiāng shǔ	54
 椒属	jiāo shǔ	59
 鲸目	jīng mù	332
 菊属	jú shǔ	342
 榉属	jǔ shǔ	70
+菊叶	jú yè	317
+卷叶	juàn yè	351
 蕨属	jué shǔ	396
 栲属	kǎo shǔ	43
 柯属	kē shǔ	60
@@ -245,6 +257,7 @@ sort: by_weight
 鹬属	yù shǔ	41
 鸢属	yuān shǔ	63
 鼋属	yuán shǔ	51
+圆叶	yuán yè	381
 藻属	zǎo shǔ	443
 蚤属	zǎo shǔ	64
 枣属	zǎo shǔ	51
@@ -486,6 +499,7 @@ sort: by_weight
 半旋科	bàn xuán kē	95
 斑蚜科	bān yá kē	98
 半羊属	bàn yáng shǔ	88
+斑叶兰	bān yè lán	148
 斑叶属	bān yè shǔ	51
 斑衣属	bān yī shǔ	51
 半鮨属	bàn yì shǔ	50
@@ -659,6 +673,8 @@ sort: by_weight
 扁蟹属	biǎn xiè shǔ	76
 萹蓄属	biǎn xù shǔ	61
 扁蚜科	biǎn yá kē	72
+变叶木	biàn yè mù	134
+扁叶芋	biǎn yè yù	43
 扁萤属	biǎn yíng shǔ	89
 鞭鱿科	biān yóu kē	66
 鞭鱿属	biān yóu shǔ	64
@@ -1247,6 +1263,37 @@ sort: by_weight
 大蚬属	dà xiǎn shǔ	98
 大蚜科	dà yá kē	87
 大岩蛇	dà yán shé	125
+大叶桉	dà yè ān	93
+大叶菜	dà yè cài	73
+大叶草	dà yè cǎo	89
+大叶茶	dà yè chá	147
+大叶梣	dà yè chén	71
+大叶慈	dà yè cí	53
+大叶枫	dà yè fēng	64
+大叶桂	dà yè guì	60
+大叶蒟	dà yè jǔ	55
+大叶柯	dà yè kē	70
+大叶栎	dà yè lì	70
+大叶柳	dà yè liǔ	68
+大叶锣	dà yè luó	59
+大叶楠	dà yè nán	82
+大叶片	dà yè piàn	106
+大叶朴	dà yè pǔ	89
+大叶漆	dà yè qī	93
+大叶芹	dà yè qín	94
+大叶青	dà yè qīng	94
+大叶榕	dà yè róng	118
+大叶伞	dà yè sǎn	95
+大叶檀	dà yè tán	100
+大叶藤	dà yè téng	57
+大叶藓	dà yè xiǎn	78
+大叶性	dà yè xìng	67
+大叶杨	dà yè yáng	56
+大叶榆	dà yè yú	65
+大叶章	dà yè zhāng	73
+大叶种	dà yè zhǒng	188
+大叶锥	dà yè zhuī	63
+大叶子	dà yè zi	160
 大鹦鳚	dà yīng wèi	89
 袋蟾属	dài chán shǔ	70
 袋唇鱼	dài chún yú	80
@@ -1606,6 +1653,7 @@ sort: by_weight
 遁螳属	dùn táng shǔ	63
 钝头蛇	dùn tóu shé	144
 钝头鱼	dùn tóu yú	69
+钝叶醇	dùn yè chún	63
 楯衣科	dùn yī kē	95
 盾衣科	dùn yī kē	80
 楯衣属	dùn yī shǔ	98
@@ -1629,6 +1677,11 @@ sort: by_weight
 多腕目	duō wàn mù	58
 多腺柳	duō xiàn liǔ	58
 多线鱼	duō xiàn yú	86
+多叶的	duō yè de	1
+多叶槐	duō yè huái	72
+多叶韭	duō yè jiǔ	82
+多叶蓼	duō yè liǎo	97
+多叶鳐	duō yè yáo	56
 垛衣属	duǒ yī shǔ	89
 舵鱼科	duò yú kē	72
 舵鱼属	duò yú shǔ	59
@@ -2449,6 +2502,7 @@ sort: by_weight
 黑鳕科	hēi xuě kē	78
 黑鳕鱼	hēi xuě yú	98
 黑雁属	hēi yàn shǔ	84
+黑叶猴	hēi yè hóu	137
 黑蝇属	hēi yíng shǔ	80
 黑鲉科	hēi yóu kē	65
 黑藻属	hēi zǎo shǔ	55
@@ -3129,6 +3183,7 @@ sort: by_weight
 箭蜥属	jiàn xī shǔ	74
 坚蚜属	jiān yá shǔ	77
 尖牙鱼	jiān yá yú	55
+尖叶的	jiān yè de	52
 箭蚁属	jiàn yǐ shǔ	83
 剑鱼属	jiàn yú shǔ	76
 剑螽属	jiàn zhōng shǔ	78
@@ -3468,6 +3523,8 @@ sort: by_weight
 绢藓科	juàn xiǎn kē	90
 绢藓属	juàn xiǎn shǔ	71
 鹃形目	juān xíng mù	112
+卷叶虫	juàn yè chóng	76
+卷叶蛾	juàn yè é	116
 涓螈属	juān yuán shǔ	75
 爵床科	jué chuáng kē	192
 爵床属	jué chuáng shǔ	106
@@ -3567,6 +3624,8 @@ sort: by_weight
 苦参属	kǔ shēn shǔ	91
 苦树属	kǔ shù shǔ	63
 库蚊属	kù wén shǔ	86
+枯叶蛾	kū yè é	199
+枯叶龟	kū yè guī	73
 枯叶鱼	kū yè yú	56
 库尤鱼	kù yóu yú	51
 库螽属	kù zhōng shǔ	73
@@ -3581,6 +3640,8 @@ sort: by_weight
 宽鮗属	kuān dōng shǔ	67
 宽龙属	kuān lóng shǔ	56
 宽咽鱼	kuān yàn yú	84
+宽叶韭	kuān yè jiǔ	108
+宽叶啉	kuān yè lín	50
 匡蒂科	kuāng dì kē	76
 匡堤科	kuāng dī kē	63
 矿雀属	kuàng què shǔ	54
@@ -3609,6 +3670,12 @@ sort: by_weight
 括楼属	kuò lóu shǔ	71
 阔盘属	kuò pán shǔ	77
 阔翘目	kuò qiào mù	50
+阔叶混	kuò yè hùn	49
+阔叶浆	kuò yè jiāng	88
+阔叶林	kuò yè lín	313
+阔叶木	kuò yè mù	107
+阔叶手	kuò yè shǒu	88
+阔叶树	kuò yè shù	178
 蛞蝓科	kuò yú kē	96
 蛞蝓属	kuò yú shǔ	60
 拉比科	lā bǐ kē	65
@@ -3865,6 +3932,7 @@ sort: by_weight
 镰虾科	lián xiā kē	75
 镰虾属	lián xiā shǔ	50
 连腺属	lián xiàn shǔ	66
+莲叶桐	lián yè tóng	68
 鲢鳙鱼	lián yōng yú	144
 镰鱼科	lián yú kē	91
 镰鱼属	lián yú shǔ	66
@@ -3923,6 +3991,7 @@ sort: by_weight
 鬣蜥属	liè xī shǔ	98
 鬣羊属	liè yáng shǔ	50
 列叶属	liè yè shǔ	79
+裂叶榆	liè yè yú	60
 烈蚁属	liè yǐ shǔ	86
 鬣鹰属	liè yīng shǔ	69
 鬣鱼科	liè yú kē	78
@@ -3976,6 +4045,7 @@ sort: by_weight
 林仙科	lín xiān kē	62
 鳞藓属	lín xiǎn shǔ	97
 林鸮属	lín xiāo shǔ	98
+鳞叶藓	lín yè xiǎn	98
 鳞鮨属	lín yì shǔ	96
 林莺科	lín yīng kē	60
 林莺属	lín yīng shǔ	55
@@ -5617,6 +5687,7 @@ sort: by_weight
 山鸦属	shān yā shǔ	99
 山羊属	shān yáng shǔ	88
 山药鱼	shān yào yú	71
+扇叶葵	shàn yè kuí	100
 山蚁属	shān yǐ shǔ	77
 山柚科	shān yòu kē	83
 山柚属	shān yòu shǔ	82
@@ -6188,6 +6259,7 @@ sort: by_weight
 隧蜂属	suì fēng shǔ	56
 穗鹛属	suì méi shǔ	87
 髓木属	suǐ mù shǔ	72
+碎叶城	suì yè chéng	150
 隼蟌科	sǔn cōng kē	67
 隼雕属	sǔn diāo shǔ	60
 孙鲽鱼	sūn dié yú	70
@@ -6823,6 +6895,9 @@ sort: by_weight
 犀亚科	xī yà kē	100
 西鼹属	xī yǎn shǔ	703
 细鳐属	xì yáo shǔ	88
+细叶韭	xì yè jiǔ	60
+细叶芹	xì yè qín	84
+细叶榕	xì yè róng	159
 锡叶属	xī yè shǔ	73
 蜥蜴科	xī yì kē	130
 蜥蜴属	xī yì shǔ	95
@@ -8776,6 +8851,20 @@ sort: by_weight
 遨眼蝶属	áo yǎn dié shǔ	8
 奥眼蝶属	ào yǎn dié shǔ	5
 凹眼萤科	āo yǎn yíng kē	8
+凹叶冬青	āo yè dōng qīng	7
+凹叶杜鹃	āo yè dù juān	7
+凹叶红豆	āo yè hóng dòu	9
+凹叶厚朴	āo yè hòu pò	16
+凹叶黄耆	āo yè huáng qí	10
+凹叶景天	āo yè jǐng tiān	15
+凹叶柃木	āo yè líng mù	8
+凹叶木蓝	āo yè mù lán	9
+凹叶木兰	āo yè mù lán	7
+凹叶女贞	āo yè nǚ zhēn	7
+凹叶球兰	āo yè qiú lán	3
+凹叶忍冬	āo yè rěn dōng	7
+凹叶瑞香	āo yè ruì xiāng	11
+凹叶紫菀	āo yè zǐ wǎn	10
 澳鼬鳚属	ào yòu wèi shǔ	5
 澳远志科	ào yuǎn zhì kē	16
 澳远志属	ào yuǎn zhì shǔ	4
@@ -9289,9 +9378,19 @@ sort: by_weight
 斑眼蝶属	bān yǎn dié shǔ	4
 斑岩芋属	bān yán yù shǔ	6
 斑秧鸡属	bān yāng jī shǔ	8
+斑叶败酱	bān yè bài jiàng	16
+斑叶杓兰	bān yè biāo lán	9
+斑叶稠李	bān yè chóu lǐ	10
+斑叶杜鹃	bān yè dù juān	9
+斑叶堇菜	bān yè jǐn cài	24
 斑叶兰属	bān yè lán shǔ	28
 斑野螟属	bān yě míng shǔ	6
+斑叶女贞	bān yè nǚ zhēn	10
+斑叶品种	bān yè pǐn zhǒng	17
+斑叶珊瑚	bān yè shān hú	24
 瓣叶苔科	bàn yè tái kē	7
+斑叶植物	bān yè zhí wù	9
+斑叶竹芋	bān yè zhú yù	12
 伴溢蛤属	bàn yì há shǔ	6
 斑衣菌科	bān yī jūn kē	7
 半泳鲤属	bàn yǒng lǐ shǔ	4
@@ -9520,13 +9619,42 @@ sort: by_weight
 暴雪鹱属	bào xuě hù shǔ	5
 包芽树科	bāo yá shù kē	5
 薄眼蝶属	báo yǎn dié shǔ	7
+薄叶翠蕨	báo yè cuì jué	12
+苞叶大黄	bāo yè dà huáng	1
+薄叶冬青	báo yè dōng qīng	9
+苞叶杜鹃	bāo yè dù juān	9
 豹夜蛾属	bào yè é shǔ	7
 薄夜蛾属	báo yè é shǔ	6
+薄叶耳蕨	báo yè ěr jué	7
+薄叶栝楼	báo yè guā lóu	7
+薄叶灰木	báo yè huī mù	12
+薄叶荠苨	báo yè jì nǐ	11
+薄叶景天	báo yè jǐng tiān	7
+薄叶卷柏	báo yè juàn bǎi	13
 苞叶兰属	bāo yè lán shǔ	14
 薄叶兰属	báo yè lán shǔ	5
+苞叶龙胆	bāo yè lóng dǎn	9
+苞叶木蓝	bāo yè mù lán	9
 苞叶木属	bāo yè mù shǔ	11
+薄叶青冈	báo yè qīng gāng	5
+薄叶球兰	báo yè qiú lán	10
+苞叶乳苣	bāo yè rǔ jù	21
+薄叶润楠	báo yè rùn nán	9
+薄叶山橙	báo yè shān chéng	17
+薄叶山矾	báo yè shān fán	7
+薄叶山柑	báo yè shān gān	7
+薄叶肾蕨	báo yè shèn jué	9
+薄叶鼠李	báo yè shǔ lǐ	7
 苞叶藤属	bāo yè téng shǔ	12
+薄叶碗蕨	báo yè wǎn jué	7
+薄叶乌头	báo yè wū tóu	10
+薄叶喜树	báo yè xǐ shù	7
+苞叶雪莲	bāo yè xuě lián	21
+薄叶蕈树	báo yè xùn shù	23
+薄叶崖豆	báo yè yá dòu	19
+薄叶牙蕨	báo yè yá jué	11
 苞叶芋属	bāo yè yù shǔ	6
+薄叶鸢尾	báo yè yuān wěi	7
 抱婴兰属	bào yīng lán shǔ	5
 苞鹰爪属	bāo yīng zhǎo shǔ	6
 薄鹦嘴鱼	báo yīng zuǐ yú	6
@@ -9899,12 +10027,19 @@ sort: by_weight
 扁眼蝶属	biǎn yǎn dié shǔ	6
 扁烟管鱼	biǎn yān guǎn yú	8
 扁叶蝉科	biǎn yè chán kē	1
+扁叶刺芹	biǎn yè cì qín	10
 扁叶蜂科	biǎn yè fēng kē	3
 扁叶蜂属	biǎn yè fēng shǔ	8
+变叶海棠	biàn yè hǎi táng	24
+变叶胡椒	biàn yè hú jiāo	10
 扁叶甲属	biǎn yè jiǎ shǔ	7
 鞭叶蕨属	biān yè jué shǔ	13
+变叶芦竹	biàn yè lú zhú	7
 变叶木属	biàn yè mù shǔ	10
+变叶葡萄	biàn yè pú táo	12
+变叶树参	biàn yè shù cān	5
 扁叶芋属	biǎn yè yù shǔ	4
+变叶寨线	biàn yè zhài xiàn	13
 扁蝇虎属	biǎn yíng hǔ shǔ	6
 扁玉螺属	biǎn yù luó shǔ	6
 扁圆甲科	biǎn yuán jiǎ kē	3
@@ -10136,8 +10271,12 @@ sort: by_weight
 波线鲹属	bō xiàn shēn shǔ	4
 波牙鲷属	bō yá diāo shǔ	6
 波眼蝶属	bō yǎn dié shǔ	6
+波叶大黄	bō yè dà huáng	4
+波叶杜鹃	bō yè dù juān	12
 博夜蛾属	bó yè é shǔ	7
 驳夜蛾属	bó yè é shǔ	5
+波叶栝楼	bō yè guā lóu	3
+波叶海桐	bō yè hǎi tóng	10
 波叶藓属	bō yè xiǎn shǔ	8
 博伊琴科	bó yī qín kē	6
 波缘蛤属	bō yuán há shǔ	7
@@ -11093,7 +11232,17 @@ sort: by_weight
 赤眼蜂属	chì yǎn fēng shǔ	20
 赤眼鳟属	chì yǎn zūn shǔ	7
 赤杨叶属	chì yáng yè shǔ	14
+齿叶冬青	chǐ yè dōng qīng	11
+齿叶黄杞	chǐ yè huáng qǐ	24
+齿叶荆芥	chǐ yè jīng jiè	7
+齿叶景天	chǐ yè jǐng tiān	7
 翅叶木属	chì yè mù shǔ	9
+齿叶木犀	chǐ yè mù xī	10
+齿叶南芥	chǐ yè nán jiè	13
+齿叶枇杷	chǐ yè pí pá	10
+齿叶溲疏	chǐ yè sōu shū	17
+齿叶橐吾	chǐ yè tuó wú	9
+齿叶菥蓂	chǐ yè xī míng	10
 赤叶藻科	chì yè zǎo kē	7
 赤叶藻属	chì yè zǎo shǔ	4
 赤衣菌属	chì yī jūn shǔ	4
@@ -11686,6 +11835,9 @@ sort: by_weight
 翠青蛇属	cuì qīng shé shǔ	18
 脆蛇蜥属	cuì shé xī shǔ	11
 催睡蝇科	cuī shuì yíng kē	1
+翠叶藏莺	cuì yè cáng yīng	15
+翠叶藏鹰	cuì yè cáng yīng	4
+翠叶吹凉	cuì yè chuī liáng	3
 翠翼鸠属	cuì yì jiū shǔ	6
 锉棒螺属	cuò bàng luó shǔ	8
 锉齿鳉属	cuò chǐ jiāng shǔ	7
@@ -11966,16 +12118,121 @@ sort: by_weight
 大洋龙属	dà yáng lóng shǔ	7
 大洋鸟属	dà yáng niǎo shǔ	7
 大洋鳕鱼	dà yáng xuě yú	9
+大叶白蜡	dà yè bái là	3
+大叶白麻	dà yè bái má	9
+大叶报春	dà yè bào chūn	10
+大叶杓兰	dà yè biāo lán	1
+大叶薄荷	dà yè bò he	19
 大叶草科	dà yè cǎo kē	1
 大叶草属	dà yè cǎo shǔ	5
+大叶糙苏	dà yè cāo sū	1
+大叶叉蕨	dà yè chā jué	1
+大叶柴胡	dà yè chái hú	1
+大叶赤车	dà yè chì chē	1
+大叶赤榕	dà yè chì róng	1
+大叶川柃	dà yè chuān líng	3
+大叶葱芥	dà yè cōng jiè	1
+大叶粗枝	dà yè cū zhī	1
+大叶大学	dà yè dà xué	79
+大叶当归	dà yè dāng guī	8
+大叶党参	dà yè dǎng shēn	1
+大叶吊兰	dà yè diào lán	12
+大叶冬青	dà yè dōng qīng	44
+大叶杜鹃	dà yè dù juān	12
+大叶杜英	dà yè dù yīng	1
+大叶耳蕨	dà yè ěr jué	1
+大叶繁缕	dà yè fán lǚ	7
+大叶方竹	dà yè fāng zhú	1
+大叶肺炎	dà yè fèi yán	17
+大叶凤尾	dà yè fèng wěi	1
+大叶公路	dà yè gōng lù	70
+大叶钩藤	dà yè gōu téng	5
+大叶股份	dà yè gǔ fèn	32
+大叶贯众	dà yè guàn zhòng	4
+大叶桂樱	dà yè guì yīng	4
+大叶海桐	dà yè hǎi tóng	3
+大叶合欢	dà yè hé huān	31
+大叶红淡	dà yè hóng dàn	1
+大叶皇冠	dà yè huáng guān	2
+大叶黄芩	dà yè huáng qín	12
+大叶黄杨	dà yè huáng yáng	45
+大叶灰木	dà yè huī mù	20
+大叶继木	dà yè jì mù	8
+大叶角蕨	dà yè jiǎo jué	1
+大叶芥菜	dà yè jiè cài	20
+大叶堇菜	dà yè jǐn cài	1
+大叶金牛	dà yè jīn niú	1
+大叶金腰	dà yè jīn yāo	1
+大叶榉树	dà yè jǔ shù	5
+大叶卷柏	dà yè juàn bǎi	1
+大叶决明	dà yè jué míng	1
+大叶苦茶	dà yè kǔ chá	8
+大叶苦柯	dà yè kǔ kē	1
+大叶懒人	dà yè lǎn rén	6
+大叶榄仁	dà yè lǎn rén	5
+大叶龙角	dà yè lóng jiǎo	1
+大叶绿萝	dà yè lǜ luó	9
+大叶马蓝	dà yè mǎ lán	1
+大叶毛茛	dà yè máo gèn	1
 大叶梅属	dà yè méi shǔ	6
+大叶母草	dà yè mǔ cǎo	1
+大叶木槿	dà yè mù jǐn	10
+大叶木兰	dà yè mù lán	3
+大叶木莲	dà yè mù lián	1
+大叶南苏	dà yè nán sū	1
+大叶女蒿	dà yè nǚ hāo	1
+大叶女贞	dà yè nǚ zhēn	29
+大叶瓶蕨	dà yè píng jué	1
+大叶苹婆	dà yè píng pó	1
+大叶蒲葵	dà yè pú kuí	1
+大叶奇兰	dà yè qí lán	5
+大叶茜草	dà yè qiàn cǎo	8
+大叶蔷薇	dà yè qiáng wēi	1
+大叶青冈	dà yè qīng gāng	1
+大叶筇竹	dà yè qióng zhú	12
+大叶荛花	dà yè ráo huā	1
+大叶三七	dà yè sān qī	1
+大叶山矾	dà yè shān fán	1
+大叶山楝	dà yè shān liàn	1
+大叶山柰	dà yè shān nài	1
+大叶石栎	dà yè shí lì	5
+大叶鼠刺	dà yè shǔ cì	1
+大叶水榕	dà yè shuǐ róng	4
+大叶溲疏	dà yè sōu shū	1
+大叶素馨	dà yè sù xīn	17
+大叶桃红	dà yè táo hóng	6
+大叶藤黄	dà yè téng huáng	1
 大叶藤属	dà yè téng shǔ	1
+大叶橐吾	dà yè tuó wú	1
+大叶瓦韦	dà yè wǎ wéi	1
+大叶五加	dà yè wǔ jiā	1
+大叶乌龙	dà yè wū lóng	29
 大叶虾科	dà yè xiā kē	5
+大叶仙茅	dà yè xiān máo	1
 大叶藓属	dà yè xiǎn shǔ	1
+大叶相思	dà yè xiāng sī	11
+大叶小檗	dà yè xiǎo bò	1
+大叶杨桐	dà yè yáng tóng	11
+大叶油草	dà yè yóu cǎo	11
+大叶玉兰	dà yè yù lán	2
+大叶鱼藤	dà yè yú téng	1
+大叶越桔	dà yè yuè jú	1
+大叶云实	dà yè yún shí	1
+大叶芸香	dà yè yún xiāng	1
 大叶藻科	dà yè zǎo kē	7
 大叶藻属	dà yè zǎo shǔ	3
+大叶早樱	dà yè zǎo yīng	7
+大叶支路	dà yè zhī lù	1
+大叶种茶	dà yè zhǒng chá	66
 大叶螽属	dà yè zhōng shǔ	6
+大叶苎麻	dà yè zhù má	1
+大叶锥栗	dà yè zhuī lì	1
+大叶紫堇	dà yè zǐ jǐn	1
 大叶子属	dà yè zi shǔ	1
+大叶紫檀	dà yè zǐ tán	53
+大叶紫薇	dà yè zǐ wēi	68
+大叶紫珠	dà yè zǐ zhū	1
+大叶棕竹	dà yè zōng zhú	1
 大翼豆属	dà yì dòu shǔ	1
 大银板鱼	dà yín bǎn yú	1
 大银鱼属	dà yín yú shǔ	1
@@ -13110,10 +13367,27 @@ sort: by_weight
 盾形虫属	dùn xíng chóng shǔ	7
 钝牙鲷属	dùn yá diāo shǔ	5
 盾眼鲷属	dùn yǎn diāo shǔ	6
+盾叶半夏	dùn yè bàn xià	1
 钝叶草属	dùn yè cǎo shǔ	15
+钝叶独活	dùn yè dú huó	1
+钝叶杜鹃	dùn yè dù juān	12
 钝夜蛾属	dùn yè é shǔ	6
+钝叶黄芩	dùn yè huáng qín	37
+钝叶黄檀	dùn yè huáng tán	31
+钝叶菹草	dùn yè jū cǎo	15
+盾叶苣苔	dùn yè jù tái	5
+钝叶卷柏	dùn yè juàn bǎi	9
+钝叶绢藓	dùn yè juàn xiǎn	7
+钝叶毛兰	dùn yè máo lán	7
+钝叶蒲桃	dùn yè pú táo	9
+钝叶蔷薇	dùn yè qiáng wēi	13
+钝叶树棉	dùn yè shù mián	7
+盾叶薯蓣	dùn yè shǔ yù	22
 钝叶酸模	dùn yè suān mó	9
+钝叶瓦松	dùn yè wǎ sōng	43
 钝叶腺柳	dùn yè xiàn liǔ	7
+钝叶栒子	dùn yè xún zǐ	23
+钝叶鱼木	dùn yè yú mù	20
 盾叶芋属	dùn yè yù shǔ	7
 盾樱蛤属	dùn yīng há shǔ	5
 钝缘蜱属	dùn yuán pí shǔ	12
@@ -13232,6 +13506,13 @@ sort: by_weight
 多牙紫鱼	duō yá zǐ yú	6
 多眼蝶属	duō yǎn dié shǔ	4
 多样蟹科	duō yàng xiè kē	5
+多叶重楼	duō yè chóng lóu	1
+多叶杜鹃	duō yè dù juān	1
+多叶函数	duō yè hán shù	3
+多叶花椒	duō yè huā jiāo	1
+多叶棘豆	duō yè jí dòu	1
+多叶葶苈	duō yè tíng lì	1
+多叶紫堇	duō yè zǐ jǐn	1
 多裔草属	duō yì cǎo shǔ	1
 多翼蛾科	duō yì é kē	8
 多翼蛾属	duō yì é shǔ	5
@@ -13729,7 +14010,15 @@ sort: by_weight
 分须藻属	fēn xū zǎo shǔ	6
 粉眼蝶属	fěn yǎn dié shǔ	7
 分药花属	fēn yào huā shǔ	13
+粉叶金花	fěn yè jīn huā	1
+粉叶决明	fěn yè jué míng	13
 粉叶蕨属	fěn yè jué shǔ	11
+粉叶苏木	fěn yè sū mù	9
+粉叶小檗	fěn yè xiǎo bò	5
+粉叶栒子	fěn yè xún zǐ	19
+粉叶野桐	fěn yè yě tóng	21
+粉叶鱼藤	fěn yè yú téng	7
+粉叶紫堇	fěn yè zǐ jǐn	7
 粪蝇亚科	fèn yíng yà kē	6
 粉褶包属	fěn zhě bāo shǔ	6
 粉褶蕈属	fěn zhě xùn shǔ	5
@@ -15785,8 +16074,18 @@ sort: by_weight
 黑眼蝶属	hēi yǎn dié shǔ	7
 黑艳蝇科	hēi yàn yíng kē	3
 黑药花科	hēi yào huā kē	4
+黑叶菝葜	hēi yè bá qiā	13
+黑叶冬青	hēi yè dōng qīng	5
+黑叶谷木	hēi yè gǔ mù	25
+黑叶角蕨	hēi yè jiǎo jué	11
+黑叶荔枝	hēi yè lì zhī	26
+黑叶毛蕨	hēi yè máo jué	6
 黑野螟属	hēi yě míng shǔ	6
+黑叶木蓝	hēi yè mù lán	32
+黑叶蒲桃	hēi yè pú táo	10
+黑叶山柑	hēi yè shān gān	23
 黑叶树科	hēi yè shù kē	5
+黑叶牙蕨	hēi yè yá jué	5
 黑鹦嘴鱼	hēi yīng zuǐ yú	7
 黑雨燕属	hēi yǔ yàn shǔ	5
 黑圆帆鱼	hēi yuán fān yú	10
@@ -16124,9 +16423,31 @@ sort: by_weight
 喉须鲛科	hóu xū jiāo kē	8
 厚羊齿属	hòu yáng chǐ shǔ	6
 厚叶草属	hòu yè cǎo shǔ	17
+厚叶茶梨	hòu yè chá lí	18
+厚叶刺蕨	hòu yè cì jué	5
+厚叶冬青	hòu yè dōng qīng	9
+厚叶杜鹃	hòu yè dù juān	10
 后夜蛾属	hòu yè é shǔ	6
+厚叶贯众	hòu yè guàn zhòng	9
+厚叶黄耆	hòu yè huáng qí	44
 厚叶蕨属	hòu yè jué shǔ	12
 厚叶莲属	hòu yè lián shǔ	6
+厚叶龙胆	hòu yè lóng dǎn	12
+厚叶罗伞	hòu yè luó sǎn	3
+厚叶毛兰	hòu yè máo lán	7
+厚叶木莲	hòu yè mù lián	26
+厚叶木犀	hòu yè mù xī	9
+厚叶琼楠	hòu yè qióng nán	9
+厚叶山矾	hòu yè shān fán	9
+厚叶实蕨	hòu yè shí jué	7
+厚叶石楠	hòu yè shí nán	11
+厚叶鼠刺	hòu yè shǔ cì	7
+厚叶溲疏	hòu yè sōu shū	7
+厚叶素馨	hòu yè sù xīn	10
+厚叶卫矛	hòu yè wèi máo	11
+厚叶乌头	hòu yè wū tóu	5
+厚叶香草	hòu yè xiāng cǎo	24
+厚叶栒子	hòu yè xún zǐ	33
 厚叶芋属	hòu yè yù shǔ	8
 喉异盘鱼	hóu yì pán yú	6
 厚鼬鳚属	hòu yòu wèi shǔ	8
@@ -16461,8 +16782,10 @@ sort: by_weight
 花须藤科	huā xū téng kē	8
 华阳龙科	huá yáng lóng kē	8
 华阳龙属	huá yáng lóng shǔ	7
+桦叶荚蒾	huà yè jiá mí	20
 花叶兰属	huā yè lán shǔ	5
 华叶螨属	huá yè mǎn shǔ	4
+桦叶葡萄	huà yè pú táo	9
 花叶藓科	huā yè xiǎn kē	22
 花叶藓属	huā yè xiǎn shǔ	8
 花叶芋属	huā yè yù shǔ	10
@@ -16838,6 +17161,22 @@ sort: by_weight
 灰燕鸥属	huī yàn ōu shǔ	8
 灰岩芋属	huī yán yù shǔ	7
 灰腰燕属	huī yāo yàn shǔ	5
+灰叶菝葜	huī yè bá qiā	7
+灰叶草素	huī yè cǎo sù	6
+灰叶稠李	huī yè chóu lǐ	27
+灰叶冬青	huī yè dōng qīng	19
+灰叶花楸	huī yè huā qiū	36
+灰叶黄耆	huī yè huáng qí	13
+灰叶茴芹	huī yè huí qín	32
+灰叶棘豆	huī yè jí dòu	5
+灰叶堇菜	huī yè jǐn cài	36
+灰叶蕨麻	huī yè jué má	9
+灰叶梾木	huī yè lái mù	12
+灰叶女蒿	huī yè nǚ hāo	9
+灰叶匹菊	huī yè pǐ jú	7
+灰叶溲疏	huī yè sōu shū	9
+灰叶乌饭	huī yè wū fàn	5
+灰叶香青	huī yè xiāng qīng	7
 辉熠花属	huī yì huā shǔ	7
 灰蚁鵙属	huī yǐ jú shǔ	6
 辉鹦鹉属	huī yīng wǔ shǔ	6
@@ -17200,11 +17539,17 @@ sort: by_weight
 棘眼螳科	jí yǎn táng kē	8
 棘眼螳属	jí yǎn táng shǔ	5
 畸羊齿属	jī yáng chǐ shǔ	11
+戟叶滨藜	jǐ yè bīn lí	10
 基叶草科	jī yè cǎo kē	6
+戟叶盾蕨	jǐ yè dùn jué	3
 姬夜蛾属	jī yè é shǔ	7
 基夜蛾属	jī yè é shǔ	7
 极夜蛾属	jí yè é shǔ	5
+戟叶耳蕨	jǐ yè ěr jué	13
+戟叶堇菜	jǐ yè jǐn cài	12
 脊野螟属	jǐ yě míng shǔ	5
+戟叶圣蕨	jǐ yè shèng jué	5
+戟叶石韦	jǐ yè shí wéi	7
 戟叶酸模	jǐ yè suān mó	7
 戟叶苔草	jǐ yè tái cǎo	11
 棘银斧鱼	jí yín fǔ yú	5
@@ -17651,14 +17996,44 @@ sort: by_weight
 尖药花属	jiān yào huā shǔ	12
 尖药兰属	jiān yào lán shǔ	14
 箭药藤属	jiàn yào téng shǔ	10
+剑叶暗罗	jiàn yè àn luó	11
+尖叶菝葜	jiān yè bá qiā	5
+剑叶叉蕨	jiàn yè chā jué	26
+剑叶冬青	jiàn yè dōng qīng	18
+剑叶盾蕨	jiàn yè dùn jué	14
+剑叶耳草	jiàn yè ěr cǎo	9
+尖叶耳蕨	jiān yè ěr jué	11
+剑叶耳蕨	jiàn yè ěr jué	10
 间叶蝠属	jiān yè fú shǔ	5
+尖叶桂樱	jiān yè guì yīng	26
+尖叶花椒	jiān yè huā jiāo	9
+尖叶黄杨	jiān yè huáng yáng	15
+尖叶茴芹	jiān yè huí qín	16
+尖叶堇菜	jiān yè jǐn cài	10
+尖叶景天	jiān yè jǐng tiān	10
+剑叶卷柏	jiàn yè juàn bǎi	9
+尖叶卤蕨	jiān yè lǔ jué	10
+尖叶罗伞	jiān yè luó sǎn	7
+尖叶毛柃	jiān yè máo líng	9
+尖叶木蓝	jiān yè mù lán	10
 尖叶木属	jiān yè mù shǔ	14
+剑叶拟兰	jiàn yè nǐ lán	9
 剑叶莎属	jiàn yè shā shǔ	16
+剑叶石斛	jiàn yè shí hú	7
+剑叶石韦	jiàn yè shí wéi	9
+剑叶梭罗	jiàn yè suō luó	9
 箭叶苔草	jiàn yè tái cǎo	12
 尖叶苔草	jiān yè tái cǎo	11
 剪叶苔科	jiǎn yè tái kē	5
+尖叶藤黄	jiān yè téng huáng	10
+尖叶铁仔	jiān yè tiě zǎi	3
+尖叶香青	jiān yè xiāng qīng	10
+尖叶栒子	jiān yè xún zǐ	12
 剑叶鸦葱	jiàn yè yā cōng	9
+尖叶油藓	jiān yè yóu xiǎn	9
 箭叶芋属	jiàn yè yù shǔ	5
+尖叶紫柳	jiān yè zǐ liǔ	10
+尖叶紫珠	jiān yè zǐ zhū	7
 坚毅龙属	jiān yì lóng shǔ	6
 间银鱼属	jiān yín yú shǔ	11
 煎鱼煎鱼	jiān yú jiān yú	5
@@ -18604,7 +18979,20 @@ sort: by_weight
 巨须弓鱼	jù xū gōng yú	9
 锯眼蝶属	jù yǎn dié shǔ	6
 距药姜属	jù yào jiāng shǔ	4
+矩叶赤竹	jǔ yè chì zhú	7
+菊叶蛋汤	jú yè dàn tāng	66
+巨叶冬青	jù yè dōng qīng	13
 疽夜蛾属	jū yè é shǔ	6
+巨叶花楸	jù yè huā qiū	9
+聚叶角蒿	jù yè jiǎo hāo	9
+菊叶堇菜	jú yè jǐn cài	7
+聚叶龙胆	jù yè lóng dǎn	3
+橘叶千绪	jú yè qiān xù	6
+菊叶三七	jú yè sān qī	10
+聚叶沙参	jù yè shā shēn	10
+矩叶鼠刺	jǔ yè shǔ cì	7
+矩叶卫矛	jǔ yè wèi máo	7
+菊叶香藜	jú yè xiāng lí	9
 巨贻贝属	jù yí bèi shǔ	6
 锯翼龙属	jù yì lóng shǔ	8
 巨踦龙属	jù yǐ lóng shǔ	8
@@ -18674,10 +19062,13 @@ sort: by_weight
 卷叶蛾科	juàn yè é kē	36
 涓夜蛾属	juān yè é shǔ	7
 卷叶甲属	juàn yè jiǎ shǔ	7
+卷叶碱茅	juàn yè jiǎn máo	7
+卷叶冷蕨	juàn yè lěng jué	9
 绢野螟属	juàn yě míng shǔ	8
 卷野螟属	juǎn yě míng shǔ	6
 卷叶藓属	juàn yè xiǎn shǔ	5
 卷叶象科	juàn yè xiàng kē	1
+卷叶野螟	juàn yè yě míng	20
 卷叶蛛属	juàn yè zhū shǔ	6
 卷枝藻属	juǎn zhī zǎo shǔ	7
 卷轴螺属	juàn zhóu luó shǔ	6
@@ -18697,6 +19088,7 @@ sort: by_weight
 矍眼蝶属	jué yǎn dié shǔ	6
 蕨叶草科	jué yè cǎo kē	8
 蕨叶草属	jué yè cǎo shǔ	7
+蕨叶花楸	jué yè huā qiū	26
 蕨叶木科	jué yè mù kē	6
 蕨罂粟科	jué yīng sù kē	8
 蕨状苔草	jué zhuàng tái cǎo	11
@@ -19063,6 +19455,8 @@ sort: by_weight
 库武尔科	kù wǔ ěr kē	4
 苦玄参属	kǔ xuán shēn shǔ	12
 枯叶蛾科	kū yè é kē	33
+枯叶亦青	kū yè yì qīng	6
+枯叶樱蛤	kū yè yīng há	3
 库尤鱼属	kù yóu yú shǔ	5
 枯羽蛾属	kū yǔ é shǔ	5
 库约鳄属	kù yuē è shǔ	4
@@ -19139,8 +19533,29 @@ sort: by_weight
 宽胸蛛属	kuān xiōng zhū shǔ	6
 宽咽鱼科	kuān yàn yú kē	6
 宽咽鱼属	kuān yàn yú shǔ	7
+宽叶白茅	kuān yè bái máo	1
+宽叶丛菔	kuān yè cóng fú	7
+宽叶大戟	kuān yè dà jǐ	1
+宽叶杜香	kuān yè dù xiāng	7
+宽叶费菜	kuān yè fèi cài	10
+宽叶谷柳	kuān yè gǔ liǔ	9
+宽叶黄耆	kuān yè huáng qí	10
+宽叶景天	kuān yè jǐng tiān	27
+宽叶柳兰	kuān yè liǔ lán	7
+宽叶蔓豆	kuān yè màn dòu	7
 宽叶螨属	kuān yè mǎn shǔ	7
+宽叶母草	kuān yè mǔ cǎo	9
+宽叶羌活	kuān yè qiāng huó	8
+宽叶青杨	kuān yè qīng yáng	9
+宽叶山蒿	kuān yè shān hāo	9
+宽叶葶苈	kuān yè tíng lì	7
+宽叶乌柳	kuān yè wū liǔ	7
+宽叶香蒲	kuān yè xiāng pú	18
+宽叶亚菊	kuān yè yà jú	9
 宽叶衣属	kuān yè yī shǔ	7
+宽叶锥花	kuān yè zhuī huā	7
+宽叶紫麻	kuān yè zǐ má	5
+宽叶紫萁	kuān yè zǐ qí	7
 宽趾虎属	kuān zhǐ hǔ shǔ	5
 宽嘴鸫属	kuān zuǐ dōng shǔ	7
 眶鼻鳗属	kuàng bí mán shǔ	7
@@ -19188,6 +19603,8 @@ sort: by_weight
 盔犀鸟属	kuī xī niǎo shǔ	7
 盔蟹总科	kuī xiè zǒng kē	5
 盔药兰属	kuī yào lán shǔ	8
+葵叶报春	kuí yè bào chūn	7
+葵叶茑萝	kuí yè niǎo luó	12
 蝰鱼亚科	kuí yú yà kē	8
 盔鱼亚科	kuī yú yà kē	6
 魁札尔科	kuí zhá ěr kē	24
@@ -19227,6 +19644,19 @@ sort: by_weight
 阔峡鲶属	kuò xiá nián shǔ	6
 阔胸龟科	kuò xiōng guī kē	6
 扩胸蟋属	kuò xiōng xī shǔ	7
+阔叶冬青	kuò yè dōng qīng	5
+阔叶杜英	kuò yè dù yīng	7
+阔叶黄檀	kuò yè huáng tán	23
+阔叶荚蒾	kuò yè jiá mí	5
+阔叶景天	kuò yè jǐng tiān	22
+阔叶蒲桃	kuò yè pú táo	10
+阔叶省藤	kuò yè shěng téng	5
+阔叶树材	kuò yè shù cái	15
+阔叶肖榄	kuò yè xiāo lǎn	7
+阔叶杨桐	kuò yè yáng tóng	9
+阔叶沼兰	kuò yè zhǎo lán	7
+阔叶植物	kuò yè zhí wù	5
+阔叶竹桃	kuò yè zhú táo	12
 阔锥螳属	kuò zhuī táng shǔ	8
 阔嘴鹟属	kuò zuǐ wēng shǔ	6
 喇叭茶属	lǎ bā chá shǔ	3
@@ -19288,6 +19718,8 @@ sort: by_weight
 腊蚬蝶属	là xiǎn dié shǔ	7
 蜡绡蝶属	là xiāo dié shǔ	6
 拉亚蒂科	lā yà dì kē	6
+蜡叶标本	là yè biāo běn	31
+蜡叶杜鹃	là yè dù juān	9
 蜡椰亚科	là yē yà kē	6
 拉扎连科	lā zhā lián kē	4
 喇扎萨目	lǎ zhā sà mù	16
@@ -19816,12 +20248,17 @@ sort: by_weight
 璃眼蜱属	lí yǎn pí shǔ	7
 离药草属	lí yào cǎo shǔ	8
 丽叶蝉属	lì yè chán shǔ	7
+栎叶杜鹃	lì yè dù juān	20
 俚夜蛾属	lǐ yè é shǔ	8
 丽夜蛾属	lì yè é shǔ	6
+栎叶槲蕨	lì yè hú jué	7
 丽叶甲属	lì yè jiǎ shǔ	7
 李叶甲属	lǐ yè jiǎ shǔ	6
+栎叶罗伞	lì yè luó sǎn	18
 丽野螟属	lì yě míng shǔ	6
+栎叶枇杷	lì yè pí pá	10
 丽叶䗛属	lì yè xiū shǔ	4
+栎叶亚菊	lì yè yà jú	20
 蜊樱蛤属	lí yīng há shǔ	5
 丽瘿螨属	lì yǐng mǎn shǔ	4
 粒蛹螺科	lì yǒng luó kē	7
@@ -19928,10 +20365,24 @@ sort: by_weight
 链眼蝶属	liàn yǎn dié shǔ	6
 镰眼蝶属	lián yǎn dié shǔ	5
 恋岩花属	liàn yán huā shǔ	14
+镰叶虫实	lián yè chóng shí	7
+镰叶耳蕨	lián yè ěr jué	11
+镰叶碱蓬	lián yè jiǎn péng	9
+莲叶九蕊	lián yè jiǔ ruǐ	1
+镰叶卷柏	lián yè juàn bǎi	7
 镰叶兰属	lián yè lán shǔ	4
+镰叶茜草	lián yè qiàn cǎo	19
+镰叶前胡	lián yè qián hú	7
+镰叶肾蕨	lián yè shèn jué	9
+镰叶嵩草	lián yè sōng cǎo	7
+莲叶田田	lián yè tián tián	29
 莲叶桐科	lián yè tóng kē	25
 莲叶桐属	lián yè tóng shǔ	13
+莲叶童子	lián yè tóng zǐ	15
+莲叶橐吾	lián yè tuó wú	9
 镰叶藓属	lián yè xiǎn shǔ	8
+镰叶越桔	lián yè yuè jú	12
+镰叶紫菀	lián yè zǐ wǎn	15
 连缨丽鱼	lián yīng lì yú	10
 莲瘿蚜属	lián yǐng yá shǔ	7
 镰玉螺属	lián yù luó shǔ	6
@@ -19994,8 +20445,26 @@ sort: by_weight
 梁王茶属	liáng wáng chá shǔ	14
 亮绡蝶属	liàng xiāo dié shǔ	6
 两型豆属	liǎng xíng dòu shǔ	15
+亮叶报春	liàng yè bào chūn	7
+亮叶冬青	liàng yè dōng qīng	31
+亮叶杜鹃	liàng yè dù juān	7
+亮叶耳蕨	liàng yè ěr jué	10
+亮叶含笑	liàng yè hán xiào	10
 亮叶甲属	liàng yè jiǎ shǔ	8
+亮叶龙胆	liàng yè lóng dǎn	18
+亮叶茉莉	liàng yè mò lì	3
+亮叶木莲	liàng yè mù lián	10
 亮叶芹属	liàng yè qín shǔ	7
+亮叶青冈	liàng yè qīng gāng	5
+亮叶忍冬	liàng yè rěn dōng	7
+亮叶石杉	liàng yè shí shān	9
+亮叶鼠李	liàng yè shǔ lǐ	7
+亮叶素馨	liàng yè sù xīn	14
+亮叶栒子	liàng yè xún zǐ	32
+亮叶杨桐	liàng yè yáng tóng	11
+亮叶月季	liàng yè yuè jì	22
+亮叶越桔	liàng yè yuè jú	9
+亮叶紫菀	liàng yè zǐ wǎn	10
 亮樱蛤属	liàng yīng há shǔ	7
 两爪鳖科	liǎng zhǎo biē kē	4
 两爪鳖属	liǎng zhǎo biē shǔ	8
@@ -20089,8 +20558,16 @@ sort: by_weight
 劣牙龙属	liè yá lóng shǔ	7
 列恙螨科	liè yàng mǎn kē	5
 裂药花科	liè yào huā kē	17
+裂叶地黄	liè yè dì huáng	2
 猎夜蛾属	liè yè é shǔ	8
+裂叶耳蕨	liè yè ěr jué	5
+裂叶堇菜	liè yè jǐn cài	34
+裂叶荆芥	liè yè jīng jiè	39
+裂叶毛茛	liè yè máo gèn	9
+裂叶牵牛	liè yè qiān niú	5
 裂叶苔科	liè yè tái kē	11
+裂叶莴苣	liè yè wō jù	11
+裂叶紫椴	liè yè zǐ duàn	7
 裂隐蟹属	liè yǐn xiè shǔ	6
 裂银杏属	liè yín xìng shǔ	6
 裂颖茅属	liè yǐng máo shǔ	13
@@ -20221,12 +20698,15 @@ sort: by_weight
 林岩芋属	lín yán yù shǔ	7
 鳞羊齿属	lín yáng chǐ shǔ	6
 林秧鸡属	lín yāng jī shǔ	4
+鳞叶龙胆	lín yè lóng dǎn	24
 鳞叶树科	lín yè shù kē	11
+鳞叶水藓	lín yè shuǐ xiǎn	1
 鳞叶铁属	lín yè tiě shǔ	6
 鳞叶藓科	lín yè xiǎn kē	5
 鳞叶藓属	lín yè xiǎn shǔ	4
 鳞叶衣科	lín yè yī kē	5
 鳞叶衣属	lín yè yī shǔ	7
+鳞叶紫堇	lín yè zǐ jǐn	7
 临沂鸟属	lín yí niǎo shǔ	6
 林荫兰属	lín yīn lán shǔ	5
 鳞鼬鳚属	lín yòu wèi shǔ	6
@@ -20306,11 +20786,19 @@ sort: by_weight
 菱牙鮨属	líng yá yì shǔ	4
 玲眼蝶属	líng yǎn dié shǔ	7
 羚羊亚科	líng yáng yà kē	6
+菱叶滨榕	líng yè bīn róng	9
 菱叶草属	líng yè cǎo shǔ	6
+菱叶钓樟	líng yè diào zhāng	20
 铃夜蛾属	líng yè é shǔ	8
 陵夜蛾属	líng yè é shǔ	4
+菱叶茴芹	líng yè huí qín	13
+菱叶鹿藿	líng yè lù huò	14
 羚野螟属	líng yě míng shǔ	5
+菱叶卫矛	líng yè wèi máo	10
+菱叶乌头	líng yè wū tóu	12
+菱叶蚬木	líng yè xiǎn mù	9
 领夜鹰属	lǐng yè yīng shǔ	6
+菱叶紫菊	líng yè zǐ jú	9
 绫衣蛤科	líng yī há kē	7
 绫衣蛤属	líng yī há shǔ	5
 凌源龙属	líng yuán lóng shǔ	7
@@ -20450,6 +20938,12 @@ sort: by_weight
 柳叶箬属	liǔ yè ruò shǔ	26
 柳叶藓科	liǔ yè xiǎn kē	27
 柳叶藓属	liǔ yè xiǎn shǔ	7
+柳叶绣球	liǔ yè xiù qiú	7
+柳叶栒子	liǔ yè xún zǐ	54
+柳叶亚菊	liǔ yè yà jú	19
+柳叶雅彦	liǔ yè yǎ yàn	9
+柳叶鱼丸	liǔ yè yú wán	6
+柳叶紫珠	liǔ yè zǐ zhū	5
 六疣蛛科	liù yóu zhū kē	7
 瘤缘蝽属	liú yuán chūn shǔ	7
 六月雪属	liù yuè xuě shǔ	3
@@ -20685,7 +21179,26 @@ sort: by_weight
 卵形藻属	luǎn xíng zǎo shǔ	14
 卵形蛛科	luǎn xíng zhū kē	8
 卵形蛛属	luǎn xíng zhū shǔ	8
+卵叶白前	luǎn yè bái qián	4
+卵叶扁蕾	luǎn yè biǎn lěi	7
+卵叶钓樟	luǎn yè diào zhāng	26
 孪叶豆属	luán yè dòu shǔ	18
+卵叶盾蕨	luǎn yè dùn jué	29
+卵叶耳草	luǎn yè ěr cǎo	9
+卵叶繁缕	luǎn yè fán lǚ	7
+卵叶辐花	luǎn yè fú huā	29
+卵叶栝楼	luǎn yè guā lóu	5
+卵叶荚蒾	luǎn yè jiá mí	5
+卵叶轮草	luǎn yè lún cǎo	9
+卵叶猫乳	luǎn yè māo rǔ	9
+卵叶女贞	luǎn yè nǚ zhēn	15
+卵叶茜草	luǎn yè qiàn cǎo	5
+卵叶青藓	luǎn yè qīng xiǎn	11
+卵叶山杨	luǎn yè shān yáng	7
+卵叶鼠李	luǎn yè shǔ lǐ	7
+卵叶溲疏	luǎn yè sōu shū	7
+卵叶瓦莲	luǎn yè wǎ lián	9
+卵叶岩荠	luǎn yè yán jì	5
 乱子草属	luàn zi cǎo shǔ	18
 轮刺贝科	lún cì bèi kē	7
 伦茨菌属	lún cí jūn shǔ	7
@@ -20697,7 +21210,14 @@ sort: by_weight
 轮盘体属	lún pán tǐ shǔ	4
 伦氏鳎属	lún shì tǎ shǔ	6
 轮线虫属	lún xiàn chóng shǔ	7
+轮叶白前	lún yè bái qián	1
+轮叶党参	lún yè dǎng shēn	1
+轮叶黑藻	lún yè hēi zǎo	19
 轮叶戟属	lún yè jǐ shǔ	12
+轮叶景天	lún yè jǐng tiān	10
+轮叶排草	lún yè pái cǎo	1
+轮叶蒲桃	lún yè pú táo	10
+轮叶荛花	lún yè ráo huā	7
 轮缘孢属	lún yuán bāo shǔ	5
 轮枝孢属	lún zhī bāo shǔ	12
 轮状螺属	lún zhuàng luó shǔ	6
@@ -20972,7 +21492,14 @@ sort: by_weight
 绿芫菁属	lǜ yán jīng shǔ	7
 绿咬鹃属	lǜ yǎo juān shǔ	7
 绿夜蛾属	lǜ yè é shǔ	5
+绿叶甘橿	lǜ yè gān jiāng	9
+绿叶甘蓝	lǜ yè gān lán	18
 绿叶甲属	lǜ yè jiǎ shǔ	7
+绿叶介蕨	lǜ yè jiè jué	3
+绿叶绢藓	lǜ yè juàn xiǎn	16
+绿叶木蓼	lǜ yè mù liǎo	7
+绿叶秋子	lǜ yè qiū zǐ	5
+绿叶伞兰	lǜ yè sǎn lán	8
 绿莺雀属	lǜ yīng què shǔ	4
 绿疣猴属	lǜ yóu hóu shǔ	7
 绿鱼狗属	lǜ yú gǒu shǔ	5
@@ -21112,6 +21639,8 @@ sort: by_weight
 马休结鱼	mǎ xiū jié yú	8
 玛雅果属	mǎ yǎ guǒ shǔ	7
 玛眼蝶属	mǎ yǎn dié shǔ	5
+麻叶花楸	má yè huā qiū	15
+麻叶栒子	má yè xún zǐ	10
 麻野蝇属	má yě yíng shǔ	8
 马尾藻科	mǎ yǐ zǎo kē	19
 马尾藻属	mǎ yǐ zǎo shǔ	19
@@ -21164,6 +21693,7 @@ sort: by_weight
 麦鳕鲈属	mài xuě lú shǔ	6
 脉叶兰属	mài yè lán shǔ	7
 脉叶莓科	mài yè méi kē	7
+脉叶木蓝	mài yè mù lán	11
 脉叶苏科	mài yè sū kē	5
 麦银汉鱼	mài yín hàn yú	9
 麦缨虫属	mài yīng chóng shǔ	5
@@ -21468,10 +21998,64 @@ sort: by_weight
 毛药树科	máo yào shù kē	5
 毛药树属	máo yào shù shǔ	6
 毛药藤属	máo yào téng shǔ	14
+毛叶巴豆	máo yè bā dòu	17
+毛叶杯锥	máo yè bēi zhuī	9
+毛叶稠李	máo yè chóu lǐ	9
+毛叶刺楸	máo yè cì qiū	9
+毛叶丁香	máo yè dīng xiāng	2
+毛叶冬青	máo yè dōng qīng	7
+毛叶杜鹃	máo yè dù juān	18
+毛叶耳蕨	máo yè ěr jué	9
+矛叶飞蓬	máo yè fēi péng	10
+毛叶茯蕨	máo yè fú jué	5
+毛叶麸杨	máo yè fū yáng	8
+毛叶甘菊	máo yè gān jú	9
+毛叶合欢	máo yè hé huān	7
+毛叶胡椒	máo yè hú jiāo	10
+毛叶槲栎	máo yè hú lì	5
+毛叶花椒	máo yè huā jiāo	7
+毛叶黄皮	máo yè huáng pí	7
+毛叶黄耆	máo yè huáng qí	28
+毛叶黄杞	máo yè huáng qǐ	10
+毛叶黄芩	máo yè huáng qín	9
+毛叶黄檀	máo yè huáng tán	9
+毛叶角蕨	máo yè jiǎo jué	5
+矛叶荩草	máo yè jìn cǎo	17
+毛叶九节	máo yè jiǔ jié	1
+毛叶菊酯	máo yè jú zhǐ	15
+毛叶卷柏	máo yè juàn bǎi	7
 毛叶蕨属	máo yè jué shǔ	9
+毛叶拷栗	máo yè kǎo lì	5
+毛叶梾木	máo yè lái mù	7
+毛叶藜芦	máo yè lí lú	10
+矛叶瘤蕨	máo yè liú jué	15
+毛叶毛茛	máo yè máo gèn	17
+毛叶木瓜	máo yè mù guā	7
+毛叶奶桑	máo yè nǎi sāng	9
+毛叶欧李	máo yè ōu lǐ	10
+毛叶蔷薇	máo yè qiáng wēi	10
+毛叶青冈	máo yè qīng gāng	11
+毛叶山柑	máo yè shān gān	24
+毛叶苕子	máo yè sháo zǐ	24
+毛叶肾蕨	máo yè shèn jué	10
+毛叶升麻	máo yè shēng má	7
+毛叶石楠	máo yè shí nán	20
+毛叶鼠李	máo yè shǔ lǐ	7
+毛叶梳藓	máo yè shū xiǎn	21
+毛叶楤木	máo yè sǒng mù	10
+毛叶桫椤	máo yè suō luó	9
 毛叶苔草	máo yè tái cǎo	11
 毛叶苔科	máo yè tái kē	8
 毛叶苔属	máo yè tái shǔ	4
+毛叶藤仲	máo yè téng zhòng	19
+毛叶铁榄	máo yè tiě lǎn	5
+毛叶葶苈	máo yè tíng lì	12
+毛叶乌头	máo yè wū tóu	7
+毛叶油丹	máo yè yóu dān	9
+毛叶芋兰	máo yè yù lán	11
+毛叶玉兰	máo yè yù lán	7
+毛叶獐毛	máo yè zhāng máo	14
+毛叶蔗茅	máo yè zhè máo	25
 毛翼蝠属	máo yì fú shǔ	7
 毛伊龙属	máo yī lóng shǔ	5
 矛蚁亚科	máo yǐ yà kē	7
@@ -21776,8 +22360,18 @@ sort: by_weight
 迷绡蝶属	mí xiāo dié shǔ	6
 密星隐鱼	mì xīng yǐn yú	6
 米亚尔科	mǐ yà ěr kē	7
+密叶杜鹃	mì yè dù juān	7
 秘夜蛾属	mì yè é shǔ	8
+密叶飞蓬	mì yè fēi péng	12
+密叶棘豆	mì yè jí dòu	5
+密叶堇菜	mì yè jǐn cài	23
+密叶荆芥	mì yè jīng jiè	7
+密叶决明	mì yè jué míng	9
+密叶龙胆	mì yè lóng dǎn	9
 密叶杉属	mì yè shān shǔ	8
+密叶实蕨	mì yè shí jué	9
+密叶石莲	mì yè shí lián	7
+密叶紫菀	mì yè zǐ wǎn	10
 秘隐鳚属	mì yǐn wèi shǔ	7
 迷缘蝽属	mí yuán chūn shǔ	5
 米仔兰属	mǐ zǎi lán shǔ	21
@@ -21947,6 +22541,13 @@ sort: by_weight
 墨蚜蝇属	mò yá yíng shǔ	8
 陌夜蛾属	mò yè é shǔ	7
 膜夜蛾属	mó yè é shǔ	7
+膜叶贯众	mó yè guàn zhòng	10
+膜叶荆芥	mó yè jīng jiè	9
+膜叶卷柏	mó yè juàn bǎi	11
+膜叶冷蕨	mó yè lěng jué	7
+膜叶荨麻	mó yè qián má	5
+膜叶星蕨	mó yè xīng jué	21
+膜叶紫麻	mó yè zǐ má	5
 莫伊马科	mò yī mǎ kē	8
 莫伊森科	mò yī sēn kē	8
 末泳龙属	mò yǒng lóng shǔ	7
@@ -22691,6 +23292,9 @@ sort: by_weight
 涅瓦菌科	niè wǎ jūn kē	7
 啮王龙属	niè wáng lóng shǔ	5
 聂叶蝉属	niè yè chán shǔ	6
+颞叶岛盖	niè yè dǎo gài	3
+颞叶后支	niè yè hòu zhī	17
+颞叶前支	niè yè qián zhī	17
 泞齿鳉属	nìng chǐ jiāng shǔ	4
 凝花菜科	níng huā cài kē	7
 凝花菜属	níng huā cài shǔ	6
@@ -24078,7 +24682,14 @@ sort: by_weight
 全牙虫属	quán yá chóng shǔ	7
 犬牙鳉属	quǎn yá jiāng shǔ	6
 犬牙鲬属	quǎn yá yǒng shǔ	7
+全叶滇芎	quán yè diān qiōng	9
+全叶荚蒾	quán yè jiá mí	5
+全叶马兰	quán yè mǎ lán	11
+全叶青兰	quán yè qīng lán	17
+全叶山芹	quán yè shān qín	17
+拳叶苏铁	quán yè sū tiě	1
 拳叶苔属	quán yè tái shǔ	7
+全叶紫菊	quán yè zǐ jú	10
 全缘衣属	quán yuán yī shǔ	7
 全爪螨属	quán zhǎo mǎn shǔ	7
 泉脂鲤属	quán zhī lǐ shǔ	6
@@ -24256,7 +24867,13 @@ sort: by_weight
 绒线藻属	róng xiàn zǎo shǔ	5
 榕小蜂科	róng xiǎo fēng kē	1
 熔岩鼠属	róng yán shǔ shǔ	6
+榕叶冬青	róng yè dōng qīng	11
 荣夜蛾属	róng yè é shǔ	7
+绒叶含笑	róng yè hán xiào	7
+绒叶鹿藿	róng yè lù huò	9
+榕叶树参	róng yè shù cān	9
+榕叶卫矛	róng yè wèi máo	7
+绒叶仙茅	róng yè xiān máo	7
 绒贻贝属	róng yí bèi shǔ	5
 茸枝衣属	róng zhī yī shǔ	5
 绒枝藻科	róng zhī zǎo kē	4
@@ -24317,9 +24934,14 @@ sort: by_weight
 柔眼蝶属	róu yǎn dié shǔ	5
 肉药兰属	ròu yào lán shǔ	12
 肉叶草属	ròu yè cǎo shǔ	6
+肉叶耳草	ròu yè ěr cǎo	7
 肉叶荠属	ròu yè jì shǔ	3
+肉叶荚蒾	ròu yè jiá mí	5
 柔野螟属	róu yě míng shǔ	4
+肉叶忍冬	ròu yè rěn dōng	7
 柔叶螳属	róu yè táng shǔ	6
+柔叶真藓	róu yè zhēn xiǎn	32
+肉叶植物	ròu yè zhí wù	10
 肉疣衣科	ròu yóu yī kē	5
 肉疣衣属	ròu yóu yī shǔ	6
 柔脂鲤属	róu zhī lǐ shǔ	6
@@ -24417,6 +25039,9 @@ sort: by_weight
 软塘鳢属	ruǎn táng lǐ shǔ	5
 软腕鱼科	ruǎn wàn yú kē	6
 软尾雀属	ruǎn wěi què shǔ	7
+软叶刺葵	ruǎn yè cì kuí	9
+软叶苓菊	ruǎn yè líng jú	9
+软叶杉木	ruǎn yè shā mù	5
 软鼬鳚属	ruǎn yòu wèi shǔ	7
 软紫草属	ruǎn zǐ cǎo shǔ	16
 锐齿鯙属	ruì chǐ chún shǔ	8
@@ -24441,6 +25066,11 @@ sort: by_weight
 瑞替龙属	ruì tì lóng shǔ	6
 锐头银鱼	ruì tóu yín yú	9
 瑞新龙属	ruì xīn lóng shǔ	8
+锐叶茴芹	ruì yè huí qín	9
+锐叶柃木	ruì yè líng mù	6
+锐叶木犀	ruì yè mù xī	11
+锐叶山柑	ruì yè shān gān	3
+锐叶香青	ruì yè xiāng qīng	10
 锐缘蜱属	ruì yuán pí shǔ	11
 蕊舟蛾属	ruǐ zhōu é shǔ	8
 润齿草属	rùn chǐ cǎo shǔ	6
@@ -24633,9 +25263,23 @@ sort: by_weight
 三眼乌鸦	sān yǎn wū yā	81
 三阳苔草	sān yáng tái cǎo	1
 三洋藓属	sān yáng xiǎn shǔ	6
+三叶草湖	sān yè cǎo hú	6
+三叶草蜜	sān yè cǎo mì	1
 三叶草属	sān yè cǎo shǔ	11
+三叶草形	sān yè cǎo xíng	11
+三叶虫纲	sān yè chóng gāng	21
+三叶虫类	sān yè chóng lèi	8
 三叶唇鱼	sān yè chún yú	9
+三叶地锦	sān yè dì jǐn	7
+三叶蝶豆	sān yè dié dòu	1
+三叶荚蒾	sān yè jiá mí	1
 三叶锦鱼	sān yè jǐn yú	5
+三叶鹿药	sān yè lù yào	1
+三叶罗伞	sān yè luó sǎn	1
+三叶蔓荆	sān yè màn jīng	1
+三叶木蓝	sān yè mù lán	1
+三叶木通	sān yè mù tōng	16
+伞叶排草	sǎn yè pái cǎo	1
 三叶漆属	sān yè qī shǔ	1
 三游鳚属	sān yóu wèi shǔ	7
 三枝孢属	sān zhī bāo shǔ	8
@@ -24959,13 +25603,20 @@ sort: by_weight
 山羊草属	shān yáng cǎo shǔ	21
 山羊豆属	shān yáng dòu shǔ	12
 山阳龙属	shān yáng lóng shǔ	5
+扇叶刺芹	shàn yè cì qín	1
+扇叶垫柳	shàn yè diàn liǔ	10
 杉叶杜属	shān yè dù shǔ	11
 衫夜蛾属	shān yè é shǔ	8
 扇夜蛾属	shàn yè é shǔ	7
 闪夜蛾属	shǎn yè é shǔ	7
+扇叶黄堇	shàn yè huáng jǐn	9
 扇叶兰属	shàn yè lán shǔ	8
+扇叶龙胆	shàn yè lóng dǎn	9
+扇叶毛茛	shàn yè máo gèn	23
 扇野螟属	shàn yě míng shǔ	5
+扇叶蒲葵	shàn yè pú kuí	32
 扇叶苔草	shàn yè tái cǎo	11
+扇叶糖棕	shàn yè táng zōng	3
 杉叶藻科	shān yè zǎo kē	16
 杉叶藻属	shān yè zǎo shǔ	14
 山蚁亚科	shān yǐ yà kē	5
@@ -25029,6 +25680,9 @@ sort: by_weight
 少穗苔草	shǎo suì tái cǎo	11
 少穗竹属	shǎo suì zhú shǔ	23
 勺眼蝶属	sháo yǎn dié shǔ	8
+少叶黄杞	shǎo yè huáng qǐ	12
+少叶龙胆	shǎo yè lóng dǎn	9
+少叶鹿药	shǎo yè lù yào	9
 勺叶木科	sháo yè mù kē	1
 舌瓣花属	shé bàn huā shǔ	4
 射棒孢属	shè bàng bāo shǔ	5
@@ -25116,6 +25770,7 @@ sort: by_weight
 蛇眼蜥属	shé yǎn xī shǔ	6
 舌羊齿属	shé yáng chǐ shǔ	6
 舌叶花属	shé yè huā shǔ	7
+舌叶金腰	shé yè jīn yāo	9
 舌叶松属	shé yè sōng shǔ	4
 舌叶藓属	shé yè xiǎn shǔ	8
 舌珍鱼属	shé zhēn yú shǔ	6
@@ -25205,6 +25860,13 @@ sort: by_weight
 深洋蟹科	shēn yáng xiè kē	4
 肾药花科	shèn yào huā kē	13
 肾药兰属	shèn yào lán shǔ	7
+肾叶报春	shèn yè bào chūn	14
+肾叶茴芹	shèn yè huí qín	28
+肾叶堇菜	shèn yè jǐn cài	11
+肾叶金腰	shèn yè jīn yāo	9
+肾叶龙胆	shèn yè lóng dǎn	9
+肾叶细辛	shèn yè xì xīn	9
+肾叶野桐	shèn yè yě tóng	34
 神翼鸟属	shén yì niǎo shǔ	6
 神鹰龟属	shén yīng guī shǔ	14
 深渊龙属	shēn yuān lóng shǔ	7
@@ -25566,13 +26228,25 @@ sort: by_weight
 石岩鳚属	shí yán wèi shǔ	7
 始燕鱼属	shǐ yàn yú shǔ	5
 嗜阳菌属	shì yáng jūn shǔ	8
+匙叶矮柳	shi yè ǎi liǔ	1
 匙叶草属	shi yè cǎo shǔ	12
 实夜蛾属	shí yè é shǔ	6
 蚀夜蛾属	shí yè é shǔ	5
+匙叶甘松	shi yè gān sōng	9
+匙叶黄杨	shi yè huáng yáng	20
+匙叶剑蕨	shi yè jiàn jué	10
 始叶蕨属	shǐ yè jué shǔ	1
+匙叶龙胆	shi yè lóng dǎn	12
 始叶螨属	shǐ yè mǎn shǔ	5
+匙叶木藓	shi yè mù xiǎn	7
+匙叶球兰	shi yè qiú lán	10
 拾叶雀属	shí yè què shǔ	7
+匙叶荛花	shi yè ráo huā	9
+匙叶五加	shi yè wǔ jiā	5
+匙叶小檗	shi yè xiǎo bò	7
+匙叶絮菊	shi yè xù jú	7
 石叶藻属	shí yè zǎo shǔ	7
+匙叶栀子	shi yè zhī zi	10
 食蚁狸科	shí yǐ lí kē	5
 食蚁狸属	shí yǐ lí shǔ	5
 食蚁兽科	shí yǐ shòu kē	6
@@ -25811,6 +26485,9 @@ sort: by_weight
 树鸭亚科	shù yā yà kē	4
 束腰蝽科	shù yāo chūn kē	1
 束腰蟹科	shù yāo xiè kē	8
+疏叶杜鹃	shū yè dù juān	10
+疏叶卷柏	shū yè juàn bǎi	28
+疏叶崖豆	shū yè yá dòu	10
 树叶亚目	shù yè yà mù	4
 树蚁蛉属	shù yǐ líng shǔ	4
 树翼龙属	shù yì lóng shǔ	4
@@ -26398,9 +27075,13 @@ sort: by_weight
 四眼鱼属	sì yǎn yú shǔ	5
 丝叶芥属	sī yè jiè shǔ	12
 似野结鱼	sì yě jié yú	10
+四叶苜蓿	sì yè mù xu	11
+丝叶匹菊	sī yè pǐ jú	7
+四叶茜草	sì yè qiàn cǎo	1
 丝叶芹属	sī yè qín shǔ	12
 丝叶苔草	sī yè tái cǎo	11
 丝叶鸦葱	sī yè yā cōng	7
+丝叶紫堇	sī yè zǐ jǐn	9
 四翼六目	sì yì liù mù	4
 似蚁蛛属	sì yǐ zhū shǔ	5
 丝引苔草	sī yǐn tái cǎo	10
@@ -26467,11 +27148,18 @@ sort: by_weight
 松蚬蝶属	sōng xiǎn dié shǔ	8
 松香草属	sōng xiāng cǎo shǔ	4
 松眼虫属	sōng yǎn chóng shǔ	7
+松叶百合	sōng yè bǎi hé	3
+松叶耳草	sōng yè ěr cǎo	7
 松叶蜂科	sōng yè fēng kē	13
 松叶菊属	sōng yè jú shǔ	6
+松叶蕨纲	sōng yè jué gāng	14
 松叶蕨科	sōng yè jué kē	22
 松叶蕨属	sōng yè jué shǔ	15
 松叶兰属	sōng yè lán shǔ	6
+松叶毛茛	sōng yè máo gèn	32
+松叶牡丹	sōng yè mǔ dān	23
+松叶青兰	sōng yè qīng lán	9
+松叶沙参	sōng yè shā shēn	1
 松叶苔草	sōng yè tái cǎo	12
 松油鲶属	sōng yóu nián shǔ	7
 松原鱼属	sōng yuán yú shǔ	8
@@ -26566,8 +27254,11 @@ sort: by_weight
 穗石薇属	suì shí wēi shǔ	6
 燧体木科	suì tǐ mù kē	8
 燧体木属	suì tǐ mù shǔ	7
+碎叶中正	suì xié zhōng zhèng	6
 碎雪草属	suì xuě cǎo shǔ	7
+碎叶风舞	suì yè fēng wǔ	7
 穗叶藤属	suì yè téng shǔ	4
+碎叶岩风	suì yè yán fēng	10
 穗柱榆科	suì zhù yú kē	1
 穗籽木科	suì zǐ mù kē	7
 碎嘴龙属	suì zuǐ lóng shǔ	5
@@ -26816,7 +27507,14 @@ sort: by_weight
 陶圣参属	táo shèng cān shǔ	7
 陶土鸟属	táo tǔ niǎo shǔ	5
 绦眼蝶属	tāo yǎn dié shǔ	5
+桃叶杜鹃	táo yè dù juān	17
+桃叶渡头	táo yè dù tóu	3
 套叶兰属	tào yè lán shǔ	14
+桃叶珊瑚	táo yè shān hú	81
+桃叶石楠	táo yè shí nán	14
+桃叶鼠李	táo yè shǔ lǐ	7
+桃叶桃根	táo yè táo gēn	16
+桃叶卫矛	táo yè wèi máo	5
 桃叶鸦葱	táo yè yā cōng	19
 桃鹦嘴鱼	táo yīng zuǐ yú	5
 套趾虎属	tào zhǐ hǔ shǔ	5
@@ -26868,6 +27566,8 @@ sort: by_weight
 梯形蟹科	tī xíng xiè kē	6
 蹄形藻属	tí xíng zǎo shǔ	7
 梯形藻属	tī xíng zǎo shǔ	5
+梯叶花楸	tī yè huā qiū	10
+蹄叶橐吾	tí yè tuó wú	12
 田霸鹟属	tián bà wēng shǔ	5
 天宝花属	tiān bǎo huā shǔ	6
 田边辫鱼	tián biān biàn yú	7
@@ -26935,6 +27635,7 @@ sort: by_weight
 天星蕨属	tiān xīng jué shǔ	13
 天星藤属	tiān xīng téng shǔ	7
 田亚麻科	tián yà má kē	5
+甜叶菊甙	tián yè jú dài	7
 甜叶菊属	tián yè jú shǔ	1
 田野龙属	tián yě lóng shǔ	5
 田野蛛属	tián yě zhū shǔ	7
@@ -26976,6 +27677,12 @@ sort: by_weight
 条线虫属	tiáo xiàn chóng shǔ	5
 跳小蜂科	tiào xiǎo fēng kē	5
 跳岩鳚属	tiào yán wèi shǔ	5
+条叶百合	tiáo yè bǎi hé	16
+条叶枯病	tiáo yè kū bìng	7
+条叶龙胆	tiáo yè lóng dǎn	13
+条叶庭荠	tiáo yè tíng jì	30
+条叶香草	tiáo yè xiāng cǎo	7
+条叶岩风	tiáo yè yán fēng	17
 跳足鳄属	tiào zú è shǔ	8
 铁倍蚜属	tiě bèi yá shǔ	8
 贴柄芋属	tiē bǐng yù shǔ	5
@@ -27007,6 +27714,7 @@ sort: by_weight
 铁线莲属	tiě xiàn lián shǔ	40
 铁线蛇属	tiě xiàn shé shǔ	6
 铁线子属	tiě xiàn zǐ shǔ	16
+铁叶云母	tiě yè yún mǔ	1
 铁爪鹀科	tiě zhuǎ wú kē	6
 铁爪鹀属	tiě zhuǎ wú shǔ	17
 廷埃萨科	tíng āi sà kē	11
@@ -27078,8 +27786,12 @@ sort: by_weight
 筒穴甲科	tǒng xué jiǎ kē	7
 筒穴甲属	tǒng xué jiǎ shǔ	6
 茼蕈虫科	tóng xùn chóng kē	9
+桐叶封弟	tóng yè fēng dì	14
+筒叶花月	tǒng yè huā yuè	9
 筒叶兰属	tǒng yè lán shǔ	7
 同叶藓属	tóng yè xiǎn shǔ	4
+桐叶知秋	tóng yè zhī qiū	32
+桐叶租车	tóng yè zū chē	30
 桐油树属	tóng yóu shù shǔ	6
 同缘蝽属	tóng yuán chūn shǔ	7
 同枝衣属	tóng zhī yī shǔ	7
@@ -27224,7 +27936,11 @@ sort: by_weight
 突眼蟹科	tū yǎn xiè kē	8
 突眼蝇科	tū yǎn yíng kē	21
 突眼蝇属	tū yǎn yíng shǔ	6
+秃叶党参	tū yè dǎng shēn	7
+凸叶杜鹃	tū yè dù juān	9
 图夜蛾属	tú yè é shǔ	6
+秃叶红豆	tū yè hóng dòu	7
+秃叶黄檗	tū yè huáng bò	7
 土衣鱼科	tǔ yī yú kē	9
 兔银鲛属	tù yín jiāo shǔ	5
 兔仔菜属	tù zǎi cài shǔ	6
@@ -27248,6 +27964,9 @@ sort: by_weight
 团穗苔草	tuán suì tái cǎo	12
 团网菌属	tuán wǎng jūn shǔ	8
 团香木属	tuán xiāng mù shǔ	7
+团叶杜鹃	tuán yè dù juān	7
+团叶槲蕨	tuán yè hú jué	7
+团叶越桔	tuán yè yuè jú	7
 团烛木属	tuán zhú mù shǔ	5
 蜕甲螨科	tuì jiǎ mǎn kē	4
 颓弄蝶属	tuí nòng dié shǔ	4
@@ -27324,7 +28043,10 @@ sort: by_weight
 托维藻科	tuō wéi zǎo kē	7
 托维藻属	tuō wéi zǎo shǔ	8
 拖鞋兰属	tuō xié lán shǔ	8
+托叶黄檀	tuō yè huáng tán	7
+椭叶龙胆	tuǒ yè lóng dǎn	9
 托叶铁科	tuō yè tiě kē	6
+托叶樱桃	tuō yè yīng táo	10
 托伊莫科	tuō yī mò kē	8
 洼瓣花属	wā bàn huā shǔ	19
 蛙蟾鱼属	wā chán yú shǔ	7
@@ -27368,6 +28090,7 @@ sort: by_weight
 外腔菌科	wài qiāng jūn kē	7
 外网藓属	wài wǎng xiǎn shǔ	7
 歪尾鳕属	wāi wěi xuě shǔ	7
+歪叶桉树	wāi yè ān shù	10
 外子藻科	wài zǐ zǎo kē	5
 弯棒芋属	wān bàng yù shǔ	7
 弯孢壳属	wān bāo ké shǔ	7
@@ -27444,6 +28167,9 @@ sort: by_weight
 弯须螨属	wān xū mǎn shǔ	8
 弯药树科	wān yào shù kē	19
 弯药树属	wān yào shù shǔ	8
+万叶麒麟	wàn yè qí lín	15
+弯叶嵩草	wān yè sōng cǎo	3
+弯叶鸢尾	wān yè yuān wěi	5
 弯衣菌科	wān yī jūn kē	6
 弯衣菌属	wān yī jūn shǔ	5
 弯趾虎属	wān zhǐ hǔ shǔ	5
@@ -27522,6 +28248,7 @@ sort: by_weight
 网夜蛾属	wǎng yè é shǔ	8
 望夜蛾属	wàng yè é shǔ	7
 王爷葵属	wáng ye kuí shǔ	5
+网叶木蓝	wǎng yè mù lán	16
 网胰藻属	wǎng yí zǎo shǔ	5
 网翼藻属	wǎng yì zǎo shǔ	5
 王鹦鹉属	wáng yīng wǔ shǔ	5
@@ -27724,17 +28451,40 @@ sort: by_weight
 伪蕈甲科	wěi xùn jiǎ kē	4
 为亚冬鱼	wéi yà dōng yú	6
 尾药木科	wěi yào mù kē	7
+尾叶白珠	wěi yè bái zhū	1
 微叶虫科	wēi yè chóng kē	7
 胃叶虫属	wèi yè chóng shǔ	1
 尾叶虫属	wěi yè chóng shǔ	1
+尾叶刺桑	wěi yè cì sāng	10
+尾叶冬青	wěi yè dōng qīng	17
+尾叶杜鹃	wěi yè dù juān	9
 尾夜蛾科	wěi yè é kē	5
 委夜蛾属	wěi yè é shǔ	6
 尾夜蛾属	wěi yè é shǔ	6
 微夜蛾属	wēi yè é shǔ	6
 维夜蛾属	wéi yè é shǔ	5
+尾叶耳蕨	wěi yè ěr jué	9
+尾叶桂花	wěi yè guì huā	7
 尾叶虎属	wěi yè hǔ shǔ	6
+尾叶黄芩	wěi yè huáng qín	9
 伪叶甲科	wěi yè jiǎ kē	1
 尾叶兰属	wěi yè lán shǔ	8
+尾叶马蓝	wěi yè mǎ lán	9
+尾叶猫乳	wěi yè māo rǔ	7
+尾叶蒙桑	wěi yè méng sāng	5
+尾叶木蓝	wěi yè mù lán	7
+尾叶青藤	wěi yè qīng téng	7
+尾叶山茶	wěi yè shān chá	5
+尾叶石韦	wěi yè shí wéi	18
+尾叶五加	wěi yè wǔ jiā	11
+尾叶绣球	wěi yè xiù qiú	9
+尾叶血桐	wěi yè xuè tóng	11
+尾叶樱桃	wěi yè yīng táo	35
+尾叶鱼藤	wěi yè yú téng	14
+尾叶远志	wěi yè yuǎn zhì	10
+尾叶越桔	wěi yè yuè jú	7
+尾叶柞木	wěi yè zhà mù	5
+尾叶紫薇	wěi yè zǐ wēi	9
 胃蝇亚科	wèi yíng yà kē	7
 未酉亥属	wèi yǒu hài shǔ	14
 尾羽龙科	wěi yǔ lóng kē	4
@@ -28402,14 +29152,53 @@ sort: by_weight
 细腰蜓属	xì yāo tíng shǔ	7
 细腰蚊科	xì yāo wén kē	3
 细腰亚目	xì yāo yà mù	31
+细叶百合	xì yè bǎi hé	13
+细叶彩花	xì yè cǎi huā	16
+细叶丛菔	xì yè cóng fú	10
+细叶大戟	xì yè dà jǐ	17
+细叶地榆	xì yè dì yú	1
 希夜蛾属	xī yè é shǔ	8
 析夜蛾属	xī yè é shǔ	7
 夕夜蛾属	xī yè é shǔ	4
+细叶繁缕	xì yè fán lǚ	30
+细叶谷木	xì yè gǔ mù	23
+细叶旱稗	xì yè hàn bài	5
+细叶旱芹	xì yè hàn qín	12
+细叶蒿蕨	xì yè hāo jué	18
+细叶蒿柳	xì yè hāo liǔ	19
+细叶黄堇	xì yè huáng jǐn	5
+细叶黄皮	xì yè huáng pí	11
+细叶黄耆	xì yè huáng qí	5
+细叶棘豆	xì yè jí dòu	3
+细叶景天	xì yè jǐng tiān	9
+细叶卷柏	xì yè juàn bǎi	51
+细叶卷耳	xì yè juǎn ěr	16
+细叶楷木	xì yè kǎi mù	3
+细叶苦荬	xì yè kǔ mǎi	5
+细叶狸藻	xì yè lí zǎo	40
+细叶马甲	xì yè mǎ jiǎ	1
+细叶母草	xì yè mǔ cǎo	10
 细叶芹属	xì yè qín shǔ	13
+细叶青冈	xì yè qīng gāng	20
+细叶荛花	xì yè ráo huā	13
+细叶忍冬	xì yè rěn dōng	9
+细叶沙参	xì yè shā shēn	9
+细叶山艾	xì yè shān ài	10
+细叶石斛	xì yè shí hú	11
+细叶水芹	xì yè shuǐ qín	7
 细叶苔草	xì yè tái cǎo	5
 锡叶藤属	xī yè téng shǔ	13
+细叶乌头	xì yè wū tóu	11
 细叶藓科	xì yè xiǎn kē	6
+细叶香桂	xì yè xiāng guì	25
 细叶鸦葱	xì yè yā cōng	44
+细叶亚菊	xì yè yà jú	9
+细叶鸢尾	xì yè yuān wěi	9
+细叶泽藓	xì yè zé xiǎn	7
+细叶沼柳	xì yè zhǎo liǔ	14
+细叶针茅	xì yè zhēn máo	44
+细叶真藓	xì yè zhēn xiǎn	10
+细叶紫薇	xì yè zǐ wēi	25
 蜥翼龙属	xī yì lóng shǔ	6
 细翼鳚属	xì yì wèi shǔ	5
 蜥蜴亚科	xī yì yà kē	8
@@ -28538,10 +29327,77 @@ sort: by_weight
 下眼鲿属	xià yǎn cháng shǔ	7
 瞎眼魮属	xiā yǎn pí shǔ	7
 狭摇蚊属	xiá yáo wén shǔ	5
+狭叶百部	xiá yè bǎi bù	11
+狭叶白前	xiá yè bái qián	1
+狭叶斑籽	xiá yè bān zǐ	7
+狭叶变种	xiá yè biàn zhǒng	6
+狭叶柴胡	xiá yè chái hú	44
+狭叶巢蕨	xiá yè cháo jué	7
+狭叶赤车	xiá yè chì chē	5
+狭叶重楼	xiá yè chóng lóu	3
+狭叶丛菔	xiá yè cóng fú	5
+狭叶吊兰	xiá yè diào lán	10
+狭叶冬青	xiá yè dōng qīng	29
 瑕夜蛾属	xiá yè é shǔ	6
+狭叶方竹	xiá yè fāng zhú	7
+狭叶费菜	xiá yè fèi cài	22
 狭叶蝠属	xiá yè fú shǔ	6
+狭叶谷木	xiá yè gǔ mù	5
+狭叶桂樱	xiá yè guì yīng	7
+狭叶海桐	xiá yè hǎi tóng	14
+狭叶含笑	xiá yè hán xiào	9
+狭叶花椒	xiá yè huā jiāo	9
+狭叶黄精	xiá yè huáng jīng	31
+狭叶黄耆	xiá yè huáng qí	9
+狭叶黄芩	xiá yè huáng qín	7
+狭叶黄檀	xiá yè huáng tán	7
+狭叶黄杨	xiá yè huáng yáng	7
+狭叶姬蕨	xiá yè jī jué	9
+狭叶豇豆	xiá yè jiāng dòu	5
+狭叶芥荆	xiá yè jiè jīng	7
+狭叶卷柏	xiá yè juàn bǎi	28
+狭叶卷耳	xiá yè juǎn ěr	7
+狭叶爵床	xiá yè jué chuáng	7
+狭叶咖啡	xiá yè kā fēi	19
+狭叶藜芦	xiá yè lí lú	15
+狭叶毛蕨	xiá yè máo jué	5
+狭叶母草	xiá yè mǔ cǎo	7
+狭叶牡丹	xiá yè mǔ dān	7
+狭叶牡蒿	xiá yè mǔ hāo	5
+狭叶木犀	xiá yè mù xī	9
+狭叶南星	xiá yè nán xīng	11
+狭叶女贞	xiá yè nǚ zhēn	7
+狭叶坡垒	xiá yè pō lěi	10
+狭叶葡萄	xiá yè pú táo	12
+狭叶蒲桃	xiá yè pú táo	10
+狭叶荨麻	xiá yè qián má	12
+狭叶青蒿	xiá yè qīng hāo	4
+狭叶青藤	xiá yè qīng téng	3
+狭叶忍冬	xiá yè rěn dōng	7
+狭叶润楠	xiá yè rùn nán	9
+狭叶沙参	xiá yè shā shēn	9
+狭叶山矾	xiá yè shān fán	9
+狭叶山姜	xiá yè shān jiāng	9
+狭叶山兰	xiá yè shān lán	30
+狭叶山榄	xiá yè shān lǎn	20
+狭叶山芹	xiá yè shān qín	10
+狭叶石韦	xiá yè shí wéi	15
+狭叶溲疏	xiá yè sōu shū	9
 狭叶酸模	xiá yè suān mó	9
+狭叶甜茅	xiá yè tián máo	7
+狭叶瓦韦	xiá yè wǎ wéi	17
+狭叶倭竹	xiá yè wō zhú	10
+狭叶五加	xiá yè wǔ jiā	1
+狭叶香蒲	xiá yè xiāng pú	3
+狭叶绣球	xiá yè xiù qiú	12
 狭叶衣属	xiá yè yī shǔ	5
+狭叶阴香	xiá yè yīn xiāng	7
+狭叶油茶	xiá yè yóu chá	26
+狭叶越橘	xiá yè yuè jú	3
+狭叶砧草	xiá yè zhēn cǎo	7
+狭叶栀子	xiá yè zhī zi	12
+狭叶帚菊	xiá yè zhǒu jú	9
+狭叶紫萁	xiá yè zǐ qí	22
 虾衣花属	xiā yī huā shǔ	10
 虾夷鱿属	xiā yí yóu shǔ	6
 下银汉鱼	xià yín hàn yú	8
@@ -28712,19 +29568,46 @@ sort: by_weight
 线燕蛾属	xiàn yàn é shǔ	6
 纤恙螨属	xiān yàng mǎn shǔ	6
 腺叶暗罗	xiàn yè àn luó	10
+线叶百合	xiàn yè bǎi hé	5
+线叶笔草	xiàn yè bǐ cǎo	3
+线叶柴胡	xiàn yè chái hú	26
+线叶春兰	xiàn yè chūn lán	11
+线叶丛菔	xiàn yè cóng fú	27
+线叶大戟	xiàn yè dà jǐ	1
+线叶冬青	xiàn yè dōng qīng	5
 仙夜蛾属	xiān yè é shǔ	5
+线叶繁缕	xiàn yè fán lǚ	5
 腺叶桂樱	xiàn yè guì yīng	20
+线叶黄堇	xiàn yè huáng jǐn	7
+线叶黄耆	xiàn yè huáng qí	11
+线叶黄杨	xiàn yè huáng yáng	10
 腺叶荚蒾	xiàn yè jiá mí	3
 线叶菊属	xiàn yè jú shǔ	11
+线叶龙胆	xiàn yè lóng dǎn	10
+线叶蕗蕨	xiàn yè lù jué	17
+线叶南星	xiàn yè nán xīng	7
+线叶蒲桃	xiàn yè pú táo	5
 腺叶蔷薇	xiàn yè qiáng wēi	12
+线叶球兰	xiàn yè qiú lán	17
+线叶荛花	xiàn yè ráo huā	10
 腺叶山矾	xiàn yè shān fán	9
 腺叶鳝藤	xiàn yè shàn téng	9
+线叶石斛	xiàn yè shí hú	3
+线叶石韦	xiàn yè shí wéi	19
+线叶水芹	xiàn yè shuǐ qín	10
+线叶嵩草	xiàn yè sōng cǎo	11
 腺叶素馨	xiàn yè sù xīn	10
 腺叶藤属	xiàn yè téng shǔ	11
+线叶葶苈	xiàn yè tíng lì	7
+线叶瓦韦	xiàn yè wǎ wéi	7
+线叶卫矛	xiàn yè wèi máo	7
 腺叶腺柳	xiàn yè xiàn liǔ	9
+线叶旋花	xiàn yè xuán huā	20
 腺叶杨桐	xiàn yè yáng tóng	9
 纤叶椰属	xiān yè yē shǔ	6
+纤叶椰族	xiān yè yē zú	7
 腺叶帚菊	xiàn yè zhǒu jú	9
+线叶紫菀	xiàn yè zǐ wǎn	23
 线翼鲶属	xiàn yì nián shǔ	5
 显异苔草	xiǎn yì tái cǎo	12
 纤鹦嘴鱼	xiān yīng zuǐ yú	7
@@ -28841,7 +29724,9 @@ sort: by_weight
 象牙参属	xiàng yá shēn shǔ	22
 镶夜蛾属	xiāng yè é shǔ	6
 香叶木属	xiāng yè mù shǔ	1
+香叶月桂	xiāng yè yuè guì	18
 橡叶藻属	xiàng yè zǎo shǔ	4
+香叶子树	xiāng yè zi shù	3
 翔鹰跃鱼	xiáng yīng yuè yú	6
 香鸢尾属	xiāng yuān wěi shǔ	6
 香泽兰属	xiāng zé lán shǔ	7
@@ -29228,7 +30113,9 @@ sort: by_weight
 小夜鹰属	xiǎo yè yīng shǔ	6
 小叶增生	xiǎo yè zēng shēng	18
 小叶桢楠	xiǎo yè zhēn nán	7
+小叶植物	xiǎo yè zhí wù	17
 小叶栀子	xiǎo yè zhī zi	16
+小叶状物	xiǎo yè zhuàng wù	12
 小叶子公	xiǎo yè zi gōng	6
 小叶紫檀	xiǎo yè zǐ tán	41
 小叶紫薇	xiǎo yè zǐ wēi	11
@@ -29353,7 +30240,16 @@ sort: by_weight
 楔形衣科	xiē xíng yī kē	6
 楔形藻科	xiē xíng zǎo kē	8
 楔形藻属	xiē xíng zǎo shǔ	10
+楔叶糙苏	xiē yè cāo sū	7
 楔叶蝉属	xiē yè chán shǔ	4
+楔叶滇芎	xiē yè diān qiōng	9
+楔叶杜鹃	xiē yè dù juān	9
+斜叶黄檀	xié yè huáng tán	34
+谢叶佳桐	xiè yè jiā tóng	13
+楔叶毛茛	xiē yè máo gèn	9
+楔叶山杨	xiē yè shān yáng	5
+楔叶亚门	xiē yè yà mén	5
+薤叶芸香	xiè yè yún xiāng	17
 楔翼总目	xiē yì zǒng mù	7
 楔颖草属	xiē yǐng cǎo shǔ	17
 楔樱蛤属	xiē yīng há shǔ	6
@@ -29496,7 +30392,28 @@ sort: by_weight
 新岩𬶮属	xīn yán xǐ shǔ	5
 新岩蟹属	xīn yán xiè shǔ	5
 心咽鱼属	xīn yàn yú shǔ	5
+心叶八宝	xīn yè bā bǎo	1
+心叶半夏	xīn yè bàn xià	1
+心叶斑籽	xīn yè bān zǐ	7
+心叶报春	xīn yè bào chūn	15
+心叶冰花	xīn yè bīng huā	7
+心叶大黄	xīn yè dà huáng	1
+心叶大戟	xīn yè dà jǐ	1
+心叶党参	xīn yè dǎng shēn	11
+心叶栝楼	xīn yè guā lóu	7
+新叶花开	xīn yè huā kāi	7
+心叶堇菜	xīn yè jǐn cài	12
+心叶荆芥	xīn yè jīng jiè	7
 心叶木属	xīn yè mù shǔ	5
+心叶青藤	xīn yè qīng téng	7
+心叶球兰	xīn yè qiú lán	18
+心叶瑞木	xīn yè ruì mù	5
+心叶沙参	xīn yè shā shēn	9
+心叶石蚕	xīn yè shí cán	7
+心叶素馨	xīn yè sù xīn	7
+心叶橐吾	xīn yè tuó wú	7
+心叶香草	xīn yè xiāng cǎo	19
+心叶帚菊	xīn yè zhǒu jú	5
 心翼果科	xīn yì guǒ kē	19
 心翼果属	xīn yì guǒ shǔ	15
 新异鳉属	xīn yì jiāng shǔ	6
@@ -29600,6 +30517,10 @@ sort: by_weight
 星叶草属	xīng yè cǎo shǔ	5
 兴夜蛾属	xīng yè é shǔ	6
 星夜蛾属	xīng yè é shǔ	5
+杏叶防风	xìng yè fáng fēng	17
+杏叶茴芹	xìng yè huí qín	10
+兴叶荛花	xīng yè ráo huā	12
+杏叶沙参	xìng yè shā shēn	16
 星油藤属	xīng yóu téng shǔ	6
 星玉霉属	xīng yù méi shǔ	9
 星云白鱼	xīng yún bái yú	13
@@ -29685,8 +30606,10 @@ sort: by_weight
 绣线菊属	xiù xiàn jú shǔ	33
 绣线梅属	xiù xiàn méi shǔ	22
 锈须鲛科	xiù xū jiāo kē	7
+锈叶杜鹃	xiù yè dù juān	10
 秀夜蛾属	xiù yè é shǔ	4
 朽叶蛤属	xiǔ yè há shǔ	5
+锈叶琼楠	xiù yè qióng nán	9
 秀羽蛾属	xiù yǔ é shǔ	5
 袖珍椰属	xiù zhēn yē shǔ	7
 秀柱花属	xiù zhù huā shǔ	14
@@ -29749,6 +30672,7 @@ sort: by_weight
 须叶姜属	xū yè jiāng shǔ	7
 须叶藤科	xū yè téng kē	21
 须叶藤属	xū yè téng shǔ	7
+序叶苎麻	xù yè zhù má	17
 须鼬鳚属	xū yòu wèi shǔ	6
 魣鱼龙属	xù yú lóng shǔ	4
 魣脂鲤科	xù zhī lǐ kē	7
@@ -29819,6 +30743,8 @@ sort: by_weight
 玄燕鸥属	xuán yàn ōu shǔ	8
 旋夜蛾属	xuán yè é shǔ	6
 炫夜蛾属	xuàn yè é shǔ	6
+旋叶现象	xuán yè xiàn xiàng	10
+旋叶香青	xuán yè xiāng qīng	14
 旋玉杯属	xuán yù bēi shǔ	5
 旋玉蕊属	xuán yù ruǐ shǔ	7
 旋轴藻属	xuán zhóu zǎo shǔ	5
@@ -30853,9 +31779,35 @@ sort: by_weight
 异药芥属	yì yào jiè shǔ	12
 异药莓属	yì yào méi shǔ	6
 一叶草科	yí yè cǎo kē	7
+异叶地锦	yì yè dì jǐn	1
+异叶海桐	yì yè hǎi tóng	44
+异叶花椒	yì yè huā jiāo	12
+异叶茴芹	yì yè huí qín	12
+异叶苣苔	yì yè jù tái	23
 一叶兰属	yí yè lán shǔ	7
+异叶轮草	yì yè lún cǎo	11
+异叶蔓荆	yì yè màn jīng	13
 异叶木科	yì yè mù kē	1
+异叶前胡	yì yè qián hú	10
+异叶青兰	yì yè qīng lán	7
+异叶忍冬	yì yè rěn dōng	7
+异叶鼠李	yì yè shǔ lǐ	7
+异叶薯蓣	yì yè shǔ yù	10
+异叶蒴莲	yì yè shuò lián	14
+异叶溲疏	yì yè sōu shū	7
+异叶素馨	yì yè sù xīn	9
+异叶铁杉	yì yè tiě shān	3
+异叶橐吾	yì yè tuó wú	7
+异叶瓦韦	yì yè wǎ wéi	19
+异叶线蕨	yì yè xiàn jué	7
+异叶香薷	yì yè xiāng rú	9
+异叶亚菊	yì yè yà jú	7
+异叶云母	yì yè yún mǔ	21
 异叶藻属	yì yè zǎo shǔ	4
+异叶泽兰	yì yè zé lán	7
+异叶帚菊	yì yè zhǒu jú	9
+异叶苎麻	yì yè zhù má	21
+异叶紫珠	yì yè zǐ zhū	7
 异蛜螨属	yì yī mǎn shǔ	8
 异隐蟹属	yì yǐn xiè shǔ	8
 异颖草属	yì yǐng cǎo shǔ	12
@@ -31077,6 +32029,10 @@ sort: by_weight
 银眼蝶属	yín yǎn dié shǔ	5
 淫羊藿属	yín yáng huò shǔ	30
 淫妖龙属	yín yāo lóng shǔ	5
+银叶巴豆	yín yè bā dòu	5
+银叶菝葜	yín yè bá qiā	9
+银叶杜鹃	yín yè dù juān	12
+银叶诃子	yín yè hē zǐ	5
 银叶树属	yín yè shù shǔ	18
 隐叶䗛属	yǐn yè xiū shǔ	6
 隐油鲶属	yǐn yóu nián shǔ	4
@@ -31194,9 +32150,19 @@ sort: by_weight
 英雄蟹属	yīng xióng xiè shǔ	6
 缨须鳅属	yīng xū qiū shǔ	6
 婴靴兰属	yīng xuē lán shǔ	7
+硬叶葱草	yìng yè cōng cǎo	10
+硬叶丹桂	yìng yè dān guì	20
+硬叶冬青	yìng yè dōng qīng	9
+硬叶兜兰	yìng yè dōu lán	17
+硬叶杜鹃	yìng yè dù juān	5
 鹰夜蛾属	yīng yè é shǔ	5
+硬叶槲蕨	yìng yè hú jué	7
 萤叶甲属	yíng yè jiǎ shǔ	4
+硬叶木蓝	yìng yè mù lán	15
+硬叶蒲桃	yìng yè pú táo	10
+硬叶山兰	yìng yè shān lán	9
 硬叶藓科	yìng yè xiǎn kē	1
+硬叶植物	yìng yè zhí wù	19
 鹰翼龙属	yīng yì lóng shǔ	5
 英语单科	yīng yǔ dān kē	44
 鹰羽蛾属	yīng yǔ é shǔ	6
@@ -31500,16 +32466,27 @@ sort: by_weight
 羽须虫属	yǔ xū chóng shǔ	5
 鱼眼草属	yú yǎn cǎo shǔ	12
 预研菌属	yù yán jūn shǔ	7
+羽叶报春	yǔ yè bào chūn	12
+羽叶丁香	yǔ yè dīng xiāng	30
 宇夜蛾属	yǔ yè é shǔ	7
+羽叶风清	yǔ yè fēng qīng	6
+羽叶甘蓝	yǔ yè gān lán	3
+羽叶鬼灯	yǔ yè guǐ dēng	4
+羽叶花柏	yǔ yè huā bǎi	5
 羽叶花属	yǔ yè huā shǔ	16
 榆叶甲属	yú yè jiǎ shǔ	5
 羽叶菊属	yǔ yè jú shǔ	16
 榆叶葵科	yú yè kuí kē	1
 愚耶律鱼	yú yē lǜ yú	8
 羽叶麻科	yǔ yè má kē	6
+羽叶茑萝	yǔ yè niǎo luó	14
 羽叶楸属	yǔ yè qiū shǔ	16
+羽叶三七	yǔ yè sān qī	4
 羽叶树科	yǔ yè shù kē	6
+羽叶楤木	yǔ yè sǒng mù	9
+羽叶亚门	yǔ yè yà mén	27
 育叶藻科	yù yè zǎo kē	5
+羽叶紫堇	yǔ yè zǐ jǐn	9
 羽衣草属	yǔ yī cǎo shǔ	17
 榆瘿蚜属	yú yǐng yá shǔ	8
 羽油鲶属	yǔ yóu nián shǔ	5
@@ -31804,10 +32781,46 @@ sort: by_weight
 鸳鸯龙属	yuān yāng lóng shǔ	5
 远洋鸟属	yuǎn yáng niǎo shǔ	4
 鸳鸯鮨属	yuān yāng yì shǔ	6
+圆叶澳杨	yuán yè ào yáng	5
+圆叶八宝	yuán yè bā bǎo	1
+圆叶菝葜	yuán yè bá qiā	18
+圆叶报春	yuán yè bào chūn	25
+圆叶薄荷	yuán yè bò he	22
+圆叶丛菔	yuán yè cóng fú	7
+圆叶大黄	yuán yè dà huáng	1
+圆叶杜鹃	yuán yè dù juān	18
 元夜蛾属	yuán yè é shǔ	8
 圆夜蛾属	yuán yè é shǔ	4
+圆叶黄耆	yuán yè huáng qí	7
+圆叶荚蒾	yuán yè jiá mí	5
+圆叶椒草	yuán yè jiāo cǎo	14
+圆叶堇菜	yuán yè jǐn cài	16
+圆叶金桂	yuán yè jīn guì	3
+圆叶锦葵	yuán yè jǐn kuí	12
+圆叶景天	yuán yè jǐng tiān	13
 原野鲮属	yuán yě líng shǔ	5
+圆叶马蓝	yuán yè mǎ lán	5
+圆叶蒙桑	yuán yè méng sāng	7
 缘野螟属	yuán yě míng shǔ	7
+圆叶南芥	yuán yè nán jiè	7
+圆叶茑萝	yuán yè niǎo luó	9
+圆叶牵牛	yuán yè qiān niú	19
+圆叶青藤	yuán yè qīng téng	7
+圆叶忍冬	yuán yè rěn dōng	5
+圆叶舌蕨	yuán yè shé jué	7
+圆叶肾蕨	yuán yè shèn jué	9
+圆叶鼠李	yuán yè shǔ lǐ	10
+圆叶楤木	yuán yè sǒng mù	5
+圆叶梭罗	yuán yè suō luó	9
+圆叶舞草	yuán yè wǔ cǎo	24
+圆叶乌桕	yuán yè wū jiù	25
+圆叶乌头	yuán yè wū tóu	9
+圆叶绣球	yuán yè xiù qiú	10
+圆叶栒子	yuán yè xún zǐ	9
+圆叶野桐	yuán yè yě tóng	9
+圆叶樱桃	yuán yè yīng táo	12
+圆叶玉兰	yuán yè yù lán	9
+圆叶竹芋	yuán yè zhú yù	7
 鸢翼龙属	yuān yì lóng shǔ	6
 圆硬头鱼	yuán yìng tóu yú	7
 圆蝇亚科	yuán yíng yà kē	7
@@ -32023,9 +33036,27 @@ sort: by_weight
 窄尾蜥属	zhǎi wěi xī shǔ	8
 窄纹獴属	zhǎi wén měng shǔ	8
 摘亚木属	zhāi yà mù shǔ	5
+窄叶百合	zhǎi yè bǎi hé	3
+窄叶败酱	zhǎi yè bài jiàng	5
+窄叶大黄	zhǎi yè dà huáng	1
+窄叶大戟	zhǎi yè dà jǐ	17
+窄叶杜鹃	zhǎi yè dù juān	9
+窄叶火棘	zhǎi yè huǒ jí	10
+窄叶裸菀	zhǎi yè luǒ wǎn	5
 窄叶牛鱼	zhǎi yè niú yú	9
+窄叶枇杷	zhǎi yè pí pá	20
+窄叶青冈	zhǎi yè qīng gāng	17
+窄叶荛花	zhǎi yè ráo huā	10
+窄叶乳菀	zhǎi yè rǔ wǎn	11
+窄叶芍药	zhǎi yè sháo yào	10
+窄叶石楠	zhǎi yè shí nán	16
 窄叶苔草	zhǎi yè tái cǎo	12
 窄叶螳属	zhǎi yè táng shǔ	6
+窄叶蕈树	zhǎi yè xùn shù	5
+窄叶泽泻	zhǎi yè zé xiè	10
+窄叶蔗茅	zhǎi yè zhè máo	5
+窄叶竹柏	zhǎi yè zhú bǎi	10
+窄叶紫珠	zhǎi yè zǐ zhū	5
 展苞芋属	zhǎn bāo yù shǔ	4
 毡被菌属	zhān bèi jūn shǔ	5
 粘鞭霉属	zhān biān méi shǔ	8
@@ -32060,6 +33091,7 @@ sort: by_weight
 粘叶豆属	zhān yè dòu shǔ	6
 粘夜蛾属	zhān yè é shǔ	8
 展夜蛾属	zhǎn yè é shǔ	5
+展叶放香	zhǎn yè fàng xiāng	4
 粘褶菌科	zhān zhě jūn kē	8
 展足蛾科	zhǎn zú é kē	1
 展足蛾属	zhǎn zú é shǔ	7
@@ -32088,9 +33120,29 @@ sort: by_weight
 獐牙菜属	zhāng yá cài shǔ	35
 长牙蝰鱼	zhǎng yá kuí yú	7
 长眼虾属	zhǎng yǎn xiā shǔ	6
+掌叶半夏	zhǎng yè bàn xià	12
+掌叶报春	zhǎng yè bào chūn	16
+掌叶大黄	zhǎng yè dà huáng	24
 掌夜蛾属	zhǎng yè é shǔ	4
+樟叶胡椒	zhāng yè hú jiāo	10
+掌叶花烛	zhǎng yè huā zhú	5
+樟叶荚蒾	zhāng yè jiá mí	7
+掌叶堇菜	zhǎng yè jǐn cài	11
+樟叶梾木	zhāng yè lái mù	29
+掌叶毛茛	zhǎng yè máo gèn	12
 掌叶木属	zhǎng yè mù shǔ	12
+樟叶苹婆	zhāng yè píng pó	10
+掌叶苹婆	zhǎng yè píng pó	3
+掌叶青兰	zhǎng yè qīng lán	7
+掌叶石蚕	zhǎng yè shí cán	9
 掌叶树属	zhǎng yè shù shǔ	14
+樟叶素馨	zhāng yè sù xīn	10
+掌叶橐吾	zhǎng yè tuó wú	29
+掌叶线蕨	zhǎng yè xiàn jué	7
+樟叶野桐	zhāng yè yě tóng	9
+掌叶鱼藤	zhǎng yè yú téng	7
+樟叶越桔	zhāng yè yuè jú	14
+掌叶紫堇	zhǎng yè zǐ jǐn	9
 章鱼总科	zhāng yú zǒng kē	5
 掌舟蛾属	zhǎng zhōu é shǔ	7
 掌状藻属	zhǎng zhuàng zǎo shǔ	5
@@ -32321,8 +33373,15 @@ sort: by_weight
 珍眼蝶属	zhēn yǎn dié shǔ	6
 针鼹虾属	zhēn yǎn xiā shǔ	7
 真燕鳐属	zhēn yàn yáo shǔ	8
+枕叶癫痫	zhěn yè diān xián	21
+枕叶静脉	zhěn yè jìng mài	17
+枕叶皮质	zhěn yè pí zhì	9
+针叶石竹	zhēn yè shí zhú	7
+针叶树材	zhēn yè shù cái	12
 针叶苋属	zhēn yè xiàn shǔ	9
 针叶藻属	zhēn yè zǎo shǔ	14
+针叶植物	zhēn yè zhí wù	45
+针叶帚菊	zhēn yè zhǒu jú	9
 真异齿鳚	zhēn yì chǐ wèi	5
 真翼鸟科	zhēn yì niǎo kē	8
 真翼鸟属	zhēn yì niǎo shǔ	5
@@ -32560,15 +33619,19 @@ sort: by_weight
 脂眼鲱属	zhī yǎn fēi shǔ	5
 栉眼蚤科	zhì yǎn zǎo kē	4
 栉羊齿属	zhì yáng chǐ shǔ	12
+纸叶冬青	zhǐ yè dōng qīng	27
 织叶蛾科	zhī yè é kē	1
 稚夜蛾属	zhì yè é shǔ	5
 栉叶蒿属	zhì yè hāo shǔ	11
 栉叶兰属	zhì yè lán shǔ	4
 直叶榈属	zhí yè lǘ shǔ	8
+纸叶琼楠	zhǐ yè qióng nán	17
 指叶苔科	zhǐ yè tái kē	18
 指叶苔属	zhǐ yè tái shǔ	5
 织叶蚁属	zhī yè yǐ shǔ	6
 趾叶芋属	zhǐ yè yù shǔ	4
+纸叶越桔	zhǐ yè yuè jú	7
+直叶珠藓	zhí yè zhū xiǎn	7
 指疫霉属	zhǐ yì méi shǔ	5
 栉衣鱼属	zhì yī yú shǔ	6
 指鼬鳚属	zhǐ yòu wèi shǔ	4
@@ -32807,11 +33870,33 @@ sort: by_weight
 舟形藻属	zhōu xíng zǎo shǔ	14
 皱胸蛛属	zhòu xiōng zhū shǔ	5
 皱羊齿目	zhòu yáng chǐ mù	11
+皱叶报春	zhòu yè bào chūn	9
+皱叶丁香	zhòu yè dīng xiāng	7
+皱叶冬青	zhòu yè dōng qīng	5
+皱叶杜鹃	zhòu yè dù juān	9
 宙夜蛾属	zhòu yè é shǔ	5
+皱叶繁缕	zhòu yè fán lǚ	5
+皱叶甘蓝	zhòu yè gān lán	5
+皱叶沟瓣	zhòu yè gōu bàn	9
+皱叶海桐	zhòu yè hǎi tóng	10
+皱叶黄杨	zhòu yè huáng yáng	11
+皱叶荚蒾	zhòu yè jiá mí	9
+皱叶椒草	zhòu yè jiāo cǎo	12
+皱叶芥菜	zhòu yè jiè cài	14
+皱叶蕗蕨	zhòu yè lù jué	9
+皱叶木兰	zhòu yè mù lán	22
+皱叶欧芹	zhòu yè ōu qín	32
+皱叶麒麟	zhòu yè qí lín	14
+皱叶忍冬	zhòu yè rěn dōng	14
+皱叶沙参	zhòu yè shā shēn	1
+皱叶鼠李	zhòu yè shǔ lǐ	7
 皱叶酸模	zhòu yè suān mó	13
+舟叶橐吾	zhōu yè tuó wú	17
+胄叶线蕨	zhòu yè xiàn jué	7
 舟叶藓科	zhōu yè xiǎn kē	4
 舟叶藓属	zhōu yè xiǎn shǔ	5
 皱叶鸦葱	zhòu yè yā cōng	10
+舟叶永霜	zhōu yè yǒng shuāng	8
 皱褶鳄属	zhòu zhě è shǔ	6
 皱褶龙属	zhòu zhě lóng shǔ	7
 帚枝霉属	zhǒu zhī méi shǔ	8
@@ -32982,11 +34067,24 @@ sort: by_weight
 侏秧鸡科	zhū yāng jī kē	5
 猪殃殃属	zhū yāng yāng shǔ	7
 猪腰豆属	zhū yāo dòu shǔ	13
+竹叶百合	zhú yè bǎi hé	5
+竹叶柴胡	zhú yè chái hú	13
+竹叶吹梦	zhú yè chuī mèng	8
+竹叶非攻	zhú yè fēi gōng	10
+竹叶胡椒	zhú yè hú jiāo	9
+竹叶花椒	zhú yè huā jiāo	18
+竹叶黄酮	zhú yè huáng tóng	14
+竹叶椒片	zhú yè jiāo piàn	17
 竹叶蕉属	zhú yè jiāo shǔ	12
 竹叶蕨科	zhú yè jué kē	1
 竹叶蕨属	zhú yè jué shǔ	12
 竹叶兰属	zhú yè lán shǔ	12
+竹叶毛兰	zhú yè máo lán	7
 蛀野螟属	zhù yě míng shǔ	5
+竹叶莫凡	zhú yè mò fán	6
+竹叶木荷	zhú yè mù hé	7
+竹叶蒲桃	zhú yè pú táo	16
+竹叶青蛇	zhú yè qīng shé	79
 竹叶青属	zhú yè qīng shǔ	25
 竹叶子属	zhú yè zi shǔ	11
 烛银斧鱼	zhú yín fǔ yú	5
@@ -33189,6 +34287,19 @@ sort: by_weight
 髭蜥亚科	zī xī yà kē	6
 紫胸鱼属	zǐ xiōng yú shǔ	7
 紫眼蝶属	zǐ yǎn dié shǔ	5
+紫叶矮樱	zǐ yè ǎi yīng	23
+紫叶薄荷	zǐ yè bò he	8
+紫叶稠李	zǐ yè chóu lǐ	19
+紫叶黄栌	zǐ yè huáng lú	5
+紫叶堇菜	zǐ yè jǐn cài	11
+紫叶罗勒	zǐ yè luó lè	7
+紫叶曼舞	zǐ yè màn wǔ	8
+紫叶琼楠	zǐ yè qióng nán	7
+紫叶生菜	zǐ yè shēng cài	21
+紫叶香樟	zǐ yè xiāng zhāng	6
+紫叶小檗	zǐ yè xiǎo bò	18
+紫叶小姐	zǐ yè xiǎo jiě	5
+紫叶绣球	zǐ yè xiù qiú	7
 紫衣蓝鱼	zǐ yī lán yú	8
 鲻银汉鱼	zī yín hàn yú	7
 紫鹦嘴鱼	zǐ yīng zuǐ yú	9
@@ -33298,7 +34409,10 @@ sort: by_weight
 组囊藻属	zǔ náng zǎo shǔ	8
 足囊藻属	zú náng zǎo shǔ	5
 足痒螨属	zú yǎng mǎn shǔ	7
+足叶草脂	zú yè cǎo zhī	37
 组夜蛾属	zǔ yè é shǔ	7
+足叶乙甙	zú yè yǐ dài	11
+足叶乙苷	zú yè yǐ gān	1
 祖翼兽属	zǔ yì shòu shǔ	6
 足羽龙属	zú yǔ lóng shǔ	5
 组织菌属	zǔ zhī jūn shǔ	6
@@ -33317,6 +34431,8 @@ sort: by_weight
 钻尾蛇属	zuān wěi shé shǔ	5
 钻纹龟属	zuān wén guī shǔ	7
 钻夜蛾属	zuān yè é shǔ	8
+钻叶龙胆	zuān yè lóng dǎn	9
+钻叶石竹	zuān yè shí zhú	7
 钻柱兰属	zuān zhù lán shǔ	14
 钻嘴鱼属	zuān zuǐ yú shǔ	6
 嘴霸鹟属	zuǐ bà wēng shǔ	5
@@ -35517,6 +36633,7 @@ sort: by_weight
 扁咽齿鱼属	biǎn yàn chǐ yú shǔ	1
 扁眼环蝶属	biǎn yǎn huán dié shǔ	1
 扁眼鰕虎属	biǎn yǎn xiā hǔ shǔ	1
+变叶翅子树	biàn yè chì zǐ shù	1
 变叶姬旋花	biàn yè jī xuán huā	1
 变叶假脉蕨	biàn yè jiǎ mài jué	1
 鞭叶铁线蕨	biān yè tiě xiàn jué	1
@@ -37199,6 +38316,7 @@ sort: by_weight
 齿叶凤仙花	chǐ yè fèng xiān huā	1
 齿叶虎耳草	chǐ yè hǔ ěr cǎo	1
 齿叶鳞花草	chǐ yè lín huā cǎo	1
+齿叶乳香树	chǐ yè rǔ xiāng shù	1
 赤翼朴丽鱼	chì yì pǔ lì yú	1
 齿缘吊钟花	chǐ yuán diào zhōng huā	1
 齿缘牡蛎属	chǐ yuán mǔ lì shǔ	1
@@ -38084,45 +39202,64 @@ sort: by_weight
 大洋丸菌属	dà yáng wán jūn shǔ	1
 大洋新蛇鳗	dà yáng xīn shé mán	1
 大洋珍灯鱼	dà yáng zhēn dēng yú	1
+大叶白蜡树	dà yè bái là shù	1
+大叶半枝莲	dà yè bàn zhī lián	1
 大叶薄鳞蕨	dà yè báo lín jué	1
 大叶滨紫草	dà yè bīn zǐ cǎo	1
 大叶补血草	dà yè bǔ xuè cǎo	1
+大叶捕鱼木	dà yè bǔ yú mù	1
 大叶苍山蕨	dà yè cāng shān jué	1
 大冶碘泡虫	dà yě diǎn pào chóng	1
 大叶度量草	dà yè dù liàng cǎo	1
 大叶短肠蕨	dà yè duǎn cháng jué	1
+大叶尔奇基	dà yè ěr qí jī	1
 大叶方秆蕨	dà yè fāng gǎn jué	1
 大叶凤仙花	dà yè fèng xiān huā	1
 大叶腹水草	dà yè fù shuǐ cǎo	1
+大叶高岛屋	dà yè gāo dǎo wū	1
 大叶谷精草	dà yè gǔ jīng cǎo	1
+大叶骨碎补	dà yè gǔ suì bǔ	1
 大叶观音草	dà yè guān yīn cǎo	1
 大叶贯众蕨	dà yè guàn zhòng jué	1
+大叶黑桫椤	dà yè hēi suō luó	1
+大叶胡枝子	dà yè hú zhī zi	1
 大叶火焰草	dà yè huǒ yàn cǎo	1
 大叶假冷蕨	dà yè jiǎ lěng jué	1
 大叶冷水花	dà yè lěng shuǐ huā	1
 大叶瘤足蕨	dà yè liú zú jué	1
+大叶罗汉松	dà yè luó hàn sōng	1
 大叶螺序草	dà yè luó xù cǎo	1
 大叶梅花草	dà yè méi huā cǎo	1
 大野牡丹属	dà yě mǔ dān shǔ	1
 大叶拿身草	dà yè ná shēn cǎo	1
 大叶泡囊草	dà yè pào náng cǎo	1
+大叶茜草素	dà yè qiàn cǎo sù	1
+大叶秋海棠	dà yè qiū hǎi táng	1
 大叶肉刺蕨	dà yè ròu cì jué	1
 大叶山桂花	dà yè shān guì huā	1
 大叶蛇根草	dà yè shé gēn cǎo	1
 大叶石头花	dà yè shí tou huā	1
+大叶石岩枫	dà yè shí yán fēng	1
 大叶鼠尾草	dà yè shǔ wěi cǎo	1
 大叶双盖蕨	dà yè shuāng gài jué	1
+大叶酸藤子	dà yè suān téng zi	1
+大叶碎米荠	dà yè suì mǐ jì	1
 大叶唐松草	dà yè táng sōng cǎo	1
 大叶田香草	dà yè tián xiāng cǎo	1
 大叶铁线蕨	dà yè tiě xiàn jué	1
+大叶铁线莲	dà yè tiě xiàn lián	1
 大叶兔尾草	dà yè tù wěi cǎo	1
 大叶驼舌草	dà yè tuó shé cǎo	1
 大叶稀子蕨	dà yè xī zǐ jué	1
 大叶咸虾花	dà yè xián xiā huā	1
 大叶小雀花	dà yè xiǎo què huā	1
 大叶蟹甲草	dà yè xiè jiǎ cǎo	1
+大叶性肺炎	dà yè xìng fèi yán	1
 大叶鸭跖草	dà yè yā zhí cǎo	1
 大叶沿阶草	dà yè yán jiē cǎo	1
+大叶野丁香	dà yè yě dīng xiāng	1
+大叶野生茶	dà yè yě shēng chá	1
+大叶鱼骨木	dà yè yú gǔ mù	1
 大叶直芒草	dà yè zhí máng cǎo	1
 大叶螽亚科	dà yè zhōng yà kē	1
 大叶猪笼草	dà yè zhū lóng cǎo	1
@@ -39623,17 +40760,52 @@ sort: by_weight
 盾形片虫属	dùn xíng piàn chóng shǔ	1
 盾形种子科	dùn xíng zhǒng zi kē	1
 钝牙朴丽鱼	dùn yá pǔ lì yú	1
+钝叶扁担杆	dùn yè biǎn dàn gān	1
 钝叶车轴草	dùn yè chē zhóu cǎo	1
 钝叶齿缘草	dùn yè chǐ yuán cǎo	1
+钝叶臭黄荆	dùn yè chòu huáng jīng	1
+钝叶大果漆	dùn yè dà guǒ qī	1
 钝叶单侧花	dùn yè dān cè huā	1
+钝叶独行菜	dùn yè dú xíng cài	1
+钝叶短柱茶	dùn yè duǎn zhù chá	1
+钝叶凤尾藓	dùn yè fèng wěi xiǎn	1
+盾叶冠心宁	dùn yè guān xīn níng	1
+钝叶核果木	dùn yè hé guǒ mù	1
+钝叶黑面神	dùn yè hēi miàn shén	1
+钝叶厚壳桂	dùn yè hòu ké guì	1
+钝叶金合欢	dùn yè jīn hé huān	1
 盾叶苣苔属	dùn yè jù tái shǔ	1
+钝叶拉拉藤	dùn yè lā lā téng	1
 盾叶冷水花	dùn yè lěng shuǐ huā	1
+钝叶拎树藤	dùn yè līn shù téng	1
 钝叶楼梯草	dùn yè lóu tī cǎo	1
+盾叶茅膏菜	dùn yè máo gāo cài	1
+钝叶毛果榕	dùn yè máo guǒ róng	1
+盾叶毛毡苔	dùn yè máo zhān tái	1
+钝叶猕猴桃	dùn yè mí hóu táo	1
+钝叶木姜子	dùn yè mù jiāng zǐ	1
+钝叶拟平藓	dùn yè nǐ píng xiǎn	1
+钝叶千里光	dùn yè qiān lǐ guāng	1
+盾叶秋海棠	dùn yè qiū hǎi táng	1
+钝叶山鸡椒	dùn yè shān jī jiāo	1
+钝叶山芝麻	dùn yè shān zhī má	1
 钝叶石头花	dùn yè shí tou huā	1
+钝叶树平藓	dùn yè shù píng xiǎn	1
+钝叶水丝梨	dùn yè shuǐ sī lí	1
+钝叶碎米荠	dùn yè suì mǐ jì	1
 盾叶唐松草	dùn yè táng sōng cǎo	1
+盾叶天胡荽	dùn yè tiān hú suī	1
+盾叶天竺葵	dùn yè tiān zhú kuí	1
+盾叶铁线莲	dùn yè tiě xiàn lián	1
+钝叶土牛膝	dùn yè tǔ niú xī	1
+钝叶小赤藓	dùn yè xiǎo chì xiǎn	1
 钝叶旋覆花	dùn yè xuán fù huā	1
 钝叶沿阶草	dùn yè yán jiē cǎo	1
+钝叶眼子菜	dùn yè yǎn zi cài	1
+钝叶折柄茶	dùn yè zhé bǐng chá	1
 盾叶猪笼草	dùn yè zhū lóng cǎo	1
+钝叶猪毛菜	dùn yè zhū máo cài	1
+钝叶走灯藓	dùn yè zǒu dēng xiǎn	1
 钝颖落芒草	dùn yǐng luò máng cǎo	1
 钝羽对囊蕨	dùn yǔ duì náng jué	1
 钝羽假瘤蕨	dùn yǔ jiǎ liú jué	1
@@ -39926,10 +41098,26 @@ sort: by_weight
 多穴苔虫科	duō xué tái chóng kē	1
 多眼光蟾鱼	duō yǎn guāng chán yú	1
 多样蟹亚科	duō yàng xiè yà kē	1
+多叶斑叶兰	duō yè bān yè lán	1
 多叶鹅观草	duō yè é guān cǎo	1
+多叶鹅掌柴	duō yè é zhǎng chái	1
+多叶勾儿茶	duō yè gōu ér chá	1
 多叶虎耳草	duō yè hǔ ěr cǎo	1
+多叶锦鸡儿	duō yè jǐn jī ér	1
+多叶井冈竹	duō yè jǐng gāng zhú	1
+多叶水蜈蚣	duō yè shuǐ wú gōng	1
+多叶碎米荠	duō yè suì mǐ jì	1
 多叶唐松草	duō yè táng sōng cǎo	1
+多叶铁线莲	duō yè tiě xiàn lián	1
+多叶委陵菜	duō yè wěi líng cài	1
+多叶五匹青	duō yè wǔ pǐ qīng	1
+多叶香茶菜	duō yè xiāng chá cài	1
+多叶小漆树	duō yè xiǎo qī shù	1
+多叶野豌豆	duō yè yě wān dòu	1
 多叶隐子草	duō yè yǐn zǐ cǎo	1
+多叶羽扇豆	duō yè yǔ shàn dòu	1
+多叶越南槐	duō yè yuè nán huái	1
+多叶早熟禾	duō yè zǎo shú hé	1
 多衣河白鱼	duō yī hé bái yú	1
 多遗子藻科	duō yí zǐ zǎo kē	1
 多遗子藻属	duō yí zǐ zǎo shǔ	1
@@ -40515,6 +41703,7 @@ sort: by_weight
 粉叶石莲花	fěn yè shí lián huā	1
 粉叶幸运草	fěn yè xìng yùn cǎo	1
 粉叶沿阶草	fěn yè yán jiē cǎo	1
+粉叶羊蹄甲	fěn yè yáng tí jiǎ	1
 粉叶玉凤花	fěn yè yù fèng huā	1
 分枝灯心草	fēn zhī dēng xīn cǎo	1
 分枝杆菌科	fēn zhī gǎn jūn kē	1
@@ -43317,6 +44506,7 @@ sort: by_weight
 厚叶碎米蕨	hòu yè suì mǐ jué	1
 厚叶铁角蕨	hòu yè tiě jiǎo jué	1
 厚叶兔耳草	hòu yè tù ěr cǎo	1
+厚叶岩白菜	hòu yè yán bái cài	1
 厚叶沿阶草	hòu yè yán jiē cǎo	1
 厚叶种子蕨	hòu yè zhǒng zi jué	1
 厚叶轴脉蕨	hòu yè zhóu mài jué	1
@@ -44192,6 +45382,7 @@ sort: by_weight
 灰叶虎耳草	huī yè hǔ ěr cǎo	1
 喙叶假瘤蕨	huì yè jiǎ liú jué	1
 灰叶蛇根草	huī yè shé gēn cǎo	1
+灰叶铁线莲	huī yè tiě xiàn lián	1
 灰翼海牛科	huī yì hǎi niú kē	1
 徽章棘球虫	huī zhāng jí qiú chóng	1
 灰枝紫菀属	huī zhī zǐ wǎn shǔ	1
@@ -44972,6 +46163,7 @@ sort: by_weight
 尖叶莲座蕨	jiān yè lián zuò jué	1
 剑叶鳞始蕨	jiàn yè lín shǐ jué	1
 箭叶陵齿蕨	jiàn yè líng chǐ jué	1
+剑叶龙血树	jiàn yè lóng xiě shù	1
 尖叶螺序草	jiān yè luó xù cǎo	1
 尖叶拟蕨藓	jiān yè nǐ jué xiǎn	1
 尖叶鸟舌兰	jiān yè niǎo shé lán	1
@@ -61364,6 +62556,7 @@ sort: by_weight
 斑胸棕尾蜂鸟	bān xiōng zōng wěi fēng niǎo	1
 半旋齿下口鲶	bàn xuán chǐ xià kǒu nián	1
 斑岩头长颌鱼	bān yán tóu cháng hé yú	1
+斑叶唇柱苣苔	bān yè chún zhù jù tái	1
 斑翼须唇飞鱼	bān yì xū chún fēi yú	1
 半育复叶耳蕨	bàn yù fù yè ěr jué	1
 半圆盖阴石蕨	bàn yuán gài yīn shí jué	1
@@ -61398,8 +62591,14 @@ sort: by_weight
 保亭近腹吸鳅	bǎo tíng jìn fù xī qiū	1
 豹纹裸背电鳗	bào wén luǒ bèi diàn mán	1
 宝兴裸裂尻鱼	bǎo xīng luǒ liè kāo yú	1
+薄叶长柄报春	báo yè cháng bǐng bào chūn	1
+薄叶唇柱苣苔	báo yè chún zhù jù tái	1
+薄叶大理糙苏	báo yè dà lǐ cāo sū	1
 薄叶大阴地蕨	báo yè dà yīn dì jué	1
+薄叶假柴龙树	báo yè jiǎ chái lóng shù	1
 薄叶金午时花	báo yè jīn wǔ shí huā	1
+薄叶卷毛梾木	báo yè juǎn máo lái mù	1
+薄叶朱砂杜鹃	báo yè zhū shā dù juān	1
 背斑梵鰕虎鱼	bèi bān fàn xiā hǔ yú	1
 背斑复齿脂鲤	bèi bān fù chǐ zhī lǐ	1
 背斑眶锯雀鲷	bèi bān kuàng jù què diāo	1
@@ -62409,7 +63608,9 @@ sort: by_weight
 大洋茎方头鱼	dà yáng jīng fāng tóu yú	1
 大洋球形菌属	dà yáng qiú xíng jūn shǔ	1
 大叶矮金莲花	dà yè ǎi jīn lián huā	1
+大叶东京鱼藤	dà yè dōng jīng yú téng	1
 大叶蓝翠雀花	dà yè lán cuì què huā	1
+大叶桃花心木	dà yè táo huā xīn mù	1
 大叶野牡丹属	dà yè yě mǔ dān shǔ	1
 大叶玉山茀蕨	dà yè yù shān fú jué	1
 大叶玉叶金花	dà yè yù yè jīn huā	1
@@ -62826,7 +64027,14 @@ sort: by_weight
 盾形提灯虫属	dùn xíng tí dēng chóng shǔ	1
 盾胸金花虫属	dùn xiōng jīn huā chóng shǔ	1
 钝牙鰕虎鱼属	dùn yá xiā hǔ yú shǔ	1
+盾叶粗筒苣苔	dùn yè cū tǒng jù tái	1
+盾叶冠心宁片	dùn yè guān xīn níng piàn	1
+盾叶光叶苣苔	dùn yè guāng yè jù tái	1
+钝叶华贵黄耆	dùn yè huá guì huáng qí	1
 盾叶毛猪笼草	dùn yè máo zhū lóng cǎo	1
+钝叶台湾杨桐	dùn yè tái wān yáng tóng	1
+钝叶小鼠尾藓	dùn yè xiǎo shǔ wěi xiǎn	1
+钝叶新木姜子	dùn yè xīn mù jiāng zǐ	1
 钝羽复叶耳蕨	dùn yǔ fù yè ěr jué	1
 钝羽假蹄盖蕨	dùn yǔ jiǎ tí gài jué	1
 钝肢华南溪蟹	dùn zhī huá nán xī xiè	1
@@ -69984,6 +71192,8 @@ sort: by_weight
 保利诺噬菌体科	bǎo lì nuò shì jūn tǐ kē	1
 鲍氏拟无齿脂鲤	bào shì nǐ wú chǐ zhī lǐ	1
 薄叶孔雀铁角蕨	báo yè kǒng què tiě jiǎo jué	1
+薄叶密花艾纳香	báo yè mì huā ài nà xiāng	1
+薄叶叶穗香茶菜	báo yè yè suì xiāng chá cài	1
 背斑泰托啮脂鲤	bèi bān tài tuō niè zhī lǐ	1
 背点斯坦达脂鲤	bèi diǎn sī tǎn dá zhī lǐ	1
 北方蓝鳍金枪鱼	běi fāng lán qí jīn qiāng yú	1
@@ -70215,7 +71425,9 @@ sort: by_weight
 楯齿孔首丽体鱼	dùn chǐ kǒng shǒu lì tǐ yú	1
 钝齿云南冠唇花	dùn chǐ yún nán guān chún huā	1
 盾形单叶假脉蕨	dùn xíng dān yè jiǎ mài jué	1
+钝叶桔红悬钩子	dùn yè jú hóng xuán gōu zi	1
 盾叶云南金莲花	dùn yè yún nán jīn lián huā	1
+钝叶云南碎米荠	dùn yè yún nán suì mǐ jì	1
 多斑僧伽罗油鲶	duō bān sēng jiā luó yóu nián	1
 多变芽胞杆菌属	duō biàn yá bāo gǎn jūn shǔ	1
 多带半线琴脂鲤	duō dài bàn xiàn qín zhī lǐ	1
