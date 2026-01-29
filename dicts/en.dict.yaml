@@ -1599,6 +1599,7 @@ airbag	airbag
 airbags	airbags
 airbed	airbed
 airbnb	airbnb
+AirTag	airtag
 airborne	airborne
 airbrush	airbrush
 Airbus	Airbus
@@ -24601,7 +24602,7 @@ firefighter	firefighter
 firefighters	firefighters
 fireflies	fireflies
 firefly	firefly
-firefox	firefox
+Firefox	Firefox
 firehouse	firehouse
 fireless	fireless
 firelight	firelight
@@ -25053,7 +25054,7 @@ floorer	floorer
 flooring	flooring
 floorings	floorings
 floorman	floorman
-floorp	floorp
+Floorp	floorp
 floors	floors
 floorwalker	floorwalker
 floozy	floozy
@@ -41537,7 +41538,7 @@ moxie	moxie
 Moyer	Moyer
 mozambique	mozambique
 Mozart	Mozart
-mozilla	mozilla
+Mozilla	Mozilla
 Mozilla Firefox	MozillaFirefox
 mozzarella	mozzarella
 MP3	MP3
@@ -43932,8 +43933,9 @@ oestrogen	oestrogen
 oestrone	oestrone
 oestrus	oestrus
 of	of
-ofay	ofay
 off	off
+ofay	ofay
+OFDR	OFDR
 off-topic	off-topic
 offal	offal
 offbeat	offbeat
@@ -64738,8 +64740,9 @@ tome	tome
 ToMemo	ToMemo
 tomfool	tomfool
 tomfoolery	tomfoolery
-TOML	TOML
-Tom's Obvious Minimal Language	TOML
+toml	toml
+.toml	toml
+Tom's Obvious Minimal Language	toml
 Tomlinson	Tomlinson
 Tommie	Tommie
 tommy	tommy
@@ -65118,6 +65121,7 @@ traditionalize	traditionalize
 traditionally	traditionally
 traditions	traditions
 traduce	traduce
+Trae	Trae
 traefik	traefik
 traffic	traffic
 trafficator	trafficator
@@ -66210,6 +66214,7 @@ tympanitis	tympanitis
 Tyndall	Tyndall
 tyne	tyne
 type	type
+Typst	Typst
 typecast	typecast
 typecasting	typecasting
 typed	typed

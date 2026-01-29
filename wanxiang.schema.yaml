@@ -91,9 +91,9 @@ engine:
     - lua_filter@*auto_phrase                       #comment前，无感造词，关闭调频的时候将汉字写入次翻译器，当没有英文候选的时候追加\上屏可完成英文造词
     - lua_filter@*super_lookup                      #comment前，字词输入中反查辅助筛选
     - lua_filter@*super_filter                      #comment前,相关功能见Lua文件
-    - lua_filter@*super_english                     #comment前,负责英文方案及中英混输中英文单词格式化，语句流，自动加空格等策略
     - lua_filter@*super_comment_preedit             #OpenCC前，超级注释模块、超级preedit，支持错词提示、辅助码显示，部件组字读音注释，有声调、无声调全拼编码的转换，支持个性化配置和关闭相应的功能，详情搜索super_comment_preedit进行详细配置
     - lua_filter@*super_replacer                    #OpenCC替代器，更灵活的处理方式，更自由的自定义方式
+    - lua_filter@*super_english                     #comment前,负责英文方案及中英混输中英文单词格式化，语句流，自动加空格等策略
     - lua_filter@*super_sequence*F                  #手动排序，对高亮候选 ctrl+j左移动 ctrl+k 右移动 ctrl+0 移除位移
     - uniquifier                                    # 去重
 
@@ -219,6 +219,9 @@ kp_number_mode: auto
   #  "compose" : 小键盘数字始终不上屏参与编码
   #  "auto"    : 输入中 push，空闲时 commit（默认）
 
+#成语简码前置位置，只能设置在第一页，大于当前页数量则默认在最后一个
+idiom_preposition: 3
+
 #shijian:仅仅作为提示使用，编码已经写死，引导键可以在key_binder下修改前缀
 #时间：osj 或者 /sj
 #日期：orq 或者 /rq
@@ -323,9 +326,7 @@ quick_symbol_text:
 #trigger只能设置为单符号，因为按下一次锁定第一候选，按下映射开始包裹符号pro用户不能设置为/
 #两个字符可以不用|默认前后分割，需要明确区分前后的使用|分割，可以有一侧为空，不可以使用多个||
 paired_symbols:
-  #sort_window: 10
   trigger: "\\"  #(注意反斜杠这是转义写法\\使用时\单反斜杠即可)
-  mirror: true   #包裹后完全替换第一候选true,原候选后移到第二false
   symkey:
     # ===== 基本括号与引号 =====
     a: "[]"        # 方括号
