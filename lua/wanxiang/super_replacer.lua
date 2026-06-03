@@ -574,7 +574,6 @@ function M.func(input, env)
         local current_main_comment = cand.comment
         local matched_cand_type = nil 
       
-        -- 使用 env 的共享表
         clear_table(env.shared_pending)
         clear_table(env.shared_comments)
       
@@ -687,17 +686,15 @@ function M.func(input, env)
         return results
     end
 
-    -- 流式拦截器 + 候车室 架构
     local yield_count = 0
     local quality_dropped = false
-    local has_exact_phrase = false
     local seen_texts = {}
     local global_yielded = {}
     local always_cands = {}
     local lazy_cands = {}
     local top_buffer = {}
 
-        -- 处理 abbrev 规则
+    -- 处理 abbrev 规则 (生成简码候车室)
     for _, t in ipairs(rules) do
         if t.mode == "abbrev" then
             local is_active = false
@@ -736,10 +733,10 @@ function M.func(input, env)
                             end
                             count = count + 1
                             if count <= t.always_qty then
-                                abbrev_cand.quality = 999
+                                abbrev_cand.quality = 0 -- 防止 Rime 自动把过高权重的词提前面
                                 insert(always_cands, { cand = abbrev_cand, index = t.always_idx + (count - 1) })
                             else
-                                abbrev_cand.quality = 98
+                                abbrev_cand.quality = 0
                                 insert(lazy_cands, abbrev_cand)
                             end
                         end
@@ -751,10 +748,45 @@ function M.func(input, env)
 
     table.sort(always_cands, function(a, b) return a.index < b.index end)
 
-    -- 标准吐词函数（含精准定位插队）
+    -- 标准吐词函数（含精准定位插队 + 引擎词霸道拦截 + 用户词特权豁免）
     local function output_cand(cand)
         local processed_cands = process_rules(cand)
         for _, pc in ipairs(processed_cands) do
+            
+            -- 1. 判断是否为用户词(带有 user 标签的词汇)
+            local is_user_word = false
+            if cand.type and string.find(cand.type, "user") then
+                is_user_word = true
+            end
+            
+            -- 2. 撞车检查：看看引擎当前的词，是否在我们的简码预定名单中
+            local match_always_idx = nil
+            local match_lazy_idx = nil
+            for idx, ac in ipairs(always_cands) do
+                if ac.cand.text == pc.text then match_always_idx = idx; break end
+            end
+            if not match_always_idx then
+                for idx, lc in ipairs(lazy_cands) do
+                    if lc.text == pc.text then match_lazy_idx = idx; break end
+                end
+            end
+            local is_reserved = (match_always_idx ~= nil) or (match_lazy_idx ~= nil)
+
+            -- 3. 用户词 VIP 通道：强行优先上屏，保持用户原顺序！
+            if is_user_word then
+                if not global_yielded[pc.text] then
+                    global_yielded[pc.text] = true
+                    yield(pc)
+                    yield_count = yield_count + 1
+                    if match_always_idx then
+                        table.remove(always_cands, match_always_idx)
+                    elseif match_lazy_idx then
+                        table.remove(lazy_cands, match_lazy_idx)
+                    end
+                end
+            end
+
+            -- 4. 简码插队逻辑：排队名额够了，释放对应的简码
             while #always_cands > 0 and (yield_count + 1) >= always_cands[1].index do
                 local ac = table.remove(always_cands, 1)
                 local ac_processed = process_rules(ac.cand)
@@ -766,64 +798,26 @@ function M.func(input, env)
                     end
                 end
             end
-            if not global_yielded[pc.text] then
-                global_yielded[pc.text] = true
-                yield(pc)
-                yield_count = yield_count + 1
+
+            -- 5. 常规系统词通道：拦截原生垃圾词(如bus)，放行其它系统词
+            if not is_user_word then
+                if not is_reserved and not global_yielded[pc.text] then
+                    global_yielded[pc.text] = true
+                    yield(pc)
+                    yield_count = yield_count + 1
+                end
             end
         end
     end
 
-    -- 清空候车室机制
     local function flush_buffer()
-        if has_exact_phrase then
-            for _, cand in ipairs(top_buffer) do
-                output_cand(cand)
-            end
-        else
-            for _, cand in ipairs(top_buffer) do
-                local processed_cands = process_rules(cand)
-                for _, pc in ipairs(processed_cands) do
-                    if not global_yielded[pc.text] then
-                        global_yielded[pc.text] = true
-                        yield(pc)
-                        yield_count = yield_count + 1
-                    end
-                end
-            end
-            
-            while #always_cands > 0 do
-                local ac = table.remove(always_cands, 1)
-                local ac_processed = process_rules(ac.cand)
-                for _, apc in ipairs(ac_processed) do
-                    if not global_yielded[apc.text] then
-                        global_yielded[apc.text] = true
-                        yield(apc)
-                        yield_count = yield_count + 1
-                    end
-                end
-            end
-            
-            for _, lc in ipairs(lazy_cands) do
-                local lc_processed = process_rules(lc)
-                for _, lpc in ipairs(lc_processed) do
-                    if not global_yielded[lpc.text] then
-                        global_yielded[lpc.text] = true
-                        yield(lpc)
-                        yield_count = yield_count + 1
-                    end
-                end
-            end
-            lazy_cands = {}
+        for _, cand in ipairs(top_buffer) do
+            output_cand(cand)
         end
         top_buffer = {}
     end
 
-    -- 第二步：遍历底层流
     for cand in input:iter() do
-        if cand.type == "phrase" or cand.type == "user_phrase" then
-            has_exact_phrase = true 
-        end
         local q = cand.quality or 0
 
         if not quality_dropped then
@@ -839,12 +833,11 @@ function M.func(input, env)
         end
     end
 
-    -- 第三步：如果流从头到尾都没跌破 99
     if not quality_dropped then
         flush_buffer()
     end
 
-    -- 清理残余
+    -- 终极兜底逻辑
     while #always_cands > 0 do
         local ac = table.remove(always_cands, 1)
         local ac_processed = process_rules(ac.cand)
@@ -853,6 +846,17 @@ function M.func(input, env)
                 global_yielded[apc.text] = true
                 yield(apc)
                 yield_count = yield_count + 1 
+            end
+        end
+    end
+    
+    for _, lc in ipairs(lazy_cands) do
+        local lc_processed = process_rules(lc)
+        for _, lpc in ipairs(lc_processed) do
+            if not global_yielded[lpc.text] then
+                global_yielded[lpc.text] = true
+                yield(lpc)
+                yield_count = yield_count + 1
             end
         end
     end
