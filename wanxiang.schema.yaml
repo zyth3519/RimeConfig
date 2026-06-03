@@ -276,6 +276,13 @@ super_replacer:
       abbrev_rule: "1,3"
       files:
         - lua/data/en_abbrev.txt
+    - option: true      # 用于置顶单码单字
+      mode: abbrev
+      tags: [abc]
+      prefix: "_char_"
+      abbrev_rule: "6,1"
+      files:
+        - lua/data/chars.txt
 # 字符集过滤lua
 # a,通用规范汉字表
 # b,GB2312,
@@ -297,7 +304,7 @@ charset:
   - option: charset_filter
     base: a  #可以填入多个类别如aj
     addlist:
-      - "诶濛硷氽尛躝〇冇吔咗囧屌鲶芶咲畑垅𰻝𰻞龍朙頔"
+      - "诶濛硷氽尛躝〇冇吔磺咗囧屌鲶芶咲畑垅𰻝𰻞龍朙頔"
     blacklist: []
   - option: s2t
     base: fa
@@ -547,9 +554,7 @@ input_stats:
 #    - "500000:掌控法则·化神期"
 #    - "1000000:破碎虚空·渡劫期"
 
-# Lua 配置：计算器触发关键字
-calculator:
-  trigger: "V"
+
 
 # 主翻译器，拼音
 translator:

@@ -20,6 +20,7 @@ bos	bos
 bud	bud
 buf	buf
 bus	bus
+bug	bug
 bach	bach
 bench	bench
 bush	bush
