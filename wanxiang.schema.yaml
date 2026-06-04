@@ -276,13 +276,7 @@ super_replacer:
       abbrev_rule: "1,3"
       files:
         - lua/data/en_abbrev.txt
-    - option: true      # 用于置顶单码单字
-      mode: abbrev
-      tags: [abc]
-      prefix: "_char_"
-      abbrev_rule: "6,1"
-      files:
-        - lua/data/chars.txt
+
 # 字符集过滤lua
 # a,通用规范汉字表
 # b,GB2312,
@@ -591,9 +585,7 @@ custom_phrase:
 # 中文、英文、数字、符号等混合词汇
 wanxiang_english:
   dictionary: wanxiang_english
-  user_dict: en
   enable_completion: true
-  enable_sentence: true
   initial_quality: 2.1
   comment_format:  #这里很重要如果残留带声调字母，剩余编码提示计算出错引发程序崩溃
     - xform/^~.+$//
@@ -604,8 +596,8 @@ wanxiang_english:
   #支持设置延时销毁加空格状态，单位秒,0不超时，大于0为超时时间，极大的保证了连续输入的体验。
   english_spacing: smart
   spacing_timeout: 5
-  max_candidates: 3  #英文候选输出最大候选数(适用于需要选单字组词的用户)
-  trigger: "\\"  #英文造词符号\，写一个用时双击
+  max_candidates: 5  #英文候选输出最大候选数(适用于需要选单字组词的用户)
+
 
 wanxiang_mixedcode:
   dictionary: wanxiang_mixedcode
