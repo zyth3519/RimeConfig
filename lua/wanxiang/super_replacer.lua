@@ -325,15 +325,14 @@ function M.init(env)
     -- 2. 读取基础配置
     local db_name_val = cfg_root and cfg_root:get_value("db_name")
     local db_name = db_name_val and db_name_val:get_string() or "lua/replacer"
-    
-    local delim_val = cfg_root and cfg_root:get_value("delimiter")
-    local delim = delim_val and delim_val:get_string() or "|"
-    env.delimiter = delim
+
+    env.delimiter = "\t"
+    env.split_pattern = "([^\t]+)"
     
     local comment_fmt_val = cfg_root and cfg_root:get_value("comment_format")
     env.comment_format = comment_fmt_val and comment_fmt_val:get_string() or "〔%s〕"
     
-    local current_version = "v0.0.1"
+    local current_version = "v0.0.2"
     if wanxiang and wanxiang.version then
         current_version = wanxiang.version
     end
@@ -344,13 +343,6 @@ function M.init(env)
     
     local chain_val = cfg_root and cfg_root:get_value("chain")
     env.chain = chain_val and chain_val:get_bool() or false
-
-    if delim == " " then 
-        env.split_pattern = "%S+"
-    else 
-        local esc = s_gsub(delim, "[%-%.%+%[%]%(%)%$%^%%%?%*]", "%%%1")
-        env.split_pattern = "([^" .. esc .. "]+)" 
-    end
 
     env.rules = {}
     local tasks = {} 
@@ -511,9 +503,8 @@ function M.init(env)
     for _, t in ipairs(env.rules) do
         insert(config_sig_parts, tostring(t.t9_opt or false) .. (t.cand_type or ""))
     end
-    local config_sig = concat(config_sig_parts, "|")
 
-    -- 传入 env.fmm_cache
+    local config_sig = concat(config_sig_parts, "\t")
     env.db = connect_db(db_name, current_version, env.delimiter, tasks, config_sig, env.fmm_cache)
 end
 
@@ -748,29 +739,41 @@ function M.func(input, env)
         return string.match(str, "^%s*(.-)%s*$")
     end
 
+    local abbrev_lookup = {}
+    for _, item in ipairs(always_cands) do
+        local key = trim_space(item.cand.text)
+        abbrev_lookup[key] = { type = "always", ref = item }
+    end
+    for _, cand in ipairs(lazy_cands) do
+        local key = trim_space(cand.text)
+        abbrev_lookup[key] = { type = "lazy", ref = cand }
+    end
+
     local function dump_all_abbrevs()
-        while #always_cands > 0 do
-            local item = table.remove(always_cands, 1)
-            local processed = process_rules(item.cand)
-            for _, pc in ipairs(processed) do
-                local dedup_key = trim_space(pc.text)
-                if not global_yielded[dedup_key] then
-                    global_yielded[dedup_key] = true
-                    yield(pc)
-                    yield_count = yield_count + 1 
+        for _, item in ipairs(always_cands) do
+            if not item.yielded then
+                item.yielded = true
+                local processed = process_rules(item.cand)
+                for _, pc in ipairs(processed) do
+                    local dedup_key = trim_space(pc.text)
+                    if not global_yielded[dedup_key] then
+                        global_yielded[dedup_key] = true
+                        yield(pc); yield_count = yield_count + 1 
+                    end
                 end
             end
         end
         
-        while #lazy_cands > 0 do
-            local item = table.remove(lazy_cands, 1)
-            local processed = process_rules(item)
-            for _, pc in ipairs(processed) do
-                local dedup_key = trim_space(pc.text)
-                if not global_yielded[dedup_key] then
-                    global_yielded[dedup_key] = true
-                    yield(pc)
-                    yield_count = yield_count + 1
+        for _, cand in ipairs(lazy_cands) do
+            if not cand.yielded then
+                cand.yielded = true
+                local processed = process_rules(cand)
+                for _, pc in ipairs(processed) do
+                    local dedup_key = trim_space(pc.text)
+                    if not global_yielded[dedup_key] then
+                        global_yielded[dedup_key] = true
+                        yield(pc); yield_count = yield_count + 1
+                    end
                 end
             end
         end
@@ -787,22 +790,22 @@ function M.func(input, env)
             is_exhausted = true
             break 
         end
-        table.insert(lookahead_cache, iter_var)
+        insert(lookahead_cache, iter_var)
         
         if iter_var.type == "phrase" then
             has_phrase = true
             break
         end
     end
-    
+    local cache_idx = 1
     local function get_next_cand()
-        if #lookahead_cache > 0 then
-            return table.remove(lookahead_cache, 1)
+        if cache_idx <= #lookahead_cache then
+            local c = lookahead_cache[cache_idx]
+            cache_idx = cache_idx + 1
+            return c
         elseif not is_exhausted then
             iter_var = iter_func(state, iter_var)
-            if not iter_var then
-                is_exhausted = true
-            end
+            if not iter_var then is_exhausted = true end
             return iter_var
         else
             return nil
@@ -810,6 +813,8 @@ function M.func(input, env)
     end
 
     local cand = get_next_cand()
+    local next_always_ptr = 1
+
     while cand do
         local processed_cands = process_rules(cand)
         for _, pc in ipairs(processed_cands) do
@@ -819,51 +824,37 @@ function M.func(input, env)
                 local c_type = cand.type or ""
                 local is_user = (c_type == "user_phrase" or c_type == "user_table")
                 local is_regular = (c_type == "phrase") or (c_type == "table" and has_phrase)
-                
-                local match_always_idx = nil
-                local match_lazy_idx = nil
-                
-                for idx, item in ipairs(always_cands) do
-                    if trim_space(item.cand.text) == dedup_key then 
-                        match_always_idx = idx
-                        break 
-                    end
-                end
-                
-                if not match_always_idx then
-                    for idx, item in ipairs(lazy_cands) do
-                        if trim_space(item.text) == dedup_key then 
-                            match_lazy_idx = idx
-                            break 
-                        end
-                    end
-                end
-                
-                local is_reserved = (match_always_idx ~= nil) or (match_lazy_idx ~= nil)
+
+                local match_info = abbrev_lookup[dedup_key]
+                local is_reserved = match_info ~= nil
 
                 if is_user then
-                    if match_always_idx then 
-                        table.remove(always_cands, match_always_idx)
-                    elseif match_lazy_idx then 
-                        table.remove(lazy_cands, match_lazy_idx) 
+                    if is_reserved then 
+                        match_info.ref.yielded = true
                     end
-                    
                     global_yielded[dedup_key] = true
                     yield(pc)
                     yield_count = yield_count + 1
                     
                 elseif is_regular then
-                    while #always_cands > 0 and (yield_count + 1) >= always_cands[1].index do
-                        local item = table.remove(always_cands, 1)
-                        local processed = process_rules(item.cand)
-                        for _, apc in ipairs(processed) do
-                            local apc_key = trim_space(apc.text)
-                            if not global_yielded[apc_key] then
-                                global_yielded[apc_key] = true
-                                yield(apc)
-                                yield_count = yield_count + 1 
+                    while next_always_ptr <= #always_cands do
+                        local item = always_cands[next_always_ptr]
+                        if not item.yielded and (yield_count + 1) >= item.index then
+                            item.yielded = true
+                            local ac_processed = process_rules(item.cand)
+                            for _, apc in ipairs(ac_processed) do
+                                local apc_key = trim_space(apc.text)
+                                if not global_yielded[apc_key] then
+                                    global_yielded[apc_key] = true
+                                    yield(apc); yield_count = yield_count + 1 
+                                end
+                            end
+                        else
+                            if item.yielded or (yield_count + 1) < item.index then
+                                break
                             end
                         end
+                        next_always_ptr = next_always_ptr + 1
                     end
                     
                     if not is_reserved then

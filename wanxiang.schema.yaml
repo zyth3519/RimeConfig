@@ -177,7 +177,7 @@ super_tips:
 
 # 【基础配置】
 # db_name:        数据库存储路径
-# delimiter:      txt词库中一键多词的分割符，默认 "|"
+# delimiter:      txt词库中一键多词的分割符，默认 "Tab"
 # comment_format: 注释内容的显示格式，例如 "〔%s〕"
 # 
 # 【触发条件】
@@ -204,7 +204,6 @@ super_tips:
 
 super_replacer:
   db_name: lua/replacer
-  delimiter: "|"
   comment_format: "〔%s〕"
   chain: true   #true表示流水线作业，上一个option产出交给下一个处理，典型的s2t>t2hk=s2hk，false就是并行，直接用text转换
   rules:
@@ -585,6 +584,7 @@ custom_phrase:
 # 中文、英文、数字、符号等混合词汇
 wanxiang_english:
   dictionary: wanxiang_english
+  enable_user_dict: false
   enable_completion: true
   initial_quality: 2.1
   comment_format:  #这里很重要如果残留带声调字母，剩余编码提示计算出错引发程序崩溃

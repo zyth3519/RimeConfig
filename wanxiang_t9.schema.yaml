@@ -300,7 +300,6 @@ translator:
 
 super_replacer:
     db_name: lua/replacer
-    delimiter: "|"
     comment_format: "〔%s〕"
     chain: true   #true表示流水线作业，上一个option产出交给下一个处理，典型的s2t>t2hk=s2hk，false就是并行，直接用text转换
     rules:
