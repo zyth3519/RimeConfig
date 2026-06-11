@@ -42,15 +42,15 @@ base:
       - erase/^ng(\d)$/
       - xform/^n(\d)/en$1/
       - xform/^m(\d)/me$1/
-      - abbrev/^([zcs]h).+$/$1/                        #zh ch sh作为整体
-      - abbrev/^([zcs]h).+(\d)$/$1$2/                  #zh ch sh作为整体
-      - derive/([nl])ve(\d)/$1ue$2/                            #让üè兼容ue
+      - abbrev/^([zcs]h).+$/$1/  #zh ch sh作为整体
+      - abbrev/^([zcs]h).+(\d)$/$1$2/  #zh ch sh作为整体
+      - derive/([nl])ve(\d)/$1ue$2/  #让üè兼容ue
       - derive/^([jqxy])v(\d)$/$1u$2/
       - derive/^([jqxy])u(\d)$/$1v$2/
-      - abbrev/^([qwrtypsdfghjklzxcbnm]).+$/$1/        #不携带元音的声母派生出首字母简码来
+      - abbrev/^([qwrtypsdfghjklzxcbnm]).+$/$1/  #不携带元音的声母派生出首字母简码来
       - abbrev/^([qwrtypsdfghjklzxcbnm]).+(\d)$/$1$2/  #不携带元音的声母派生出首字母简码来+数字声调
-      - abbrev/^([aoe])([ioun])(\d)$/$1/               #携带两个字符的元音首字母派生出简码来
-      - abbrev/^([aoe])([ioun])(\d)$/$1$3/             #携带两个字符的元音首字母派生出简码来+数字声调
+      - abbrev/^([aoe])([ioun])(\d)$/$1/  #携带两个字符的元音首字母派生出简码来
+      - abbrev/^([aoe])([ioun])(\d)$/$1$3/  #携带两个字符的元音首字母派生出简码来+数字声调
       - derive/(.+)(\d)/$1/
       - derive/([zcs])h(a|e|i|u|ai|ei|an|en|ou|uo|ua|un|ui|uan|uai|uang|ang|eng|ong)$/h$1$2/  # hzi → zhi
       - derive/([zcs])h([aeiu])$/$1$2h/  # zih → zhi
@@ -113,12 +113,10 @@ base:
       - derive/([jqx])iong$/$1iogn/
       - derive/([jqx])iong$/$1oign/
       # 其他
-      - derive/ong$/on/ # lon → long
-      - derive/([tl])eng$/$1en/ # ten → teng
+      - derive/ong$/on/  # lon → long
+      - derive/([tl])eng$/$1en/  # ten → teng
 
-
-
-  自然码: 
+  自然码:
     __append:
       - xform/Ⅱ//  #用于Lua判断输入类型的标记
       - xform/^([a-z]+)$/$1④/
@@ -191,7 +189,7 @@ base:
       - derive/^(.).+(\d)$/$1$2/
       #- abbrev/^([a-z]).+$/$1/   #简拼
 
-  自然龙:      #原作者项目地址： https://github.com/rimeinn/rime-zrlong
+  自然龙:  #原作者项目地址： https://github.com/rimeinn/rime-zrlong
     __append:
       - xform/Ⅺ//  #用于Lua判断输入类型的标记
       - xform/^(ā|á|ǎ|à)([ioun])$/a$1$2/
@@ -255,7 +253,7 @@ base:
       - xform/^(.)(āo|ao|iè)$/$1Q/
       - xlit/QWERTYUIOPASDFGHMJCKLZXVBN/qwertyuiopasdfghmjcklzxvbn/
 
-  汉心龙:    #原作者项目地址： https://hanxinma.gitlab.io/longma/
+  汉心龙:  #原作者项目地址： https://hanxinma.gitlab.io/longma/
     __append:
       - xform/Ⅻ//  #用于Lua判断输入类型的标记
       - xform/^(a|ā|á|ǎ|à)/Q$1/
@@ -327,9 +325,7 @@ base:
       - xform/^(.)(í|iǎng|ǎn)$/$1N/
       - xform/^(.)(ú|iāng|iang|ěng|ǔn)$/$1M/
 
-
-
-  小鹤双拼: 
+  小鹤双拼:
     __append:
       - xform/Ⅲ//  #用于Lua判断输入类型的标记
       - xform/^([a-z]+)$/$1④/
@@ -402,7 +398,7 @@ base:
       - derive/^(.).+(\d)$/$1$2/
       #- abbrev/^([a-z]).+$/$1/   #简拼
 
-  搜狗双拼: 
+  搜狗双拼:
     __append:
       - xform/Ⅴ//  #用于Lua判断输入类型的标记
       - xform/^([a-z]+)$/$1④/
@@ -476,7 +472,7 @@ base:
       - derive/^(.).+(\d)$/$1$2/
       #- abbrev/^([a-z]).+$/$1/   #简拼
 
-  微软双拼: 
+  微软双拼:
     __append:
       - xform/Ⅳ//  #用于Lua判断输入类型的标记
       - xform/^([a-z]+)$/$1④/
@@ -838,7 +834,6 @@ base:
       - derive/^(..)(\d)$/$1/
       - derive/^(.).+(\d)$/$1$2/
 
-
   乱序17:
     __append:
       - xform/Ⅼ//  #用于Lua判断输入类型的标记
@@ -933,48 +928,48 @@ base:
       - xform/^n(\d)/en$1/
       - xform/^m(\d)/me$1/
       - derive/^([jqxy])u(\d)$/$1v$2/
-      - xform/^([aoe])(\d)$/$1$1$2/      
-      - xform/^([ae])ng(\d)$/$1g$2/      
+      - xform/^([aoe])(\d)$/$1$1$2/
+      - xform/^([ae])ng(\d)$/$1g$2/
       - xform/^sh/Ⓤ/
       - xform/^ch/Ⓘ/
       - xform/^zh/Ⓥ/
-      - xform/(.+)i?ong(\d)$/$1Ⓢ$2/    # ong, iong -> S
+      - xform/(.+)i?ong(\d)$/$1Ⓢ$2/  # ong, iong -> S
       - xform/(.+)[iu]ang(\d)$/$1Ⓛ$2/  # iang, uang -> L
-      - xform/(.+)iao(\d)$/$1Ⓝ$2/      # iao -> N
-      - xform/(.+)uai(\d)$/$1Ⓕ$2/      # uai -> F
-      - xform/(.+)uan(\d)$/$1Ⓗ$2/      # uan -> H
-      - xform/(.+)ian(\d)$/$1Ⓜ$2/      # ian -> M
-      - xform/(.+)ing(\d)$/$1Ⓕ$2/      # ing -> F
-      - xform/(.+)eng(\d)$/$1Ⓩ$2/      # eng -> Z
-      - xform/(.+)ang(\d)$/$1Ⓖ$2/      # ang -> G
-      - xform/(.+)ua(\d)$/$1Ⓠ$2/       # ua -> Q
-      - xform/(.+)ei(\d)$/$1Ⓦ$2/       # ei -> W
-      - xform/(.+)ou(\d)$/$1Ⓡ$2/       # ou -> R
-      - xform/(.+)iu(\d)$/$1Ⓣ$2/       # iu -> T
-      - xform/(.+)[uv]e(\d)$/$1Ⓨ$2/    # ue, ve -> Y
-      - xform/(.+)uo(\d)$/$1Ⓞ$2/       # uo -> O
-      - xform/(.+)ie(\d)$/$1Ⓟ$2/       # ie -> P
-      - xform/(.+)ai(\d)$/$1Ⓓ$2/       # ai -> D
-      - xform/(.+)an(\d)$/$1Ⓙ$2/       # an -> J
-      - xform/(.+)en(\d)$/$1Ⓚ$2/       # en -> K
-      - xform/(.+)ia(\d)$/$1Ⓚ$2/       # ia -> K
-      - xform/(.+)in(\d)$/$1Ⓧ$2/       # in -> X
-      - xform/(.+)ao(\d)$/$1Ⓒ$2/       # ao -> C
-      - xform/(.+)ui(\d)$/$1Ⓥ$2/       # ui -> V
-      - xform/(.+)un(\d)$/$1Ⓑ$2/       # un -> B
-      - xform/(.+)e(\d)$/$1Ⓔ$2/        # e -> E
-      - xform/(.+)u(\d)$/$1Ⓤ$2/        # u -> U
-      - xform/(.+)i(\d)$/$1Ⓘ$2/        # i -> I
-      - xform/(.+)o(\d)$/$1Ⓞ$2/        # o -> O
-      - xform/(.+)a(\d)$/$1Ⓐ$2/        # a -> A
-      - xform/(.+)v(\d)$/$1Ⓥ$2/        # v -> V
+      - xform/(.+)iao(\d)$/$1Ⓝ$2/  # iao -> N
+      - xform/(.+)uai(\d)$/$1Ⓕ$2/  # uai -> F
+      - xform/(.+)uan(\d)$/$1Ⓗ$2/  # uan -> H
+      - xform/(.+)ian(\d)$/$1Ⓜ$2/  # ian -> M
+      - xform/(.+)ing(\d)$/$1Ⓕ$2/  # ing -> F
+      - xform/(.+)eng(\d)$/$1Ⓩ$2/  # eng -> Z
+      - xform/(.+)ang(\d)$/$1Ⓖ$2/  # ang -> G
+      - xform/(.+)ua(\d)$/$1Ⓠ$2/  # ua -> Q
+      - xform/(.+)ei(\d)$/$1Ⓦ$2/  # ei -> W
+      - xform/(.+)ou(\d)$/$1Ⓡ$2/  # ou -> R
+      - xform/(.+)iu(\d)$/$1Ⓣ$2/  # iu -> T
+      - xform/(.+)[uv]e(\d)$/$1Ⓨ$2/  # ue, ve -> Y
+      - xform/(.+)uo(\d)$/$1Ⓞ$2/  # uo -> O
+      - xform/(.+)ie(\d)$/$1Ⓟ$2/  # ie -> P
+      - xform/(.+)ai(\d)$/$1Ⓓ$2/  # ai -> D
+      - xform/(.+)an(\d)$/$1Ⓙ$2/  # an -> J
+      - xform/(.+)en(\d)$/$1Ⓚ$2/  # en -> K
+      - xform/(.+)ia(\d)$/$1Ⓚ$2/  # ia -> K
+      - xform/(.+)in(\d)$/$1Ⓧ$2/  # in -> X
+      - xform/(.+)ao(\d)$/$1Ⓒ$2/  # ao -> C
+      - xform/(.+)ui(\d)$/$1Ⓥ$2/  # ui -> V
+      - xform/(.+)un(\d)$/$1Ⓑ$2/  # un -> B
+      - xform/(.+)e(\d)$/$1Ⓔ$2/  # e -> E
+      - xform/(.+)u(\d)$/$1Ⓤ$2/  # u -> U
+      - xform/(.+)i(\d)$/$1Ⓘ$2/  # i -> I
+      - xform/(.+)o(\d)$/$1Ⓞ$2/  # o -> O
+      - xform/(.+)a(\d)$/$1Ⓐ$2/  # a -> A
+      - xform/(.+)v(\d)$/$1Ⓥ$2/  # v -> V
       - xlit/ⓆⓌⒺⓇⓉⓎⓊⒾⓄⓅⒶⓈⒹⒻⒼⒽⒿⓀⓁⓏⓍⒸⓋⒷⓃⓂ/qwertyuiopasdfghjklzxcvbnm/
       - derive/^(..)(\d)$/$1/
       - derive/^(.).+(\d)$/$1$2/
 
 #pro版本转写段落
 pro:
-  全拼: 
+  全拼:
     __append:
       - xform/Ⅰ//  #用于Lua判断输入类型的标记
       - xform/^([a-z]+);/$1④;/
@@ -1013,7 +1008,7 @@ pro:
       - xform/^n(\d)/en$1/
       - xform/^m(\d)/me$1/
 
-  自然码: 
+  自然码:
     __append:
       - xform/Ⅱ//  #用于Lua判断输入类型的标记
       - xform/^([a-z]+);/$1④;/
@@ -1052,7 +1047,7 @@ pro:
       - xform/^n(\d);/en$1;/
       - xform/^m(\d);/me$1;/
       - derive/^([jqxy])u(\d);/$1v$2;/
-      - derive/^([aoe])([ioun])(\d);/$1$1$2$3;/ # 注释释放非原本自然码规则
+      - derive/^([aoe])([ioun])(\d);/$1$1$2$3;/  # 注释释放非原本自然码规则
       - xform/^([aoe])(ng)?(\d);/$1$1$2$3;/
       - xform/iu(\d);/Ⓠ$1;/
       - xform/[uv]an(\d);/Ⓡ$1;/
@@ -1082,7 +1077,7 @@ pro:
       - xform/^zh/Ⓥ/
       - xlit/ⓆⓌⓇⓉⓎⓊⒾⓄⓅⓈⒹⒻⒼⒽⓂⒿⒸⓀⓁⓏⓍⓋⒷⓃ/qwrtyuiopsdfghmjcklzxvbn/
 
-  自然龙:    #原作者项目地址： https://github.com/rimeinn/rime-zrlong
+  自然龙:  #原作者项目地址： https://github.com/rimeinn/rime-zrlong
     __append:
       - xform/Ⅺ//  #用于Lua判断输入类型的标记
       - xform/^ēr/eQ/
@@ -1145,7 +1140,7 @@ pro:
       - xform/^(.)(ū|u|óu|iàn)(;.*)$/$1A$3/
       - xform/^(.)(āo|ao|iè)(;.*)$/$1Q$3/
       - xlit/QWERTYUIOPASDFGHMJCKLZXVBN/qwertyuiopasdfghmjcklzxvbn/
-  汉心龙:    #原作者项目地址： https://hanxinma.gitlab.io/longma/
+  汉心龙:  #原作者项目地址： https://hanxinma.gitlab.io/longma/
     __append:
       - xform/Ⅻ//  #用于Lua判断输入类型的标记
       - xform/^(a|ā|á|ǎ|à)/Q$1/
@@ -1218,7 +1213,7 @@ pro:
       - xform/^(.)(ú|iāng|iang|ěng|ǔn)(;.*)$/$1M$3/
       - xlit/QWERTYUIOPASDFGHMJCKLZXVBN/qwertyuiopasdfghmjcklzxvbn/
 
-  小鹤双拼: 
+  小鹤双拼:
     __append:
       - xform/Ⅲ//  #用于Lua判断输入类型的标记
       - xform/^([a-z]+);/$1④;/
@@ -1286,7 +1281,7 @@ pro:
       - xform/^ch/Ⓘ/
       - xform/^zh/Ⓥ/
       - xlit/ⓆⓌⓇⓉⓎⓊⒾⓄⓅⓈⒹⒻⒼⒽⒿⓀⓁⓏⓍⒸⓋⒷⓃⓂ/qwrtyuiopsdfghjklzxcvbnm/
-  微软双拼: 
+  微软双拼:
     __append:
       - xform/Ⅳ//  #用于Lua判断输入类型的标记
       - xform/^([a-z]+);/$1④;/
@@ -1483,7 +1478,7 @@ pro:
       - xform/iu(\d);/Ⓙ$1;/
       - xform/ei(\d);/Ⓚ$1;/
       - xform/uan(\d);/Ⓛ$1;/
-      - xform/ing(\d);/◯$1;/    #注意这里的◯用来暂时替换分号
+      - xform/ing(\d);/◯$1;/  #注意这里的◯用来暂时替换分号
       - xform/ou(\d);/Ⓩ$1;/
       - xform/[iu]a(\d);/Ⓧ$1;/
       - xform/iao(\d);/Ⓑ$1;/
@@ -1793,66 +1788,66 @@ pro:
 
   直接辅助:  ########################################位于词库第三个分号后
     __append:
-      - derive/^([a-z◯]+)(\d?);.*$/$1/             # 纯双拼的情况
+      - derive/^([a-z◯]+)(\d?);.*$/$1/  # 纯双拼的情况
       #分号后面第一组辅助码
-      - derive/^([a-z◯]+)(\d?);.*$/$1$2/           # 双拼+声调的情况
-      - derive/^([a-z◯]+)(\d?);([a-z]).*$/$1$3/    # 双拼+1位辅助码的情况
+      - derive/^([a-z◯]+)(\d?);.*$/$1$2/  # 双拼+声调的情况
+      - derive/^([a-z◯]+)(\d?);([a-z]).*$/$1$3/  # 双拼+1位辅助码的情况
       - derive|^([a-z◯]+)(\d?);([a-z]).*$|$1$2$3|  # 双拼+声调+1位辅助码
       - derive|^([a-z◯]+)(\d?);([a-z]).*$|$1$3$2|  # 双拼+1位辅助码+声调
-      - abbrev/^([a-z◯]+)(\d?);([a-z])([a-z]).*$/$1$3$4/   # 双拼+2位辅助码的情况 (简拼)
-      - derive|^([a-z◯]+)(\d?);([a-z])([a-z]).*$|$1$3$4$2| # 双拼+字母 字母 数字
-      - derive|^([a-z◯]+)(\d?);([a-z])([a-z]).*$|$1$2$3$4| # 双拼+数字 字母 字母
-      - derive|^([a-z◯]+)(\d?);([a-z])([a-z]).*$|$1$3$2$4| # 双拼+字母 数字 字母
+      - abbrev/^([a-z◯]+)(\d?);([a-z])([a-z]).*$/$1$3$4/  # 双拼+2位辅助码的情况 (简拼)
+      - derive|^([a-z◯]+)(\d?);([a-z])([a-z]).*$|$1$3$4$2|  # 双拼+字母 字母 数字
+      - derive|^([a-z◯]+)(\d?);([a-z])([a-z]).*$|$1$2$3$4|  # 双拼+数字 字母 字母
+      - derive|^([a-z◯]+)(\d?);([a-z])([a-z]).*$|$1$3$2$4|  # 双拼+字母 数字 字母
       - derive|^([a-z◯]+)(\d?);([a-z])([a-z]).*$|$1$3$4/|  # 双拼+2位辅助码+/
       - derive|^([a-z◯]+)(\d?);([a-z])([a-z]).*$|$1$3$4o|  # 双拼+2辅码+o (应对小企鹅等环境)
       #分号后面第二组辅助码 (极速跳过第一组，直达逗号)
-      - derive/^([a-z◯]+)(\d?);[^,]*,([a-z]).*$/$1$3/       # 双拼+1位辅助码的情况
-      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z]).*$|$1$2$3|     # 双拼+声调+1位辅助码
-      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z]).*$|$1$3$2|     # 双拼+1位辅助码+声调
-      - abbrev/^([a-z◯]+)(\d?);[^,]*,([a-z])([a-z]).*$/$1$3$4/   # 双拼+2位辅助码的情况
-      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z])([a-z]).*$|$1$3$4$2| # 双拼+字母 字母 数字
-      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z])([a-z]).*$|$1$2$3$4| # 双拼+数字 字母 字母
-      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z])([a-z]).*$|$1$3$2$4| # 双拼+字母 数字 字母
+      - derive/^([a-z◯]+)(\d?);[^,]*,([a-z]).*$/$1$3/  # 双拼+1位辅助码的情况
+      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z]).*$|$1$2$3|  # 双拼+声调+1位辅助码
+      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z]).*$|$1$3$2|  # 双拼+1位辅助码+声调
+      - abbrev/^([a-z◯]+)(\d?);[^,]*,([a-z])([a-z]).*$/$1$3$4/  # 双拼+2位辅助码的情况
+      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z])([a-z]).*$|$1$3$4$2|  # 双拼+字母 字母 数字
+      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z])([a-z]).*$|$1$2$3$4|  # 双拼+数字 字母 字母
+      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z])([a-z]).*$|$1$3$2$4|  # 双拼+字母 数字 字母
       - derive|^([a-z◯]+)(\d?);[^,]*,([a-z])([a-z]).*$|$1$3$4/|  # 双拼+2位辅助码+/
       - derive|^([a-z◯]+)(\d?);[^,]*,([a-z])([a-z]).*$|$1$3$4o|  # 双拼+2辅码+o (应对小企鹅等环境)
-      - erase/.*;.*/    # 删除原始带分号编码，加速检索，并防大写变体套娃
+      - erase/.*;.*/  # 删除原始带分号编码，加速检索，并防大写变体套娃
       - xform/◯/;/  #对于微软双拼、搜狗双拼，前面将分号保护了起来，现在放出来让其发挥作用
       # 大写变体
       # 格式 A: 声调在最前 (如 ab1c, ab1cd)
-      - derive|^([a-z]{2})(\d)([a-z])([a-z]?)$|$1$2\u$3$4|     # 第1位辅码大写
-      - derive|^([a-z]{2})(\d)([a-z])([a-z])$|$1$2$3\u$4|      # 第2位辅码大写（严格限定必须有第2位，防废码）
-      - derive|^([a-z]{2})(\d)([a-z])([a-z])$|$1$2\u$3\u$4|    # 全大写（严格限定）
+      - derive|^([a-z]{2})(\d)([a-z])([a-z]?)$|$1$2\u$3$4|  # 第1位辅码大写
+      - derive|^([a-z]{2})(\d)([a-z])([a-z])$|$1$2$3\u$4|  # 第2位辅码大写（严格限定必须有第2位，防废码）
+      - derive|^([a-z]{2})(\d)([a-z])([a-z])$|$1$2\u$3\u$4|  # 全大写（严格限定）
       # 格式 B: 声调在中间 (仅针对 ab1cd 被 derive 派生出的 abc1d 变体)
       - derive|^([a-z]{2})([a-z])(\d)([a-z])$|$1\u$2$3$4|
       - derive|^([a-z]{2})([a-z])(\d)([a-z])$|$1$2$3\u$4|
       - derive|^([a-z]{2})([a-z])(\d)([a-z])$|$1\u$2$3\u$4|
       # 格式 C: 声调在最后 (如 abc1, abcd1)
       - derive|^([a-z]{2})([a-z])([a-z]?)(\d)$|$1\u$2$3$4|
-      - derive|^([a-z]{2})([a-z])([a-z])(\d)$|$1$2\u$3$4|      # 严格限定必须有第2位
-      - derive|^([a-z]{2})([a-z])([a-z])(\d)$|$1\u$2\u$3$4|    # 严格限定必须有第2位
+      - derive|^([a-z]{2})([a-z])([a-z])(\d)$|$1$2\u$3$4|  # 严格限定必须有第2位
+      - derive|^([a-z]{2})([a-z])([a-z])(\d)$|$1\u$2\u$3$4|  # 严格限定必须有第2位
       # 格式 D: 无声调纯辅码 (如 abc, abcd)
       - derive|^([a-z]{2})([a-z])([a-z]?)$|$1\u$2$3|
-      - derive|^([a-z]{2})([a-z])([a-z])$|$1$2\u$3|            # 严格限定必须有第2位
-      - derive|^([a-z]{2})([a-z])([a-z])$|$1\u$2\u$3|          # 严格限定必须有第2位
+      - derive|^([a-z]{2})([a-z])([a-z])$|$1$2\u$3|  # 严格限定必须有第2位
+      - derive|^([a-z]{2})([a-z])([a-z])$|$1\u$2\u$3|  # 严格限定必须有第2位
 
   间接辅助:  ########################################位于词库第三个分号后
     __append:
       - xform/ⅲ//  # 用于Lua判断是否处于间接辅助的标记
       # 纯双拼与声调
-      - derive/^([a-z◯]+)\d?;.*$/$1/        # 纯双拼的情况
-      - derive/^([a-z◯]+)(\d?);.*$/$1$2/    # 双拼+声调的情况
+      - derive/^([a-z◯]+)\d?;.*$/$1/  # 纯双拼的情况
+      - derive/^([a-z◯]+)(\d?);.*$/$1$2/  # 双拼+声调的情况
       # 分号后面第一组辅助码 (引入 / 间接标记)
-      - derive|^([a-z◯]+)(\d?);([a-z]).*$|$1/$3|          # 双拼+/1位辅码
-      - derive|^([a-z◯]+)(\d?);([a-z]).*$|$1$2/$3|        # 双拼+声调+/1位辅码
-      - derive|^([a-z◯]+)(\d?);([a-z])([a-z]).*$|$1/$3$4|     # 双拼+/2位辅码
-      - derive|^([a-z◯]+)(\d?);([a-z])([a-z]).*$|$1$2/$3$4|   # 双拼+声调+/2位辅码
+      - derive|^([a-z◯]+)(\d?);([a-z]).*$|$1/$3|  # 双拼+/1位辅码
+      - derive|^([a-z◯]+)(\d?);([a-z]).*$|$1$2/$3|  # 双拼+声调+/1位辅码
+      - derive|^([a-z◯]+)(\d?);([a-z])([a-z]).*$|$1/$3$4|  # 双拼+/2位辅码
+      - derive|^([a-z◯]+)(\d?);([a-z])([a-z]).*$|$1$2/$3$4|  # 双拼+声调+/2位辅码
       # 分号后面第二组辅助码 (利用 [^,]* 零回溯直达逗号)
-      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z]).*$|$1/$3|          # 双拼+/1位辅码
-      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z]).*$|$1$2/$3|        # 双拼+声调+/1位辅码
-      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z])([a-z]).*$|$1/$3$4|     # 双拼+/2位辅码
-      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z])([a-z]).*$|$1$2/$3$4|   # 双拼+声调+/2位辅码
-      - erase/.*;.*/    # 删除原始带分号编码，加速检索
-      - xform/◯/;/              # 释放微软/搜狗双拼保护的分号
+      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z]).*$|$1/$3|  # 双拼+/1位辅码
+      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z]).*$|$1$2/$3|  # 双拼+声调+/1位辅码
+      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z])([a-z]).*$|$1/$3$4|  # 双拼+/2位辅码
+      - derive|^([a-z◯]+)(\d?);[^,]*,([a-z])([a-z]).*$|$1$2/$3$4|  # 双拼+声调+/2位辅码
+      - erase/.*;.*/  # 删除原始带分号编码，加速检索
+      - xform/◯/;/  # 释放微软/搜狗双拼保护的分号
       # 以下直接大写辅助
       - derive|^([a-z]{2})(\d?)/([a-z])([a-z]?)$|$1$2\u$3\u$4|
       - derive|^([a-z]{2})(\d?)/([a-z])([a-z]?)$|$1\u$3$2\u$4|
@@ -1867,10 +1862,10 @@ reverse:
     __append:
       - xlit/HSPZN/hupvd/
   #适配乱序17按键映射的笔画映射（横在HP键，竖在Sh键，撇在L键，捺在Y键，折在Zh键）
-  hslzy:  
+  hslzy:
     __append:
       - xlit/HSPZN/hslzy/
-      
+
   全拼:
     - xform/'//
     - derive/^([nl])ue$/$1ve/
@@ -2191,7 +2186,7 @@ reverse:
     - xform/^z/w/
     - xform/'c/'f/
     - xform/'s/'m/
-    - xform/'z/'w/  
+    - xform/'z/'w/
     - xform/^k/j/
     - xform/^p/h/
     - xform/^r/n/
@@ -2236,7 +2231,7 @@ reverse:
     - xform/([a-z>])i(?=^|$|')/$1<j>/
     - xform/([a-z>])o(?=^|$|')/$1<x>/
     - xform/([a-z>])u(?=^|$|')/$1<d>/
-    - xform/([a-z>])v(?=^|$|')/$1<x>/  
+    - xform/([a-z>])v(?=^|$|')/$1<x>/
     - xform/'|<|>//
 
 #混合编码转写段落
@@ -2295,9 +2290,9 @@ mixed:
     - derive/&/'and'/
     - derive/%/'percent'/
     # 派生单个特殊字符需要消失的转换为'分隔符，需要转换为拼音的放在具体的输入布局转写中
-    - derive/--/'jiǎn'jiǎn'/   #两个连续减号转换为jiǎn'jiǎn
-    - derive/^(.*)-$/$1'jiǎn/      #单个减号末尾的转换为jiǎn
-    - derive/-/'/                  #中间减号一般无意义，转换为分隔符以忽略
+    - derive/--/'jiǎn'jiǎn'/  #两个连续减号转换为jiǎn'jiǎn
+    - derive/^(.*)-$/$1'jiǎn/  #单个减号末尾的转换为jiǎn
+    - derive/-/'/  #中间减号一般无意义，转换为分隔符以忽略
     - derive/_/'/
     - derive/\./'diǎn'/
     - derive/\+/'jiā'/
@@ -2636,22 +2631,22 @@ mixed:
       - derive/^([A-Z]{1})/\L$1/
       - derive/^([a-z]{2})/\U$1/
       - erase/.*[\-+'_#@\.·0-9].*$/
-    # 前 2~10 个字母大写
-    #- derive/^([a-z]{2})/\U$1/
-    #- derive/^([a-z]{3})/\U$1/
-    #- derive/^([a-z]{4})/\U$1/
-    #- derive/^([a-z]{5})/\U$1/
-    #- derive/^([a-z]{6})/\U$1/
-    #- derive/^([a-z]{7})/\U$1/
-    #- derive/^([a-z]{8})/\U$1/
-    #- derive/^([a-z]{9})/\U$1/
-    #- derive/^([a-z]{10})/\U$1/
-    # 全小写
-    #- derive/^.+$/\L$0/
-    # 全大写
-    #- derive/^.+$/\U$0/
-    # 首字母大写
-    #- derive/^./\U$0/
+      # 前 2~10 个字母大写
+      #- derive/^([a-z]{2})/\U$1/
+      #- derive/^([a-z]{3})/\U$1/
+      #- derive/^([a-z]{4})/\U$1/
+      #- derive/^([a-z]{5})/\U$1/
+      #- derive/^([a-z]{6})/\U$1/
+      #- derive/^([a-z]{7})/\U$1/
+      #- derive/^([a-z]{8})/\U$1/
+      #- derive/^([a-z]{9})/\U$1/
+      #- derive/^([a-z]{10})/\U$1/
+      # 全小写
+      #- derive/^.+$/\L$0/
+      # 全大写
+      #- derive/^.+$/\U$0/
+      # 首字母大写
+      #- derive/^./\U$0/
 
   自然龙:
     __append:
@@ -2730,8 +2725,8 @@ mixed:
       - xform/(')([a-z])ao(?=^|$|')/$1$2<q>/
       - xform/(')([a-z])e(?=^|$|')/$1$2<r>/
       - xform/'|<|>//
-      - derive/al/a/    # 中英文兼容,aā⇋a
-      - derive/op/o/    # 中英文兼容,oō⇋o
+      - derive/al/a/  # 中英文兼容,aā⇋a
+      - derive/op/o/  # 中英文兼容,oō⇋o
       # 同理(应对中英混输中英文部分不在首位且全小写还被正则匹配到的情况,暂时注释)
       # - derive/([a-z])i/$1ei/
       # - derive/([a-z])g/$1un/
@@ -2830,8 +2825,8 @@ mixed:
       - xform/'|<|>//
       # 兼容及收尾区
       # (应对中英混输中的无声调的轻声,待优化……无法解决中英混输中轻声的转换问题)
-      - derive/le/dk/   # 中英文兼容,le⇋了
-      - derive/ma/pe/   # 中英文兼容,ma⇋吗,嘛
+      - derive/le/dk/  # 中英文兼容,le⇋了
+      - derive/ma/pe/  # 中英文兼容,ma⇋吗,嘛
       - derive/^.+$/\L$0/
       - derive/^([A-Z]{1})/\L$1/
       - derive/^([a-z]{2})/\U$1/
@@ -2885,7 +2880,6 @@ english:
     - derive/^.+$/\U$0/
     - derive/^./\U$0/
     - derive/^([a-z]{2})/\U$1/
-
 
   全拼:
     __append:
@@ -3084,8 +3078,6 @@ english:
       - derive/#/jq/
       - erase/.*[0-9].*/
 
-
-
 模糊音_nl:
   __append:
     # n - l
@@ -3164,7 +3156,7 @@ english:
   __append:
     - xform/ⅱ//  # 用于 Lua 判断输入类型的标记
     - xform/^(.*);.*$/$1/
-    - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜüńňǹḿm̀/aaaaooooeeeeiiiiuuuuvvvvvnnnmmm/ # 剥离声调
+    - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜüńňǹḿm̀/aaaaooooeeeeiiiiuuuuvvvvvnnnmmm/  # 剥离声调
     - derive/^ng$/eng/
     - xform/^n$/en/
     - xform/^m$/me/
@@ -3173,4 +3165,4 @@ english:
     - derive/^([NL])VE$/$1UE/
     - derive/^([jqxy])u/$1v/
     - derive/^([JQXY])U/$1V/
-    - xlit/ABCDEFGHIJKLMNOPQRSTUVWXYZ/22233344455566677778889999/ # 标准九宫格数字映射
+    - xlit/ABCDEFGHIJKLMNOPQRSTUVWXYZ/22233344455566677778889999/  # 标准九宫格数字映射
