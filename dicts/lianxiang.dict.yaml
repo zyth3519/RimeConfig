@@ -189,7 +189,6 @@ sort: by_weight
 埃尔托霍乱	āi ěr tuō huò luàn	100
 爱发朋友圈	ài fā péng you quān	100
 埃菲尔铁塔	āi fēi ěr tiě tǎ	100
-暧非同一般	ài fēi tóng yì bān	100
 爱干啥干啥	ài gàn shá gàn shá	100
 埃戈二氏笛	āi gē èr shì dí	100
 埃格林试验	āi gé lín shì yàn	100
@@ -1706,6 +1705,7 @@ sort: by_weight
 百褶半身裙	bǎi zhě bàn shēn qún	100
 百褶的设计	bǎi zhě de shè jì	100
 百褶连衣裙	bǎi zhě lián yī qún	100
+掰着手指头	bāi zhe shǒu zhǐ tou	100
 白芷杭白芷	bái zhǐ háng bái zhǐ	100
 白质后连合	bái zhì hòu lián hé	100
 白汁鸡皇饭	bái zhī jī huáng fàn	100
@@ -1728,7 +1728,6 @@ sort: by_weight
 白术麦门冬	bái zhú mài mén dōng	100
 白术芍药汤	bái zhú sháo yào tāng	100
 白术苡仁汤	bái zhú yǐ rén tāng	100
-掰着手指头	bāi zhuó shǒu zhǐ tou	100
 稗子的比喻	bài zi de bǐ yù	100
 柏孜克里克	bǎi zī kè lǐ kè	100
 百子里公园	bǎi zǐ lǐ gōng yuán	100
@@ -6100,6 +6099,7 @@ sort: by_weight
 参合陂之役	cān hé bēi zhī yì	100
 参合陂之战	cān hé bēi zhī zhàn	100
 参花消渴茶	cān huā xiāo kě chá	100
+残疾人马术	cán jí rén mǎ shù	100
 残疾人射箭	cán jí rén shè jiàn	100
 残疾人托养	cán jí rén tuō yǎng	100
 残疾人游泳	cán jí rén yóu yǒng	100
@@ -8625,7 +8625,7 @@ sort: by_weight
 重庆綦江区	chóng qìng qí jiāng qū	100
 重庆日租界	chóng qìng rì zū jiè	100
 重庆荣昌区	chóng qìng róng chāng qū	100
-重庆市石塔	chóng qìng shì dàn tǎ	100
+重庆市石塔	chóng qìng shì shí tǎ	100
 重庆十一中	chóng qìng shí yī zhōng	100
 重庆素食人	chóng qìng sù shí rén	100
 重庆体育史	chóng qìng tǐ yù shǐ	100
@@ -10992,6 +10992,7 @@ sort: by_weight
 打压式教育	dǎ yā shì jiào yù	100
 大亚洲主义	dà yà zhōu zhǔ yì	100
 大眼瞪小眼	dà yǎn dèng xiǎo yǎn	100
+大氧化事件	dà yǎng huà shì jiàn	100
 打养生篮球	dǎ yǎng shēng lán qiú	100
 打野奥拉夫	dǎ yě ào lā fū	100
 打也打不得	dǎ yě dǎ bù de	100
@@ -11040,6 +11041,7 @@ sort: by_weight
 大丈夫所为	dà zhàng fū suǒ wéi	100
 打仗亲兄弟	dǎ zhàng qīn xiōng dì	100
 打着擦边球	dǎ zhe cā biān qiú	100
+打着手电筒	dǎ zhe shǒu diàn tǒng	100
 大侦探波罗	dà zhēn tàn bō luó	100
 大侦探波洛	dà zhēn tàn bō luò	100
 大众传播史	dà zhòng chuán bō shǐ	100
@@ -11063,7 +11065,6 @@ sort: by_weight
 大专或本科	dà zhuān huò běn kē	100
 大赚了一笔	dà zhuàn le yì bǐ	100
 大庄严论经	dà zhuāng yán lùn jīng	100
-打着手电筒	dǎ zhuó shǒu diàn tǒng	100
 打字机键盘	dǎ zì jī jiàn pán	100
 大自流盆地	dà zì liú pén dì	100
 大自然的美	dà zì rán de měi	100
@@ -12125,6 +12126,7 @@ sort: by_weight
 导演兼主演	dǎo yǎn jiān zhǔ yǎn	100
 导演协会奖	dǎo yǎn xié huì jiǎng	100
 导演与演员	dǎo yǎn yǔ yǎn yuán	100
+道也道不明	dào yě dào bù míng	100
 到一定程度	dào yí dìng chéng dù	100
 到一定境界	dào yí dìng jìng jiè	100
 到一定年龄	dào yí dìng nián líng	100
@@ -12134,6 +12136,7 @@ sort: by_weight
 到阴间出差	dào yīn jiān chū chāi	100
 倒应变椭球	dào yìng biàn tuǒ qiú	100
 倒影中的灯	dào yǐng zhōng de dēng	100
+道又道不明	dào yòu dào bù míng	100
 道友请留步	dào yǒu qǐng liú bù	100
 岛屿巨型化	dǎo yǔ jù xíng huà	100
 岛屿侏儒化	dǎo yǔ zhū rú huà	100
@@ -14840,6 +14843,7 @@ sort: by_weight
 杜阿二氏型	dù ā èr shì xíng	100
 杜阿梅尔法	dù ā méi ěr fǎ	100
 独臂刀之情	dú bì dāo zhī qíng	100
+杜比全景声	dù bǐ quán jǐng shēng	100
 赌博的危害	dǔ bó de wēi hài	100
 赌博的心态	dǔ bó de xīn tài	100
 毒伯爵该隐	dú bó jué gāi yǐn	100
@@ -16316,6 +16320,7 @@ sort: by_weight
 二进制反码	èr jìn zhì fǎn mǎ	100
 二进制枚举	èr jìn zhì méi jǔ	100
 二进制数系	èr jìn zhì shù xì	100
+二进制算术	èr jìn zhì suàn shù	100
 二聚羟丁醛	èr jù qiǎng dīng quán	100
 二句三年得	èr jù sān nián dé	100
 耳廓瘘感染	ěr kuò lòu gǎn rǎn	100
@@ -18194,6 +18199,7 @@ sort: by_weight
 飞来的横祸	fēi lái de hèng huò	100
 飞来的子弹	fēi lái de zǐ dàn	100
 飞来峰造像	fēi lái fēng zào xiàng	100
+飞雷神之术	fēi léi shén zhī shù	100
 斐力庇第斯	fěi lì bì dì sī	100
 肺力咳合剂	fèi lì ké hé jì	100
 菲利普曲线	fēi lì pǔ qū xiàn	100
@@ -20169,7 +20175,6 @@ sort: by_weight
 妇幼保健所	fù yòu bǎo jiàn suǒ	100
 妇幼保健院	fù yòu bǎo jiàn yuàn	100
 妇幼保健站	fù yòu bǎo jiàn zhàn	100
-蜉蝣撼大树	fú yóu hàn dà shù	100
 浮游生物学	fú yóu shēng wù xué	100
 富于表现力	fù yú biǎo xiàn lì	100
 复与不愈者	fù yǔ bú yù zhě	100
@@ -20206,8 +20211,7 @@ sort: by_weight
 浮则汗自出	fú zé hàn zì chū	100
 富泽美智惠	fù zé měi zhì huì	100
 负责任大国	fù zé rèn dà guó	100
-负责任的好	fù zé rèn de hǎo	100
-负责任的说	fù zé rèn de shuō	100
+负责任地说	fù zé rèn dì shuō	100
 负责任态度	fù zé rèn tài dù	100
 伏则小便难	fú zé xiǎo biàn nán	100
 负债和权益	fù zhài hé quán yì	100
@@ -22655,6 +22659,7 @@ sort: by_weight
 共和国国歌	gòng hé guó guó gē	100
 共和国国旗	gòng hé guó guó qí	100
 共和国战歌	gòng hé guó zhàn gē	100
+共和国之辉	gòng hé guó zhī huī	100
 共和立宪制	gòng hé lì xiàn zhì	100
 共和民主制	gòng hé mín zhǔ zhì	100
 共和人民党	gòng hé rén mín dǎng	100
@@ -25159,6 +25164,7 @@ sort: by_weight
 国学研究院	guó xué yán jiū yuàn	100
 国研室主任	guó yán shì zhǔ rèn	100
 过氧根离子	guò yǎng gēn lí zǐ	100
+过洋牵星术	guò yáng qiān xīng shù	100
 过洋牵星图	guò yáng qiān xīng tú	100
 过氧物酶体	guò yǎng wù méi tǐ	100
 国艺美术馆	guó yì měi shù guǎn	100
@@ -32695,10 +32701,10 @@ sort: by_weight
 尖锐红苔藓	jiān ruì hóng tái xiǎn	100
 健锐云梯营	jiàn ruì yún tī yíng	100
 减弱或消失	jiǎn ruò huò xiāo shī	100
-尖沙咀段坤	jiān shā jǔ duàn kūn	100
-尖沙咀洋面	jiān shā jǔ yáng miàn	100
-尖沙咀置业	jiān shā jǔ zhì yè	100
+尖沙咀段坤	jiān shā zuǐ duàn kūn	100
 尖沙嘴码头	jiān shā zuǐ mǎ tóu	100
+尖沙咀洋面	jiān shā zuǐ yáng miàn	100
+尖沙咀置业	jiān shā zuǐ zhì yè	100
 尖沙嘴钟楼	jiān shā zuǐ zhōng lóu	100
 剑闪华术诀	jiàn shǎn huá shù jué	100
 涧山口水库	jiàn shān kǒu shuǐ kù	100
@@ -33607,6 +33613,7 @@ sort: by_weight
 交银施罗德	jiāo yín shī luó dé	100
 交友不慎啊	jiāo yǒu bú shèn a	100
 较有代表性	jiào yǒu dài biǎo xìng	100
+教又教不会	jiào yòu jiāo bú huì	100
 焦油中间槽	jiāo yóu zhōng jiān cáo	100
 教育部印发	jiào yù bù yìn fā	100
 教育部直属	jiào yù bù zhí shǔ	100
@@ -39920,6 +39927,7 @@ sort: by_weight
 丽池夜总会	lì chí yè zǒng huì	100
 锂充电电池	lǐ chōng diàn diàn chí	100
 励磁变压器	lì cí biàn yā qì	100
+历代的巫术	lì dài de wū shù	100
 历代名画记	lì dài míng huà jì	100
 历代年号考	lì dài nián hào kǎo	100
 历代三宝纪	lì dài sān bǎo jì	100
@@ -41941,6 +41949,7 @@ sort: by_weight
 六十花甲子	liù shí huā jiǎ zǐ	100
 柳式计数管	liǔ shì jì shù guǎn	100
 六十甲子神	liù shí jiǎ zǐ shén	100
+六十进算术	liù shí jìn suàn shù	100
 留石快速路	liú shí kuài sù lù	100
 六十年代初	liù shí nián dài chū	100
 六十年代末	liù shí nián dài mò	100
@@ -46082,13 +46091,13 @@ sort: by_weight
 那怎么办呢	nà zěn me bàn ne	100
 那怎么办呀	nà zěn me bàn ya	100
 拿着凳子看	ná zhe dèng zi kàn	100
+拿着手机玩	ná zhe shǒu jī wán	100
 那正适合你	nà zhèng shì hé nǐ	120
 那正是和你	nà zhèng shì hé nǐ	100
 那智不二越	nà zhì bú èr yuè	100
 钠质火成岩	nà zhì huǒ chéng yán	100
 拿中国说事	ná zhōng guó shuō shì	100
 那种心理的	nà zhǒng xīn lǐ de	100
-拿着手机玩	ná zhuó shǒu jī wán	100
 拿作品说话	ná zuò pǐn shuō huà	100
 奈伯特文字	nài bó tè wén zì	100
 乃不知有汉	nǎi bù zhī yǒu hàn	100
@@ -48567,6 +48576,7 @@ sort: by_weight
 皮肤的状态	pí fū de zhuàng tài	100
 皮肤电反应	pí fū diàn fǎn yìng	100
 皮肤管理师	pí fū guǎn lǐ shī	100
+蚍蜉撼大树	pí fú hàn dà shù	100
 皮肤和身材	pí fū hé shēn cái	100
 皮肤和头发	pí fū hé tóu fa	100
 皮肤划痕症	pí fū huá hén zhèng	100
@@ -48746,6 +48756,7 @@ sort: by_weight
 胼胝性溃疡	pián zhī xìng kuì yáng	100
 片中的人物	piàn zhōng de rén wù	100
 片中的主角	piàn zhōng de zhǔ jué	100
+骗子的骗术	piàn zi de piàn shù	100
 骗子的套路	piàn zi de tào lù	100
 骗子的账号	piàn zi de zhàng hào	100
 偏最小二乘	piān zuì xiǎo èr chéng	100
@@ -51881,6 +51892,7 @@ sort: by_weight
 青少年集邮	qīng shào nián jí yóu	100
 青少年禁毒	qīng shào nián jìn dú	100
 青少年励志	qīng shào nián lì zhì	100
+青少年马术	qīng shào nián mǎ shù	100
 青少年权利	qīng shào nián quán lì	100
 青少年视力	qīng shào nián shì lì	100
 青少年事务	qīng shào nián shì wù	100
@@ -58214,7 +58226,6 @@ sort: by_weight
 是淡黄色的	shì dàn huáng sè de	100
 是单亲家庭	shì dān qīn jiā tíng	100
 是但求其爱	shì dàn qiú qí ài	100
-市石油公司	shì dàn yóu gōng sī	100
 适当的留白	shì dàng de liú bái	100
 适当的露肤	shì dàng de lù fū	100
 适当的时机	shì dàng de shí jī	100
@@ -58993,6 +59004,7 @@ sort: by_weight
 失控的玩具	shī kòng de wán jù	100
 失控的校园	shī kòng de xiào yuán	100
 失控的状态	shī kòng de zhuàng tài	100
+时空间忍术	shí kōng jiān rěn shù	100
 时空恋旅人	shí kōng liàn lǚ rén	100
 实控人减持	shí kòng rén jiǎn chí	100
 石空寺石窟	shí kōng sì shí kū	100
@@ -59694,6 +59706,7 @@ sort: by_weight
 事实性知识	shì shí xìng zhī shi	100
 市食药监局	shì shí yào jiān jú	100
 实时音视频	shí shí yīn shì pín	100
+市石油公司	shì shí yóu gōng sī	100
 事事有回音	shì shì yǒu huí yīn	100
 事事有回应	shì shì yǒu huí yìng	100
 事事有人管	shì shì yǒu rén guǎn	100
@@ -61809,6 +61822,7 @@ sort: by_weight
 双手和双脚	shuāng shǒu hé shuāng jiǎo	100
 双手托颌法	shuāng shǒu tuō hé fǎ	100
 双输的局面	shuāng shū de jú miàn	100
+双属性仙术	shuāng shǔ xìng xiān shù	100
 爽爽的贵阳	shuǎng shuǎng de guì yáng	100
 双双金鹧鸪	shuāng shuāng jīn zhè gū	100
 双水獭飞机	shuāng shuǐ tǎ fēi jī	100
@@ -62341,6 +62355,7 @@ sort: by_weight
 说西班牙语	shuō xī bān yá yǔ	100
 说也说不完	shuō yě shuō bù wán	100
 说一切有部	shuō yí qiè yǒu bù	100
+说又说不清	shuō yòu shuō bù qīng	100
 说与山鬼听	shuō yǔ shān guǐ tīng	100
 说走就走了	shuō zǒu jiù zǒu le	100
 说走咱就走	shuō zǒu zán jiù zǒu	100
@@ -67021,7 +67036,6 @@ sort: by_weight
 万达广场南	wàn dá guǎng chǎng nán	100
 完达山乳业	wán dá shān rǔ yè	100
 万代南梦宫	wàn dài nán mèng gōng	100
-万石植物园	wàn dàn zhí wù yuán	100
 玩倒是玩过	wán dào shì wán guò	100
 弯刀战斗机	wān dāo zhàn dòu jī	100
 腕道症候群	wàn dào zhèng hòu qún	100
@@ -67256,6 +67270,7 @@ sort: by_weight
 万氏四兄弟	wàn shì sì xiōng dì	100
 晚是晚了点	wǎn shì wǎn le diǎn	100
 腕式血压计	wàn shì xuè yā jì	100
+万石植物园	wàn shí zhí wù yuán	100
 万寿庆云寺	wàn shòu qìng yún sì	100
 万寿尚书庙	wàn shòu shàng shū miào	100
 万寿兴隆寺	wàn shòu xīng lóng sì	100
@@ -71412,6 +71427,7 @@ sort: by_weight
 夕阳下的猫	xī yáng xià de māo	100
 西洋艺术史	xī yáng yì shù shǐ	100
 西洋音乐史	xī yáng yīn yuè shǐ	100
+西洋占星术	xī yáng zhān xīng shù	100
 西洋占星学	xī yáng zhān xīng xué	100
 西洋哲学史	xī yáng zhé xué shǐ	100
 细腰大长腿	xì yāo dà cháng tuǐ	100
@@ -78766,6 +78782,7 @@ sort: by_weight
 一党独大制	yì dǎng dú dà zhì	100
 一到了冬天	yí dào le dōng tiān	100
 一到了夏天	yí dào le xià tiān	100
+一刀流剑术	yì dāo liú jiàn shù	100
 一道美丽的	yí dào měi lì de	100
 一道面试题	yí dào miàn shì tí	100
 一刀平五千	yì dāo píng wǔ qiān	100
@@ -79792,6 +79809,7 @@ sort: by_weight
 疑似新恋情	yí sì xīn liàn qíng	100
 一丝烟火气	yì sī yān huǒ qì	100
 一死一重伤	yì sǐ yí zhòng shāng	100
+疑似职业病	yí sì zhí yè bìng	100
 易俗大剧院	yì sú dà jù yuàn	100
 乙速孤佛保	yǐ sù gū fó bǎo	100
 乙速孤神庆	yǐ sù gū shén qìng	100
@@ -80909,6 +80927,7 @@ sort: by_weight
 隐约感觉到	yǐn yuē gǎn jué dào	100
 银月桂叶奖	yín yuè guì yè jiǎng	100
 音乐和电影	yīn yuè hé diàn yǐng	100
+音乐和美术	yīn yuè hé měi shù	100
 音乐和舞蹈	yīn yuè hé wǔ dǎo	100
 音乐和艺术	yīn yuè hé yì shù	100
 银月湖子爵	yín yuè hú zǐ jué	100
@@ -80993,6 +81012,7 @@ sort: by_weight
 婴儿性偏瘫	yīng ér xìng piān tān	100
 婴儿肢痛症	yīng ér zhī tòng zhèng	100
 婴非常之疾	yīng fēi cháng zhī jí	100
+影分身之术	yǐng fēn shēn zhī shù	100
 应付抵押款	yìng fù dǐ yā kuǎn	100
 应该都会是	yīng gāi dōu huì shì	100
 应该可以吧	yīng gāi kě yǐ ba	100
@@ -85898,6 +85918,7 @@ sort: by_weight
 这是个傻子	zhè shì gè shǎ zi	100
 这事还没完	zhè shì hái méi wán	100
 这是僵尸吗	zhè shì jiāng shī ma	100
+这是哪一集	zhè shì nǎ yì jí	100
 这是巧合吗	zhè shì qiǎo hé ma	100
 这是徒劳的	zhè shì tú láo de	100
 这是我的岛	zhè shì wǒ de dǎo	100
@@ -91899,6 +91920,7 @@ sort: by_weight
 阿库别瑞引擎	ā kù bié ruì yǐn qíng	100
 阿库二氏试验	ā kù èr shì shì yàn	100
 阿拉伯聚糖酶	ā lā bó jù táng méi	100
+阿拉伯炼金术	ā lā bó liàn jīn shù	120
 阿拉伯树胶粉	ā lā bó shù jiāo fěn	100
 阿拉伯树胶粒	ā lā bó shù jiāo lì	100
 阿拉伯糖苷酶	ā lā bó táng gān méi	100
@@ -96498,6 +96520,7 @@ sort: by_weight
 长山花园社区	cháng shān huā yuán shè qū	100
 长山列岛战役	cháng shān liè dǎo zhàn yì	100
 长深高速公路	cháng shēn gāo sù gōng lù	100
+长生不老之术	cháng shēng bù lǎo zhī shù	100
 长生不老之药	cháng shēng bù lǎo zhī yào	100
 长盛成长价值	cháng shèng chéng zhǎng jià zhí	100
 长盛动态精选	cháng shèng dòng tài jīng xuǎn	100
@@ -104220,13 +104243,13 @@ sort: by_weight
 负责任的表现	fù zé rèn de biǎo xiàn	100
 负责任的大国	fù zé rèn de dà guó	100
 负责任的方式	fù zé rèn de fāng shì	100
-负责任的告诉	fù zé rèn de gào sù	100
 负责任的老师	fù zé rèn de lǎo shī	100
 负责任的男人	fù zé rèn de nán rén	100
-负责任的披露	fù zé rèn de pī lù	100
 负责任的企业	fù zé rèn de qǐ yè	100
 负责任的态度	fù zé rèn de tài dù	100
 负责任的做法	fù zé rèn de zuò fǎ	100
+负责任地告诉	fù zé rèn dì gào sù	100
+负责任地披露	fù zé rèn dì pī lù	100
 负责日常事务	fù zé rì cháng shì wù	100
 负责组织实施	fù zé zǔ zhī shí shī	100
 负债抵销科目	fù zhài dǐ xiāo kē mù	100
@@ -110554,6 +110577,7 @@ sort: by_weight
 会跳舞的熊猫	huì tiào wǔ de xióng māo	100
 惠廷石油公司	huì tíng shí yóu gōng sī	100
 喙突后注射法	huì tū hòu zhù shè fǎ	100
+秽土转生之术	huì tǔ zhuǎn shēng zhī shù	100
 汇文女子中学	huì wén nǚ zǐ zhōng xué	100
 汇文实验学校	huì wén shí yàn xué xiào	100
 珲乌高速公路	huī wū gāo sù gōng lù	100
@@ -111997,6 +112021,7 @@ sort: by_weight
 加强班子建设	jiā qiáng bān zi jiàn shè	100
 加强部门协作	jiā qiáng bù mén xié zuò	100
 加强督促指导	jiā qiáng dū cù zhǐ dǎo	100
+加强督导检查	jiā qiáng dū dǎo jiǎn chá	100
 加强肥水管理	jiā qiáng féi shuǐ guǎn lǐ	100
 加强分类指导	jiā qiáng fēn lèi zhǐ dǎo	100
 加强沟通协作	jiā qiáng gōu tōng xié zuò	100
@@ -115398,6 +115423,7 @@ sort: by_weight
 开展道德讲堂	kāi zhǎn dào dé jiǎng táng	100
 开展电子商务	kāi zhǎn diàn zǐ shāng wù	100
 开展调查核实	kāi zhǎn diào chá hé shí	100
+开展督导检查	kāi zhǎn dū dǎo jiǎn chá	100
 开展法律援助	kāi zhǎn fǎ lǜ yuán zhù	100
 开展法制教育	kāi zhǎn fǎ zhì jiào yù	100
 开展反腐倡廉	kāi zhǎn fǎn fǔ chàng lián	100
@@ -117820,7 +117846,7 @@ sort: by_weight
 两人日久生情	liǎng rén rì jiǔ shēng qíng	100
 两人十指紧扣	liǎng rén shí zhǐ jǐn kòu	100
 两人十指相扣	liǎng rén shí zhǐ xiāng kòu	100
-两人手牵着手	liǎng rén shǒu qiān zhuó shǒu	100
+两人手牵着手	liǎng rén shǒu qiān zhe shǒu	100
 两人相濡以沫	liǎng rén xiāng rú yǐ mò	100
 两人相识相恋	liǎng rén xiāng shí xiāng liàn	100
 两人相视一笑	liǎng rén xiāng shì yí xiào	100
@@ -118705,6 +118731,7 @@ sort: by_weight
 论法拉第力线	lùn fǎ lā dì lì xiàn	100
 论犯罪与刑罚	lùn fàn zuì yǔ xíng fá	100
 论公民不服从	lùn gōng mín bù fú cóng	100
+轮回天生之术	lún huí tiān shēng zhī shù	100
 论基督教教义	lùn jī dū jiào jiào yì	100
 伦基夫克鲁赫	lún jī fū kè lǔ hè	100
 轮机工程学院	lún jī gōng chéng xué yuàn	100
@@ -122636,6 +122663,7 @@ sort: by_weight
 其脉洪大而长	qí mài hóng dà ér cháng	100
 旗美社区大学	qí měi shè qū dà xué	100
 奇门遁甲预测	qí mén dùn jiǎ yù cè	100
+奇门遁甲之术	qí mén dùn jiǎ zhī shù	100
 启蒙运动人物	qǐ méng yùn dòng rén wù	100
 启蒙主义文学	qǐ méng zhǔ yì wén xué	100
 其密切接触者	qí mì qiè jiē chù zhě	100
@@ -123240,6 +123268,7 @@ sort: by_weight
 强化冰霜新星	qiáng huà bīng shuāng xīn xīng	100
 强化部门协作	qiáng huà bù mén xié zuò	100
 强化挫志怒吼	qiáng huà cuò zhì nù hǒu	100
+强化督导检查	qiáng huà dū dǎo jiǎn chá	100
 强化督导考核	qiáng huà dū dǎo kǎo hé	100
 强化法力护盾	qiáng huà fǎ lì hù dùn	100
 强化法力燃烧	qiáng huà fǎ lì rán shāo	100
@@ -124394,6 +124423,7 @@ sort: by_weight
 全面查漏补缺	quán miàn chá lòu bǔ quē	100
 全面从严治检	quán miàn cóng yán zhì jiǎn	100
 全面从严治警	quán miàn cóng yán zhì jǐng	100
+全面督导检查	quán miàn dū dǎo jiǎn chá	100
 全面放开生育	quán miàn fàng kāi shēng yù	100
 全面贯彻落实	quán miàn guàn chè luò shí	100
 全面恢复生产	quán miàn huī fù shēng chǎn	100
@@ -128622,6 +128652,7 @@ sort: by_weight
 实施家庭暴力	shí shī jiā tíng bào lì	100
 实时监测数据	shí shí jiān cè shù jù	100
 实时监测系统	shí shí jiān cè xì tǒng	100
+实施监督检查	shí shī jiān dū jiǎn chá	100
 实时监控程序	shí shí jiān kòng chéng xù	100
 实时监控功能	shí shí jiān kòng gōng néng	100
 实时监控数据	shí shí jiān kòng shù jù	100
@@ -135599,6 +135630,7 @@ sort: by_weight
 苋菜红铝色淀	xiàn cài hóng lǚ sè diàn	100
 现场惨不忍睹	xiàn chǎng cǎn bù rěn dǔ	100
 现场答疑解惑	xiàn chǎng dá yí jiě huò	100
+现场督导检查	xiàn chǎng dū dǎo jiǎn chá	100
 现场挥毫泼墨	xiàn chǎng huī háo pō mò	100
 现场即兴发挥	xiàn chǎng jí xìng fā huī	100
 现场检查笔录	xiàn chǎng jiǎn chá bǐ lù	100
@@ -138537,6 +138569,7 @@ sort: by_weight
 亚洲社会主义	yà zhōu shè huì zhǔ yì	100
 亚洲史前鸟类	yà zhōu shǐ qián niǎo lèi	100
 牙周手术治疗	yá zhōu shǒu shù zhì liáo	100
+亚洲四大邪术	yà zhōu sì dà xié shù	100
 亚洲挑战者杯	yà zhōu tiǎo zhàn zhě bēi	100
 亚洲先生竞选	yà zhōu xiān shēng jìng xuǎn	100
 亚洲显头拳甲	yà zhōu xiǎn tóu quán jiǎ	100
@@ -140299,7 +140332,7 @@ sort: by_weight
 一时琢磨不透	yì shí zuó mo bú tòu	100
 一首歌的时间	yì shǒu gē de shí jiān	100
 已受教育程度	yǐ shòu jiào yù chéng dù	100
-一手拿着手机	yì shǒu ná zhuó shǒu jī	100
+一手拿着手机	yì shǒu ná zhe shǒu jī	100
 艺术创作硕士	yì shù chuàng zuò shuò shì	100
 艺术氛围浓厚	yì shù fēn wéi nóng hòu	100
 艺术家的创作	yì shù jiā de chuàng zuò	100
@@ -146592,6 +146625,7 @@ sort: by_weight
 专为儿童设计	zhuān wèi ér tóng shè jì	100
 专为女性设计	zhuān wèi nǚ xìng shè jì	100
 专项打击整治	zhuān xiàng dǎ jī zhěng zhì	100
+专项督导检查	zhuān xiàng dū dǎo jiǎn chá	100
 转向辅助功能	zhuǎn xiàng fǔ zhù gōng néng	100
 专项规划编制	zhuān xiàng guī huà biān zhì	100
 专项核查意见	zhuān xiàng hé chá yì jiàn	100
@@ -152275,6 +152309,7 @@ sort: by_weight
 大地双语幼儿园	dà dì shuāng yǔ yòu ér yuán	100
 打掉牙往肚里吞	dǎ diào yá wǎng dù lǐ tūn	100
 大东急纪念文库	dà dōng jí jì niàn wén kù	100
+大东流合气柔术	dà dōng liú hé qì róu shù	100
 大动脉覆膜支架	dà dòng mài fù mó zhī jià	100
 大豆分离蛋白粉	dà dòu fēn lí dàn bái fěn	100
 打断骨头连着筋	dǎ duàn gǔ tou lián zhe jīn	100
@@ -155800,6 +155835,7 @@ sort: by_weight
 钢筋强度标准值	gāng jīn qiáng dù biāo zhǔn zhí	100
 钢筋水泥的丛林	gāng jīn shuǐ ní de cóng lín	100
 岗卡章国家公园	gǎng kǎ zhāng guó jiā gōng yuán	100
+港口国监督检查	gǎng kǒu guó jiān dū jiǎn chá	100
 港口货物吞吐量	gǎng kǒu huò wù tūn tǔ liàng	100
 港口与航道工程	gǎng kǒu yǔ háng dào gōng chéng	100
 港口与航运管理	gǎng kǒu yǔ háng yùn guǎn lǐ	100
@@ -158985,7 +159021,7 @@ sort: by_weight
 麦冬芍药当归配	mài dōng sháo yào dāng guī pèi	100
 麦冬生地大麻仁	mài dōng shēng dì dà má rén	100
 脉缓舌黄身又痛	mài huǎn shé huáng shēn yòu tòng	100
-卖火柴的小女孩	mài huǒ chái de xiǎo nǚ hái	100
+卖火柴的小女孩	mài huǒ chái de xiǎo nǚ hái	120
 麦角隐亭咖啡因	mài jiǎo yǐn tíng kā fēi yīn	100
 脉解篇第四十九	mài jiě piān dì sì shí jiǔ	100
 麦康比去氧反应	mài kāng bǐ qù yǎng fǎn yìng	100
