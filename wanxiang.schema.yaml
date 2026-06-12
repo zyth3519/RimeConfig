@@ -587,19 +587,20 @@ custom_phrase:
 # 中文、英文、数字、符号等混合词汇
 wanxiang_english:
   dictionary: wanxiang_english
-  enable_user_dict: false
+  user_dict: en
   enable_completion: true
   initial_quality: 2.1
   comment_format:  #这里很重要如果残留带声调字母，剩余编码提示计算出错引发程序崩溃
     - xform/^~.+$//
   #以下是lua相关配置，与原生处理器无关
   #英文自动加空格，除关闭外共有3种模式可供选择
-  #off: 关闭; before: 总是前加; after: 总是后加;
+  #off: 关闭; before: 总是前加; after: 总是后加; 
   #smart: 智能模式连续输入英文时第二个单词前开始加空格，非输入状态的回车与空格都能打断加空格状态
   #支持设置延时销毁加空格状态，单位秒,0不超时，大于0为超时时间，极大的保证了连续输入的体验。
   english_spacing: smart
   spacing_timeout: 5
   max_candidates: 5  #英文候选输出最大候选数(适用于需要选单字组词的用户)
+  trigger: "\\"  #英文造词符号\，写一个用时双击
 
 wanxiang_mixedcode:
   dictionary: wanxiang_mixedcode
