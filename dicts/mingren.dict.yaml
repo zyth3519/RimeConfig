@@ -1,0 +1,209 @@
+# rime dictionary
+# encoding: utf-8
+# https://github.com/amzxyz/RIME-LMDG
+# 名人(历史人物、学者、作家、政治家、公众人物等)
+---
+name: mingren
+version: "LTS"
+sort: by_weight
+...
+陈策	chén cè	580
+陈诚	chén chéng	160
+陈到	chén dào	142
+陈登	chén dēng	295
+陈赓	chén gēng	484
+陈宫	chén gōng	534
+陈光	chén guāng	1166
+陈珪	chén guī	58
+陈矫	chén jiǎo	48
+陈亮	chén liàng	837
+陈群	chén qún	761
+陈胜	chén shèng	1207
+陈寿	chén shòu	2097
+陈汤	chén tāng	658
+陈豨	chén xī	156
+陈毅	chén yì	1978
+陈馀	chén yú	420
+陈云	chén yún	1052
+陈轸	chén zhěn	40
+陈祗	chén zhī	31
+刘安	liú ān	811
+刘巴	liú bā	292
+刘邦	liú bāng	30744
+刘备	liú bèi	32311
+刘濞	liú bì	251
+刘表	liú biǎo	1700
+刘彻	liú chè	3350
+刘德	liú dé	
+刘肥	liú féi	221
+刘封	liú fēng	830
+刘馥	liú fù	63
+刘贺	liú hè	850
+刘恒	liú héng	879
+刘弘	liú hóng	769
+刘基	liú jī	6641
+刘瑾	liú jǐn	687
+刘据	liú jù	347
+刘骏	liú jùn	317
+刘禅	liú shàn	5385
+刘劭	liú shào	54
+刘胜	liú shèng	850
+刘宋	liú sòng	898
+刘向	liú xiàng	425
+刘勰	liú xié	4081
+刘协	liú xié	3566
+刘歆	liú xīn	268
+刘玄	liú xuán	364
+刘琰	liú yǎn	144
+刘曜	liú yào	695
+刘繇	liú yáo	151
+刘晔	liú yè	
+刘毅	liú yì	7605
+刘廙	liú yì	22
+刘盈	liú yíng	907
+刘裕	liú yù	1266
+刘虞	liú yú	143
+刘渊	liú yuān	57
+刘璋	liú zhāng	1090
+刘桢	liú zhēn	103
+刘仲	liú zhòng	696
+罗本	luó běn	2136
+罗丹	luó dān	969
+罗敷	luó fū	968
+罗京	luó jīng	44
+罗兰	luó lán	2025
+罗琳	luó lín	1372
+罗曼	luó màn	1623
+罗素	luó sù	2962
+王弼	wáng bì	308
+王勃	wáng bó	1376
+王粲	wáng càn	
+王充	wáng chōng	230
+王导	wáng dǎo	5930
+王敦	wáng dūn	89
+王符	wáng fú	178
+王翦	wáng jiǎn	1316
+王建	wáng jiàn	648
+王朗	wáng lǎng	983
+王莽	wáng mǎng	2926
+王肃	wáng sù	136
+王维	wáng wéi	2322
+王献	wáng xiàn	832
+王衍	wáng yǎn	169
+王允	wáng yǔn	1022
+陈阿娇	chén ā jiāo
+陈霸先	chén bà xiān	198
+陈璧君	chén bì jūn	113
+陈伯达	chén bó dá	44
+陈布雷	chén bù léi	63
+陈昌浩	chén chāng hào	25
+陈独秀	chén dú xiù	3143
+陈公博	chén gōng bó	38
+陈光甫	chén guāng fǔ	3
+陈果夫	chén guǒ fū	521
+陈鹤琴	chén hè qín	78
+陈后主	chén hòu zhǔ	97
+陈济棠	chén jì táng	135
+陈嘉庚	chén jiā gēng	166
+陈景润	chén jǐng rùn	182
+陈炯明	chén jiǒng míng	270
+陈立夫	chén lì fū	91
+陈铭枢	chén míng shū	35
+陈纳德	chén nà dé	53
+陈其美	chén qí měi	104
+陈庆之	chén qìng zhī	392
+陈省身	chén shěng shēn	720
+陈世美	chén shì měi	116
+陈叔宝	chén shū bǎo	119
+陈水扁	chén shuǐ biǎn	141
+陈潭秋	chén tán qiū	16
+陈文帝	chén wén dì	35
+陈锡联	chén xī lián	19
+陈宣帝	chén xuān dì	28
+陈寅恪	chén yín kè	1149
+陈永贵	chén yǒng guì	13
+陈友谅	chén yǒu liàng	929
+陈圆圆	chén yuán yuán	160
+陈云林	chén yún lín	616
+刘病已	liú bìng yǐ	318
+刘伯承	liú bó chéng	226
+刘伯温	liú bó wēn	320
+刘慈欣	liú cí xīn	5539
+刘弗陵	liú fú líng	581
+刘黑闼	liú hēi tà	223
+刘胡兰	liú hú lán	82
+刘华清	liú huá qīng	597
+刘寄奴	liú jì nú	41
+刘坤一	liú kūn yī	141
+刘牢之	liú láo zhī	41
+刘铭传	liú míng chuán	66
+刘青山	liú qīng shān	19
+刘少奇	liú shào qí	276
+刘玄德	liú xuán dé	364
+刘亚楼	liú yà lóu	104
+刘义隆	liú yì lóng	44
+刘禹锡	liú yǔ xī	644
+刘长卿	liú zhǎng qīng	572
+刘志丹	liú zhì dān	273
+刘知远	liú zhī yuǎn	201
+罗保铭	luó bǎo míng	576
+罗炳辉	luó bǐng huī	13
+罗尔纲	luó ěr gāng	22
+罗芳伯	luó fāng bó	428
+罗福助	luó fú zhù	418
+罗工柳	luó gōng liǔ	3
+罗贯中	luó guàn zhōng	1413
+罗豪才	luó háo cái	9
+罗洪先	luó hóng xiān	405
+罗弘信	luó hóng xìn	428
+罗泓轸	luó hóng zhěn	428
+罗嘉良	luó jiā liáng	60
+罗家伦	luó jiā lún	44
+罗家英	luó jiā yīng	85
+罗乐林	luó lè lín	9
+罗隆基	luó lóng jī	6
+罗美薇	luó měi wēi	9
+罗密欧	luó mì ōu	568
+罗纳德	luó nà dé	367
+罗启锐	luó qǐ ruì	454
+罗青长	luó qīng cháng	508
+罗荣桓	luó róng huán	113
+罗汝才	luó rǔ cái	13
+罗瑞卿	luó ruì qīng	57
+罗时丰	luó shí fēng	459
+罗士信	luó shì xìn	28
+罗斯福	luó sī fú	2314
+罗永浩	luó yǒng hào	10268
+罗泽南	luó zé nán	53
+罗振玉	luó zhèn yù	657
+罗志祥	luó zhì xiáng	1039
+罗仲谦	luó zhòng qiān	9
+罗卓瑶	luó zhuó yáo	356
+罗卓英	luó zhuó yīng	9
+王安石	wáng ān shí	9232
+王保保	wáng bǎo bǎo	948
+王昌龄	wáng chāng líng	722
+王宠惠	wáng chǒng huì	97
+王重阳	wáng chóng yáng	1030
+王定国	wáng dìng guó	119
+王凤仪	wáng fèng yí	598
+王夫之	wáng fū zhī	506
+王光美	wáng guāng měi	13
+王国维	wáng guó wéi	1086
+王洪文	wáng hóng wén	22
+王稼祥	wáng jià xiáng	35
+王近山	wáng jìn shān	154
+王进喜	wáng jìn xǐ	60
+王洛宾	wáng luò bīn	50
+王僧辩	wáng sēng biàn	82
+王僧孺	wáng sēng rú	284
+王审知	wáng shěn zhī	60
+王世充	wáng shì chōng	556
+王实甫	wáng shí fǔ	590
+王世贞	wáng shì zhēn	207
+王守仁	wáng shǒu rén	889
+王树声	wáng shù shēng	9
+王羲之	wáng xī zhī	1718
+王献之	wáng xiàn zhī	490
+王孝杰	wáng xiào jié	235
+王阳明	wáng yáng míng	2594
