@@ -7,6 +7,15 @@ name: yixue
 version: "LTS"
 sort: by_weight
 ...
+输卵管癌	shū luǎn guǎn ái	486
+输卵管襞	shū luǎn guǎn bì	45
+输卵管端	shū luǎn guǎn duān	117
+输卵管内	shū luǎn guǎn nèi	16
+输卵管伞	shū luǎn guǎn sǎn	9
+输卵管疝	shū luǎn guǎn shàn	45
+输卵管峡	shū luǎn guǎn xiá	256
+输卵管炎	shū luǎn guǎn yán	19
+输卵管支	shū luǎn guǎn zhī	45
 阿巴二氏病	ā bā èr shì bìng	100
 阿比二氏病	ā bǐ èr shì bìng	100
 阿狄森氏病	ā dí sēn shì bìng	100
@@ -5168,6 +5177,10 @@ sort: by_weight
 奥瑟史综合征	ào sè shǐ zōng hé zhēng	100
 奥特髋修复术	ào tè kuān xiū fù shù	100
 奥韦郎三氏病	ào wéi láng sān shì bìng	100
+巴蒂二氏产钳	bā dì èr shì chǎn qián	100
+巴恩二氏小体	bā ēn èr shì xiǎo tǐ	100
+巴尔比亚尼环	bā ěr bǐ yà ní huán	100
+巴尔干肾病变	bā ěr gàn shèn bìng biàn	100
 巴克勒综合征	bā kè lè zōng hé zhēng	100
 巴马尤二氏病	bā mǎ yóu èr shì bìng	100
 巴氏涂片检查	bā shì tú piàn jiǎn chá	100
@@ -5207,10 +5220,14 @@ sort: by_weight
 瓣狭窄疏通术	bàn xiá zhǎi shū tōng shù	100
 半月扳切除术	bàn yuè bān qiē chú shù	100
 半月板切除术	bàn yuè bǎn qiē chú shù	100
+斑疹伤寒腹型	bān zhěn shāng hán fù xíng	100
+斑疹伤寒鼠型	bān zhěn shāng hán shǔ xíng	100
+斑疹伤寒小结	bān zhěn shāng hán xiǎo jié	100
 瓣直视成形术	bàn zhí shì chéng xíng shù	100
 瓣周漏修补术	bàn zhōu lòu xiū bǔ shù	100
 斑状类银屑病	bān zhuàng lèi yín xiè bìng	100
 半椎体切除术	bàn zhuī tǐ qiē chú shù	100
+豹斑状白癜风	bào bān zhuàng bái diàn fēng	100
 鲍恩样丘疹病	bào ēn yàng qiū zhěn bìng	100
 包裹性胸膜炎	bāo guǒ xìng xiōng mó yán	100
 鲍莫尔成本病	bào mò ěr chéng běn bìng	100
@@ -5473,11 +5490,26 @@ sort: by_weight
 齿槽裂修补术	chǐ cáo liè xiū bǔ shù	100
 尺侧半肢畸形	chǐ cè bàn zhī jī xíng	100
 尺动脉结扎术	chǐ dòng mài jié zā shù	100
+尺肱关节脱位	chǐ gōng guān jié tuō wèi	100
 尺骨恶性肿瘤	chǐ gǔ è xìng zhǒng liú	100
 耻骨恶性肿瘤	chǐ gǔ è xìng zhǒng liú	100
+耻骨弓状韧带	chǐ gǔ gōng zhuàng rèn dài	100
+尺骨骨干骨折	chǐ gǔ gǔ gàn gǔ zhé	100
+尺骨滑车切迹	chǐ gǔ huá chē qiē jì	100
+尺骨近端骨折	chǐ gǔ jìn duān gǔ zhé	100
+尺骨茎突骨折	chǐ gǔ jīng tū gǔ zhé	100
+耻骨联合分离	chǐ gǔ lián hé fēn lí	100
+耻骨联合松懈	chǐ gǔ lián hé sōng xiè	100
 尺骨良性肿瘤	chǐ gǔ liáng xìng zhǒng liú	100
 耻骨良性肿瘤	chǐ gǔ liáng xìng zhǒng liú	100
 耻骨膀胱韧带	chǐ gǔ páng guāng rèn dài	100
+耻骨前列腺肌	chǐ gǔ qián liè xiàn jī	100
+耻骨切开助产	chǐ gǔ qiē kāi zhù chǎn	100
+尺骨上端骨折	chǐ gǔ shàng duān gǔ zhé	100
+尺骨上端截骨	chǐ gǔ shàng duān jié gǔ	100
+尺骨下端骨折	chǐ gǔ xià duān gǔ zhé	100
+尺骨鹰嘴骨折	chǐ gǔ yīng zuǐ gǔ zhé	100
+尺骨远端脱位	chǐ gǔ yuǎn duān tuō wèi	100
 迟期成分检查	chí qī chéng fèn jiǎn chá	100
 尺桡骨缩短术	chǐ ráo gǔ suō duǎn shù	100
 尺神经缝合术	chǐ shén jīng féng hé shù	100
@@ -5524,8 +5556,10 @@ sort: by_weight
 穿通性毛囊炎	chuān tōng xìng máo náng yán	100
 喘息性气管炎	chuǎn xī xìng qì guǎn yán	100
 床旁气管插管	chuáng páng qì guǎn chā guǎn	100
+创伤后骨萎缩	chuāng shāng hòu gǔ wěi suō	100
 创伤后关节病	chuāng shāng hòu guān jié bìng	100
 创伤后压力症	chuāng shāng hòu yā lì zhèng	100
+创伤破坏强度	chuāng shāng pò huài qiáng dù	100
 创伤性肺水肿	chuāng shāng xìng fèi shuǐ zhǒng	100
 创伤性脊椎病	chuāng shāng xìng jǐ zhuī bìng	100
 创伤性精神病	chuāng shāng xìng jīng shén bìng	100
@@ -9079,28 +9113,6 @@ sort: by_weight
 新生儿换血术	xīn shēng ér huàn xiě shù	100
 新生儿睑缘炎	xīn shēng ér jiǎn yuán yán	100
 新生儿结膜炎	xīn shēng ér jié mó yán	100
-新生儿进食病	xīn shēng ér jìn shí bìng	100
-新生儿泪囊炎	xīn shēng ér lèi náng yán	100
-新生儿尿毒症	xīn shēng ér niào dú zhèng	100
-新生儿脓毒病	xīn shēng ér nóng dú bìng	100
-新生儿脓疱病	xīn shēng ér nóng pào bìng	100
-新生儿脓疱疮	xīn shēng ér nóng pào chuāng	100
-新生儿脓皮病	xīn shēng ér nóng pí bìng	100
-新生儿破伤风	xīn shēng ér pò shāng fēng	100
-新生儿气管炎	xīn shēng ér qì guǎn yán	100
-新生儿脐脓肿	xīn shēng ér qí nóng zhǒng	100
-新生儿溶血症	xīn shēng ér róng xuè zhèng	100
-新生儿乳腺炎	xīn shēng ér rǔ xiàn yán	100
-新生儿腮腺炎	xīn shēng ér sāi xiàn yán	100
-新生儿糖尿病	xīn shēng ér táng niào bìng	100
-新生儿天疱疮	xīn shēng ér tiān pào chuāng	100
-新生儿荨麻疹	xīn shēng ér xún má zhěn	100
-新生儿硬化病	xīn shēng ér yìng huà bìng	100
-新生儿硬化症	xīn shēng ér yìng huà zhèng	100
-新生儿硬皮病	xīn shēng ér yìng pí bìng	100
-新生儿硬肿病	xīn shēng ér yìng zhǒng bìng	100
-新生儿中耳炎	xīn shēng ér zhōng ěr yán	100
-新生儿足水肿	xīn shēng ér zú shuǐ zhǒng	100
 心小静脉血流	xīn xiǎo jìng mài xuè liú	100
 新型隐球菌病	xīn xíng yǐn qiú jūn bìng	100
 心因性夜尿症	xīn yīn xìng yè niào zhèng	100
@@ -9219,11 +9231,6 @@ sort: by_weight
 血小板减少症	xuè xiǎo bǎn jiǎn shǎo zhèng	100
 血小板无力症	xuè xiǎo bǎn wú lì zhèng	100
 血小板增多症	xuè xiǎo bǎn zēng duō zhèng	100
-血源性肺脓肿	xuè yuán xìng fèi nóng zhǒng	100
-寻常型天疱疮	xún cháng xíng tiān pào chuāng	100
-寻常性银屑病	xún cháng xìng yín xiè bìng	100
-寻常型银屑病	xún cháng xíng yín xiè bìng	100
-寻常性鱼鳞病	xún cháng xìng yú lín bìng	100
 循环冗余检查	xún huán rǒng yú jiǎn chá	100
 循环性情感症	xún huán xìng qíng gǎn zhèng	100
 荨麻疹性痤疮	xún má zhěn xìng cuó chuāng	100
@@ -15146,19 +15153,6 @@ sort: by_weight
 跖内收内翻畸形	zhí nèi shōu nèi fān jī xíng	100
 指皮肤良性肿瘤	zhǐ pí fū liáng xìng zhǒng liú	100
 支气管淀粉样变	zhī qì guǎn diàn fěn yàng biàn	100
-支气管动脉破裂	zhī qì guǎn dòng mài pò liè	100
-支气管肺泡灌洗	zhī qì guǎn fèi pào guàn xǐ	100
-支气管激发试验	zhī qì guǎn jī fā shì yàn	100
-支气管镜检查术	zhī qì guǎn jìng jiǎn chá shù	100
-支气管良性肿瘤	zhī qì guǎn liáng xìng zhǒng liú	100
-支气管内膜结核	zhī qì guǎn nèi mó jié hé	100
-支气管平滑肌瘤	zhī qì guǎn píng huá jī liú	100
-支气管热成形术	zhī qì guǎn rè chéng xíng shù	100
-支气管乳头状瘤	zhī qì guǎn rǔ tóu zhuàng liú	100
-支气管舒张试验	zhī qì guǎn shū zhāng shì yàn	100
-支气管胃结肠瘘	zhī qì guǎn wèi jié cháng lòu	100
-支气管炎性肿物	zhī qì guǎn yán xìng zhǒng wù	100
-支气管真菌感染	zhī qì guǎn zhēn jūn gǎn rǎn	100
 植入晶体去除术	zhí rù jīng tǐ qù chú shù	100
 肢体窦道切除术	zhī tǐ dòu dào qiē chú shù	100
 肢体恶性淋巴瘤	zhī tǐ è xìng lín bā liú	100
