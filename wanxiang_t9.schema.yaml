@@ -389,7 +389,7 @@ recognizer:
   import_preset: default  # 从 default.yaml 继承通用的
   patterns:  # 再增加方案专有的：
     punct: "^/([0-9]|10|[A-Za-z]+)$"  # 响应 symbols.yaml 的 symbols
-    wanxiang_reverse: "^`[A-Za-z]*$"  # 响应部件拆字与笔画的反查，与 wanxiang_reverse/prefix 匹配
+    wanxiang_reverse: "^`[A-Za-z;]*$"  # 响应部件拆字与笔画的反查，与 wanxiang_reverse/prefix 匹配
     #add_user_dict: "^ac[A-Za-z/`']*$"   #引导式造词
     unicode: "^U[a-f0-9]+"  # U 作为触发前缀，响应 lua_translator@unicode，输出 Unicode 字符
     number: "^R[0-9]+[.]?[0-9]*"  # R 作为触发前缀, 响应 lua_translator@number_translator，数字金额大写
