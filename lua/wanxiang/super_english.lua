@@ -267,6 +267,8 @@ function F.init(env)
             end
             if curr_input == "" then
                 env.comp_start_time = nil
+                env.memory = {}
+                collectgarbage("step", 500)
             elseif env.comp_start_time == nil then
                 env.comp_start_time = get_now()
             end
