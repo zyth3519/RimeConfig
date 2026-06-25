@@ -89,7 +89,7 @@ base:
       # iu
       - derive/([qjlxnm])iu$/$1ui/
       # ian
-      - derive/([qtpdjlxbnm])ian$/$1iam/
+      # - derive/([qtpdjlxbnm])ian$/$1iam/
       # iang
       - derive/([qjlxn])iang$/$1aing/
       - derive/([qjlxn])iang$/$1inag/
