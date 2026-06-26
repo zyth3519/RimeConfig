@@ -131,6 +131,7 @@ lit	lit
 liz	liz
 lob	lob
 lug	lug
+lua	lua
 lund	lund
 lung	lung
 lux	lux

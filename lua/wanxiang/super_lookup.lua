@@ -1441,7 +1441,7 @@ function f.func(input, env)
         end
         return handle_explicit_mode(input, env, ctx_input, pure_code, explicitly_fuma, s_end)
     else
-        if not env.enable_direct then
+        if not env.enable_direct or wanxiang.is_pro_scheme(env) then
             for cand in input:iter() do
                 yield(cand)
             end
