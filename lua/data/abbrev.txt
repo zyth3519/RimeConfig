@@ -205,6 +205,7 @@ xl	下来	序列	旋律
 xt	系统	夏天	协调
 xv	性质	旋转	学者
 xz	现在	选择	下载
+yj	已经	意见	眼睛
 yc	因此	一次	洋葱
 yd	一定	有点	运动
 yf	一份	一分	衣服
@@ -3919,7 +3920,6 @@ lan	恋爱脑
 mrg	魔然改
 oy	偶遇
 pkp	扑克牌
-qba	岂不
 sgu	三国杀
 skc	SKC
 sku	SKU
@@ -3936,119 +3936,43 @@ wcb	woc冰！
 wph	唯品会
 wrd	无人岛	Word
 www	我问问	呜呜呜	万维网
-wzc	维C
 xhs	小红书	猩红色
 xkq	辛苦钱
 xln	希腊奶
 zrf	自然辅
 aav	AA制
-agu	A股
-ali	阿里
 apj	安培计
 asv	A4纸
-avj	A站
 bbd	巴不得	办不到	保不定
-bmi	编程
-bml	遍历
-bpj	B盘
 cjj	C++
 cpj	磁偏角
 cpp	C++
 cyy	C语言	餐饮业
-deh	的话
-dpj	D盘
 ejw	二进制文件
-epj	E盘
-erq	而且
 fpj	发泡剂
 fwu	服务社
-fww	分为
-fyo	反映
-gki	高超
-god	上帝
-gol	过了
-gpj	G盘
-gsz	公子
 hli	火轮船
-hww	化为
-hyi	回忆
-imh	沉默
-ipj	I盘
-isv	重置
-jjz	激进
 jlg	机灵鬼
-jlw	经理
 jvn	就只能
-jyu	基于
 kvh	客制化
 lff	乱纷纷
-lfr	两份
 lwl	来晚了	烂尾楼
 mrq	默认情况下	卖人情
-nab	哪边
-nac	哪次
-nad	哪点
-nae	哪儿
-nag	哪个
-nal	哪里
-nam	那么
-nat	哪天
-nav	哪种
-nax	哪些
-nay	哪样
-nui	那时
 nxx	内向型
 or	偶然
-pvj	P站
-qld	权利
-rwu	任务
-sje	随即
 smn	什么呢
-srl	算了
 ssd	4S店	三四点
-svj	随机
 syb	缩印本
-tmn	她们
-uej	涉及
-ugr	圣人
-ulw	梳理
-unm	少年
-unv	少女
 upj	食品街
-uso	实时
-uuo	实时
-vdk	直到
 veb	中二病
-vec	这次
-veg	这个
-vel	这里
-ver	这儿
-vhf	指挥
-vhv	只会
 vjm	炸酱面
 vty	正投影
-vxd	只想
 vxx	中小型
 vyi	制药厂	制衣厂
-wcg	未曾
-wom	我们
-wyi	唯一
-xif	吸附
 xje	心劲儿
-xmi	线程
-xub	现实
-yen	也能
-yff	一分
-yfr	一份
-yj	已经
-yjj	眼镜
 ysh	有时候
-yvw	一致
 ywh	有文化	亚文化
 ywl	员外郎
-ywr	一位
-zal	咋了
-zoi	做出
 adu	爱迪生
 adz	安钉子
 aet	阿尔泰

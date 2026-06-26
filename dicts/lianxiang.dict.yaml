@@ -75,6 +75,7 @@ sort: by_weight
 阿里乌主义	ā lǐ wū zhǔ yì	100
 阿里云百炼	ā lǐ yún bǎi liàn	100
 阿鲁巴条约	ā lǔ bā tiáo yuē	100
+阿仑尼乌斯	ā lún ní wū sī	100
 阿洛巴比妥	ā luò bā bǐ tuǒ	100
 阿罗氏瞳孔	ā luó shì tóng kǒng	100
 阿洛西林钠	ā luò xī lín nà	100
@@ -3732,6 +3733,7 @@ sort: by_weight
 吡乙吩噻嗪	bǐ yǐ fēn sāi qín	100
 鼻异位月经	bí yì wèi yuè jīng	100
 鼻异物取出	bí yì wù qǔ chū	100
+避一下风头	bì yí xià fēng tou	100
 鼻翼小软骨	bí yì xiǎo ruǎn gǔ	100
 鼻硬结细胞	bí yìng jié xì bāo	100
 碧玉铁质岩	bì yù tiě zhì yán	100
@@ -26328,6 +26330,9 @@ sort: by_weight
 和硕郑亲王	hé shuò zhèng qīn wáng	100
 核四极共振	hé sì jí gòng zhèn	100
 赫斯勒合金	hè sī lè hé jīn	100
+核酸采样点	hé suān cǎi yàng diǎn	100
+核酸检测点	hé suān jiǎn cè diǎn	100
+核酸检测员	hé suān jiǎn cè yuán	100
 和她的儿子	hé tā de ér zi	100
 和她的团队	hé tā de tuán duì	100
 和他聊一聊	hé tā liáo yì liáo	100
@@ -43159,7 +43164,7 @@ sort: by_weight
 漫漫人生路	màn màn rén shēng lù	100
 满满少女感	mǎn mǎn shào nǚ gǎn	100
 满满少女心	mǎn mǎn shào nǚ xīn	100
-慢慢腾腾的	màn màn téng téng de	100
+慢慢腾腾的	màn man tēng tēng de	100
 慢慢吞吞地	màn man tūn tūn de	100
 满满幸福感	mǎn mǎn xìng fú gǎn	100
 漫漫寻子路	màn màn xún zǐ lù	100
@@ -61933,7 +61938,6 @@ sort: by_weight
 司布真科纳	sī bù zhēn kē nà	100
 似曾相识感	sì céng xiāng shí gǎn	100
 四朝成仁录	sì cháo chéng rén lù	100
-四朝闻见录	sì cháo wén jiàn lù	100
 丝虫性腹水	sī chóng xìng fù shuǐ	100
 丝绸之路体	sī chóu zhī lù tǐ	100
 四川巴中市	sì chuān bā zhōng shì	100
@@ -62437,6 +62441,7 @@ sort: by_weight
 四月樱花飞	sì yuè yīng huā fēi	100
 似云非烟梦	sì yún fēi yān mèng	100
 四斋蒸鹅心	sì zhāi zhēng é xīn	100
+四朝闻见录	sì zhāo wén jiàn lù	100
 死者的复仇	sǐ zhě de fù chóu	100
 死者的家属	sǐ zhě de jiā shǔ	100
 死者的灵魂	sǐ zhě de líng hún	100
@@ -86278,6 +86283,7 @@ sort: by_weight
 政银企对接	zhèng yín qǐ duì jiē	100
 政银企合作	zhèng yín qǐ hé zuò	100
 正应了那句	zhèng yīng le nà jù	100
+证有不证无	zhèng yǒu bú zhèng wú	100
 整有理函数	zhěng yǒu lǐ hán shù	100
 正月二十八	zhēng yuè èr shí bā	100
 正在查找中	zhèng zài chá zhǎo zhōng	100
@@ -92211,7 +92217,7 @@ sort: by_weight
 白马石刻公园	bái mǎ shí kè gōng yuán	100
 白马雪山垭口	bái mǎ xuě shān yā kǒu	100
 白茫茫的一片	bái máng máng de yí piàn	100
-百忙之中抽空	bǎi máng zhī zhōng chōu kōng	100
+百忙之中抽空	bǎi máng zhī zhōng chōu kòng	100
 百美新咏图传	bǎi měi xīn yǒng tú zhuàn	100
 百密总有一疏	bǎi mì zǒng yǒu yī shū	100
 白明高速公路	bái míng gāo sù gōng lù	100
@@ -94525,6 +94531,7 @@ sort: by_weight
 布莱德利效应	bù lái dé lì xiào yìng	100
 布朗麦科伊根	bù lǎng mài kē yī gēn	100
 不浪漫的爱情	bú làng màn de ài qíng	100
+布朗斯特劳瑞	bù lǎng sī tè láo ruì	100
 不牢固的扳机	bù láo gù de bān jī	100
 不劳你费心了	bù láo nǐ fèi xīn le	100
 布劳威尔代数	bù láo wēi ěr dài shù	100
@@ -112440,7 +112447,6 @@ sort: by_weight
 截至记者发稿	jié zhì jì zhě fā gǎo	100
 解直角三角形	jiě zhí jiǎo sān jiǎo xíng	100
 介质流动方式	jiè zhì liú dòng fāng shì	100
-截至目前为止	jié zhì mù qián wéi zhǐ	100
 截至去年年底	jié zhì qù nián nián dǐ	100
 截至三季度末	jié zhì sān jì dù mò	100
 戒指手镯项链	jiè zhǐ shǒu zhuó xiàng liàn	100
@@ -131481,6 +131487,7 @@ sort: by_weight
 脱盐水预热器	tuō yán shuǐ yù rè qì	120
 脱盐致死剂量	tuō yán zhì sǐ jì liàng	100
 脱氧核糖核苷	tuō yǎng hé táng hé gān	100
+脱氧核糖核酸	tuō yǎng hé táng hé suān	100
 脱氧茴香偶姻	tuō yǎng huí xiāng ǒu yīn	100
 脱氧葡萄糖法	tuō yǎng pú táo táng fǎ	100
 脱氧肾上腺素	tuō yǎng shèn shàng xiàn sù	100
@@ -161714,6 +161721,7 @@ sort: by_weight
 布宜诺斯艾利斯大学	bù yí nuò sī ài lì sī dà xué	100
 长辛店二七革命遗址	cháng xīn diàn èr qī gé mìng yí zhǐ	100
 吃别人嚼过的馍不香	chī bié rén jiáo guò de mó bù xiāng	100
+吃不到葡萄说葡萄酸	chī bú dào pú táo shuō pú táo suān	100
 重修护国寺感应塔碑	chóng xiū hù guó sì gǎn yìng tǎ bēi	100
 筹资产生的现金流量	chóu zī chǎn shēng de xiàn jīn liú liàng	100
 初祖庵及少林寺塔林	chū zǔ ān jí shǎo lín sì tǎ lín	100
