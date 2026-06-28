@@ -1268,15 +1268,15 @@ Pokemon	Pokémon
 喜上加喜	囍
 英寸	吋
 星巴克	Starbucks
-毫秒	ms	millisecond
-微秒	μs	microsecond
-纳秒	ns	nanosecond
-皮秒	ps	picosecond
-飞秒	fs	femtosecond
-阿秒	as	attosecond
-毫米	mm	millimeter
-微米	μm	micrometer
-纳米	nm	nanometer
+毫秒	ms
+微秒	μs
+纳秒	ns
+皮秒	ps
+飞秒	fs
+阿秒	as
+毫米	mm
+微米	μm
+纳米	nm
 掀桌子	(╯'-')╯︵┻━┻	(╯°Д°)╯︵┻━┻
 摆桌子	┬─┬ノ('-'ノ)
 车马炮	車马炮

@@ -104,12 +104,12 @@ engine:
 
 grammar:
   language: wanxiang-lts-zh-hans
-  collocation_max_length: 8
+  collocation_max_length: 6
   collocation_min_length: 2
-  collocation_penalty: -15
+  collocation_penalty: -14
   non_collocation_penalty: -6
   weak_collocation_penalty: -100
-  rear_penalty: -20
+  rear_penalty: -18
 
 super_comment:  # 超级注释模块，子项配置 true 开启，false 关闭
   candidate_length: 2  # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理
@@ -716,6 +716,11 @@ key_binder:
     #- { match: "^.*`$", accept: "`", send_sequence: '{BackSpace}{Home}{`}{`}{End}' }基础版暂时取消这个功能，
     #斜杠被占用引导符号，因此输入本身设置为双击
     - {match: "^/$", accept: "/", send_sequence: '{space}',}
+    #在预测符号状态下，按下斜杠提交清空与斜杠
+    - {match: "^›+$", accept: "backslash", send_sequence: '{Clear}{backslash}',}
+    - { match: "^›+$", accept: "comma",    send_sequence: '{Clear}{comma}'}
+    - { match: "^›+$", accept: "period",   send_sequence: '{Clear}{period}'}
+    - {match: "^›+$", accept: "Return", send_sequence: '{Clear}{Return}'}
 
 editor:
   bindings:
