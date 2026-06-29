@@ -192,11 +192,11 @@ function M.func(input, env)
     local ctx = env.engine.context
     local code = ctx.input or ""
     local comp = ctx.composition
-
+    local code_len = #code
     if not code or code == "" or (comp and comp:empty()) then
         env.phrase_history_dict = {}
     else
-        local current_code_length = #code
+        local current_code_length = code_len
         for key_length in pairs(env.phrase_history_dict) do
             if key_length > current_code_length then
                 env.phrase_history_dict[key_length] = nil
@@ -227,16 +227,16 @@ function M.func(input, env)
 
     local charset_active = (#active_rules > 0)
     
-    if #code == 5 and code:sub(-1):find("[^%w]") then
+    local last_char = sub(code, -1)
+    if code_len == 5 and last_char:match("[^%w]") then
         charset_active = false
     end
 
-    -- 3. 遍历候选词
     local has_recorded_history = false 
     
-    local function yield_and_record(cand, text)
-        if not has_recorded_history and text and text ~= "" and (utf8_len(text) or 0) >= 1 then
-            env.phrase_history_dict[#code] = text
+    local function yield_and_record(cand, text, text_len)
+        if not has_recorded_history and text and text ~= "" and (text_len or 0) >= 1 then
+            env.phrase_history_dict[code_len] = text
             has_recorded_history = true
         end
         yield(cand)
@@ -250,30 +250,32 @@ function M.func(input, env)
         local text = cand.text
         local text_length = utf8_len(text)
 
-        if pending_fallback and text_length ~= pending_target_len then
-            yield_and_record(pending_fallback, pending_fallback.text)
-            pending_fallback = nil
+        if pending_fallback then
+            if text_length == pending_target_len then
+                yield_and_record(pending_fallback, pending_fallback.text, pending_target_len)
+                has_yielded_valid = true
+                pending_fallback = nil
+                goto continue
+            else
+                yield_and_record(pending_fallback, pending_fallback.text, pending_target_len)
+                has_yielded_valid = true
+                pending_fallback = nil
+            end
         end
 
         if not charset_active or text == "" then
-            yield_and_record(cand, text)
+            yield_and_record(cand, text, text_length)
             has_yielded_valid = true
-            if pending_fallback and text_length == pending_target_len then
-                pending_fallback = nil
-            end
         else
             local text_is_valid = is_text_in_charset(env, text, active_rules)
 
             if text_is_valid then
-                yield_and_record(cand, text)
+                yield_and_record(cand, text, text_length)
                 has_yielded_valid = true
-                if pending_fallback and text_length == pending_target_len then
-                    pending_fallback = nil
-                end
             else
                 if text_length >= 2 and not has_yielded_valid and not pending_fallback then
                     local fallback_text = nil
-                    local current_code_length = #code
+                    local current_code_length = code_len
                     
                     for history_length = current_code_length, 1, -1 do
                         local history_text = env.phrase_history_dict[history_length]
@@ -311,11 +313,11 @@ function M.func(input, env)
                 end
             end
         end
+        ::continue::
     end
 
     if pending_fallback then
-        yield_and_record(pending_fallback, pending_fallback.text)
+        yield_and_record(pending_fallback, pending_fallback.text, pending_target_len)
     end
 end
-
 return M
