@@ -4,6 +4,7 @@
 -- 新增：配置项 YAML 外放、递进式时光机、自定义区间、UI横向自适应排版
 
 local userdb = require("wanxiang/userdb")
+local wanxiang = require("wanxiang/wanxiang")
 
 local _db_pool = {}
 local raw_software_name = rime_api.get_distribution_code_name()
@@ -22,8 +23,7 @@ end
 local function process_platform_info(name, ver)
     name = name or ""
     ver = ver or ""
-    ver = ver:gsub("^(.-%-[^%-]+)%-.*$", "%1")
-    ver = ver:gsub("^(%d+%.%d+%.%d+).*", "%1")
+    ver = ver:match("^([vV]?%d+%.%d+%.%d+)") or ver
     if name == "Weasel" then name = "小狼毫" end
     if name == "trime" then name = "同文输入法" end
     if name == "hamster3" then name = "元书输入法" end
@@ -51,6 +51,11 @@ end
 
 local speed_buffer = {}
 local last_cleanup_ts = 0
+local pending_stats = {}      -- { [day_key] = { ["_len"]=N, ["_cnt"]=N, ... } }
+local pending_max_speeds = {} -- { [day_key] = { ["_spd"]=N } }
+local BATCH_INTERVAL = 5      -- 最多每5秒落盘一次
+local MAX_PENDING_WORDS = 200 -- 积累超过200字时强制刷盘
+local last_flush_ts = 0
 
 local function get_current_kpm(now)
     if now - last_cleanup_ts > 5 then
@@ -70,23 +75,85 @@ local function get_current_kpm(now)
     return total
 end
 
+local function pending_accum(day_key, suffix, amount)
+    if not pending_stats[day_key] then pending_stats[day_key] = {} end
+    pending_stats[day_key][suffix] = (pending_stats[day_key][suffix] or 0) + amount
+end
+
+local function pending_max(day_key, suffix, new_val)
+    if not pending_max_speeds[day_key] then pending_max_speeds[day_key] = {} end
+    local old = pending_max_speeds[day_key][suffix] or 0
+    if new_val > old then pending_max_speeds[day_key][suffix] = new_val end
+end
+
+local function do_flush(env)
+    if not pending_stats or next(pending_stats) == nil then return end
+    local db = get_db(env)
+    if not db or not db:loaded() then return end
+    
+    for day_key, fields in pairs(pending_stats) do
+        for suffix, amount in pairs(fields) do
+            local d_key = day_key .. suffix
+            local old_val = tonumber(db:fetch(d_key)) or 0
+            db:update(d_key, tostring(old_val + amount))
+            local t_key = "total" .. suffix
+            local total_val = tonumber(db:fetch(t_key)) or 0
+            db:update(t_key, tostring(total_val + amount))
+        end
+    end
+    
+    for day_key, max_fields in pairs(pending_max_speeds) do
+        for suffix, new_val in pairs(max_fields) do
+            local d_key = day_key .. suffix
+            local old_val = tonumber(db:fetch(d_key)) or 0
+            if new_val > old_val then db:update(d_key, tostring(new_val)) end
+            local t_key = "total" .. suffix
+            local total_val = tonumber(db:fetch(t_key)) or 0
+            if new_val > total_val then db:update(t_key, tostring(new_val)) end
+        end
+    end
+    
+    pending_stats = {}
+    pending_max_speeds = {}
+    last_flush_ts = os.time()
+end
+
+local function try_flush(env)
+    local now = os.time()
+    -- 估算 pending 总字数
+    local total_words = 0
+    for _, fields in pairs(pending_stats) do
+        total_words = total_words + (fields["_len"] or 0)
+    end
+    if total_words >= MAX_PENDING_WORDS or now - last_flush_ts >= BATCH_INTERVAL then
+        do_flush(env)
+    end
+end
+
+local function record_stats_mem(env, hanzi_len, code_len)
+    local now = os.time()
+    local t = os.date("*t", now)
+    local day_key = string.format("d_%04d%02d%02d", t.year, t.month, t.day)
+    
+    local current_kpm = 0
+    if hanzi_len <= 30 then table.insert(speed_buffer, {ts = now, len = hanzi_len}) end
+    current_kpm = get_current_kpm(now)
+    
+    pending_accum(day_key, "_len", hanzi_len)
+    pending_accum(day_key, "_cnt", 1)
+    pending_accum(day_key, "_code", code_len)
+    
+    if hanzi_len == 1 then pending_accum(day_key, "_l1", 1)
+    elseif hanzi_len == 2 then pending_accum(day_key, "_l2", 1)
+    elseif hanzi_len == 3 then pending_accum(day_key, "_l3", 1)
+    elseif hanzi_len == 4 then pending_accum(day_key, "_l4", 1)
+    elseif hanzi_len > 4 then pending_accum(day_key, "_l_gt4", 1) end
+    
+    pending_max(day_key, "_spd", current_kpm)
+end
+
 local function db_get(db, key)
     return tonumber(db:fetch(key)) or 0
-end
-
-local function db_incr_day_and_total(db, key_suffix, amount, day_key)
-    amount = amount or 1
-    local d_key = day_key .. key_suffix
-    db:update(d_key, tostring(db_get(db, d_key) + amount))
-    local t_key = "total" .. key_suffix
-    db:update(t_key, tostring(db_get(db, t_key) + amount))
-end
-
-local function db_set_max_day(db, key_suffix, new_val, day_key)
-    local d_key = day_key .. key_suffix
-    if new_val > db_get(db, d_key) then db:update(d_key, tostring(new_val)) end
-    local t_key = "total" .. key_suffix
-    if new_val > db_get(db, t_key) then db:update(t_key, tostring(new_val)) end
 end
 
 local function clear_all_data(env)
@@ -96,6 +163,8 @@ local function clear_all_data(env)
     if db.empty then
         db:empty()
         speed_buffer = {}
+        pending_stats = {}
+        pending_max_speeds = {}
         return true
     end
     local iter = db:query("")
@@ -104,38 +173,11 @@ local function clear_all_data(env)
         for key, _ in iter do table.insert(keys, key) end
         for _, key in ipairs(keys) do db:erase(key) end
         speed_buffer = {}
+        pending_stats = {}
+        pending_max_speeds = {}
         return true
     end
     return false
-end
-
-local function record_stats(env, hanzi_len, code_len)
-    local db = get_db(env)
-    if not db or not db:loaded() then return end
-    
-    local now = os.time()
-    local t = os.date("*t", now)
-    local day_key = string.format("d_%04d%02d%02d", t.year, t.month, t.day)
-    
-    -- 反粘贴作弊机制：单次上屏字数 <= 30 才计入速度 buffer
-    local current_kpm = 0
-    if hanzi_len <= 30 then
-        table.insert(speed_buffer, {ts = now, len = hanzi_len})
-    end
-    current_kpm = get_current_kpm(now)
-    
-    db_incr_day_and_total(db, "_len", hanzi_len, day_key)
-    db_incr_day_and_total(db, "_cnt", 1, day_key)
-    db_incr_day_and_total(db, "_code", code_len, day_key)
-    
-    if hanzi_len == 1 then db_incr_day_and_total(db, "_l1", 1, day_key)
-    elseif hanzi_len == 2 then db_incr_day_and_total(db, "_l2", 1, day_key)
-    elseif hanzi_len == 3 then db_incr_day_and_total(db, "_l3", 1, day_key)
-    elseif hanzi_len == 4 then db_incr_day_and_total(db, "_l4", 1, day_key)
-    elseif hanzi_len > 4  then db_incr_day_and_total(db, "_l_gt4", 1, day_key)
-    end
-    
-    db_set_max_day(db, "_spd", current_kpm, day_key)
 end
 
 local function aggregate_stats(env, days_lookback)
@@ -270,11 +312,14 @@ local function format_summary(title, subtitle, data, env)
     local raw_ver = rime_api.get_distribution_version() or ""
     local clean_name, clean_ver = process_platform_info(raw_software_name, raw_ver)
     local user_achievement = get_user_title(env)
+    local finger_style = wanxiang.get_input_method_type(env)
+    local finger_style_map = { ["pinyin"]="全拼", ["zrm"]="自然码", ["flypy"]="小鹤双拼", ["mspy"]="微软双拼", ["sogou"]="搜狗双拼", ["abc"]="智能ABC", ["ziguang"]="紫光双拼", ["pyjj"]="拼音加加", ["gbpy"]="国标双拼", ["zrlong"]="自然龙", ["hxlong"]="汉心龙", ["ltsp"]="蓝天双拼", ["lxsq"]="乱序17", ["sdpy"]="首道双拼", ["t9"]="九键" }
+    local finger_label = finger_style_map[finger_style] or finger_style
     local header = string.format("※ %s统计 · 效率仪表盘\n", title)
     if subtitle and subtitle ~= "" then
         header = header .. string.format("📅 %s\n", subtitle)
     end
-    local zwsp = "\226\128\139" --electron框架开发的软件格式化乱码，加上零宽空格能保证末尾截取掉后格式正常
+    local zwsp = "\226\128\139"
     return header .. string.format(
         "───────────────" .. zwsp .. "\n" ..
         "📊 综合数据" .. zwsp .. "\n" ..
@@ -294,7 +339,8 @@ local function format_summary(title, subtitle, data, env)
         "  [+] %2d%% %s" .. zwsp .. "\n" ..
         "───────────────" .. zwsp .. "\n" ..
         "◉ 方案：%s" .. zwsp .. "\n" ..
-        "◉ 平台：%s %s" .. zwsp,
+        "◉ 编码：%s" .. zwsp .. "\n" ..
+        "◉ 前端：%s %s" .. zwsp,
         math.floor(estimated_avg_spd), math.floor(data.cnt),
         math.floor(data.spd), math.floor(data.len),
         user_achievement,
@@ -304,7 +350,7 @@ local function format_summary(title, subtitle, data, env)
         math.floor(p3), draw_bar(p3), 
         math.floor(p4), draw_bar(p4), 
         math.floor(p_gt4), draw_bar(p_gt4),
-        env.schema_name, clean_name, clean_ver
+        env.schema_name, finger_label, clean_name, clean_ver
     )
 end
 
@@ -364,19 +410,17 @@ local function init(env)
 
         local hanzi_len = get_pure_chinese_length(commit_text)
         if hanzi_len == 0 then return end
-        
-        -- 【核心修改】精准抓取用户实际敲击的按键字母
         local raw_input = ctx.input or ""
         local code_len = string.len(raw_input)
-        
-        -- 如果获取不到物理输入（如粘贴/非常规上屏），才做等比估算
         if code_len == 0 then code_len = hanzi_len * 2 end 
-        
-        record_stats(env, hanzi_len, code_len)
+
+        record_stats_mem(env, hanzi_len, code_len)
+        try_flush(env)
     end)
 end
 
 local function fini(env)
+    do_flush(env)
     if env.stat_notifier then 
         env.stat_notifier:disconnect() 
         env.stat_notifier = nil
@@ -384,6 +428,7 @@ local function fini(env)
 end
 
 local function translator(input, seg, env)
+    try_flush(env)
     local summary = ""
     local data = nil
     local title = ""

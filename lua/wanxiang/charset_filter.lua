@@ -8,63 +8,87 @@
 local wanxiang = require("wanxiang/wanxiang")
 local M = {}
 
--- 性能优化：本地化函数
 local sub = string.sub
-local string_byte = string.byte
+local byte = string.byte
 local utf8_codes = utf8.codes
 local utf8_len = utf8.len
 local utf8_char = utf8.char
+local ipairs = ipairs
+local pairs = pairs
+local pcall = pcall
+local insert = table.insert
+local type = type
 
-local function check_intersection(db_attr, config_base_set)
-    if not db_attr or db_attr == "" then return false end
-    for i = 1, #db_attr do
-        local byte_val = string_byte(db_attr, i)
-        if config_base_set[byte_val] then
-            return true
-        end
+local function str_to_mask(s)
+    if not s or s == "" then return 0 end
+    local m = 0
+    for i = 1, #s do
+        m = m | (1 << (byte(s, i) & 0x3F))
     end
-    return false
+    return m
 end
 
-local function codepoint_in_charset(env, codepoint, text, active_rules)
-    if not env.charset_db or #active_rules == 0 then return true end
+local function get_char_mask(env, char)
+    -- 先查缓存
+    local mask = env.db_memo[char]
+    if mask ~= nil then return mask end
+    if not env.charset_db then return 0 end
+    local attr = env.charset_db:lookup(char)
+    if attr and attr ~= "" then
+        mask = str_to_mask(attr)
+        env.db_memo[char] = mask
+        return mask
+    else
+        return 0
+    end
+end
 
-    local is_allowed = false
-    local is_blacklisted = false
+local function char_is_valid(env, codepoint, char, active_rules, cache)
+    local r = cache[codepoint]
+    if r ~= nil then return r end
 
-    for _, rule in ipairs(active_rules) do
+    local allowed = false
+    local banned = false
+
+    for i = 1, #active_rules do
+        local rule = active_rules[i]
+
+        -- blacklist 一票否决
         if rule.ban[codepoint] then
-            is_blacklisted = true
+            banned = true
             break
         end
 
-        if not is_allowed then
+        if not allowed then
             if rule.add[codepoint] then
-                is_allowed = true
+                allowed = true
             else
-                local attr = env.db_memo[text]
-                if attr == nil then
-                    attr = env.charset_db:lookup(text) or ""
-                    env.db_memo[text] = attr
-                end
-
-                if check_intersection(attr, rule.base_set) then
-                    is_allowed = true
+                local m = get_char_mask(env, char)
+                if m ~= 0 and (m & rule.base) ~= 0 then
+                    allowed = true
                 end
             end
         end
     end
 
-    if is_blacklisted then return false end
-    return is_allowed
+    local result
+    if banned then
+        result = false
+    else
+        result = allowed
+    end
+
+    cache[codepoint] = result
+    return result
 end
 
-local function is_text_in_charset(env, text, active_rules)
+local function text_is_valid(env, text, active_rules, cache)
     if not text or text == "" then return true end
-    for _, codepoint in utf8_codes(text) do
-        local character = utf8_char(codepoint)
-        if wanxiang.IsChineseCharacter(character) then
-            if not codepoint_in_charset(env, codepoint, character, active_rules) then
+
+    for _, cp in utf8_codes(text) do
+        local char = utf8_char(cp)
+        if wanxiang.IsChineseCharacter(char) then
+            if not char_is_valid(env, cp, char, active_rules, cache) then
                 return false
             end
         end
@@ -72,107 +96,134 @@ local function is_text_in_charset(env, text, active_rules)
     return true
 end
 
+local function preprocess(raw)
+    return {
+        options = raw.options,
+        base    = str_to_mask(raw.base_str),
+        add     = raw.add,
+        ban     = raw.ban,
+    }
+end
+
+local function load_rules(cfg, path)
+    local rules = {}
+    local list = cfg:get_list(path)
+    if not list then return rules end
+
+    for i = 0, list.size - 1 do
+        local ep = path .. "/@" .. i
+        local triggers = {}
+
+        for _, key in ipairs({"option", "options"}) do
+            local kp = ep .. "/" .. key
+            local sl = cfg:get_list(kp)
+            if sl then
+                for k = 0, sl.size - 1 do
+                    local v = cfg:get_string(kp .. "/@" .. k)
+                    if v and v ~= "" then insert(triggers, v) end
+                end
+            else
+                if cfg:get_bool(kp) then
+                    insert(triggers, "true")
+                else
+                    local v = cfg:get_string(kp)
+                    if v and v ~= "" and v ~= "true" then insert(triggers, v) end
+                end
+            end
+        end
+
+        if #triggers == 0 then goto next end
+
+        local base_str = cfg:get_string(ep .. "/base") or ""
+        local add = {}
+        local ban = {}
+
+        local function load_list(name, t)
+            local lp = ep .. "/" .. name
+            local sl = cfg:get_list(lp)
+            if sl then
+                for k = 0, sl.size - 1 do
+                    local v = cfg:get_string(lp .. "/@" .. k)
+                    if v and v ~= "" then
+                        for _, cp in utf8_codes(v) do t[cp] = true end
+                    end
+                end
+            end
+        end
+
+        load_list("addlist", add)
+        load_list("blacklist", ban)
+
+        insert(rules, preprocess({
+            options  = triggers,
+            base_str = base_str,
+            add      = add,
+            ban      = ban,
+        }))
+
+        ::next::
+    end
+
+    return rules
+end
+
+local function get_active_rules(env, ctx)
+    local filters = env.filters
+    if not filters or #filters == 0 then return nil end
+
+    if wanxiang and wanxiang.s2t_conversion and wanxiang.s2t_conversion(ctx) then
+        return nil
+    end
+
+    local active = {}
+    for i = 1, #filters do
+        local rule = filters[i]
+        for j = 1, #rule.options do
+            if rule.options[j] == "true" or ctx:get_option(rule.options[j]) then
+                insert(active, rule)
+                break
+            end
+        end
+    end
+
+    return #active > 0 and active or nil
+end
+
 function M.init(env)
     local cfg = env.engine and env.engine.schema and env.engine.schema.config
-    
+
+    -- 加载数据库
     local dist = (rime_api and rime_api.get_distribution_code_name and rime_api.get_distribution_code_name() or ""):lower()
-    local charsetFile
+    local fname
     if dist == "weasel" then
-        charsetFile = "lua/data/charset.reverse.bin"
+        fname = "lua/data/charset.reverse.bin"
     else
-        charsetFile = wanxiang.get_filename_with_fallback("lua/data/charset.reverse.bin") or "lua/data/charset.reverse.bin"
+        fname = wanxiang.get_filename_with_fallback("lua/data/charset.reverse.bin") or "lua/data/charset.reverse.bin"
     end
 
     env.charset_db = nil
     if ReverseDb then
-        local ok, db = pcall(function() return ReverseDb(charsetFile) end)
+        local ok, db = pcall(function() return ReverseDb(fname) end)
         if ok and db then env.charset_db = db end
     end
-    
+
     env.db_memo = {}
     env.filters = {}
     env.phrase_history_dict = {}
 
-    if not cfg then return end
-
-    local root_path = "charset"
-    local list = cfg:get_list(root_path)
-    if not list then return end
-
-    for i = 0, list.size - 1 do
-        local entry_path = root_path .. "/@" .. i
-        local triggers = {}
-        local opts_keys = {"option", "options"}
-        
-        for _, key in ipairs(opts_keys) do
-            local key_path = entry_path .. "/" .. key
-            local sub_list = cfg:get_list(key_path)
-            if sub_list then
-                for k = 0, sub_list.size - 1 do
-                    local val = cfg:get_string(key_path .. "/@" .. k)
-                    if val and val ~= "" then table.insert(triggers, val) end
-                end
-            else
-                if cfg:get_bool(key_path) == true then
-                    table.insert(triggers, "true")
-                else
-                    local val = cfg:get_string(key_path)
-                    if val and val ~= "" and val ~= "true" then
-                        table.insert(triggers, val)
-                    end
-                end
-            end
-        end
-
-        if #triggers > 0 then
-            local rule_base_set = {}
-            local rule_add = {}
-            local rule_ban = {}
-
-            local base_str = cfg:get_string(entry_path .. "/base")
-            if base_str and #base_str > 0 then
-                for j = 1, #base_str do
-                    rule_base_set[string_byte(base_str, j)] = true
-                end
-            end
-
-            local function load_list_to_map(list_name, map)
-                local lp = entry_path .. "/" .. list_name
-                local sl = cfg:get_list(lp)
-                if sl then
-                    for k = 0, sl.size - 1 do
-                        local val = cfg:get_string(lp .. "/@" .. k)
-                        if val and val ~= "" then
-                            for _, cp in utf8_codes(val) do map[cp] = true end
-                        end
-                    end
-                end
-            end
-
-            load_list_to_map("addlist", rule_add)
-            load_list_to_map("blacklist", rule_ban)
-
-            table.insert(env.filters, {
-                options  = triggers,
-                base_set = rule_base_set,
-                add      = rule_add,
-                ban      = rule_ban
-            })
-        end
+    if cfg then
+        env.filters = load_rules(cfg, "charset")
     end
 
     env.opt_update_conn = env.engine.context.option_update_notifier:connect(function(ctx, name)
-        local should_refresh = false
-        for _, filter in ipairs(env.filters) do
-            for _, opt in ipairs(filter.options) do
-                if name == opt then
-                    should_refresh = true
-                    break
+        for i = 1, #env.filters do
+            local opts = env.filters[i].options
+            for j = 1, #opts do
+                if name == opts[j] then
+                    ctx:refresh_non_confirmed_composition()
+                    return
                 end
             end
-        end
-        if should_refresh then
-            ctx:refresh_non_confirmed_composition()
         end
     end)
 end
@@ -193,131 +244,110 @@ function M.func(input, env)
     local code = ctx.input or ""
     local comp = ctx.composition
     local code_len = #code
+    local cache = {}
+    -- 清理过期历史记录
     if not code or code == "" or (comp and comp:empty()) then
         env.phrase_history_dict = {}
     else
-        local current_code_length = code_len
-        for key_length in pairs(env.phrase_history_dict) do
-            if key_length > current_code_length then
-                env.phrase_history_dict[key_length] = nil
-            end
+        for k in pairs(env.phrase_history_dict) do
+            if k > code_len then env.phrase_history_dict[k] = nil end
         end
     end
 
-    local is_functional = false
-    if wanxiang and wanxiang.s2t_conversion then
-        is_functional = wanxiang.s2t_conversion(ctx)
-    end
-    
-    local active_rules = {}
-    if not is_functional and env.filters and #env.filters > 0 then
-        for _, rule in ipairs(env.filters) do
-            local is_rule_active = false
-            for _, opt_name in ipairs(rule.options) do
-                if opt_name == "true" or ctx:get_option(opt_name) then
-                    is_rule_active = true
-                    break
-                end
-            end
-            if is_rule_active then
-                table.insert(active_rules, rule)
-            end
-        end
+    -- 获取活跃规则
+    local active_rules = get_active_rules(env, ctx)
+    local charset_on = (active_rules ~= nil)
+
+    -- 5码豁免
+    if charset_on and code_len == 5 then
+        local last = sub(code, -1)
+        if not last:match("[%w]") then charset_on = false end
     end
 
-    local charset_active = (#active_rules > 0)
-    
-    local last_char = sub(code, -1)
-    if code_len == 5 and last_char:match("[^%w]") then
-        charset_active = false
-    end
+    local has_valid = false
+    local pending = nil
+    local pending_len = 0
+    local recorded = false
 
-    local has_recorded_history = false 
-    
-    local function yield_and_record(cand, text, text_len)
-        if not has_recorded_history and text and text ~= "" and (text_len or 0) >= 1 then
+    local function output(cand, text, text_len)
+        if not recorded and text and text ~= "" and (text_len or 0) >= 1 then
             env.phrase_history_dict[code_len] = text
-            has_recorded_history = true
+            recorded = true
         end
         yield(cand)
     end
 
-    local has_yielded_valid = false
-    local pending_fallback = nil
-    local pending_target_len = 0
-
     for cand in input:iter() do
         local text = cand.text
-        local text_length = utf8_len(text)
+        local text_len = utf8_len(text)
 
-        if pending_fallback then
-            if text_length == pending_target_len then
-                yield_and_record(pending_fallback, pending_fallback.text, pending_target_len)
-                has_yielded_valid = true
-                pending_fallback = nil
-                goto continue
+        -- 处理 pending 的兜底候选
+        if pending then
+            if text_len == pending_len then
+                output(pending, pending.text, pending_len)
+                has_valid = true
+                pending = nil
+                goto next
             else
-                yield_and_record(pending_fallback, pending_fallback.text, pending_target_len)
-                has_yielded_valid = true
-                pending_fallback = nil
+                output(pending, pending.text, pending_len)
+                has_valid = true
+                pending = nil
             end
         end
 
-        if not charset_active or text == "" then
-            yield_and_record(cand, text, text_length)
-            has_yielded_valid = true
-        else
-            local text_is_valid = is_text_in_charset(env, text, active_rules)
+        if not charset_on or text == "" then
+            output(cand, text, text_len)
+            has_valid = true
+        elseif text_is_valid(env, text, active_rules, cache) then
+            output(cand, text, text_len)
+            has_valid = true
+        elseif text_len >= 2 and (cand.type == "phrase" or cand.type == "user_phrase") then
+            -- 词库中真实存在的多字词组，直接放行不过滤
+            output(cand, text, text_len)
+            has_valid = true
+        elseif text_len >= 2 and not has_valid and not pending then
+            -- 兜底,过早兜底会造成后续流程为空的判断，因此这里先放行单字
+            local fb = nil
 
-            if text_is_valid then
-                yield_and_record(cand, text, text_length)
-                has_yielded_valid = true
-            else
-                if text_length >= 2 and not has_yielded_valid and not pending_fallback then
-                    local fallback_text = nil
-                    local current_code_length = code_len
-                    
-                    for history_length = current_code_length, 1, -1 do
-                        local history_text = env.phrase_history_dict[history_length]
-                        if history_text and utf8_len(history_text) == text_length then
-                            fallback_text = history_text
-                            break
-                        end
-                    end
-                    
-                    if not fallback_text then
-                        for history_length = current_code_length - 1, 1, -1 do
-                            local history_text = env.phrase_history_dict[history_length]
-                            if history_text then
-                                local remain_code = sub(code, history_length + 1)
-                                fallback_text = history_text .. remain_code
-                                break
-                            end
-                        end
-                    end
+            for hl = code_len, 1, -1 do
+                local h = env.phrase_history_dict[hl]
+                if h and utf8_len(h) == text_len then
+                    fb = h
+                    break
+                end
+            end
 
-                    if fallback_text then
-                        local preedit_text = cand.preedit or code
-                        if #preedit_text > 1 and preedit_text:sub(-1):match("[%w%p]") then
-                            preedit_text = sub(preedit_text, 1, -2) .. " " .. sub(preedit_text, -1)
-                        end
-                        
-                        local nc = Candidate("fallback", cand.start, cand._end, fallback_text, cand.comment or "")
-                        nc.preedit = preedit_text
-                        
-                        if is_text_in_charset(env, nc.text, active_rules) then
-                            pending_fallback = nc
-                            pending_target_len = text_length
-                        end
+            if not fb then
+                for hl = code_len - 1, 1, -1 do
+                    local h = env.phrase_history_dict[hl]
+                    if h then
+                        fb = h .. sub(code, hl + 1)
+                        break
                     end
                 end
             end
+
+            if fb then
+                local pre = cand.preedit or code
+                if #pre > 1 and pre:sub(-1):match("[%w%p]") then
+                    pre = sub(pre, 1, -2) .. " " .. sub(pre, -1)
+                end
+                local nc = Candidate("fallback", cand.start, cand._end, fb, cand.comment or "")
+                nc.preedit = pre
+
+                if text_is_valid(env, nc.text, active_rules, cache) then
+                    pending = nc
+                    pending_len = text_len
+                end
+            end
         end
-        ::continue::
+
+        ::next::
     end
 
-    if pending_fallback then
-        yield_and_record(pending_fallback, pending_fallback.text, pending_target_len)
+    if pending then
+        output(pending, pending.text, pending_len)
     end
 end
+
 return M

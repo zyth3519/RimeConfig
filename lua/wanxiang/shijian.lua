@@ -1153,7 +1153,26 @@ function GanZhiLi:getShiZhi()
     local idx = self:getHourGanZhi()
     return self:calR2(idx, 12)
 end
+local function chinese_weekday(wday)
+    local chinese_weekdays = { "周日", "周一", "周二", "周三", "周四", "周五", "周六" }
+    return chinese_weekdays[wday + 1]
+end
+-- 获取中文星期（例如 "星期一"）都是为了利用现有函数
+local function chinese_weekday2(week_day_num)
+    local weekdays = { "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六" }
+    return weekdays[week_day_num + 1]
+end
+-- 获取英文星期全称
+local function english_weekday(wday)
+    local weekdays = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }
+    return weekdays[wday + 1]
+end
 
+-- 获取英文星期简称
+local function english_weekday_abbr(wday)
+    local abbrs = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" }
+    return abbrs[wday + 1]
+end
 local jqB = { -- 节气表
     "立春", "雨水", "惊蛰", "春分", "清明", "谷雨", "立夏", "小满", "芒种", "夏至", "小暑", "大暑",
     "立秋", "处暑", "白露", "秋分", "寒露", "霜降", "立冬", "小雪", "大雪", "冬至", "小寒", "大寒" }
@@ -1708,6 +1727,55 @@ function IsLeap(y)
         return 365
     end
 end
+
+-- ISO 8601 计算：返回当前日期是第几周，不使用os.date(%w)
+local function iso_week_number(year, month, day)
+    local function date_to_julian(y, m, d)
+        -- 将年月日转换为儒略日（Julian Day Number）
+        if m <= 2 then
+            y = y - 1
+            m = m + 12
+        end
+        local A = math.floor(y / 100)
+        local B = 2 - A + math.floor(A / 4)
+        return math.floor(365.25 * (y + 4716)) + math.floor(30.6001 * (m + 1)) + d + B - 1524.5
+    end
+
+    -- 获取当前日期的星期（ISO，周一为1，周日为7）
+    local function get_iso_weekday(y, m, d)
+        local t = os.time {
+            year = y,
+            month = m,
+            day = d
+        }
+        local w = tonumber(os.date("%w", t))
+        return (w == 0) and 7 or w
+    end
+
+    local jd = date_to_julian(year, month, day)
+    local t = os.time {
+        year = year,
+        month = month,
+        day = day
+    }
+    local iso_day = get_iso_weekday(year, month, day)
+
+    -- 计算该日期所在的星期的周四（ISO周的基准点）
+    local thursday_time = t + (4 - iso_day) * 86400
+    local thursday = os.date("*t", thursday_time)
+
+    -- 计算周数
+    local first_thursday = os.time {
+        year = thursday.year,
+        month = 1,
+        day = 4
+    }
+    local first_thursday_weekday = get_iso_weekday(thursday.year, 1, 4)
+    local start_of_week1 = first_thursday - (first_thursday_weekday - 1) * 86400
+
+    local week_number = math.floor((thursday_time - start_of_week1) / (7 * 86400)) + 1
+    return thursday.year, week_number
+end
 -- 日期格式化函数，用于自定义日期格式。N20150101和/rq使用，自定义时间/sj /dt
 -- 转义规则：
 --   \X       —— 将 X 按字面量输出（X 为任意单个字符，如 Y/m/d/H/M/S 等）
@@ -1777,7 +1845,22 @@ function format_dt(dt, format_str)
     local tz_colon = raw_tz:sub(1,3) .. ":" .. raw_tz:sub(4,5)
     s = s:gsub("O", tz_colon)
     s = s:gsub("o", raw_tz)
+    -- 星期占位符
+    local t = os.time { year = dt.year, month = dt.month, day = dt.day, hour = 12 }
+    local wday = tonumber(os.date("%w", t))
 
+    s = s:gsub("E", english_weekday(wday))       -- 英文星期全称
+    s = s:gsub("F", english_weekday_abbr(wday))  -- 英文星期简称
+    s = s:gsub("C", chinese_weekday2(wday))      -- 中文星期全称
+    s = s:gsub("D", chinese_weekday(wday))       -- 中文星期简称
+    -- ISO 8601 周数
+    s = s:gsub("w", function()
+        if dt.year and dt.year > 0 then
+            local _, wk = iso_week_number(dt.year, dt.month, dt.day)
+            return tostring(wk)
+        end
+        return "?"
+    end)
     -- 4) 还原
     s = s:gsub("\0ESC(%d+)\0", function(i) return escs[tonumber(i)] or "" end)
     s = s:gsub("\0BLK(%d+)\0", function(i) return blocks[tonumber(i)] or "" end)
@@ -2116,63 +2199,7 @@ local function nl_shengri2(y, m, d)
     return result
 end
 
-local function chinese_weekday(wday)
-    local chinese_weekdays = { "周日", "周一", "周二", "周三", "周四", "周五", "周六" }
-    return chinese_weekdays[wday + 1]
-end
--- 获取中文星期（例如 "星期一"）都是为了利用现有函数
-local function chinese_weekday2(week_day_num)
-    local weekdays = { "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六" }
-    return weekdays[week_day_num + 1]
-end
--- ISO 8601 计算：返回当前日期是第几周，不使用os.date(%w)
-local function iso_week_number(year, month, day)
-    local function date_to_julian(y, m, d)
-        -- 将年月日转换为儒略日（Julian Day Number）
-        if m <= 2 then
-            y = y - 1
-            m = m + 12
-        end
-        local A = math.floor(y / 100)
-        local B = 2 - A + math.floor(A / 4)
-        return math.floor(365.25 * (y + 4716)) + math.floor(30.6001 * (m + 1)) + d + B - 1524.5
-    end
 
-    -- 获取当前日期的星期（ISO，周一为1，周日为7）
-    local function get_iso_weekday(y, m, d)
-        local t = os.time {
-            year = y,
-            month = m,
-            day = d
-        }
-        local w = tonumber(os.date("%w", t))
-        return (w == 0) and 7 or w
-    end
-
-    local jd = date_to_julian(year, month, day)
-    local t = os.time {
-        year = year,
-        month = month,
-        day = day
-    }
-    local iso_day = get_iso_weekday(year, month, day)
-
-    -- 计算该日期所在的星期的周四（ISO周的基准点）
-    local thursday_time = t + (4 - iso_day) * 86400
-    local thursday = os.date("*t", thursday_time)
-
-    -- 计算周数
-    local first_thursday = os.time {
-        year = thursday.year,
-        month = 1,
-        day = 4
-    }
-    local first_thursday_weekday = get_iso_weekday(thursday.year, 1, 4)
-    local start_of_week1 = first_thursday - (first_thursday_weekday - 1) * 86400
-
-    local week_number = math.floor((thursday_time - start_of_week1) / (7 * 86400)) + 1
-    return thursday.year, week_number
-end
 -- 公历节日表（国际节日+中国传统公历节日）
 local solar_holidays = {
     -- 国际节日

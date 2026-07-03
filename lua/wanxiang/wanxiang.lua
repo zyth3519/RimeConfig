@@ -5,7 +5,7 @@ local wanxiang = {}
 
 -- x-release-please-start-version
 
-wanxiang.version = "v15.16.0"
+wanxiang.version = "v16.0.0"
 
 -- x-release-please-end
 
@@ -35,7 +35,9 @@ function wanxiang.is_mobile_device()
         if lower_dist == "trime" or
             lower_dist == "hamster" or
             lower_dist == "hamster3" or
-            lower_dist == "squirrel" then
+            lower_dist == "default" or --超越
+            lower_dist == "xime" or --曦码
+            lower_dist == "squirrel" then --特殊情况
             return true
         end
 

@@ -4,7 +4,7 @@
 
 **重塑 Rime 生态，带来极致的输入体验。**
 
-[![快速上手](https://img.shields.io/badge/🚀_快速上手-探索文档-4CAF50?style=for-the-badge)](https://amzxyz.github.io/)
+[![快速上手](https://img.shields.io/badge/🚀_快速上手-探索文档-4CAF50?style=for-the-badge)](https://amzxyz.github.io/rime-wanxiang/)
 [![GitHub](https://img.shields.io/badge/⭐_GitHub_仓库-访问主页-2ea44f?style=for-the-badge)](https://github.com/amzxyz/rime-wanxiang)
 <br>
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
@@ -40,14 +40,14 @@
       <div style="border: 1px solid #546e7a4d; border-radius: 12px; padding: 20px;">
         <h3>🚀 快速上手</h3>
         <p>从零开始，为您在 Windows、macOS 以及 iOS/Android 移动端部署万象。</p>
-        <a href="https://amzxyz.github.io/doc/intro"><strong>➡️ 立即安装</strong></a>
+        <a href="https://amzxyz.github.io/rime-wanxiang/doc/intro"><strong>➡️ 立即安装</strong></a>
       </div>
     </td>
     <td width="50%" valign="top">
       <div style="border: 1px solid #546e7a4d; border-radius: 12px; padding: 20px;">
         <h3>⌨️ 核心输入体系</h3>
         <p>深入解析万象独特的“带调拼音标注”、强大的辅码系统（小鹤、自然码等）以及中英混输机制。</p>
-        <a href="https://amzxyz.github.io/doc/aux_code"><strong>➡️ 了解核心</strong></a>
+        <a href="https://amzxyz.github.io/rime-wanxiang/doc/aux_code"><strong>➡️ 了解核心</strong></a>
       </div>
     </td>
   </tr>
@@ -56,14 +56,14 @@
       <div style="border: 1px solid #546e7a4d; border-radius: 12px; padding: 20px;">
         <h3>🪄 Lua 魔法扩展</h3>
         <p>计算器、超级注释、符号包裹、动态时间戳... 探索让 Rime 拥有“超能力”的数十种微创新脚本。</p>
-        <a href="https://amzxyz.github.io/doc/shijian"><strong>➡️ 探索魔法</strong></a>
+        <a href="https://amzxyz.github.io/rime-wanxiang/doc/shijian"><strong>➡️ 探索魔法</strong></a>
       </div>
     </td>
     <td width="50%" valign="top">
       <div style="border: 1px solid #546e7a4d; border-radius: 12px; padding: 20px;">
         <h3>⚙️ 词库与模型</h3>
         <p>深度解析万象的现代数据工程。算一笔隐形的“时间账”，彻底告别低效的候选翻页，让输入如呼吸般自然。</p>
-        <a href="https://amzxyz.github.io/doc/dict_gram"><strong>➡️ 揭秘底层逻辑</strong></a>
+        <a href="https://amzxyz.github.io/rime-wanxiang/doc/dict_gram"><strong>➡️ 揭秘底层逻辑</strong></a>
       </div>
     </td>
   </tr>

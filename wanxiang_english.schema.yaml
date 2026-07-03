@@ -12,6 +12,8 @@ switches:
   - name: ascii_mode
     reset: 0
     states: [整句, 字母]
+  - name: emoji
+    states: [表情关, 表情开]
   - name: chinese_english
     states: [翻译关, 翻译开]
 
