@@ -42,8 +42,7 @@ local CONFIG = {
     SCAN_LIMIT          = 80,            
     ENABLE_PREDICT_SPACE = false,  
     CONTEXT_TIMEOUT_MS  = 5000,
-    ENABLE_POST_PREDICT = true,
-    ENABLE_CONTEXT_REORDER = true,
+    PREDICT_STYLE       = "off",
     ENABLE_FALLBACK_REORDER = true,
 }
 local is_after_number = false  --量词调频状态
@@ -94,10 +93,13 @@ local function load_config(env)
         if ps_val ~= nil then CONFIG.ENABLE_PREDICT_SPACE = ps_val end
         local timeout_val = config:get_int("user_predict/context_timeout")
         if timeout_val ~= nil then CONFIG.CONTEXT_TIMEOUT_MS = timeout_val end
-        local post_val = config:get_bool("user_predict/enable_post_predict")
-        if post_val ~= nil then CONFIG.ENABLE_POST_PREDICT = post_val end
-        local reorder_val = config:get_bool("user_predict/enable_context_reorder")
-        if reorder_val ~= nil then CONFIG.ENABLE_CONTEXT_REORDER = reorder_val end
+        -- 移动端用 mobile_predict_style，PC端默认 reorder 调频
+        if wanxiang.is_mobile_device() then
+            local mobile_style = config:get_string("user_predict/mobile_predict_style")
+            if mobile_style ~= nil then CONFIG.PREDICT_STYLE = mobile_style end
+        else
+            CONFIG.PREDICT_STYLE = "reorder"
+        end
         local fallback_val = config:get_bool("user_predict/enable_fallback_reorder")
         if fallback_val ~= nil then CONFIG.ENABLE_FALLBACK_REORDER = fallback_val end
         local custom_node = config:get_item("user_predict/custom_classifiers")
@@ -547,10 +549,10 @@ function P.init(env)
         
         -- 如果两个开关都没开，绝对不去查库！绝对不建缓存
         if predict_count <= CONFIG.MAX_PREDICTIONS and ctx:get_option("prediction") then
-            if CONFIG.ENABLE_POST_PREDICT or CONFIG.ENABLE_CONTEXT_REORDER then
+            if CONFIG.PREDICT_STYLE ~= "off" then
                 pending_cands = get_predictions(env, last_commit)
                 if pending_cands then 
-                    if CONFIG.ENABLE_POST_PREDICT then
+                    if CONFIG.PREDICT_STYLE == "post" then
                         env.need_push = true 
                     else
                         predict_count = 0; is_predicting = false
@@ -873,7 +875,7 @@ end
 
 function T.func(input, seg, env)
     -- 受总开关与联想开关联合控制
-    if not env.engine.context:get_option("prediction") or not CONFIG.ENABLE_POST_PREDICT then return end
+    if not env.engine.context:get_option("prediction") or CONFIG.PREDICT_STYLE ~= "post" then return end
     
     if s_match(input, "^[›]+$") and pending_cands then
         local count = 0
@@ -895,8 +897,17 @@ local f_last_commit = ""
 local f_reorder_map = nil
 local shared_boosted = {}
 local shared_normal = {}
-local boosted_obj_pool = {}
-local boosted_pool_idx = 0
+-- 快速检测纯英文字母文本（替代 s_find 正则，结果完全等价）
+local function is_alpha_fast(s)
+  if not s or s == "" then return false end
+  local b = string.byte(s, 1)
+  if not ((b >= 0x41 and b <= 0x5A) or (b >= 0x61 and b <= 0x7A)) then return false end
+  for i = 2, #s do
+    b = string.byte(s, i)
+    if not ((b >= 0x41 and b <= 0x5A) or (b >= 0x61 and b <= 0x7A)) then return false end
+  end
+  return true
+end
 
 function F.init(env) end
 
@@ -935,7 +946,7 @@ function F.func(input, env)
         return
     end
 
-    if not CONFIG.ENABLE_CONTEXT_REORDER and not CONFIG.ENABLE_FALLBACK_REORDER then
+    if CONFIG.PREDICT_STYLE ~= "reorder" and not CONFIG.ENABLE_FALLBACK_REORDER then
         for cand in input:iter() do yield(cand) end
         return
     end
@@ -958,8 +969,8 @@ function F.func(input, env)
             end
         end
 
-        if is_context_valid and CONFIG.ENABLE_CONTEXT_REORDER then
-            local preds = pending_cands or get_predictions(env, last_commit)
+        if is_context_valid and CONFIG.PREDICT_STYLE ~= "off" then
+            local preds = get_predictions(env, last_commit)
             if preds then
                 f_reorder_map = {}
                 for rank, p in ipairs(preds) do
@@ -994,7 +1005,8 @@ function F.func(input, env)
             if idx == 1 then
                 c1 = cand
             elseif idx == 2 then
-                local is_cand_valid = cand.type ~= "raw" and cand.type ~= "english" and not s_find(cand.text or "", "^[a-zA-Z]+$")
+                local ct = cand.type
+                local is_cand_valid = ct ~= "raw" and ct ~= "english" and not is_alpha_fast(cand.text)
                 if c1.type ~= "sentence" and is_cand_valid and c1._end == cand._end then
                     yield(cand)
                     yield(c1)
@@ -1010,7 +1022,6 @@ function F.func(input, env)
         return
     end
 
-    boosted_pool_idx = 0
     local b_cnt = 0
     local n_cnt = 0
     
@@ -1022,12 +1033,13 @@ function F.func(input, env)
     for cand in input:iter() do
         count = count + 1
         local text = cand.text or ""
+        local ct = cand.type
         local current_len = utf8_len(text) or 0
         
         if count == 1 then 
             target_len = current_len 
             target_end = cand._end
-            if cand.type == "sentence" then
+            if ct == "sentence" then
                 do_fallback = false
             end
         end
@@ -1043,7 +1055,7 @@ function F.func(input, env)
             if count > 1 and current_len ~= target_len then length_mismatch_stop = true end
         end
 
-        if cand.type == "raw" or cand.type == "english" or s_find(text, "^[a-zA-Z]+$") or length_mismatch_stop or count > max_scan then
+        if ct == "raw" or ct == "english" or is_alpha_fast(text) or length_mismatch_stop or count > max_scan then
             for i = b_cnt + 1, #shared_boosted do shared_boosted[i] = nil end
             for i = n_cnt + 1, #shared_normal do shared_normal[i] = nil end
             sort(shared_boosted, stable_sort)
@@ -1060,16 +1072,14 @@ function F.func(input, env)
         if (rank or is_classifier) and current_len == target_len then
             local final_rank = rank or 0
             if is_classifier then final_rank = -1 end 
-            boosted_pool_idx = boosted_pool_idx + 1
-            if not boosted_obj_pool[boosted_pool_idx] then
-                boosted_obj_pool[boosted_pool_idx] = {}
+            b_cnt = b_cnt + 1
+            if not shared_boosted[b_cnt] then
+                shared_boosted[b_cnt] = {}
             end
-            local b_obj = boosted_obj_pool[boosted_pool_idx]
+            local b_obj = shared_boosted[b_cnt]
             b_obj.cand = cand
             b_obj.rank = final_rank
             b_obj.index = count
-            b_cnt = b_cnt + 1
-            shared_boosted[b_cnt] = b_obj
         else
             n_cnt = n_cnt + 1
             shared_normal[n_cnt] = cand

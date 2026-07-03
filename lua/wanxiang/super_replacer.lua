@@ -260,6 +260,9 @@ function M.init(env)
     env.delimiter = "\t"
     env.split_pattern = "([^\t]+)"
     
+    local delimiter = config:get_string("speller/delimiter") or " '"
+    env.speller_delimiter = delimiter:sub(2, 2)
+
     local comment_fmt_val = cfg_root and cfg_root:get_value("comment_format")
     env.comment_format = comment_fmt_val and comment_fmt_val:get_string() or "〔%s〕"
     
@@ -650,8 +653,10 @@ function M.func(input, env)
                 end
             end
             
-            local query_code = input_code
-            if string.match(ctx.input, "^[a-zA-Z]+$") then query_code = ctx.input end
+            local query_code = string.gsub(input_code, env.speller_delimiter, "")
+            if string.match(ctx.input, "^[a-zA-Z]+$") then
+                query_code = string.gsub(ctx.input, env.speller_delimiter, "")
+            end
 
             if is_active and is_tag_match and query_code ~= "" then
                 local key = t.prefix .. query_code

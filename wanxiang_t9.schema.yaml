@@ -94,6 +94,121 @@ engine:
 t9:
   isDisplayOriginalPreedit: true
 
+grammar:
+  language: wanxiang-lts-zh-hans
+  collocation_max_length: 6
+  collocation_min_length: 2
+  collocation_penalty: -14
+  non_collocation_penalty: -6
+  weak_collocation_penalty: -100
+  rear_penalty: -18
+
+# 主翻译器，拼音
+translator:
+  dictionary: wanxiang  # 挂载主词库
+  #  packs: user                  #导入根目录下名称为user.dict.yaml的自定义固定词典
+  prism: wanxiang_t9  # 多方案共用一个词库时，为避免冲突，需要用 prism 指定一个名字。
+  enable_completion: true  # 启用候选词补全
+  #  user_dict: zrm.userdb       # 用户词典的文件名称
+  #  db_class: tabledb           #开启后就不会产生wanxiang.userdb这样的文件夹，会直接输出文本wanxiang.txt同时无法使用同步能力，可设 tabledb〔文本〕或 userdb〔二进制〕
+  enable_user_dict: true  # 是否开启自动调频，即开启用户词典
+  enable_encoder: true  #是否开启自动造词
+  enable_sentence: false  #是否开启自动造句
+  enable_correction: false  #是否开启自动纠错
+  encode_commit_history: true  # 预留历史上屏自动编码成词
+  contextual_suggestions: false  #模型预测，假设模型里面有的四个字的词汇 现在智能 而首选组合 现在只能 当你输入 现在 上屏后下一次输入zhi neng就会输出，智能前提是没有权重更高的了，很明显这与你的预期“现在只能”不符。很明显实际上又要预测又要连续句子，放一起是很难优雅的。
+  max_homophones: 8
+  core_word_length: 4  # >0 启用，按段学词 + 相邻段拼接
+  max_word_length: 7  # >0 启用，过长短语不记整词，只加元素权重
+  initial_quality: 3  #初始质量拼音的权重应该比英文大
+  spelling_hints: 30  #将注释以词典code字符串形式完全暴露，通过super_comment.lua完全接管，灵活配置。
+  always_show_comments: true  # Rime 默认在 preedit 等于 comment 时取消显示 comment，这里强制一直显示，供super_comment.lua做判断用。
+  comment_format:
+  #disable_user_dict_for_patterns:  #如果你开启调频，需要一并考虑这个配置是否需要，基本的6码3字不调频，你可以自定义，目前的逻辑是依然记录用户词但满足规则的不输出不被使用
+  #  - "^[a-z]{1,6}"
+
+# 部件拆字反查
+wanxiang_reverse:
+  tag: wanxiang_reverse
+  dictionary: wanxiang_reverse
+  prefix: "`"  # 反查前缀（反查时前缀会消失），与 recognizer/patterns/wanxiang_reverse 匹配
+  tips: "〔反查：拆分|笔画〕"
+
+wanxiang_lookup:  #设置归属于super_lookup.lua
+  tags: [abc]  # 检索当前tag的候选
+  key: "`"  # 输入中反查引导符，要添加到 speller/alphabet
+  lookup: [wanxiang_reverse]  #反查滤镜数据库，万象都合并为一个了
+  data_source: [db]  #对于pro版本能从注释中加载词库辅助码，详情见Pro版本，base这里无需修改。
+
+# 拼写设定
+speller:
+  # table_translator翻译器，支持自动上屏。例如 “zmhu”可以自动上屏“怎么回事”
+  #  auto_select: true
+  #  auto_select_pattern: ^[a-z]+/|^[a-df-zA-DF-Z]\w{3}|^e\w{4}
+  # 如果不想让什么标点直接上屏，可以加在 alphabet，或者编辑标点符号为两个及以上的映射，alphabet就是将字符纳入输入编码的范畴
+  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA9876543210`/\›
+  initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA9876543210›
+  delimiter: " '"  # 系统配置，第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
+  visual_delimiter: " "  # super_preedit.lua配置：是否让分隔符号跟着一起转换，例如nǐ'hǎo 在实际使用中表现出视觉拥挤，我们可以让delimiter平时是'转换为拼音的时候使用空格nǐ hǎo，更符合实际。
+  tone_isolate: true  # super_preedit.lua配置：是否将数字声调从转换后拼音中隔离出来（true=隔离， false 直接参与转换）例如：nǐ3
+  algebra:
+    - xform/ⅱ//  #用于Lua判断输入类型的标记
+    - xform/^(.*);.*$/$1/
+    - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜüńňǹḿm̀/aaaaooooeeeeiiiiuuuuvvvvvnnnmmm/
+    - derive/^ng$/eng/
+    - xform/^n$/en/
+    - xform/^m$/me/
+    - derive/^(.*)$/\U$1/
+    - derive/^([nl])ve$/$1ue/
+    - derive/^([NL])VE$/$1UE/
+    - derive/^([jqxy])u/$1v/
+    - derive/^([JQXY])U/$1V/
+    - xlit/ABCDEFGHIJKLMNOPQRSTUVWXYZ/22233344455566677778889999/
+
+# 处理符合特定规则的输入码，如网址、反查
+recognizer:
+  import_preset: default  # 从 default.yaml 继承通用的
+  patterns:  # 再增加方案专有的：
+    punct: "^/([0-9]|10|[A-Za-z]+)$"  # 响应 symbols.yaml 的 symbols
+    wanxiang_reverse: "^`[A-Za-z;]*$"  # 响应部件拆字与笔画的反查，与 wanxiang_reverse/prefix 匹配
+    #add_user_dict: "^ac[A-Za-z/`']*$"   #引导式造词
+    unicode: "^U[a-f0-9]+"  # U 作为触发前缀，响应 lua_translator@unicode，输出 Unicode 字符
+    number: "^R[0-9]+[.]?[0-9]*"  # R 作为触发前缀, 响应 lua_translator@number_translator，数字金额大写
+    yr1: "^N0[1-9]?0?[1-9]?"
+    yr2: "^N1[02]?0?[1-9]?"
+    yr3: "^N0[1-9]?[1-2]?[1-9]?"
+    yr4: "^N1[02]?[1-2]?[1-9]?"
+    yr5: "^N0[1-9]?3?[01]?"
+    yr6: "^N1[02]?3?[01]?"
+    nyr1: "^N19?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?"
+    nyr2: "^N20?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?"
+    calculator: "^V.*$"  # V 作为触发前缀，计算器功能引导
+    #add_user_dict: "^ac[A-Za-z/`']*$"      #自造词引导方式
+    email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"  # email @ 之后不上屏
+    url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"  # URL
+
+punctuator:
+  digit_separators: ",."  #数字分隔符，系统逻辑是在中文状态下输入数字后继续输入句号按下两次即输入半角状态
+  #__include: wanxiang_symbols:/symbol_table         # 从 wanxiang_symbols.yaml 导入所有符号配置
+  __patch: t9_sym
+t9_sym:
+  half_shape/+:
+    "1": [1, "@", ".", "/", ":", "_", "-", "#"]
+    "@": [1, "@", ！, ：, 、, ……, ～]
+    "#": [0, "#", "$", "%", "^", "&", "*", "(", ")"]
+# 从 default 继承快捷键
+key_binder:
+  import_preset: default  # 从 default.yaml 继承通用的
+  # Lua 配置: shijian.lua 的引导符，涉及：日期、时间、节日、节气、生日、问候模板等功能
+  shijian_keys: ["/", "6"]
+  bindings:  # 也可以再增加方案专有的
+    - {when: has_menu, accept: 1, send: apostrophe}
+    #当tab第一个字补码正确后，可以使用Ctrl+tab进行上屏并依次补码
+    - {when: composing, accept: "Control+Tab", send_sequence: '{Home}{Shift+Right}{1}{Shift+Right}'}
+    - {match: "^.*`$", accept: "`", send_sequence: '{BackSpace}{Home}{`}{`}{End}'}
+    - {when: composing, accept: Return, send: "Shift+Return",}  #t9没有上屏数字的必要，但preedit有可能
+
+
 super_comment:  # 超级注释模块，子项配置 true 开启，false 关闭
   candidate_length: 15  # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理
   corrector_type: "comment"  # 注意9键里应原状态输出，不要加括号。随意更换左右括号，比如"〔comment〕" 不加括号为无括号，comment占位不能动
@@ -113,9 +228,9 @@ super_processor:
 
 user_predict:
   db_name: lua/predict  # 数据库名称（默认 predict，将生成 predict.userdb 文件夹）
-  enable_post_predict: true  # 上屏后预测
-  enable_context_reorder: true  # 输入时调频
-  enable_fallback_reorder: true  # 同码回删再输首次交换
+  mobile_predict_style: post   # 移动端联想模式："post"（上屏后弹出预测候选）| "reorder"（输入时调频）| "off"（关闭）
+  # 上面的开关是总开关，开启后pc端自动为上下文调频模式，不再有弹出模式。
+  enable_fallback_reorder: false  # 同码回删再输首次交换
   max_candidates: 10  # 屏幕最多显示的联想词数量
   max_predictions: 3  # 连续触发预测的最高次数限制
   expiry_days: 90  # 绝对寿命（天）：不命中则物理销毁
@@ -161,7 +276,7 @@ charset:
   - option: charset_filter
     base: a  #可以填入多个类别如aj
     addlist:
-      - "诶濛硷氽尛躝〇冇吔磺咗囧屌鲶芶咲畑垅𰻝𰻞龍朙頔"
+      - "诶濛硷氽尛躝〇冇吔磺咗囧屌鲶芶咲畑垅𰻝𰻞龍朙頔雲"
     blacklist: []
   - option: s2t
     base: fa
@@ -228,6 +343,12 @@ super_tips:
 #   O  带冒号格式        +08:00、-04:30、+05:45
 #   o  不带冒号格式      +0800、-0430、+0545
 #   A  中文时段    凌晨 / 上午 / 中午 / 下午 / 晚上
+# 【星期】
+#   w  年第几周     01
+#   E  英文星期全称  Sunday
+#   F  英文星期简称  Sun
+#   C  中文星期全称  星期一
+#   D  中文星期简称  周一
 date_formats:
   - "Y年m月d日"
   - "Y-m-d"
@@ -272,29 +393,6 @@ input_stats:
 #    - "500000:掌控法则·化神期"
 #    - "1000000:破碎虚空·渡劫期"
 
-# 主翻译器，拼音
-translator:
-  dictionary: wanxiang  # 挂载主词库
-  #  packs: user                  #导入根目录下名称为user.dict.yaml的自定义固定词典
-  prism: wanxiang_t9  # 多方案共用一个词库时，为避免冲突，需要用 prism 指定一个名字。
-  enable_completion: true  # 启用候选词补全
-  #  user_dict: zrm.userdb       # 用户词典的文件名称
-  #  db_class: tabledb           #开启后就不会产生wanxiang.userdb这样的文件夹，会直接输出文本wanxiang.txt同时无法使用同步能力，可设 tabledb〔文本〕或 userdb〔二进制〕
-  enable_user_dict: true  # 是否开启自动调频，即开启用户词典
-  enable_encoder: true  #是否开启自动造词
-  enable_sentence: false  #是否开启自动造句
-  enable_correction: false  #是否开启自动纠错
-  encode_commit_history: true  # 预留历史上屏自动编码成词
-  contextual_suggestions: false  #模型预测，假设模型里面有的四个字的词汇 现在智能 而首选组合 现在只能 当你输入 现在 上屏后下一次输入zhi neng就会输出，智能前提是没有权重更高的了，很明显这与你的预期“现在只能”不符。很明显实际上又要预测又要连续句子，放一起是很难优雅的。
-  max_homophones: 8
-  core_word_length: 4  # >0 启用，按段学词 + 相邻段拼接
-  max_word_length: 7  # >0 启用，过长短语不记整词，只加元素权重
-  initial_quality: 3  #初始质量拼音的权重应该比英文大
-  spelling_hints: 30  #将注释以词典code字符串形式完全暴露，通过super_comment.lua完全接管，灵活配置。
-  always_show_comments: true  # Rime 默认在 preedit 等于 comment 时取消显示 comment，这里强制一直显示，供super_comment.lua做判断用。
-  comment_format:
-  #disable_user_dict_for_patterns:  #如果你开启调频，需要一并考虑这个配置是否需要，基本的6码3字不调频，你可以自定义，目前的逻辑是依然记录用户词但满足规则的不输出不被使用
-  #  - "^[a-z]{1,6}"
 
 super_replacer:
   db_name: lua/replacer
@@ -371,92 +469,3 @@ super_replacer:
       prefix: "_rev_"
       files:
         - lua/data/rev.txt
-# 部件拆字反查
-wanxiang_reverse:
-  tag: wanxiang_reverse
-  dictionary: wanxiang_reverse
-  prefix: "`"  # 反查前缀（反查时前缀会消失），与 recognizer/patterns/wanxiang_reverse 匹配
-  tips: "〔反查：拆分|笔画〕"
-
-wanxiang_lookup:  #设置归属于super_lookup.lua
-  tags: [abc]  # 检索当前tag的候选
-  key: "`"  # 输入中反查引导符，要添加到 speller/alphabet
-  lookup: [wanxiang_reverse]  #反查滤镜数据库，万象都合并为一个了
-  data_source: [db]  #对于pro版本能从注释中加载词库辅助码，详情见Pro版本，base这里无需修改。
-
-# 处理符合特定规则的输入码，如网址、反查
-recognizer:
-  import_preset: default  # 从 default.yaml 继承通用的
-  patterns:  # 再增加方案专有的：
-    punct: "^/([0-9]|10|[A-Za-z]+)$"  # 响应 symbols.yaml 的 symbols
-    wanxiang_reverse: "^`[A-Za-z;]*$"  # 响应部件拆字与笔画的反查，与 wanxiang_reverse/prefix 匹配
-    #add_user_dict: "^ac[A-Za-z/`']*$"   #引导式造词
-    unicode: "^U[a-f0-9]+"  # U 作为触发前缀，响应 lua_translator@unicode，输出 Unicode 字符
-    number: "^R[0-9]+[.]?[0-9]*"  # R 作为触发前缀, 响应 lua_translator@number_translator，数字金额大写
-    yr1: "^N0[1-9]?0?[1-9]?"
-    yr2: "^N1[02]?0?[1-9]?"
-    yr3: "^N0[1-9]?[1-2]?[1-9]?"
-    yr4: "^N1[02]?[1-2]?[1-9]?"
-    yr5: "^N0[1-9]?3?[01]?"
-    yr6: "^N1[02]?3?[01]?"
-    nyr1: "^N19?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?"
-    nyr2: "^N20?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?"
-    calculator: "^V.*$"  # V 作为触发前缀，计算器功能引导
-    #add_user_dict: "^ac[A-Za-z/`']*$"      #自造词引导方式
-    email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"  # email @ 之后不上屏
-    url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"  # URL
-
-punctuator:
-  digit_separators: ",."  #数字分隔符，系统逻辑是在中文状态下输入数字后继续输入句号按下两次即输入半角状态
-  #__include: wanxiang_symbols:/symbol_table         # 从 wanxiang_symbols.yaml 导入所有符号配置
-  __patch: t9_sym
-t9_sym:
-  half_shape/+:
-    "1": [1, "@", ".", "/", ":", "_", "-", "#"]
-    "@": [1, "@", ！, ：, 、, ……, ～]
-    "#": [0, "#", "$", "%", "^", "&", "*", "(", ")"]
-# 从 default 继承快捷键
-key_binder:
-  import_preset: default  # 从 default.yaml 继承通用的
-  # Lua 配置: shijian.lua 的引导符，涉及：日期、时间、节日、节气、生日、问候模板等功能
-  shijian_keys: ["/", "6"]
-  bindings:  # 也可以再增加方案专有的
-    - {when: has_menu, accept: 1, send: apostrophe}
-    #当tab第一个字补码正确后，可以使用Ctrl+tab进行上屏并依次补码
-    - {when: composing, accept: "Control+Tab", send_sequence: '{Home}{Shift+Right}{1}{Shift+Right}'}
-    - {match: "^.*`$", accept: "`", send_sequence: '{BackSpace}{Home}{`}{`}{End}'}
-    - {when: composing, accept: Return, send: "Shift+Return",}  #t9没有上屏数字的必要，但preedit有可能
-
-# 拼写设定
-speller:
-  # table_translator翻译器，支持自动上屏。例如 “zmhu”可以自动上屏“怎么回事”
-  #  auto_select: true
-  #  auto_select_pattern: ^[a-z]+/|^[a-df-zA-DF-Z]\w{3}|^e\w{4}
-  # 如果不想让什么标点直接上屏，可以加在 alphabet，或者编辑标点符号为两个及以上的映射，alphabet就是将字符纳入输入编码的范畴
-  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA9876543210`/\›
-  initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA9876543210›
-  delimiter: " '"  # 系统配置，第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
-  visual_delimiter: " "  # super_preedit.lua配置：是否让分隔符号跟着一起转换，例如nǐ'hǎo 在实际使用中表现出视觉拥挤，我们可以让delimiter平时是'转换为拼音的时候使用空格nǐ hǎo，更符合实际。
-  tone_isolate: true  # super_preedit.lua配置：是否将数字声调从转换后拼音中隔离出来（true=隔离， false 直接参与转换）例如：nǐ3
-  algebra:
-    - xform/ⅱ//  #用于Lua判断输入类型的标记
-    - xform/^(.*);.*$/$1/
-    - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜüńňǹḿm̀/aaaaooooeeeeiiiiuuuuvvvvvnnnmmm/
-    - derive/^ng$/eng/
-    - xform/^n$/en/
-    - xform/^m$/me/
-    - derive/^(.*)$/\U$1/
-    - derive/^([nl])ve$/$1ue/
-    - derive/^([NL])VE$/$1UE/
-    - derive/^([jqxy])u/$1v/
-    - derive/^([JQXY])U/$1V/
-    - xlit/ABCDEFGHIJKLMNOPQRSTUVWXYZ/22233344455566677778889999/
-
-grammar:
-  language: wanxiang-lts-zh-hans
-  collocation_max_length: 6
-  collocation_min_length: 2
-  collocation_penalty: -14
-  non_collocation_penalty: -6
-  weak_collocation_penalty: -100
-  rear_penalty: -18

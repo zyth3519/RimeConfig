@@ -66,6 +66,21 @@ local function get_utf8_string_range(text, start_idx, end_idx)
     return res
 end
 
+-- 将 UTF8 字符串转为字符数组
+local function text_to_chars(text)
+    if not text or text == "" then return {} end
+    local chars = {}
+    for _, cp in utf8.codes(text) do
+        table.insert(chars, utf8.char(cp))
+    end
+    return chars
+end
+
+-- 将字符数组拼回字符串
+local function chars_to_text(chars)
+    return table.concat(chars)
+end
+
 -- 替换一段 UTF8 字符片段
 local function replace_text_range(current_text, start_idx, end_idx, new_str)
     local out = {}
@@ -784,9 +799,10 @@ end
 
 -- [词组纠错] 3. 尝试单字逐个回溯替换
 local function try_match_single_chars(current_text, search_end_idx, env, syllables, fuma_chunks, syl_offset, match_count)
-    local final_text = current_text
+    local chars = text_to_chars(current_text)
     local current_end = search_end_idx
     local m_count = match_count
+    local changed = false
 
     for c_idx = #fuma_chunks, 1, -1 do
         local chunk_fuma = fuma_chunks[c_idx]
@@ -796,10 +812,10 @@ local function try_match_single_chars(current_text, search_end_idx, env, syllabl
         local max_weight = -10000
 
         for i = current_end, 1, -1 do
-            local orig_char = get_utf8_char_at(final_text, i)
+            local orig_char = chars[i]
             local pinyin_code = syllables[i + syl_offset]
 
-            if not pinyin_code then
+            if not pinyin_code or not orig_char then
                 goto next_i
             end
 
@@ -859,8 +875,9 @@ local function try_match_single_chars(current_text, search_end_idx, env, syllabl
 
         if best_pos then
             m_count = m_count + 1
-            if best_char ~= get_utf8_char_at(final_text, best_pos) then
-                final_text = replace_text_range(final_text, best_pos, best_pos, best_char)
+            if best_char ~= chars[best_pos] then
+                chars[best_pos] = best_char
+                changed = true
             end
             current_end = best_pos - 1
         elseif perfect_match_idx then
@@ -869,7 +886,10 @@ local function try_match_single_chars(current_text, search_end_idx, env, syllabl
         end
     end
 
-    return final_text, m_count
+    if changed then
+        return chars_to_text(chars), m_count
+    end
+    return current_text, m_count
 end
 
 -- 组装引导模式的主词组/单字纠错逻辑
@@ -1082,7 +1102,13 @@ local function handle_explicit_mode(input, env, ctx_input, pure_code, explicitly
         syllables = get_script_text_parts(ctx, env.search_key_str)
     end
 
+    -- 读取预热缓存，避免重复查 db 和代数展开
+    local raw_cache = env._cand_raw_cache
+    local cached = raw_cache and raw_cache[pure_code]
+    local cand_idx = 0
+
     for cand in input:iter() do
+        cand_idx = cand_idx + 1
         local cand_len = get_utf8_len(cand.text)
 
         -- 首个候选修正：纯声调翻译与多字纠错
@@ -1116,8 +1142,12 @@ local function handle_explicit_mode(input, env, ctx_input, pure_code, explicitly
             goto skip
         end
 
-        local raw_data = build_candidate_raw_data(cand, cand_len, env)
-        if check_explicit_match(raw_data, cand_len, clean_fuma, tone_filter_seq, apply_tone_filter, env) then
+        local raw_data = cached and cached[cand.text]
+        if not raw_data then
+            raw_data = build_candidate_raw_data(cand, cand_len, env)
+        end
+
+        if raw_data and check_explicit_match(raw_data, cand_len, clean_fuma, tone_filter_seq, apply_tone_filter, env) then
             has_any_match = true
             if if_single_char_first and cand_len > 1 then
                 table.insert(long_word_cands, cand)
@@ -1374,6 +1404,7 @@ function f.init(env)
 
     env._global_db_cache = {}
     env._global_comment_cache = {}
+    env._cand_raw_cache = {}
     env.cache_size = 0
 
     -- 双轨缓存系统
@@ -1434,9 +1465,21 @@ function f.func(input, env)
 
     if s_start then
         if not explicitly_fuma or #explicitly_fuma == 0 then
+            -- 预热缓存 + 透传：敲了引导符但还没输辅码时，提前查 db 和代数展开
+            local raw_cache = env._cand_raw_cache
+            local need_warm = raw_cache and not raw_cache[pure_code]
+            local warm = need_warm and {} or nil
             for cand in input:iter() do
                 yield(cand)
+                if warm then
+                    local cand_len = get_utf8_len(cand.text)
+                    if cand.type ~= 'sentence' and cand_len and cand_len > 0
+                        and not (string.byte(cand.text, 1) and string.byte(cand.text, 1) < 128) then
+                        warm[cand.text] = build_candidate_raw_data(cand, cand_len, env)
+                    end
+                end
             end
+            if warm then raw_cache[pure_code] = warm end
             return
         end
         return handle_explicit_mode(input, env, ctx_input, pure_code, explicitly_fuma, s_end)
@@ -1465,6 +1508,7 @@ function f.fini(env)
     env.db_table = nil
     env._global_db_cache = nil
     env._global_comment_cache = nil
+    env._cand_raw_cache = nil
     env.history_parts = nil
     env.history_parts_cache = nil
 

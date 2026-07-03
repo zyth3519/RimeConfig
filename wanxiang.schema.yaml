@@ -111,6 +111,241 @@ grammar:
   weak_collocation_penalty: -100
   rear_penalty: -18
 
+# 主翻译器，拼音
+translator:
+  dictionary: wanxiang  # 挂载主词库
+  #  packs: user                  #导入根目录下名称为user.dict.yaml的自定义固定词典
+  #prism: wanxiang             # 多方案共用一个词库时，为避免冲突，需要用 prism 指定一个名字。
+  enable_completion: true  # 启用候选词补全
+  #  user_dict: zrm.userdb       # 用户词典的文件名称
+  #  db_class: tabledb           #开启后就不会产生wanxiang.userdb这样的文件夹，会直接输出文本wanxiang.txt同时无法使用同步能力，可设 tabledb〔文本〕或 userdb〔二进制〕
+  enable_user_dict: true  # 是否开启自动调频，即开启用户词典
+  #  enable_sentence: false       #是否开启自动造句
+  #  enable_correction: false     #是否开启自动纠错
+  #  encode_commit_history: true  # 预留历史上屏自动编码成词
+  core_word_length: 4  # >0 启用，按段学词 + 相邻段拼接
+  max_word_length: 7  # >0 启用，过长短语不记整词，只加元素权重
+  contextual_suggestions: false  #模型用来开启词组权重预测，效果一般关闭
+  max_homophones: 8
+  initial_quality: 3  #初始质量拼音的权重应该比英文大
+  spelling_hints: 30  #将注释以词典code字符串形式完全暴露，通过super_comment.lua完全接管，灵活配置。
+  always_show_comments: true  # Rime 默认在 preedit 等于 comment 时取消显示 comment，这里强制一直显示，供super_comment_preedit.lua做判断用。
+  comment_format:  #将注释以词典字符串形式完全暴露，通过super_preedit.lua完全接管，灵活配置。
+  #disable_user_dict_for_patterns:  #如果你开启调频，需要一并考虑这个配置是否需要，基本的6码3字不调频，你可以自定义，目前的逻辑是依然记录用户词但满足规则的不输出不被使用
+  #  - "^[a-z]{1,6}"
+
+# 自定义词典
+user_dict_set:
+  dictionary: wanxiang
+  initial_quality: 0
+  enable_completion: false
+  enable_sentence: false
+  spelling_hints: 50
+  contextual_suggestions: false  #模型预测，假设模型里面有的四个字的词汇 现在智能 而首选组合 现在只能 当你输入 现在 上屏后下一次输入zhi neng就会输出，智能前提是没有权重更高的了，很明显这与你的预期“现在只能”不符。很明显实际上又要预测又要连续句子，放一起是很难优雅的。
+  max_homophones: 8
+  comment_format:
+  enable_user_dict: false
+  user_dict: zc
+# 自定义词典加词(``引导)
+add_user_dict:
+  tag: add_user_dict
+  dictionary: wanxiang
+  initial_quality: -1
+  user_dict: zc
+  enable_completion: true  # 提前显示尚未输入完整码的字〔仅 table_translator 有效〕
+  enable_user_dict: false
+  enable_auto_phrase: true  # lua造词功能，在custom开启，相关功能位于auto_phrase.lua，开启后：模型能造的句子不造词，现有的词不造词，只造词库没有的，选词可造词
+  spelling_hints: 50
+  comment_format:
+  prefix: "``"
+  tips: "〔开始造词〕"
+
+# 自定义短语
+custom_phrase:
+  dictionary: ""
+  user_dict: custom_phrase  #需要手动创建 custom_phrase.txt 文件
+  db_class: stabledb  #可设 tabledb〔文本〕或 userdb〔二进制〕
+  enable_completion: false  #补全提示
+  enable_sentence: false  #禁止造句
+  initial_quality: 99  #custom_phrase 的权重应该比 pinyin 和 wanxiang_en 大
+
+# 中文、英文、数字、符号等混合词汇
+wanxiang_english:
+  dictionary: wanxiang_english
+  user_dict: en
+  enable_completion: true
+  initial_quality: 2.1
+  comment_format:  #这里很重要如果残留带声调字母，剩余编码提示计算出错引发程序崩溃
+    - xform/^~.+$//
+  #以下是lua相关配置，与原生处理器无关
+  #英文自动加空格，除关闭外共有3种模式可供选择
+  #off: 关闭; before: 总是前加; after: 总是后加; 
+  #smart: 智能模式连续输入英文时第二个单词前开始加空格，非输入状态的回车与空格都能打断加空格状态
+  #支持设置延时销毁加空格状态，单位秒,0不超时，大于0为超时时间，极大的保证了连续输入的体验。
+  english_spacing: smart
+  spacing_timeout: 5
+  max_candidates: 5  #英文候选输出最大候选数(适用于需要选单字组词的用户)
+  trigger: "\\"  #英文造词符号\，写一个用时双击
+
+wanxiang_mixedcode:
+  dictionary: wanxiang_mixedcode
+  db_class: stabledb
+  enable_completion: true
+  enable_sentence: false
+  initial_quality: 2
+  comment_format:  #这里很重要如果残留带声调字母，剩余编码提示计算出错引发程序崩溃
+    - xform/.*//
+
+# 部件拆字反查
+wanxiang_reverse:
+  tag: wanxiang_reverse
+  dictionary: wanxiang_reverse
+  enable_completion: true
+  prefix: "`"  # 反查前缀（反查时前缀会消失），与 recognizer/patterns/wanxiang_reverse 匹配
+  tips: "〔反查：拆分|笔画〕"
+
+wanxiang_lookup:  #设置归属于super_lookup.lua
+  tags: [abc, add_user_dict]  # 检索当前tag的候选
+  key: "`"  # 输入中反查引导符，要添加到 speller/alphabet
+  lookup: [wanxiang_reverse]  #反查滤镜数据库，万象都合并为一个了
+  data_source: [db]  #对于pro版本能从注释中加载词库辅助码，详情见Pro版本，base这里无需修改。
+  enable_tone: true  #启用声调反查
+  enable_direct: false  #启用无引导的直接辅助查询，能够充分理解其类似手心的直接辅助功能，仅针对两个字的词组，支持两个字任意单、双辅助，双辅助也支持两个字的首辅助组合
+
+# 拼写设定
+speller:
+  # table_translator翻译器，支持自动上屏。例如 “zmhu”可以自动上屏“怎么回事”
+  #  auto_select: true
+  #  auto_select_pattern: ^[a-z]+/|^[a-df-zA-DF-Z]\w{3}|^e\w{4}
+  # 如果不想让什么标点直接上屏，可以加在 alphabet，或者编辑标点符号为两个及以上的映射，alphabet就是将字符纳入输入编码的范畴
+  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA1234567890`;/\›
+  # initials 定义仅作为始码的按键，排除 ` 让单个的 ` 可以直接上屏
+  initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA/›
+  delimiter: " '"  # 系统配置，第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
+  visual_delimiter: " "  # super_preedit.lua配置：是否让分隔符号跟着一起转换，例如nǐ'hǎo 在实际使用中表现出视觉拥挤，我们可以让delimiter平时是'转换为拼音的时候使用空格nǐ hǎo，更符合实际。
+  tone_isolate: true  # super_preedit.lua配置：是否将数字声调从转换后拼音中隔离出来（true=隔离， false 直接参与转换）例如：nǐ3
+  algebra:
+    __patch:
+      #- 模糊音             #模糊音选择性开启
+      - wanxiang_algebra:/base/全拼  #拼音转双拼码
+
+# 处理符合特定规则的输入码，如网址、反查
+recognizer:
+  import_preset: default  # 从 default.yaml 继承通用的
+  patterns:  # 再增加方案专有的：
+    punct: "^/([0-9]|10|[A-Za-z]+)$"  # 响应 symbols.yaml 的 symbols
+    wanxiang_reverse: "^`[A-Za-z;]*$"  # 响应部件拆字与笔画的反查，与 wanxiang_reverse/prefix 匹配
+    unicode: "^U[a-f0-9]+"  # U 作为触发前缀，响应 lua_translator@unicode，输出 Unicode 字符
+    number: "^R[0-9]+[.]?[0-9]*"  # R 作为触发前缀, 响应 lua_translator@number_translator，数字金额大写
+    sjc: "^[/o]rc\\d+[-+=op]?$"
+    yr1: "^N0[1-9]?0?[1-9]?"
+    yr2: "^N1[02]?0?[1-9]?"
+    yr3: "^N0[1-9]?[1-2]?[1-9]?"
+    yr4: "^N1[02]?[1-2]?[1-9]?"
+    yr5: "^N0[1-9]?3?[01]?"
+    yr6: "^N1[02]?3?[01]?"
+    nyr1: "^N19?[0-9]?[0-9]?[0-1]?[0-9]?[0-9]?[0-9]?"
+    nyr2: "^N20?[0-9]?[0-9]?[0-1]?[0-9]?[0-9]?[0-9]?"
+    calculator: "^V.*$"  # V 作为触发前缀，计算器功能引导
+    #add_user_dict: "^``[A-Za-z/`']*$"      #自造词引导方式
+    email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"  # email @ 之后不上屏
+    url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$"  # URL
+    htj: "^/htj.*$"
+# 标点符号
+# punctuator 下面有三个子项：
+# 设置为一个映射，就自动上屏；设置为多个映射，如 '/' : [ '/', ÷ ] 则进行复选。
+#   full_shape: 全角没改，使用预设值
+#   half_shape: 标点符号全部直接上屏，和 macOS 自带输入法的区别是
+#              '|' 是半角的，
+#              '~' 是半角的，
+#              '`'（反引号）没有改成 '·'（间隔号）。
+#   symbols    Rime 的预设配置是以 '/' 前缀开头输出一系列字符，自定义的修改 symbols.yaml
+punctuator:
+  digit_separators: ",.:"  #数字分隔符，系统逻辑是在中文状态下输入数字后继续输入句号按下两次即输入半角状态
+  __include: wanxiang_symbols:/symbol_table  # 从 wanxiang_symbols.yaml 导入所有符号配置
+
+# 从 default 继承快捷键
+key_binder:
+  import_preset: default  # 从 default.yaml 继承通用的
+  # Lua 配置: shijian.lua 的引导符，涉及：日期、时间、节日、节气、生日、问候模板等功能
+  shijian_keys: ["/", "o"]
+  bindings:  # 也可以再增加方案专有的
+    # 通过按下/发送/+1节约一个按键，不冲突的时候可以开启
+    #- { match: "[a-z]{1,4}", accept: "/",  send_sequence: "/1" }
+    # 翻页 , .
+    # - { when: paging, accept: comma, send: Page_Up }
+    # - { when: has_menu, accept: period, send: Page_Down }
+    # 翻页 [ ]
+    # - { when: paging, accept: bracketleft, send: Page_Up }
+    # - { when: has_menu, accept: bracketright, send: Page_Down }
+    # 翻页 - =
+    - {when: has_menu, accept: minus, send: Page_Up}
+    - {when: has_menu, accept: equal, send: Page_Down}
+    # Option/Alt + ←/→ 切换光标至下/上一个拼音
+    - {when: always, toggle: ascii_punct, accept: Control+Shift+3}  # 切换中英标点
+    - {when: always, toggle: ascii_punct, accept: Control+Shift+numbersign}  # 切换中英标点
+    - {when: always, toggle: s2t, accept: Control+Shift+4}  # 切换简繁
+    - {when: always, toggle: s2t, accept: Control+Shift+dollar}  # 切换简繁
+    - {when: composing, accept: Alt+Left, send: Shift+Left}
+    - {when: composing, accept: Alt+Right, send: Shift+Right}
+    - {when: composing, accept: Control+w, send: Control+BackSpace}
+    #分号用于次选，微软、搜狗双拼不可启用
+    #- { when: has_menu, accept: semicolon, send: 2 }
+    #使用Control+e进入翻译模式
+    - {when: has_menu, accept: "Control+e", toggle: chinese_english}
+    #使用快捷键Control+a开启和关闭辅助码显示
+    - {when: has_menu, accept: "Control+a", toggle: tone_hint}
+    #通过快捷键Control+s使得输入码显示音调
+    - {when: has_menu, accept: "Control+s", toggle: tone_display}
+    #通过快捷键Control+t开启超级tips
+    - {when: has_menu, accept: "Control+t", toggle: super_tips}
+    #通过快捷键Control+g开启字符集过滤
+    - {when: has_menu, accept: "Control+g", toggle: charset_filter}
+    - {when: composing, accept: "Control+g", toggle: charset_filter}
+    #通过快捷键Shift+space开启输入模式切换
+    #- { when: always, accept: Shift+space, select: wanxiang }  #直接跳转指定方案
+    #- { when: always, accept: Shift+space, select: wanxiang_pro }  #直接跳转指定方案
+    - {when: always, accept: Shift+space, select: .next}  #下一个方案
+    # 使用 tab 在不同音节之间跳转
+    - {when: has_menu, accept: "Tab", send: "Control+Right"}
+    - {when: composing, accept: "Tab", send: "Control+Right"}
+    #当tab第一个字补码正确后，可以使用Ctrl+tab进行上屏并依次补码
+    - {when: composing, accept: "Control+Tab", send_sequence: '{Home}{Shift+Right}{1}{Shift+Right}'}
+    #当输入编码后发现没有词，则通过双击``进入造词模式而且不需要删除编码，这个功能与``直接引导相呼应相配合
+    #- { match: "^.*`$", accept: "`", send_sequence: '{BackSpace}{Home}{`}{`}{End}' }基础版暂时取消这个功能，
+    #斜杠被占用引导符号，因此输入本身设置为双击
+    - {match: "^/$", accept: "/", send_sequence: '{space}',}
+    #在预测符号状态下，按下斜杠提交清空与斜杠
+    - {match: "^›+$", accept: "backslash", send_sequence: '{Clear}{backslash}',}
+    - { match: "^›+$", accept: "comma",    send_sequence: '{Clear}{comma}'}
+    - { match: "^›+$", accept: "period",   send_sequence: '{Clear}{period}'}
+    - {match: "^›+$", accept: "Return", send_sequence: '{Clear}{Return}'}
+
+editor:
+  bindings:
+    space: confirm  # 空格键：上屏候选项
+    Return: commit_raw_input  # 回车键：上屏原始输入
+    Control+Return: commit_script_text  # Ctrl+回车键：上屏变换后输入（经过 preedit转换的）
+    Control+Shift+Return: commit_comment  # Ctrl+Shift+回车键：上屏 comment
+    BackSpace: revert  # 退格键：向前删除（撤消上次输入）
+    Delete: delete  # Delete 键：向后删除
+    Control+BackSpace: back_syllable  # Ctrl+退格键：删除一个音节
+    Control+Delete: delete_candidate  # Ctrl+Delete键：删除或降权候选项
+    Escape: cancel  # Esc 键：取消输入
+
+# 在边界按音节移动，在音节内部按字符移动  rewind , forward
+# 按字符移动（循环）       left_by_char , right_by_char
+# 按字符移动（不循环）     left_by_char_no_loop , right_by_char_no_loop
+# 按音节跳转（循环）       left_by_syllable , right_by_syllable
+# 按音节跳转（不循环）     left_by_syllable_no_loop , right_by_syllable_no_loop
+navigator:
+  bindings:
+    Left: left_by_char_no_loop
+    Right: right_by_char_no_loop
+    Shift+Left: left_by_syllable
+    Shift+Right: right_by_syllable
+
+
 super_comment:  # 超级注释模块，子项配置 true 开启，false 关闭
   candidate_length: 2  # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理
   corrector_type: "〔comment〕"  # 随意更换左右括号，比如"〔comment〕" 不加括号为无括号，comment占位不能动
@@ -139,9 +374,9 @@ super_processor:
 
 user_predict:
   db_name: lua/predict  # 数据库名称（默认 predict，将生成 predict.userdb 文件夹）
-  enable_post_predict: true  # 上屏后预测
-  enable_context_reorder: true  # 输入时调频
-  enable_fallback_reorder: true  # 同码回删再输首次交换
+  mobile_predict_style: post   # 移动端联想模式："post"（上屏后弹出预测候选）| "reorder"（输入时调频）| "off"（关闭）
+  # 上面的开关是总开关，开启后pc端自动为上下文调频模式，不再有弹出模式。
+  enable_fallback_reorder: false  # 同码回删再输首次交换
   max_candidates: 10  # 屏幕最多显示的联想词数量
   max_predictions: 3  # 连续触发预测的最高次数限制
   expiry_days: 90  # 绝对寿命（天）：不命中则物理销毁
@@ -306,7 +541,7 @@ charset:
   - option: charset_filter
     base: a  #可以填入多个类别如aj
     addlist:
-      - "诶濛硷氽尛躝〇冇吔磺咗囧屌鲶芶咲畑垅𰻝𰻞龍朙頔"
+      - "诶濛硷氽尛躝〇冇吔磺咗囧屌鲶芶咲畑垅𰻝𰻞龍朙頔雲"
     blacklist: []
   - option: s2t
     base: fa
@@ -360,6 +595,12 @@ charset:
 #   O  带冒号格式        +08:00、-04:30、+05:45
 #   o  不带冒号格式      +0800、-0430、+0545
 #   A  中文时段    凌晨 / 上午 / 中午 / 下午 / 晚上
+# 【星期】
+#   w  年第几周     01
+#   E  英文星期全称  Sunday
+#   F  英文星期简称  Sun
+#   C  中文星期全称  星期一
+#   D  中文星期简称  周一
 date_formats:
   - "Y年m月d日"
   - "Y-m-d"
@@ -397,6 +638,28 @@ super_sequence:  # Lua 配置：手动排序的快捷键 super_sequence.lua，�
   reset: "Control+l"  # 重置
   pin: "Control+p"  # 置顶
 
+input_stats:
+  db_name: "lua/stats"  # 自定义统计数据库路径
+  triggers:
+    clear: "/qctj"  # 清除数据（推荐长一点防误触）
+    today: "/rtj"  # 查今日（日统计）
+    week: "/ztj"  # 查本周（周统计）
+    month: "/ytj"  # 查本月（月统计）
+    year: "/ntj"  # 查本年（年统计）
+    total: "/tj"  # 查生涯（总统计）
+    history: "/htj"  # 时光机：查历史。用法示例输入：/htj20231015，从年月日依次递进，以t间隔查区间/htj20231015t20240102
+
+# 如果你不配 titles，默认会使用内置的“打字流派”段位。
+# 如果你想魔改（比如修真流），就取消下面这段注释：
+#  titles:  #对齐：triggers
+#    - "0:初入道途·炼气期"
+#    - "10000:小有所成·筑基期"
+#    - "50000:凝真化虚·金丹期"
+#    - "100000:破茧成蝶·元婴期"
+#    - "500000:掌控法则·化神期"
+#    - "1000000:破碎虚空·渡劫期"
+
+
 # a/、单字母组合，触发预设编码自动上屏快符，支持将值设为"repeat" 以支持对应按键重复上屏功能，custom>schema>lua最终合并键值
 # 现在就支持26字母快符，结合成对符号输入，这边的压力小一些
 quick_symbol_text:
@@ -406,7 +669,7 @@ quick_symbol_text:
     w: "？"
     e: "（"
     r: "）"
-    t: "~"
+    t: "	"
     y: "·"
     u: "『"
     i: "』"
@@ -533,258 +796,3 @@ paired_symbols:
     ex: "!!"
     qu: "??"
     sb: "sb"
-
-input_stats:
-  db_name: "lua/stats"  # 自定义统计数据库路径
-  triggers:
-    clear: "/qctj"  # 清除数据（推荐长一点防误触）
-    today: "/rtj"  # 查今日（日统计）
-    week: "/ztj"  # 查本周（周统计）
-    month: "/ytj"  # 查本月（月统计）
-    year: "/ntj"  # 查本年（年统计）
-    total: "/tj"  # 查生涯（总统计）
-    history: "/htj"  # 时光机：查历史。用法示例输入：/htj20231015，从年月日依次递进，以t间隔查区间/htj20231015t20240102
-
-# 如果你不配 titles，默认会使用内置的“打字流派”段位。
-# 如果你想魔改（比如修真流），就取消下面这段注释：
-#  titles:  #对齐：triggers
-#    - "0:初入道途·炼气期"
-#    - "10000:小有所成·筑基期"
-#    - "50000:凝真化虚·金丹期"
-#    - "100000:破茧成蝶·元婴期"
-#    - "500000:掌控法则·化神期"
-#    - "1000000:破碎虚空·渡劫期"
-
-# 主翻译器，拼音
-translator:
-  dictionary: wanxiang  # 挂载主词库
-  #  packs: user                  #导入根目录下名称为user.dict.yaml的自定义固定词典
-  #prism: wanxiang             # 多方案共用一个词库时，为避免冲突，需要用 prism 指定一个名字。
-  enable_completion: true  # 启用候选词补全
-  #  user_dict: zrm.userdb       # 用户词典的文件名称
-  #  db_class: tabledb           #开启后就不会产生wanxiang.userdb这样的文件夹，会直接输出文本wanxiang.txt同时无法使用同步能力，可设 tabledb〔文本〕或 userdb〔二进制〕
-  enable_user_dict: true  # 是否开启自动调频，即开启用户词典
-  #  enable_sentence: false       #是否开启自动造句
-  #  enable_correction: false     #是否开启自动纠错
-  #  encode_commit_history: true  # 预留历史上屏自动编码成词
-  core_word_length: 4  # >0 启用，按段学词 + 相邻段拼接
-  max_word_length: 7  # >0 启用，过长短语不记整词，只加元素权重
-  contextual_suggestions: false  #模型用来开启词组权重预测，效果一般关闭
-  max_homophones: 8
-  initial_quality: 3  #初始质量拼音的权重应该比英文大
-  spelling_hints: 30  #将注释以词典code字符串形式完全暴露，通过super_comment.lua完全接管，灵活配置。
-  always_show_comments: true  # Rime 默认在 preedit 等于 comment 时取消显示 comment，这里强制一直显示，供super_comment_preedit.lua做判断用。
-  comment_format:  #将注释以词典字符串形式完全暴露，通过super_preedit.lua完全接管，灵活配置。
-  #disable_user_dict_for_patterns:  #如果你开启调频，需要一并考虑这个配置是否需要，基本的6码3字不调频，你可以自定义，目前的逻辑是依然记录用户词但满足规则的不输出不被使用
-  #  - "^[a-z]{1,6}"
-
-# 自定义短语
-custom_phrase:
-  dictionary: ""
-  user_dict: custom_phrase  #需要手动创建 custom_phrase.txt 文件
-  db_class: stabledb  #可设 tabledb〔文本〕或 userdb〔二进制〕
-  enable_completion: false  #补全提示
-  enable_sentence: false  #禁止造句
-  initial_quality: 99  #custom_phrase 的权重应该比 pinyin 和 wanxiang_en 大
-
-# 中文、英文、数字、符号等混合词汇
-wanxiang_english:
-  dictionary: wanxiang_english
-  user_dict: en
-  enable_completion: true
-  initial_quality: 2.1
-  comment_format:  #这里很重要如果残留带声调字母，剩余编码提示计算出错引发程序崩溃
-    - xform/^~.+$//
-  #以下是lua相关配置，与原生处理器无关
-  #英文自动加空格，除关闭外共有3种模式可供选择
-  #off: 关闭; before: 总是前加; after: 总是后加; 
-  #smart: 智能模式连续输入英文时第二个单词前开始加空格，非输入状态的回车与空格都能打断加空格状态
-  #支持设置延时销毁加空格状态，单位秒,0不超时，大于0为超时时间，极大的保证了连续输入的体验。
-  english_spacing: smart
-  spacing_timeout: 5
-  max_candidates: 5  #英文候选输出最大候选数(适用于需要选单字组词的用户)
-  trigger: "\\"  #英文造词符号\，写一个用时双击
-
-wanxiang_mixedcode:
-  dictionary: wanxiang_mixedcode
-  db_class: stabledb
-  enable_completion: true
-  enable_sentence: false
-  initial_quality: 2
-  comment_format:  #这里很重要如果残留带声调字母，剩余编码提示计算出错引发程序崩溃
-    - xform/.*//
-
-# 部件拆字反查
-wanxiang_reverse:
-  tag: wanxiang_reverse
-  dictionary: wanxiang_reverse
-  enable_completion: true
-  prefix: "`"  # 反查前缀（反查时前缀会消失），与 recognizer/patterns/wanxiang_reverse 匹配
-  tips: "〔反查：拆分|笔画〕"
-
-wanxiang_lookup:  #设置归属于super_lookup.lua
-  tags: [abc, add_user_dict]  # 检索当前tag的候选
-  key: "`"  # 输入中反查引导符，要添加到 speller/alphabet
-  lookup: [wanxiang_reverse]  #反查滤镜数据库，万象都合并为一个了
-  data_source: [db]  #对于pro版本能从注释中加载词库辅助码，详情见Pro版本，base这里无需修改。
-  enable_tone: true  #启用声调反查
-  enable_direct: false  #启用无引导的直接辅助查询，能够充分理解其类似手心的直接辅助功能，仅针对两个字的词组，支持两个字任意单、双辅助，双辅助也支持两个字的首辅助组合
-
-# 处理符合特定规则的输入码，如网址、反查
-recognizer:
-  import_preset: default  # 从 default.yaml 继承通用的
-  patterns:  # 再增加方案专有的：
-    punct: "^/([0-9]|10|[A-Za-z]+)$"  # 响应 symbols.yaml 的 symbols
-    wanxiang_reverse: "^`[A-Za-z;]*$"  # 响应部件拆字与笔画的反查，与 wanxiang_reverse/prefix 匹配
-    unicode: "^U[a-f0-9]+"  # U 作为触发前缀，响应 lua_translator@unicode，输出 Unicode 字符
-    number: "^R[0-9]+[.]?[0-9]*"  # R 作为触发前缀, 响应 lua_translator@number_translator，数字金额大写
-    sjc: "^[/o]rc\\d+[-+=op]?$"
-    yr1: "^N0[1-9]?0?[1-9]?"
-    yr2: "^N1[02]?0?[1-9]?"
-    yr3: "^N0[1-9]?[1-2]?[1-9]?"
-    yr4: "^N1[02]?[1-2]?[1-9]?"
-    yr5: "^N0[1-9]?3?[01]?"
-    yr6: "^N1[02]?3?[01]?"
-    nyr1: "^N19?[0-9]?[0-9]?[0-1]?[0-9]?[0-9]?[0-9]?"
-    nyr2: "^N20?[0-9]?[0-9]?[0-1]?[0-9]?[0-9]?[0-9]?"
-    calculator: "^V.*$"  # V 作为触发前缀，计算器功能引导
-    #add_user_dict: "^``[A-Za-z/`']*$"      #自造词引导方式
-    email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"  # email @ 之后不上屏
-    url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$"  # URL
-    htj: "^/htj.*$"
-# 标点符号
-# punctuator 下面有三个子项：
-# 设置为一个映射，就自动上屏；设置为多个映射，如 '/' : [ '/', ÷ ] 则进行复选。
-#   full_shape: 全角没改，使用预设值
-#   half_shape: 标点符号全部直接上屏，和 macOS 自带输入法的区别是
-#              '|' 是半角的，
-#              '~' 是半角的，
-#              '`'（反引号）没有改成 '·'（间隔号）。
-#   symbols    Rime 的预设配置是以 '/' 前缀开头输出一系列字符，自定义的修改 symbols.yaml
-punctuator:
-  digit_separators: ",.:"  #数字分隔符，系统逻辑是在中文状态下输入数字后继续输入句号按下两次即输入半角状态
-  __include: wanxiang_symbols:/symbol_table  # 从 wanxiang_symbols.yaml 导入所有符号配置
-
-# 从 default 继承快捷键
-key_binder:
-  import_preset: default  # 从 default.yaml 继承通用的
-  # Lua 配置: shijian.lua 的引导符，涉及：日期、时间、节日、节气、生日、问候模板等功能
-  shijian_keys: ["/", "o"]
-  bindings:  # 也可以再增加方案专有的
-    # 通过按下/发送/+1节约一个按键，不冲突的时候可以开启
-    #- { match: "[a-z]{1,4}", accept: "/",  send_sequence: "/1" }
-    # 翻页 , .
-    # - { when: paging, accept: comma, send: Page_Up }
-    # - { when: has_menu, accept: period, send: Page_Down }
-    # 翻页 [ ]
-    # - { when: paging, accept: bracketleft, send: Page_Up }
-    # - { when: has_menu, accept: bracketright, send: Page_Down }
-    # 翻页 - =
-    - {when: has_menu, accept: minus, send: Page_Up}
-    - {when: has_menu, accept: equal, send: Page_Down}
-    # Option/Alt + ←/→ 切换光标至下/上一个拼音
-    - {when: always, toggle: ascii_punct, accept: Control+Shift+3}  # 切换中英标点
-    - {when: always, toggle: ascii_punct, accept: Control+Shift+numbersign}  # 切换中英标点
-    - {when: always, toggle: s2t, accept: Control+Shift+4}  # 切换简繁
-    - {when: always, toggle: s2t, accept: Control+Shift+dollar}  # 切换简繁
-    - {when: composing, accept: Alt+Left, send: Shift+Left}
-    - {when: composing, accept: Alt+Right, send: Shift+Right}
-    - {when: composing, accept: Control+w, send: Control+BackSpace}
-    #分号用于次选，微软、搜狗双拼不可启用
-    #- { when: has_menu, accept: semicolon, send: 2 }
-    #使用Control+e进入翻译模式
-    - {when: has_menu, accept: "Control+e", toggle: chinese_english}
-    #使用快捷键Control+a开启和关闭辅助码显示
-    - {when: has_menu, accept: "Control+a", toggle: tone_hint}
-    #通过快捷键Control+s使得输入码显示音调
-    - {when: has_menu, accept: "Control+s", toggle: tone_display}
-    #通过快捷键Control+t开启超级tips
-    - {when: has_menu, accept: "Control+t", toggle: super_tips}
-    #通过快捷键Control+g开启字符集过滤
-    - {when: has_menu, accept: "Control+g", toggle: charset_filter}
-    - {when: composing, accept: "Control+g", toggle: charset_filter}
-    #通过快捷键Shift+space开启输入模式切换
-    #- { when: always, accept: Shift+space, select: wanxiang }  #直接跳转指定方案
-    #- { when: always, accept: Shift+space, select: wanxiang_pro }  #直接跳转指定方案
-    - {when: always, accept: Shift+space, select: .next}  #下一个方案
-    # 使用 tab 在不同音节之间跳转
-    - {when: has_menu, accept: "Tab", send: "Control+Right"}
-    - {when: composing, accept: "Tab", send: "Control+Right"}
-    #当tab第一个字补码正确后，可以使用Ctrl+tab进行上屏并依次补码
-    - {when: composing, accept: "Control+Tab", send_sequence: '{Home}{Shift+Right}{1}{Shift+Right}'}
-    #当输入编码后发现没有词，则通过双击``进入造词模式而且不需要删除编码，这个功能与``直接引导相呼应相配合
-    #- { match: "^.*`$", accept: "`", send_sequence: '{BackSpace}{Home}{`}{`}{End}' }基础版暂时取消这个功能，
-    #斜杠被占用引导符号，因此输入本身设置为双击
-    - {match: "^/$", accept: "/", send_sequence: '{space}',}
-    #在预测符号状态下，按下斜杠提交清空与斜杠
-    - {match: "^›+$", accept: "backslash", send_sequence: '{Clear}{backslash}',}
-    - { match: "^›+$", accept: "comma",    send_sequence: '{Clear}{comma}'}
-    - { match: "^›+$", accept: "period",   send_sequence: '{Clear}{period}'}
-    - {match: "^›+$", accept: "Return", send_sequence: '{Clear}{Return}'}
-
-editor:
-  bindings:
-    space: confirm  # 空格键：上屏候选项
-    Return: commit_raw_input  # 回车键：上屏原始输入
-    Control+Return: commit_script_text  # Ctrl+回车键：上屏变换后输入（经过 preedit转换的）
-    Control+Shift+Return: commit_comment  # Ctrl+Shift+回车键：上屏 comment
-    BackSpace: revert  # 退格键：向前删除（撤消上次输入）
-    Delete: delete  # Delete 键：向后删除
-    Control+BackSpace: back_syllable  # Ctrl+退格键：删除一个音节
-    Control+Delete: delete_candidate  # Ctrl+Delete键：删除或降权候选项
-    Escape: cancel  # Esc 键：取消输入
-
-# 在边界按音节移动，在音节内部按字符移动  rewind , forward
-# 按字符移动（循环）       left_by_char , right_by_char
-# 按字符移动（不循环）     left_by_char_no_loop , right_by_char_no_loop
-# 按音节跳转（循环）       left_by_syllable , right_by_syllable
-# 按音节跳转（不循环）     left_by_syllable_no_loop , right_by_syllable_no_loop
-navigator:
-  bindings:
-    Left: left_by_char_no_loop
-    Right: right_by_char_no_loop
-    Shift+Left: left_by_syllable
-    Shift+Right: right_by_syllable
-
-# 拼写设定
-speller:
-  # table_translator翻译器，支持自动上屏。例如 “zmhu”可以自动上屏“怎么回事”
-  #  auto_select: true
-  #  auto_select_pattern: ^[a-z]+/|^[a-df-zA-DF-Z]\w{3}|^e\w{4}
-  # 如果不想让什么标点直接上屏，可以加在 alphabet，或者编辑标点符号为两个及以上的映射，alphabet就是将字符纳入输入编码的范畴
-  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA1234567890`;/\›
-  # initials 定义仅作为始码的按键，排除 ` 让单个的 ` 可以直接上屏
-  initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA/›
-  delimiter: " '"  # 系统配置，第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
-  visual_delimiter: " "  # super_preedit.lua配置：是否让分隔符号跟着一起转换，例如nǐ'hǎo 在实际使用中表现出视觉拥挤，我们可以让delimiter平时是'转换为拼音的时候使用空格nǐ hǎo，更符合实际。
-  tone_isolate: true  # super_preedit.lua配置：是否将数字声调从转换后拼音中隔离出来（true=隔离， false 直接参与转换）例如：nǐ3
-  algebra:
-    __patch:
-      #- 模糊音             #模糊音选择性开启
-      - wanxiang_algebra:/base/全拼  #拼音转双拼码
-
-# 自定义词典
-user_dict_set:
-  dictionary: wanxiang
-  initial_quality: 0
-  enable_completion: false
-  enable_sentence: false
-  spelling_hints: 50
-  contextual_suggestions: false  #模型预测，假设模型里面有的四个字的词汇 现在智能 而首选组合 现在只能 当你输入 现在 上屏后下一次输入zhi neng就会输出，智能前提是没有权重更高的了，很明显这与你的预期“现在只能”不符。很明显实际上又要预测又要连续句子，放一起是很难优雅的。
-  max_homophones: 8
-  comment_format:
-  enable_user_dict: false
-  user_dict: zc
-# 自定义词典加词(``引导)
-add_user_dict:
-  tag: add_user_dict
-  dictionary: wanxiang
-  initial_quality: -1
-  user_dict: zc
-  enable_completion: true  # 提前显示尚未输入完整码的字〔仅 table_translator 有效〕
-  enable_user_dict: false
-  enable_auto_phrase: true  # lua造词功能，在custom开启，相关功能位于auto_phrase.lua，开启后：模型能造的句子不造词，现有的词不造词，只造词库没有的，选词可造词
-  spelling_hints: 50
-  comment_format:
-  prefix: "``"
-  tips: "〔开始造词〕"

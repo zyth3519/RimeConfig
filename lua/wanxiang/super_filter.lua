@@ -127,7 +127,28 @@ local function get_shichen_and_ke(hour, min)
     return "未知时辰", "未知刻"
 end
 
-local time_tokens_pattern = "\\[AGHIKMNOPSTWYdjlmopwy]"
+-- 简易 ISO 周数计算
+local function iso_week_number(year, month, day)
+    local function get_iso_weekday(y, m, d)
+        local t = os.time { year = y, month = m, day = d }
+        local w = tonumber(os.date("%w", t))
+        return (w == 0) and 7 or w
+    end
+    
+    local t = os.time { year = year, month = month, day = day }
+    local iso_day = get_iso_weekday(year, month, day)
+    local thursday_time = t + (4 - iso_day) * 86400
+    local thursday = os.date("*t", thursday_time)
+    
+    local first_thursday = os.time { year = thursday.year, month = 1, day = 4 }
+    local first_thursday_weekday = get_iso_weekday(thursday.year, 1, 4)
+    local start_of_week1 = first_thursday - (first_thursday_weekday - 1) * 86400
+    
+    local week_number = math.floor((thursday_time - start_of_week1) / (7 * 86400)) + 1
+    return thursday.year, week_number
+end
+
+local time_tokens_pattern = "\\[ACDEFGHIKMNOPSTYdjlmopwy]"
 
 -- 2. 核心：处理动态时间
 local function process_datetime_internal(s, dt)
@@ -139,6 +160,8 @@ local function process_datetime_internal(s, dt)
     
     local week_table_big = {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"}
     local week_table_small = {"周日", "周一", "周二", "周三", "周四", "周五", "周六"}
+    local week_en = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
+    local week_en_short = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"}
     
     local h12 = dt.hour % 12
     if h12 == 0 then 
@@ -169,6 +192,13 @@ local function process_datetime_internal(s, dt)
         zh_period = "晚上" 
     end
 
+    -- ISO 周数
+    local iso_week_str = ""
+    if dt.year and dt.year > 0 then
+        local _, wk = iso_week_number(dt.year, dt.month, dt.day)
+        iso_week_str = tostring(wk)
+    end
+
     local time_map = {
         Y = string.format("%04d", dt.year),
         y = string.format("%02d", dt.year % 100),
@@ -176,8 +206,11 @@ local function process_datetime_internal(s, dt)
         d = string.format("%02d", dt.day),
         N = tostring(dt.month),
         j = tostring(dt.day),
-        W = week_table_big[dt.wday],
-        w = week_table_small[dt.wday],
+        C = week_table_big[dt.wday],
+        D = week_table_small[dt.wday],
+        E = week_en[dt.wday],
+        F = week_en_short[dt.wday],
+        w = iso_week_str,
         H = string.format("%02d", dt.hour),
         G = tostring(dt.hour),
         I = string.format("%02d", h12),
