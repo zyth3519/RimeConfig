@@ -50,8 +50,8 @@ switches:
 # 输入引擎
 engine:
   processors:
-    - lua_processor@*wanxiang.super_processor  #KP小键盘、字母选词、符号快打、超强分词、重复限制、退格限制、声调回退、以词定字
     - lua_processor@*wanxiang.user_predict*P  #靠自己养的专属预测联想处理器，不再依赖前端插件以及固定数据
+    - lua_processor@*wanxiang.super_processor  #KP小键盘、字母选词、符号快打、超强分词、重复限制、退格限制、声调回退、以词定字
     - t9_processor  #元书T9处理器
     - lua_processor@*wanxiang.super_tips  #超级提示模块：表情、简码、翻译、化学式、等等靠你想象
     - lua_processor@*wanxiang.super_sequence*P  #手动排序，高亮候选 ctrl+j左移动 ctrl+k 右移动 ctrl+l 移除位移  ctrl+p 置顶
@@ -236,7 +236,6 @@ user_predict:
   expiry_days: 90  # 绝对寿命（天）：不命中则物理销毁
   max_memory_branches: 15  # 分支上限：单前缀最多保留15个后续预测
   decay_rate: 0.85  # 衰减率：单日时间权重打 85 折
-  enable_predict_space: false  # true: 按空格上屏空格; false:空格提交候选。一般手机开电脑关，空格当上屏则，Tab、Alt按键当作空格
   context_timeout: 5000  # 上文超时时间毫秒
   custom_classifiers:  # 数字后量词调频，如平时chuan传，输入数字后，首选为串，结果如：1串，想关闭清空列表即可
     - 个只名位口头匹条群批伙多  # 人物动物

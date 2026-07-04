@@ -28,6 +28,9 @@ local function process_platform_info(name, ver)
     if name == "trime" then name = "同文输入法" end
     if name == "hamster3" then name = "元书输入法" end
     if name == "hamster" then name = "仓输入法" end
+    if name == "lyraime" then name = "灵韵输入法" end
+    if name == "xime" then name = "曦码输入法" end
+    if name == "default" then name = "超越输入法" end
     return name, ver
 end
 
