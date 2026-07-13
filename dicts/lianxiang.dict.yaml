@@ -36,6 +36,7 @@ sort: by_weight
 阿尔巴尼亚	ā ěr bā ní yà	10
 阿尔卑斯山	ā ěr bēi sī shān	10
 阿尔卑斯糖	ā ěr bēi sī táng	10
+阿尔伯塔省	ā ěr bó tǎ shěng	10
 阿尔德反应	ā ěr dé fǎn yìng	10
 阿尔得跃迁	ā ěr dé yuè qiān	10
 阿尔法粒子	ā ěr fǎ lì zǐ	10
@@ -65,6 +66,7 @@ sort: by_weight
 阿拉丁星图	ā lā dīng xīng tú	10
 阿拉戈定律	ā lā gē dìng lǜ	10
 阿拉那传说	ā lā nà chuán shuō	10
+阿拉斯加州	ā lā sī jiā zhōu	10
 阿拉坦五味	ā lā tǎn wǔ wèi	10
 阿莱斯悖论	ā lái sī bèi lùn	10
 阿莱斯效应	ā lái sī xiào yìng	10
@@ -384,6 +386,7 @@ sort: by_weight
 爱我的男人	ài wǒ de nán rén	10
 爱我的世界	ài wǒ de shì jiè	10
 爱无处不在	ài wú chǔ bú zài	10
+爱熄灭了灯	ài xī miè le dēng	10
 爱像太平洋	ài xiàng tài píng yáng	10
 爱像一把火	ài xiàng yì bǎ huǒ	10
 爱像一阵风	ài xiàng yí zhèn fēng	10
@@ -493,6 +496,7 @@ sort: by_weight
 安宫牛黄栓	ān gōng niú huáng shuān	10
 按国籍分类	àn guó jí fēn lèi	10
 安国药王庙	ān guó yào wáng miào	10
+安哈尔特州	ān hā ěr tè zhōu	10
 安河桥北站	ān hé qiáo běi zhàn	10
 暗黑魔导师	àn hēi mó dǎo shī	10
 暗黑山老妖	àn hēi shān lǎo yāo	10
@@ -769,12 +773,14 @@ sort: by_weight
 奥克二氏法	ào kè èr shì fǎ	10
 澳柯玛大厦	ào kē mǎ dà shà	10
 奥克斯都保	ào kè sī dōu bǎo	10
+奥克西塔尼	ào kè xī tǎ ní	10
 奥雷二氏带	ào léi èr shì dài	10
 奥雷二氏区	ào léi èr shì qū	10
 奥立安集团	ào lì ān jí tuán	10
 奥利瓦条约	ào lì wǎ tiáo yuē	10
 奥林匹克村	ào lín pǐ kè cūn	10
 奥林匹克环	ào lín pǐ kè huán	10
+奥林匹亚城	ào lín pǐ yà chéng	10
 敖伦布拉格	áo lún bù lā gé	10
 奥罗普什热	ào luó pǔ shí rè	10
 凹脉马兜铃	āo mài mǎ dōu líng	10
@@ -916,6 +922,7 @@ sort: by_weight
 巴尔末跳跃	bā ěr mò tiào yuè	10
 八尔滩水库	bā ěr tān shuǐ kù	10
 巴尔特拉岛	bā ěr tè lā dǎo	10
+巴伐利亚州	bā fá lì yà zhōu	10
 八坊十三巷	bā fāng shí sān xiàng	10
 靶非靶比值	bǎ fēi bǎ bǐ zhí	10
 八分之三法	bā fēn zhī sān fǎ	10
@@ -959,6 +966,7 @@ sort: by_weight
 八九点钟的	bā jiǔ diǎn zhōng de	10
 把考试当做	bǎ kǎo shì dàng zuò	10
 巴克伦反应	bā kè lún fǎn yìng	10
+巴克斯范式	bā kè sī fàn shì	10
 巴科斯记号	bā kē sī jì hào	10
 巴科西山脉	bā kē xī shān mài	10
 巴枯宁主义	bā kū níng zhǔ yì	10
@@ -1102,6 +1110,7 @@ sort: by_weight
 八田亚矢子	bā tián yà shǐ zǐ	10
 八通线南延	bā tōng xiàn nán yán	10
 把头发剪短	bǎ tóu fā jiǎn duǎn	10
+把玩了一阵	bǎ wán le yí zhèn
 霸王朝山城	bà wáng cháo shān chéng	10
 霸王的大陆	bà wáng de dà lù	10
 霸王女福星	bà wáng nǚ fú xīng	10
@@ -1749,6 +1758,9 @@ sort: by_weight
 半导体整流	bàn dǎo tǐ zhěng liú	10
 半导体制程	bàn dǎo tǐ zhì chéng	10
 半岛无核化	bàn dǎo wú hé huà	10
+办得不错啊	bàn de bú cuò a	10
+办得不错吧	bàn de bú cuò ba	10
+办得不错呀	bàn de bú cuò ya	10
 办得不好啊	bàn de bù hǎo a	10
 办得很好呀	bàn de hěn hǎo ya	10
 办的那些事	bàn de nà xiē shì	1000
@@ -1788,6 +1800,7 @@ sort: by_weight
 办公室职员	bàn gōng shì zhí yuán	10
 办公室职责	bàn gōng shì zhí zé	10
 办公室助理	bàn gōng shì zhù lǐ	10
+办公室主任	bàn gōng shì zhǔ rèn	10
 办公桌摆放	bàn gōng zhuō bǎi fàng	10
 半沟道效应	bàn gōu dào xiào yìng	10
 半固定齿桥	bàn gù dìng chǐ qiáo	10
@@ -2036,6 +2049,7 @@ sort: by_weight
 帮家里干活	bāng jiā lǐ gàn huó	10
 邦加勿里洞	bāng jiā wù lǐ dòng	10
 邦交正常化	bāng jiāo zhèng cháng huà	10
+蚌壳式机盖	bàng ké shì jī gài	10
 蚌科小作品	bàng kē xiǎo zuò pǐn	10
 帮了不少忙	bāng le bù shǎo máng	10
 帮理不帮亲	bāng lǐ bù bāng qīn	10
@@ -2045,6 +2059,7 @@ sort: by_weight
 帮亲不帮理	bāng qīn bù bāng lǐ	10
 棒球游击手	bàng qiú yóu jī shǒu	10
 蚌式进气道	bàng shì jìn qì dào	10
+蚌式引擎盖	bàng shì yǐn qíng gài	10
 榜首的位置	bǎng shǒu de wèi zhì	10
 棒条给料机	bàng tiáo gěi liào jī	10
 傍晚的天空	bàng wǎn de tiān kōng	10
@@ -2400,6 +2415,7 @@ sort: by_weight
 保卫党中央	bǎo wèi dǎng zhōng yāng	10
 保卫钓鱼岛	bǎo wèi diào yú dǎo	10
 保卫钓鱼台	bǎo wèi diào yú tái	10
+包围盒测试	bāo wéi hé cè shì	10
 保卫和平坊	bǎo wèi hé píng fāng	10
 保卫马克思	bǎo wèi mǎ kè sī	10
 保卫苏维埃	bǎo wèi sū wéi āi	10
@@ -3500,6 +3516,7 @@ sort: by_weight
 比磁化强度	bǐ cí huà qiáng dù	10
 臂丛内侧束	bì cóng nèi cè shù	10
 毕达哥拉斯	bì dá gē lā sī	10
+毕打自己人	bì dǎ zì jǐ rén	10
 鼻胆管引流	bí dǎn guǎn yǐn liú	10
 彼得罗夫法	bǐ dé luó fū fǎ	10
 彼得森范式	bǐ dé sēn fàn shì	10
@@ -3714,9 +3731,11 @@ sort: by_weight
 笔形美工刀	bǐ xíng měi gōng dāo	10
 闭型子程序	bì xíng zǐ chéng xù	10
 必修的功课	bì xiū de gōng kè	10
+必需氨基酸	bì xū ān jī suān	10
 必需维生素	bì xū wéi shēng sù	10
 必需消费品	bì xū xiāo fèi pǐn	10
 必需营养素	bì xū yíng yǎng sù	10
+必须赚回来	bì xū zhuàn huí lái	10
 臂悬吊系统	bì xuán diào xì tǒng	10
 碧血书香梦	bì xuè shū xiāng mèng	10
 碧血洗银枪	bì xuè xǐ yín qiāng	10
@@ -3736,6 +3755,7 @@ sort: by_weight
 毕业即就业	bì yè jí jiù yè	10
 毕业即失业	bì yè jí shī yè	10
 毕业就结婚	bì yè jiù jié hūn	10
+毕业就失业	bì yè jiù shī yè	10
 毕业生报到	bì yè shēng bào dào	10
 毕业生简历	bì yè shēng jiǎn lì	10
 毕业于中戏	bì yè yú zhōng xì	10
@@ -3783,7 +3803,7 @@ sort: by_weight
 比专柜便宜	bǐ zhuān guì pián yi	10
 鼻子的形状	bí zi de xíng zhuàng	10
 鼻子和耳朵	bí zi hé ěr duo	10
-鼻子和下巴	bí zi hé xià bā	10
+鼻子和下巴	bí zi hé xià ba	10
 鼻子和眼睛	bí zi hé yǎn jing	10
 鼻子和嘴巴	bí zi hé zuǐ ba	10
 比自己更好	bǐ zì jǐ gèng hǎo	10
@@ -3815,6 +3835,7 @@ sort: by_weight
 编程训练营	biān chéng xùn liàn yíng	10
 编成一本书	biān chéng yì běn shū	10
 编程语言类	biān chéng yǔ yán lèi	10
+编程语言之	biān chéng yǔ yán zhī	10
 编程源代码	biān chéng yuán dài mǎ	10
 扁翅无心菜	biǎn chì wú xīn cài	10
 变传导作用	biàn chuán dǎo zuò yòng	10
@@ -3877,6 +3898,7 @@ sort: by_weight
 变来变去的	biàn lái biàn qù de	10
 变狼妄想症	biàn láng wàng xiǎng zhèng	10
 变了个模样	biàn le gè mú yàng	10
+变了心的人	biàn le xīn de rén	10
 便利的服务	biàn lì de fú wù	10
 便利的交通	biàn lì de jiāo tōng	10
 便利的条件	biàn lì de tiáo jiàn	10
@@ -3884,6 +3906,7 @@ sort: by_weight
 便利店新星	biàn lì diàn xīn xīng	10
 便利店业态	biàn lì diàn yè tài	10
 遍历二叉树	biàn lì èr chā shù	10
+便利构造器	biàn lì gòu zào qì	10
 遍历文件夹	biàn lì wén jiàn jiā	10
 遍历性假设	biàn lì xìng jiǎ shè	10
 编练司令部	biān liàn sī lìng bù	10
@@ -4497,6 +4520,7 @@ sort: by_weight
 博落回肿痒	bó luò huí zhǒng yǎng	10
 菠萝蜜多斩	bō luó mì duō zhǎn	10
 菠萝蜜奶茶	bō luó mì nǎi chá	10
+伯南布哥州	bó nán bù gē zhōu	10
 浡泥国王墓	bó ní guó wáng mù	10
 伯努利试验	bó nǔ lì shì yàn	10
 伯努利推移	bó nǔ lì tuī yí	10
@@ -4729,6 +4753,7 @@ sort: by_weight
 不懂就要问	bù dǒng jiù yào wèn	10
 不动明王传	bú dòng míng wáng zhuàn	10
 不懂什么是	bù dǒng shén me shì	10
+不懂事得很	bù dǒng shì de hěn	10
 不都一样吗	bù dōu yí yàng ma	10
 不都一样嘛	bù dōu yí yàng ma	10
 不独子其子	bù dú zǐ qí zǐ	10
@@ -5084,6 +5109,7 @@ sort: by_weight
 不可见射线	bù kě jiàn shè xiàn	10
 不可见物质	bù kě jiàn wù zhì	10
 不可兼析取	bù kě jiān xī qǔ	10
+不可居无竹	bù kě jū wú zhú	10
 不可决系数	bù kě jué xì shù	10
 不可描述之	bù kě miáo shù zhī	10
 不可名状者	bù kě míng zhuàng zhě	10
@@ -5112,6 +5138,7 @@ sort: by_weight
 不可通约量	bù kě tōng yuē liàng	10
 不可微规划	bù kě wēi guī huà	10
 不可先传也	bù kě xiān chuán yě	10
+不可亵玩焉	bù kě xiè wán yān	10
 不可须臾离	bù kě xū yú lí	10
 不可压缩流	bù kě yā suō liú	10
 不可预见费	bù kě yù jiàn fèi	10
@@ -5417,6 +5444,7 @@ sort: by_weight
 补税通知单	bǔ shuì tōng zhī dān	10
 不顺心的事	bú shùn xīn de shì	10
 不说话的星	bù shuō huà de xīng	10
+不说谎恋人	bù shuō huǎng liàn rén	10
 不说是个结	bù shuō shì gè jié	10
 不说这些了	bù shuō zhè xiē le	10
 不死的癌症	bù sǐ de ái zhèng	10
@@ -5651,6 +5679,7 @@ sort: by_weight
 不要错过哦	bú yào cuò guò ó	10
 不要错过哟	bú yào cuò guò yō	10
 不要打扰我	bú yào dǎ rǎo wǒ	10
+不要订外卖	bú yào dìng wài mài	10
 不要逗她笑	bú yào dòu tā xiào	10
 不要怀疑我	bú yào huái yí wǒ	10
 不要脸的事	bú yào liǎn de shì	10
@@ -5684,6 +5713,8 @@ sort: by_weight
 不夜城绿地	bú yè chéng lǜ dì	10
 不也挺好吗	bù yě tǐng hǎo ma	10
 不以词害意	bù yǐ cí hài yì	10
+不一定适合	bù yí dìng shì hé	12
+不一定是和	bù yí dìng shì hé	10
 不一定要打	bù yí dìng yào dǎ	10
 不亦鲁黑汗	bú yì lǔ hēi hàn	10
 不以貌取人	bù yǐ mào qǔ rén	10
@@ -5836,6 +5867,7 @@ sort: by_weight
 步骤与方法	bù zhòu yǔ fāng fǎ	10
 补助和奖励	bǔ zhù hé jiǎng lì	10
 不转的风扇	bù zhuǎn de fēng shàn	10
+不准予放行	bù zhǔn yǔ fàng xíng	10
 不自暴自弃	bú zì bào zì qì	10
 不自觉地就	bú zì jué dì jiù	10
 步子迈大了	bù zǐ mài dà le	10
@@ -6012,6 +6044,7 @@ sort: by_weight
 财务计划师	cái wù jì huà shī	10
 财务与会计	cái wù yù huì jì	10
 财务与金融	cái wù yǔ jīn róng	10
+财务再保险	cái wù zài bǎo xiǎn	10
 才下定决心	cái xià dìng jué xīn	10
 踩下了刹车	cǎi xià le shā chē	10
 彩象岛女孩	cǎi xiàng dǎo nǚ hái	10
@@ -6375,6 +6408,7 @@ sort: by_weight
 曾经的回忆	céng jīng de huí yì	10
 曾经的誓言	céng jīng de shì yán	10
 曾经的同事	céng jīng de tóng shì	10
+曾经的网红	céng jīng de wǎng hóng	10
 曾经的战友	céng jīng de zhàn yǒu	10
 曾经的主人	céng jīng de zhǔ rén	10
 曾姆丹格斯	céng mǔ dān gé sī	10
@@ -6396,6 +6430,7 @@ sort: by_weight
 差别阈限法	chā bié yù xiàn fǎ	10
 差不多得了	chà bu duō dé le	10
 差不多得嘞	chà bù duō dé lei	10
+差不多都快	chà bu duō dōu kuài	10
 插翅虎雷横	chā chì hǔ léi héng	10
 叉唇钗子股	chā chún chāi zǐ gǔ	10
 叉唇对叶兰	chā chún duì yè lán	10
@@ -7057,6 +7092,7 @@ sort: by_weight
 长汀豆腐干	cháng tīng dòu fu gān	10
 长亭更短亭	cháng tíng gèng duǎn tíng	10
 长汀河田鸡	cháng tīng hé tián jī	10
+畅通工程续	chàng tōng gōng chéng xù	10
 唱同一首歌	chàng tóng yī shǒu gē	10
 长腿爱德华	cháng tuǐ ài dé huá	10
 唱完一首歌	chàng wán yì shǒu gē	10
@@ -7153,6 +7189,7 @@ sort: by_weight
 长征三号甲	cháng zhēng sān hào jiǎ	10
 长征三号乙	cháng zhēng sān hào yǐ	10
 长征十号甲	cháng zhēng shí hào jiǎ	10
+长征十号乙	cháng zhēng shí hào yǐ	10
 长征四号丙	cháng zhēng sì hào bǐng	10
 长征四号甲	cháng zhēng sì hào jiǎ	10
 长征四号乙	cháng zhēng sì hào yǐ	10
@@ -7162,6 +7199,7 @@ sort: by_weight
 长肢领航鲸	cháng zhī lǐng háng jīng	10
 长直螺线管	cháng zhí luó xiàn guǎn	10
 长指鳗鳞鳕	cháng zhǐ mán lín xuě	10
+长治医学院	cháng zhì yī xué yuàn	10
 长中央动脉	cháng zhōng yāng dòng mài	10
 长洲北帝庙	cháng zhōu běi dì miào	10
 长洲岛机场	cháng zhōu dǎo jī chǎng	10
@@ -7850,6 +7888,8 @@ sort: by_weight
 成本和效率	chéng běn hé xiào lǜ	10
 成本与收益	chéng běn yǔ shōu yì	10
 成比例通气	chéng bǐ lì tōng qì	10
+成不成功喽	chéng bù chéng gōng lóu	10
+成不成功哇	chéng bù chéng gōng wa	10
 呈不规则状	chéng bù guī zé zhuàng	10
 成不了大器	chéng bù liǎo dà qì	10
 成不了大气	chéng bù liǎo dà qì	10
@@ -8030,6 +8070,7 @@ sort: by_weight
 撑伞的女人	chēng sǎn de nǚ rén	10
 橙色和黄色	chéng sè hé huáng sè	10
 橙色和蓝色	chéng sè hé lán sè	10
+乘商寄存器	chéng shāng jì cún qì	10
 城上已三更	chéng shàng yǐ sān gēng	10
 城市的变迁	chéng shì de biàn qiān	10
 诚实的感觉	chéng shí de gǎn jué	10
@@ -8118,12 +8159,17 @@ sort: by_weight
 诚信的原则	chéng xìn de yuán zé	10
 乘性二次型	chéng xìng èr cì xíng	10
 澄星磷化工	chéng xīng lín huà gōng	10
+程序重定位	chéng xù chóng dìng wèi	10
 程序的编写	chéng xù de biān xiě	10
 程序的设计	chéng xù de shè jì	10
 程序的执行	chéng xù de zhí xíng	10
 程序和功能	chéng xù hé gōng néng	10
+程序集变量	chéng xù jí biàn liàng	10
+程序集缓存	chéng xù jí huǎn cún	10
+程序集清单	chéng xù jí qīng dān	10
 程序设计员	chéng xù shè jì yuán	10
 程序员兼职	chéng xù yuán jiān zhí	10
+程序员联盟	chéng xù yuán lián méng	10
 程序员之家	chéng xù yuán zhī jiā	10
 承宣布政使	chéng xuān bù zhèng shǐ	10
 成血管细胞	chéng xuè guǎn xì bāo	10
@@ -8414,6 +8460,7 @@ sort: by_weight
 吃头那条鱼	chī tóu nà tiáo yú	10
 吃完东西后	chī wán dōng xi hòu	10
 吃晚饭了吗	chī wǎn fàn le ma	10
+吃完饭没有	chī wán fàn méi yǒu	10
 吃完火锅后	chī wán huǒ guō hòu	10
 黐线枕边人	chī xiàn zhěn biān rén	10
 吃相太难看	chī xiàng tài nán kàn	10
@@ -8498,6 +8545,8 @@ sort: by_weight
 冲出宁静号	chōng chū níng jìng hào	10
 虫川大杉站	chóng chuān dà shān zhàn	10
 冲电气工业	chōng diàn qì gōng yè	10
+重定向符号	chóng dìng xiàng fú hào	10
+重定义数组	chóng dìng yì shù zǔ	10
 冲动型消费	chōng dòng xíng xiāo fèi	10
 冲动性消费	chōng dòng xìng xiāo fèi	10
 虫儿向南飞	chóng er xiàng nán fēi	10
@@ -8510,6 +8559,7 @@ sort: by_weight
 重复性劳损	chóng fù xìng láo sǔn	10
 冲高回落后	chōng gāo huí luò hòu	10
 冲个热水澡	chōng gè rè shuǐ zǎo	10
+重构二叉树	chóng gòu èr chā shù	10
 舂谷持作饭	chōng gǔ chí zuò fàn	10
 重光纪念日	chóng guāng jì niàn rì	10
 宠坏的孩子	chǒng huài de hái zi	10
@@ -9230,6 +9280,7 @@ sort: by_weight
 穿心莲内酯	chuān xīn lián nèi zhǐ	10
 穿心莲乙素	chuān xīn lián yǐ sù	10
 串行计算机	chuàn xíng jì suàn jī	10
+串行加法器	chuàn xíng jiā fǎ qì	10
 穿岩十九峰	chuān yán shí jiǔ fēng	10
 串样式列表	chuàn yàng shì liè biǎo	10
 穿也没穿过	chuān yě méi chuān guò	10
@@ -9264,6 +9315,7 @@ sort: by_weight
 创建的页面	chuàng jiàn de yè miàn	10
 创建和编辑	chuàng jiàn hé biān jí	10
 创近年新高	chuàng jìn nián xīn gāo	10
+窗口程序集	chuāng kǒu chéng xù jí	10
 窗口式空调	chuāng kǒu shì kōng tiáo	10
 窗里的女人	chuāng lǐ de nǚ rén	10
 创历史新低	chuàng lì shǐ xīn dī	10
@@ -9385,7 +9437,7 @@ sort: by_weight
 创新型经济	chuàng xīn xíng jīng jì	10
 创新型企业	chuàng xīn xíng qǐ yè	10
 创新性企业	chuàng xīn xìng qǐ yè	10
-创新型人才	chuàng xīn xíng rén cái	10
+创新型人才	chuàng xīn xíng rén cái	12
 创新性人才	chuàng xīn xìng rén cái	10
 创新型项目	chuàng xīn xíng xiàng mù	10
 创新研究院	chuàng xīn yán jiū yuàn	10
@@ -9787,6 +9839,7 @@ sort: by_weight
 刺毛异形木	cì máo yì xíng mù	10
 刺毛毡苔石	cì máo zhān tái shí	10
 磁敏二极管	cí mǐn èr jí guǎn	10
+慈母多败儿	cí mǔ duō bài ér	10
 慈母山修院	cí mǔ shān xiū yuàn	10
 刺鸟的宿命	cì niǎo de sù mìng	10
 此女非彼女	cǐ nǚ fēi bǐ nǚ	10
@@ -9894,6 +9947,7 @@ sort: by_weight
 磁性电介质	cí xìng diàn jiè zhì	10
 磁性过滤器	cí xìng guò lǜ qì	10
 雌性荷尔蒙	cí xìng hé ěr méng	10
+磁性收纳板	cí xìng shōu nà bǎn	10
 雌性柞蚕蛾	cí xìng zuò cán é	10
 刺眼的灯光	cì yǎn de dēng guāng	10
 刺眼的阳光	cì yǎn de yáng guāng	10
@@ -10127,7 +10181,7 @@ sort: by_weight
 从嘴里吐出	cóng zuǐ lǐ tǔ chū	10
 凑合的婚姻	còu he de hūn yīn	10
 凑巧的经过	còu qiǎo de jīng guò	10
-凑什么热闹	còu shén me rè nào	10
+凑什么热闹	còu shén me rè nao	10
 猝不及防啊	cù bù jí fáng a	10
 粗糙叉毛蓬	cū cāo chā máo péng	10
 粗糙度系数	cū cāo dù xì shù	10
@@ -10310,6 +10364,7 @@ sort: by_weight
 大巴里尔岛	dà bā lǐ ěr dǎo	10
 大坝委员会	dà bà wěi yuán huì	10
 打败拦路虎	dǎ bài lán lù hǔ	10
+大白于天下	dà bái yú tiān xià	10
 大半壁江山	dà bàn bì jiāng shān	10
 打扮得很潮	dǎ bàn de hěn cháo	10
 大半个世纪	dà bàn gè shì jì	10
@@ -10383,6 +10438,7 @@ sort: by_weight
 打从一开始	dǎ cóng yì kāi shǐ	10
 打促排卵针	dǎ cù pái luǎn zhēn	10
 打打擦边球	dǎ dǎ cā biān qiú	10
+哒哒哒哒哒	dā dā dā dā dā	10
 大大的肚子	dà dà de dù zi	10
 大大的眼睛	dà dà de yǎn jing	10
 大大的眼镜	dà dà de yǎn jìng	10
@@ -10479,11 +10535,12 @@ sort: by_weight
 打斗的场面	dǎ dòu de chǎng miàn	10
 打斗过程中	dǎ dòu guò chéng zhōng	10
 大豆磷脂粉	dà dòu lín zhī fěn	10
-大都美术馆	dà dōu měi shù guǎn	10
 大渡河水系	dà dù hé shuǐ xì	10
 大都会人寿	dà dū huì rén shòu	10
+大都美术馆	dà dū měi shù guǎn	10
 大肚弥勒佛	dà dù mí lè fó	10
 打盹的小猫	dǎ dǔn de xiǎo māo	10
+大多数时候	dà duō shù shí hou	10
 大阿弥陀经	dà ē mí tuó jīng	10
 大耳朵图图	dà ěr duo tú tú	10
 答儿麻失里	dá ér má shī lǐ	10
@@ -10692,6 +10749,7 @@ sort: by_weight
 打了个响指	dǎ le gè xiǎng zhǐ	10
 打了声招呼	dǎ le shēng zhāo hu	10
 搭了顺风车	dā le shùn fēng chē	10
+大乐透开奖	dà lè tòu kāi jiǎng	10
 打雷的时候	dǎ léi de shí hou	10
 打雷要下雨	dǎ léi yào xià yǔ	10
 大力的发展	dà lì de fā zhǎn	10
@@ -10725,6 +10783,7 @@ sort: by_weight
 怛罗斯之战	dá luó sī zhī zhàn	10
 达曼斯基岛	dá màn sī jī dǎo	10
 大满族主义	dà mǎn zú zhǔ yì	10
+打没打架呀	dǎ méi dǎ jià ya	10
 大美国主义	dà měi guó zhǔ yì	10
 大面积留白	dà miàn jī liú bái	10
 大面积歉收	dà miàn jī qiàn shōu	10
@@ -10844,12 +10903,14 @@ sort: by_weight
 大手笔引援	dà shǒu bǐ yǐn yuán	10
 大手柄牙挺	dà shǒu bǐng yá tǐng	10
 大手前大学	dà shǒu qián dà xué	10
+大数高精度	dà shù gāo jīng dù	10
 大数据监测	dà shù jù jiān cè	10
 大数据收集	dà shù jù shōu jí	10
 大数据优势	dà shù jù yōu shì	10
 大数据智能	dà shù jù zhì néng	10
 大数据助力	dà shù jù zhù lì	10
 打死不承认	dǎ sǐ bù chéng rèn	10
+大四的学生	dà sì de xué shēng	10
 打死都不信	dǎ sǐ dōu bú xìn	10
 打死方向盘	dǎ sǐ fāng xiàng pán	10
 达斯科特角	dá sī kē tè jiǎo	10
@@ -11052,6 +11113,7 @@ sort: by_weight
 黛安娜王妃	dài ān nà wáng fēi	10
 代悲白头翁	dài bēi bái tóu wēng	10
 带边界曲面	dài biān jiè qū miàn	10
+待编码数据	dài biān mǎ shù jù	10
 代表取缔役	dài biǎo qǔ dì yì	10
 代表人或其	dài biǎo rén huò qí	10
 代表性景点	dài biǎo xìng jǐng diǎn	10
@@ -11073,6 +11135,7 @@ sort: by_weight
 代代木上原	dài dài mù shàng yuán	10
 殆单代数群	dài dān dài shù qún	10
 待到重逢时	dài dào chóng féng shí	10
+带刀切割泵	dài dāo qiē gē bèng	10
 待倒是待过	dài dào shì dài guò	10
 逮到一个人	dǎi dào yí gè rén	12
 带到一个人	dài dào yí gè rén	10
@@ -11552,6 +11615,7 @@ sort: by_weight
 单位涌水量	dān wèi yǒng shuǐ liàng	10
 单桅纵帆船	dān wéi zòng fān chuán	10
 耽误的天才	dān wù de tiān cái	10
+单系统映像	dān xì tǒng yìng xiàng	10
 弹匣容弹量	dàn xiá róng dàn liàng	10
 胆酰合成酶	dǎn xiān hé chéng méi	10
 单弦牌子曲	dān xián pái zi qǔ	10
@@ -11727,6 +11791,7 @@ sort: by_weight
 当前的形势	dāng qián de xíng shì	10
 当前和长远	dāng qián hé cháng yuǎn	10
 当前和未来	dāng qián hé wèi lái	10
+当前优先级	dāng qián yōu xiān jí	10
 当全职妈妈	dāng quán zhí mā ma	10
 当全职太太	dāng quán zhí tài tai	10
 党群工作部	dǎng qún gōng zuò bù	10
@@ -11831,6 +11896,7 @@ sort: by_weight
 倒闭了似的	dǎo bì le shì de	10
 到比赛结束	dào bǐ sài jié shù	10
 到别的地方	dào bié de dì fāng	10
+到不到位吧	dào bú dào wèi ba	10
 岛仓千代子	dǎo cāng qiān dài zǐ	10
 稻草人手记	dào cǎo rén shǒu jì	10
 稻草熊影业	dào cǎo xióng yǐng yè	10
@@ -12475,6 +12541,7 @@ sort: by_weight
 登户研究所	dēng hù yán jiū suǒ	10
 灯花梦全传	dēng huā mèng quán zhuàn	10
 等化学系列	děng huà xué xì liè	10
+等会儿试试	děng huì er shì shì	10
 等回过神来	děng huí guò shén lái	10
 等辉正长岩	děng huī zhèng zhǎng yán	10
 灯火基督像	dēng huǒ jī dū xiàng	10
@@ -12546,6 +12613,7 @@ sort: by_weight
 瞪谁谁怀孕	dèng shuí shuí huái yùn	10
 灯塔建造者	dēng tǎ jiàn zào zhě	10
 灯塔看守人	dēng tǎ kān shǒu rén	10
+等他完事了	děng tā wán shì le	10
 灯塔专业版	dēng tǎ zhuān yè bǎn	10
 等危险物品	děng wēi xiǎn wù pǐn	10
 等温曲线系	děng wēn qū xiàn xì	10
@@ -12596,6 +12664,7 @@ sort: by_weight
 低矮的房屋	dī ǎi de fáng wū	10
 低矮的灌木	dī ǎi de guàn mù	10
 低矮的平房	dī ǎi de píng fáng	10
+迪安托马斯	dí ān tuō mǎ sī	10
 狄昂华薇克	dí áng huá wēi kè	10
 帝奥斯门窗	dì ào sī mén chuāng	10
 地奥心血康	dì ào xīn xuè kāng	10
@@ -13225,7 +13294,7 @@ sort: by_weight
 低位平坦段	dī wèi píng tǎn duàn	10
 骶尾前韧带	dǐ wěi qián rèn dài	10
 低维拓扑学	dī wéi tuò pū xué	10
-低维修费用	dī wéi xiū fèi yòng	10
+低维修费用	dī wéi xiū fèi yong	10
 帝汶海条约	dì wèn hǎi tiáo yuē	10
 低温试验法	dī wēn shì yàn fǎ	10
 地窝堡机场	dì wō bǎo jī chǎng	10
@@ -13356,7 +13425,7 @@ sort: by_weight
 第一范畴集	dì yī fàn chóu jí	10
 第一房间孔	dì yī fáng jiān kǒng	10
 第一感觉就	dì yī gǎn jué jiù	10
-第一个字儿	dì yī gè zì ér	10
+第一个字儿	dì yī gè zì er	10
 第一和第三	dì yī hé dì sān	10
 第一级产业	dì yī jí chǎn yè	10
 第一集封面	dì yī jí fēng miàn	10
@@ -14092,6 +14161,7 @@ sort: by_weight
 迭戈米利托	dié gē mǐ lì tuō	10
 迭加式插头	dié jiā shì chā tóu	10
 跌落试验法	diē luò shì yàn fǎ	10
+叠片过滤器	dié piàn guò lǜ qì	10
 叠片羊蹄甲	dié piàn yáng tí jiǎ	10
 跌破趋势线	diē pò qū shì xiàn	10
 迭日涅夫角	dié rì niè fū jiǎo	10
@@ -14382,6 +14452,7 @@ sort: by_weight
 东方红一号	dōng fāng hóng yī hào	10
 洞房花烛夜	dòng fáng huā zhú yè	10
 东方铠甲虾	dōng fāng kǎi jiǎ xiā	10
+东方午新闻	dōng fāng wǔ xīn wén	10
 东非大地堑	dōng fēi dà dì qiàn	10
 冬风练习曲	dōng fēng liàn xí qǔ	10
 东福克兰岛	dōng fú kè lán dǎo	10
@@ -14506,6 +14577,7 @@ sort: by_weight
 东日清脂灵	dōng rì qīng zhī líng	10
 冻融裂解物	dòng róng liè jiě wù	10
 动筛跳汰机	dòng shāi tiào tài jī	10
+东山风景区	dōng shān fēng jǐng qū	10
 东山嘴遗址	dōng shān zuǐ yí zhǐ	10
 动生电动势	dòng shēng diàn dòng shì	10
 东圣止咳灵	dōng shèng zhǐ ké líng	10
@@ -14525,6 +14597,8 @@ sort: by_weight
 东四清真寺	dōng sì qīng zhēn sì	10
 冬笋的滋味	dōng sǔn de zī wèi	10
 动态暗间隙	dòng tài àn jiàn xì	10
+动态重定位	dòng tài chóng dìng wèi	10
+动态点分治	dòng tài diǎn fēn zhì	10
 动态和静态	dòng tài hé jìng tài	10
 动态呼吸环	dòng tài hū xī huán	10
 动态回头看	dòng tài huí tóu kàn	10
@@ -15365,6 +15439,7 @@ sort: by_weight
 对策的阶段	duì cè de jiē duàn	10
 对策和措施	duì cè hé cuò shī	10
 对策上方值	duì cè shàng fāng zhí	10
+对称不对称	duì chèn bú duì chèn	10
 对称多处理	duì chèn duō chǔ lǐ	10
 对称光面介	duì chèn guāng miàn jiè	10
 对称函数环	duì chèn hán shù huán	10
@@ -15479,6 +15554,7 @@ sort: by_weight
 兑现的承诺	duì xiàn de chéng nuò	10
 对象的余积	duì xiàng de yú jī	10
 对相关函数	duì xiāng guān hán shù	10
+对象管理组	duì xiàng guǎn lǐ zǔ	10
 对享乐主义	duì xiǎng lè zhǔ yì	10
 对象型方法	duì xiàng xíng fāng fǎ	10
 对叶红景天	duì yè hóng jǐng tiān	10
@@ -15611,6 +15687,7 @@ sort: by_weight
 多电子原子	duō diàn zǐ yuán zǐ	10
 躲都躲不掉	duǒ dōu duǒ bú diào	10
 躲都躲不及	duǒ dōu duǒ bù jí	10
+多对多联系	duō duì duō lián xì	10
 朵朵与猫咪	duǒ duǒ yǔ māo mī	10
 多发性硬化	duō fā xìng yìng huà	10
 多酚化合物	duō fēn huà hé wù	10
@@ -16000,6 +16077,7 @@ sort: by_weight
 阿胶乌鸡精	ē jiāo wū jī jīng	10
 阿胶益寿晶	ē jiāo yì shòu jīng	10
 鄂军都督府	è jūn dū dū fǔ	10
+俄克拉何马	é kè lā hé mǎ	10
 鄂肯布兰德	è kěn bù lán dé	10
 厄拉多塞筛	è lā duō sāi shāi	10
 额勒伯克汗	é lè bó kè hàn	10
@@ -16082,7 +16160,7 @@ sort: by_weight
 饿死事极小	è sǐ shì jí xiǎo	10
 额田部皇女	é tián bù huáng nǚ	10
 额头的皱纹	é tóu de zhòu wén	10
-额头和下巴	é tóu hé xià bā	10
+额头和下巴	é tóu hé xià ba	10
 额头上的汗	é tóu shàng de hàn	10
 鄂托克旗人	è tuō kè qí rén	10
 额外的伤害	é wài de shāng hài	10
@@ -16179,6 +16257,7 @@ sort: by_weight
 二次型的秩	èr cì xíng de zhì	10
 二次因子法	èr cì yīn zǐ fǎ	10
 二次元人物	èr cì yuán rén wù	10
+二次元衣服	èr cì yuán yī fu	10
 而寸口关尺	ér cùn kǒu guān chǐ	10
 儿大不由娘	ér dà bù yóu niáng	10
 二氮三化汞	èr dàn sān huà gǒng	10
@@ -16502,6 +16581,7 @@ sort: by_weight
 二维码门牌	èr wéi mǎ mén pái	10
 二维葡磷钙	èr wéi pú lín gài	10
 而为人所知	ér wéi rén suǒ zhī	10
+二维线段树	èr wéi xiàn duàn shù	10
 耳蜗植入物	ěr wō zhí rù wù	10
 二酰基甘油	èr xiān jī gān yóu	10
 二仙桥北路	èr xiān qiáo běi lù	10
@@ -16787,6 +16867,7 @@ sort: by_weight
 发生了口角	fā shēng le kǒu jué	10
 发生了争执	fā shēng le zhēng zhí	10
 发生炉煤气	fā shēng lú méi qì	10
+发生什么事	fā shēng shén me shì	10
 发生些什么	fā shēng xiē shén me	10
 发生意外后	fā shēng yì wài hòu	10
 法式洋葱汤	fǎ shì yáng cōng tāng	10
@@ -16855,6 +16936,7 @@ sort: by_weight
 发展的机遇	fā zhǎn de jī yù	10
 发展的势头	fā zhǎn de shì tóu	10
 发展的优势	fā zhǎn de yōu shì	10
+发展改革委	fā zhǎn gǎi gé wěi	10
 发展规划处	fā zhǎn guī huà chù	10
 发展和安全	fā zhǎn hé ān quán	10
 发展和创新	fā zhǎn hé chuàng xīn	10
@@ -17662,6 +17744,7 @@ sort: by_weight
 防守积极性	fáng shǒu jī jí xìng	10
 防守篮板率	fáng shǒu lán bǎn lǜ	10
 防守篮板球	fáng shǒu lán bǎn qiú	10
+放手没放手	fàng shǒu méi fàng shǒu	10
 防守型中锋	fáng shǒu xíng zhōng fēng	10
 放手一搏吧	fàng shǒu yì bó ba	10
 防守与进攻	fáng shǒu yǔ jìn gōng	10
@@ -17739,6 +17822,7 @@ sort: by_weight
 方向盘转向	fāng xiàng pán zhuǎn xiàng	10
 芳香烃受体	fāng xiāng tīng shòu tǐ	10
 方向性错误	fāng xiàng xìng cuò wù	10
+方向性光源	fāng xiàng xìng guāng yuán	10
 放心大胆地	fàng xīn dà dǎn de	10
 放心的食品	fàng xīn de shí pǐn	10
 仿新浪微博	fǎng xīn làng wēi bó	10
@@ -18724,6 +18808,7 @@ sort: by_weight
 分阶段实施	fēn jiē duàn shí shī	10
 分节符类型	fēn jié fú lèi xíng	10
 分节基因组	fēn jié jī yīn zǔ	10
+分解质因子	fēn jiě zhì yīn zǐ	10
 分筋错骨手	fēn jīn cuò gǔ shǒu	10
 奋进的精神	fèn jìn de jīng shén	10
 奋进的力量	fèn jìn de lì liàng	10
@@ -19344,6 +19429,7 @@ sort: by_weight
 佛罗姆理论	fó luó mǔ lǐ lùn	10
 佛烧一炷香	fó shāo yí zhù xiāng	10
 佛说七佛经	fó shuō qī fó jīng	10
+佛争一炷香	fó zhēng yí zhù xiāng	10
 否定的答案	fǒu dìng de dá àn	10
 否定后件式	fǒu dìng hòu jiàn shì	10
 否定之否定	fǒu dìng zhī fǒu dìng	10
@@ -19580,7 +19666,7 @@ sort: by_weight
 富基亚沙列	fù jī yà shā liè	10
 富家大小姐	fù jiā dà xiǎo jiě	10
 弗加二氏法	fú jiā èr shì fǎ	10
-附加费用率	fù jiā fèi yòng lǜ	10
+附加费用率	fù jiā fèi yong lǜ	10
 富家公子哥	fù jiā gōng zǐ gē	10
 附加划痕险	fù jiā huá hén xiǎn	10
 附加检索费	fù jiā jiǎn suǒ fèi	10
@@ -19754,7 +19840,7 @@ sort: by_weight
 父母和亲人	fù mǔ hé qīn rén	10
 父母和子女	fù mǔ hé zǐ nǚ	10
 父母或子女	fù mǔ huò zǐ nǚ	10
-父母皆祸害	fù mǔ jiē huò hài	10
+父母皆祸害	fù mǔ jiē huò hai	10
 父母那一辈	fù mǔ nà yí bèi	10
 父母与子女	fù mǔ yǔ zǐ nǚ	10
 父母怎么教	fù mǔ zěn me jiào	10
@@ -19942,6 +20028,7 @@ sort: by_weight
 妇手拍儿声	fù shǒu pāi ér shēng	10
 覆手为繁华	fù shǒu wéi fán huá	10
 复数乘法论	fù shù chéng fǎ lùn	10
+附属程序集	fù shǔ chéng xù jí	10
 腐熟的饼肥	fǔ shú de bǐng féi	10
 复数的概念	fù shù de gài niàn	10
 复数的极式	fù shù de jí shì	10
@@ -19953,6 +20040,7 @@ sort: by_weight
 福斯罗公司	fú sī luó gōng sī	10
 复速度位势	fù sù dù wèi shì	10
 复随机变量	fù suí jī biàn liàng	10
+赴台个人游	fù tái gè rén yóu	10
 抚台平倭碑	fǔ tái píng wō bēi	10
 复弹性模量	fù tán xìng mó liàng	10
 富碳油页岩	fù tàn yóu yè yán	10
@@ -20973,7 +21061,7 @@ sort: by_weight
 高额的彩礼	gāo é de cǎi lǐ	10
 高额的房贷	gāo é de fáng dài	10
 高额的房租	gāo é de fáng zū	10
-高额的费用	gāo é de fèi yòng	10
+高额的费用	gāo é de fèi yong	10
 高额的回报	gāo é de huí bào	10
 高额的奖金	gāo é de jiǎng jīn	10
 高额的利润	gāo é de lì rùn	10
@@ -21259,6 +21347,7 @@ sort: by_weight
 高速过路费	gāo sù guò lù fèi	10
 高速过弯时	gāo sù guò wān shí	10
 高速互联网	gāo sù hù lián wǎng	10
+高速缓存块	gāo sù huǎn cún kuài	10
 高速计算机	gāo sù jì suàn jī	10
 高速加油站	gāo sù jiā yóu zhàn	10
 高速客运站	gāo sù kè yùn zhàn	10
@@ -21281,6 +21370,7 @@ sort: by_weight
 高速铁路网	gāo sù tiě lù wǎng	10
 高速通行费	gāo sù tōng xíng fèi	10
 高速涡轮机	gāo sù wō lún jī	10
+告诉我他们	gào sù wǒ tā men	10
 告诉我一声	gào sù wǒ yì shēng	10
 高速五大队	gāo sù wǔ dà duì	10
 高速行驶时	gāo sù xíng shǐ shí	10
@@ -21633,6 +21723,7 @@ sort: by_weight
 膈肌肌电图	gé jī jī diàn tú	10
 各机理毒素	gè jī lǐ dú sù	10
 个技能就是	gè jì néng jiù shì	10
+各级团组织	gè jí tuán zǔ zhī	10
 各交警大队	gè jiāo jǐng dà duì	10
 个交通工具	gè jiāo tōng gōng jù	10
 各交通要道	gè jiāo tōng yào dào	10
@@ -22066,6 +22157,7 @@ sort: by_weight
 跟着老师学	gēn zhe lǎo shī xué	10
 跟着市场走	gēn zhe shì chǎng zǒu	10
 跟着项目走	gēn zhe xiàng mù zǒu	10
+跟着一起嗨	gēn zhe yì qǐ hāi	10
 跟真的似的	gēn zhēn de shì de	10
 跟真的一样	gēn zhēn de yí yàng	10
 跟针扎似的	gēn zhēn zhā shì de	10
@@ -22381,6 +22473,8 @@ sort: by_weight
 更加的真实	gèng jiā de zhēn shí	10
 更加的注重	gèng jiā de zhù zhòng	10
 更加的自信	gèng jiā de zì xìn	10
+更加地方便	gèng jiā dì fāng biàn	10
+更加地精致	gèng jiā dì jīng zhì	10
 更加坚定地	gèng jiā jiān dìng de	10
 更加快速地	gèng jiā kuài sù de	10
 更加深度的	gèng jiā shēn dù de	10
@@ -22419,6 +22513,7 @@ sort: by_weight
 更实的作风	gèng shí de zuò fēng	10
 更始帝刘玄	gēng shǐ dì liú xuán	10
 耿氏二极管	gěng shì èr jí guǎn	10
+更适合我的	gèng shì hé wǒ de	10
 更讨人喜欢	gèng tǎo rén xǐ huan	10
 更为精彩的	gēng wéi jīng cǎi de	10
 更为人性化	gēng wéi rén xìng huà	10
@@ -22892,6 +22987,7 @@ sort: by_weight
 巩县兵工厂	gǒng xiàn bīng gōng chǎng	10
 贡献和影响	gòng xiàn hé yǐng xiǎng	10
 巩县石窟寺	gǒng xiàn shí kū sì	10
+共享程序集	gòng xiǎng chéng xù jí	10
 共享的理念	gòng xiǎng de lǐ niàn	10
 供销合作社	gōng xiāo hé zuò shè	10
 共销万古愁	gòng xiāo wàn gǔ chóu	10
@@ -23074,6 +23170,7 @@ sort: by_weight
 工作家庭党	gōng zuò jiā tíng dǎng	10
 工作经验吧	gōng zuò jīng yàn ba	10
 工作没意义	gōng zuò méi yì yì	10
+工作区坐标	gōng zuò qū zuò biāo	10
 工作任务重	gōng zuò rèn wù zhòng	10
 工作人员称	gōng zuò rén yuán chēng	10
 工作人员会	gōng zuò rén yuán huì	10
@@ -23088,10 +23185,12 @@ sort: by_weight
 工作室声明	gōng zuò shì shēng míng	10
 工作与时日	gōng zuò yǔ shí rì	10
 工作站机群	gōng zuò zhàn jī qún	10
+工作者协会	gōng zuò zhě xié huì	10
 够不够大吧	gòu bú gòu dà ba	10
 狗不嫌家贫	gǒu bù xián jiā pín	10
 构成的威胁	gòu chéng de wēi xié	10
 钩翅弄蝶族	gōu chì nòng dié zú	10
+构词法意识	gòu cí fǎ yì shí	10
 狗耷拉舌头	gǒu dā la shé tou	10
 勾搭在一起	gōu dā zài yì qǐ	10
 钩蛋白质类	gōu dàn bái zhì lèi	10
@@ -23243,6 +23342,7 @@ sort: by_weight
 古典相容的	gǔ diǎn xiāng róng de	10
 古典学学者	gǔ diǎn xué xué zhě	10
 古典与时尚	gǔ diǎn yǔ shí shàng	10
+固定候选项	gù dìng hòu xuǎn xiàng	10
 固定汇率制	gù dìng huì lǜ zhì	10
 固定价合同	gù dìng jià hé tong	10
 固定式球阀	gù dìng shì qiú fá	10
@@ -23465,6 +23565,7 @@ sort: by_weight
 古宁头大捷	gǔ níng tóu dà jié	10
 古宁头之战	gǔ níng tóu zhī zhàn	10
 古诺尔斯语	gǔ nuò ěr sī yǔ	10
+骨牌铺方格	gǔ pái pù fāng gé	10
 古盘虫亚目	gǔ pán chóng yà mù	10
 鼓泡氧合柱	gǔ pào yǎng hé zhù	10
 骨盆底肌肉	gǔ pén dǐ jī ròu	10
@@ -23843,6 +23944,7 @@ sort: by_weight
 官僚主义者	guān liáo zhǔ yì zhě	10
 管螺纹连接	guǎn luó wén lián jiē	10
 冠内固位体	guān nèi gù wèi tǐ	10
+关你什么事	guān nǐ shén me shì	10
 观念的变化	guān niàn de biàn huà	10
 观念的差异	guān niàn de chā yì	10
 观念的改变	guān niàn de gǎi biàn	10
@@ -24305,6 +24407,7 @@ sort: by_weight
 鬼盗船魔咒	guǐ dào chuán mó zhòu	10
 轨道飞行器	guǐ dào fēi xíng qì	10
 轨道角动量	guǐ dào jiǎo dòng liàng	10
+轨道交通线	guǐ dào jiāo tōng xiàn	10
 轨道鸳鸯站	guǐ dào yuān yāng zhàn	10
 归德府城墙	guī dé fǔ chéng qiáng	10
 归德节度使	guī dé jié dù shǐ	10
@@ -24982,6 +25085,7 @@ sort: by_weight
 国企与民企	guó qǐ yǔ mín qǐ	10
 国企招聘网	guó qǐ zhāo pìn wǎng	10
 国庆大阅兵	guó qìng dà yuè bīng	10
+国庆的时候	guó qìng de shí hou	10
 国庆和中秋	guó qìng hé zhōng qiū	10
 国庆节长假	guó qìng jié cháng jià	10
 国庆节快乐	guó qìng jié kuài lè	10
@@ -25172,10 +25276,12 @@ sort: by_weight
 哈尔滨青岛	hā ěr bīn qīng dǎo	10
 哈尔施塔特	hā ěr shī tǎ tè	10
 哈尔斯通环	hā ěr sī tōng huán	10
+哈佛商学院	hā fó shāng xué yuàn	10
 哈佛氏骨板	hā fó shì gǔ bǎn	10
 哈佛氏系统	hā fó shì xì tǒng	10
 哈佛希尔热	hā fó xī ěr rè	10
 哈夫洛克岛	hā fū luò kè dǎo	10
+哈弗曼编码	hā fú màn biān mǎ	10
 哈格曼因子	hā gé màn yīn zǐ	10
 哈汉二氏体	hā hàn èr shì tǐ	10
 哈汉二氏疣	hā hàn èr shì yóu	10
@@ -25185,6 +25291,7 @@ sort: by_weight
 哈佳奇条约	hā jiā qí tiáo yuē	10
 哈杰尔山脉	hā jié ěr shān mài	10
 哈力多长效	hā lì duō cháng xiào	10
+哈利斯科州	hā lì sī kē zhōu	10
 哈罗理论家	hā luo lǐ lùn jiā	10
 蛤蟆通水库	há ma tōng shuǐ kù	10
 哈密顿回路	hā mì dùn huí lù	10
@@ -25342,6 +25449,7 @@ sort: by_weight
 还是那句话	hái shì nà jù huà	10
 还是武汉的	hái shì wǔ hàn de	10
 还是有优势	hái shì yǒu yōu shì	10
+海水淡化膜	hǎi shuǐ dàn huà mó	10
 海丝博览会	hǎi sī bó lǎn huì	10
 海他西林钾	hǎi tā xī lín jiǎ	10
 海天黄豆酱	hǎi tiān huáng dòu jiàng	10
@@ -25625,6 +25733,7 @@ sort: by_weight
 汉字的起源	hàn zì de qǐ yuán	10
 汉字的书写	hàn zì de shū xiě	10
 汉字废止论	hàn zì fèi zhǐ lùn	10
+汉字交换码	hàn zì jiāo huàn mǎ	10
 汉字排检法	hàn zì pái jiǎn fǎ	10
 汗渍色牢度	hàn zì sè láo dù	10
 汉字文明圈	hàn zì wén míng quān	10
@@ -26023,6 +26132,7 @@ sort: by_weight
 核保存函子	hé bǎo cún hán zi	10
 核爆末世录	hé bào mò shì lù	10
 核爆默示录	hé bào mò shì lù	10
+核爆炸效应	hé bào zhà xiào yìng	10
 河北保定的	hé běi bǎo dìng de	10
 河北保定人	hé běi bǎo dìng rén	10
 河北保定市	hé běi bǎo dìng shì	10
@@ -26055,7 +26165,6 @@ sort: by_weight
 河北派出所	hé běi pài chū suǒ	10
 河北平原带	hé běi píng yuán dài	10
 河北企业家	hé běi qǐ yè jiā	10
-河北秦皇岛	hé běi qín huáng dǎo	10
 河北青年报	hé běi qīng nián bào	10
 河北区法院	hé běi qū fǎ yuàn	10
 河北人才网	hé běi rén cái wǎng	10
@@ -26065,7 +26174,6 @@ sort: by_weight
 河北省省长	hé běi shěng shěng zhǎng	10
 河北省语委	hé běi shěng yǔ wěi	10
 河北省作协	hé běi shěng zuò xié	10
-河北石家庄	hé běi shí jiā zhuāng	10
 河北书法家	hé běi shū fǎ jiā	10
 河北唐山的	hé běi táng shān de	10
 河北唐山市	hé běi táng shān shì	10
@@ -26181,6 +26289,7 @@ sort: by_weight
 合肥瑶海区	hé féi yáo hǎi qū	10
 合肥直属站	hé féi zhí shǔ zhàn	10
 河风沉积岩	hé fēng chén jī yán	10
+赫夫曼编码	hè fū màn biān mǎ	10
 和父母相处	hé fù mǔ xiāng chǔ	10
 禾夫斯贝加	hé fū sī bèi jiā	10
 核苷类似物	hé gān lèi sì wù	10
@@ -27554,6 +27663,7 @@ sort: by_weight
 后印象主义	hòu yìn xiàng zhǔ yì	10
 后英伦摇滚	hòu yīng lún yáo gǔn	10
 后宇多天皇	hòu yǔ duō tiān huáng	10
+后援存储器	hòu yuán cún chǔ qì	10
 后圆融天皇	hòu yuán róng tiān huáng	10
 后赵大将军	hòu zhào dà jiàng jūn	10
 后知后觉者	hòu zhī hòu jué zhě	10
@@ -27753,6 +27863,8 @@ sort: by_weight
 互联网智能	hù lián wǎng zhì néng	10
 互联网知识	hù lián wǎng zhī shi	10
 互联网之子	hù lián wǎng zhī zǐ	10
+互联网终端	hù lián wǎng zhōng duān	12
+互联网中断	hù lián wǎng zhōng duàn	10
 互联网资讯	hù lián wǎng zī xùn	10
 胡林的子女	hú lín de zǐ nǚ	10
 忽鲁勃极烈	hū lǔ bó jí liè	10
@@ -27960,7 +28072,9 @@ sort: by_weight
 华北中央局	huá běi zhōng yāng jú	10
 花别人的钱	huā bié rén de qián	10
 话不能乱说	huà bù néng luàn shuō	10
+话不说不明	huà bù shuō bù míng	10
 花不完的钱	huā bù wán de qián	10
+话糙理不糙	huà cāo lǐ bù cāo	10
 花茶的功效	huā chá de gōng xiào	10
 划长江而治	huà cháng jiāng ér zhì	10
 滑车上动脉	huá chē shàng dòng mài	10
@@ -28052,6 +28166,7 @@ sort: by_weight
 划过的流星	huá guò de liú xīng	10
 华国锋同志	huá guó fēng tóng zhì	10
 话还没说完	huà hái méi shuō wán	10
+花好月又圆	huā hǎo yuè yòu yuán	10
 花好月圆圆	huā hǎo yuè yuán yuán	10
 花很长时间	huā hěn cháng shí jiān	10
 花很少的钱	huā hěn shǎo de qián	10
@@ -29307,6 +29422,7 @@ sort: by_weight
 会拉小提琴	huì lā xiǎo tí qín	10
 回来吧顺爱	huí lái ba shùn ài	10
 惠来城隍庙	huì lái chéng huáng miào	10
+回来得晚的	huí lái de wǎn de	10
 回老家探亲	huí lǎo jiā tàn qīn	10
 回了个电话	huí le gè diàn huà	10
 回了趟老家	huí le tàng lǎo jiā	10
@@ -29597,11 +29713,13 @@ sort: by_weight
 浑浑噩噩过	hún hún è è guò	10
 混江龙李俊	hùn jiāng lóng lǐ jùn	10
 混了个脸熟	hùn le gè liǎn shú	10
+婚礼策划师	hūn lǐ cè huà shī	10
 婚礼的成员	hūn lǐ de chéng yuán	10
 婚礼的殿堂	hūn lǐ de diàn táng	10
 婚礼的前夕	hūn lǐ de qián xī	10
 婚礼的现场	hūn lǐ de xiàn chǎng	10
 婚礼的祝福	hūn lǐ de zhù fú	10
+婚礼摄影师	hūn lǐ shè yǐng shī	10
 婚礼式颁证	hūn lǐ shì bān zhèng	10
 混料输送机	hùn liào shū sòng jī	10
 混乱的终结	hùn luàn de zhōng jié	10
@@ -29800,7 +29918,7 @@ sort: by_weight
 火锅的味道	huǒ guō de wèi dào	10
 获国家专利	huò guó jiā zhuān lì	10
 活过来似的	huó guò lái shì de	10
-祸害遗千年	huò hài yí qiān nián	10
+祸害遗千年	huò hai yí qiān nián	10
 霍赫方程式	huò hè fāng chéng shì	10
 火红的柿子	huǒ hóng de shì zi	10
 火红叶绿版	huǒ hóng yè lǜ bǎn	10
@@ -30445,6 +30563,7 @@ sort: by_weight
 吉吉哈迪德	jí jí hā dí dé	10
 积极和消极	jī jí hé xiāo jí	10
 积极或消极	jī jí huò xiāo jí	10
+急急急急急	jí jí jí jí jí	12
 季姬击鸡记	jì jī jī jī jì	10
 积基朗尼亚	jī jī lǎng ní yà	10
 急急如律令	jí jí rú lǜ lìng	10
@@ -30890,6 +31009,7 @@ sort: by_weight
 矶山沙耶加	jī shān shā yé jiā	10
 矶山沙也加	jī shān shā yě jiā	10
 积善有余庆	jī shàn yǒu yú qìng	10
+系上安全带	jì shàng ān quán dài	10
 级商办大楼	jí shāng bàn dà lóu	10
 机上互联网	jī shàng hù lián wǎng	10
 肌上皮细胞	jī shàng pí xì bāo	10
@@ -31710,6 +31830,7 @@ sort: by_weight
 家里的重担	jiā lǐ de zhòng dàn	10
 加利福尼亚	jiā lì fú ní yà	10
 加里曼丹岛	jiā lǐ màn dān dǎo	10
+家里没有矿	jiā lǐ méi yǒu kuàng	10
 假脸姐妹团	jiǎ liǎn jiě mèi tuán	10
 假镰叶虫实	jiǎ lián yè chóng shí	10
 假两难推理	jiǎ liǎng nán tuī lǐ	10
@@ -32377,6 +32498,7 @@ sort: by_weight
 煎个葱油饼	jiān gè cōng yóu bǐng	10
 间隔的时间	jiàn gé de shí jiān	10
 煎个荷包蛋	jiān gè hé bāo dàn	10
+间隔计时器	jiàn gé jì shí qì	10
 煎个全熟蛋	jiān gè quán shú dàn	10
 间隔时间长	jiàn gé shí jiān cháng	10
 间隔时间短	jiàn gé shí jiān duǎn	10
@@ -32446,7 +32568,7 @@ sort: by_weight
 渐渐地发现	jiàn jiàn de fā xiàn	10
 贱贱的感觉	jiàn jiàn de gǎn jué	10
 渐渐的明白	jiàn jiàn de míng bai	10
-尖尖的下巴	jiān jiān de xià bā	10
+尖尖的下巴	jiān jiān de xià ba	10
 尖尖的牙齿	jiān jiān de yá chǐ	10
 贱贱的样子	jiàn jiàn de yàng zi	10
 尖尖的嘴巴	jiān jiān de zuǐ ba	10
@@ -32470,7 +32592,7 @@ sort: by_weight
 间接的方式	jiàn jiē de fāng shì	10
 间接的影响	jiàn jiē de yǐng xiǎng	10
 间接房角镜	jiàn jiē fáng jiǎo jìng	10
-间接费用率	jiàn jiē fèi yòng lǜ	10
+间接费用率	jiàn jiē fèi yong lǜ	10
 间接复合伤	jiàn jiē fù hé shāng	10
 间接固位体	jiàn jiē gù wèi tǐ	10
 间接检查法	jiàn jiē jiǎn chá fǎ	10
@@ -33159,6 +33281,7 @@ sort: by_weight
 脚踩两只船	jiǎo cǎi liǎng zhī chuán	10
 脚踩西瓜皮	jiǎo cǎi xī guā pí	10
 脚踩小白鞋	jiǎo cǎi xiǎo bái xié	10
+交叉存储器	jiāo chā cún chǔ qì	10
 交叉点放样	jiāo chā diǎn fàng yàng	10
 交叉二五码	jiāo chā èr wǔ mǎ	10
 交叉粉丝路	jiāo chā fěn sī lù	10
@@ -33251,6 +33374,8 @@ sort: by_weight
 校核洪水位	jiào hé hóng shuǐ wèi	10
 胶河经济区	jiāo hé jīng jì qū	10
 交互概述图	jiāo hù gài shù tú	10
+交互式电视	jiāo hù shì diàn shì	10
+交互式语言	jiāo hù shì yǔ yán	10
 交互性突触	jiāo hù xìng tū chù	10
 交互主体性	jiāo hù zhǔ tǐ xìng	10
 狡猾的狐狸	jiǎo huá de hú li	10
@@ -33781,6 +33906,7 @@ sort: by_weight
 结构化异常	jié gòu huà yì cháng	10
 结构化主体	jié gòu huà zhǔ tǐ	10
 结构类拟物	jié gòu lèi nǐ wù	10
+结构体对齐	jié gòu tǐ duì qí	10
 结构性变革	jié gòu xìng biàn gé	10
 结构性成本	jié gòu xìng chéng běn	10
 结构型模式	jié gòu xíng mó shì	10
@@ -33999,6 +34125,7 @@ sort: by_weight
 结识新朋友	jié shí xīn péng you	10
 解释型语言	jiě shì xíng yǔ yán	10
 接收毕业生	jiē shōu bì yè shēng	10
+接受采访时	jiē shòu cǎi fǎng shí	10
 接受的程度	jiē shòu de chéng dù	10
 接收二极管	jiē shōu èr jí guǎn	10
 接收缓冲区	jiē shōu huǎn chōng qū	10
@@ -34146,7 +34273,6 @@ sort: by_weight
 进程环境块	jìn chéng huán jìng kuài	10
 晋城矿务局	jìn chéng kuàng wù jú	10
 进城农民工	jìn chéng nóng mín gōng	10
-晋城市城区	jìn chéng shì chéng qū	10
 晋城市郊区	jìn chéng shì jiāo qū	10
 晋城市市辖	jìn chéng shì shì xiá	10
 晋城市市长	jìn chéng shì shì zhǎng	10
@@ -34627,6 +34753,7 @@ sort: by_weight
 今天是七夕	jīn tiān shì qī xī	10
 津田塾大学	jīn tián shú dà xué	10
 今天推明天	jīn tiān tuī míng tiān	10
+今天下午在	jīn tiān xià wǔ zài	10
 今天小编就	jīn tiān xiǎo biān jiù	10
 今天与明天	jīn tiān yǔ míng tiān	10
 今天这个事	jīn tiān zhè ge shì	10
@@ -35323,7 +35450,7 @@ sort: by_weight
 精确的分析	jīng què de fēn xī	10
 精确的数据	jīng què de shù jù	10
 惊人的美貌	jīng rén de měi mào	10
-惊人的相似	jīng rén de xiāng sì	10
+惊人地相似	jīng rén de xiāng sì	10
 惊人的一致	jīng rén de yí zhì	10
 惊人的真相	jīng rén de zhēn xiàng	10
 精锐的部队	jīng ruì de bù duì	10
@@ -35395,10 +35522,12 @@ sort: by_weight
 精算师华绫	jīng suàn shī huá líng	10
 静态暗间隙	jìng tài àn jiàn xì	10
 镜台测微尺	jìng tái cè wēi chǐ	10
+静态重定位	jìng tài chóng dìng wèi	10
 静态和动态	jìng tài hé dòng tài	10
 静态混合器	jìng tài hùn hé qì	10
 景泰蓝工艺	jǐng tài lán gōng yì	10
 静态链接库	jìng tài liàn jiē kù	10
+静态数据区	jìng tài shù jù qū	10
 静态与动态	jìng tài yǔ dòng tài	10
 静弹性模量	jìng tán xìng mó liàng	10
 景堂图书馆	jǐng táng tú shū guǎn	10
@@ -36504,6 +36633,7 @@ sort: by_weight
 巨序剪股颖	jù xù jiǎn gǔ yǐng	10
 聚伊德科特	jù yī dé kē tè	10
 掬一捧月光	jū yì pěng yuè guāng	10
+举一些例子	jǔ yì xiē lì zi	10
 居庸关云台	jū yōng guān yún tái	10
 具有成长性	jù yǒu chéng zhǎng xìng	10
 具有的功能	jù yǒu de gōng néng	10
@@ -36512,6 +36642,7 @@ sort: by_weight
 巨幼红细胞	jù yòu hóng xì bāo	10
 局域惯性系	jú yù guàn xìng xì	10
 橘逾淮为枳	jú yú huái wéi zhǐ	10
+局域网多播	jú yù wǎng duō bō	10
 局域网联机	jú yù wǎng lián jī	10
 局域网连接	jú yù wǎng lián jiē	10
 局域网网关	jú yù wǎng wǎng guān	10
@@ -36902,6 +37033,7 @@ sort: by_weight
 卡姆兰战役	kǎ mǔ lán zhàn yì	10
 卡纳德方法	kǎ nà dé fāng fǎ	10
 卡纳克神庙	kǎ nà kè shén miào	10
+卡纳塔克邦	kǎ nà tǎ kè bāng	10
 卡纳维尔角	kǎ nà wéi ěr jiǎo	10
 卡耐新能源	kǎ nài xīn néng yuán	10
 卡帕多奇亚	kǎ pà duō qí yà	10
@@ -37352,6 +37484,7 @@ sort: by_weight
 砍十里桃花	kǎn shí lǐ táo huā	10
 看水不是水	kàn shuǐ bú shì shuǐ	10
 看谁在尖叫	kàn shuí zài jiān jiào	10
+看似不起眼	kàn sì bù qǐ yǎn	10
 看似挺吃亏	kàn sì tǐng chī kuī	10
 坎塔布利亚	kǎn tǎ bù lì yà	10
 坎塔布里亚	kǎn tǎ bù lǐ yà	10
@@ -37462,6 +37595,7 @@ sort: by_weight
 抗美援朝中	kàng měi yuán cháo zhōng	10
 抗糜蛋白酶	kàng mí dàn bái méi	10
 康奈尔大学	kāng nài ěr dà xué	10
+康涅狄格州	kāng niè dí gé zhōu	10
 抗偏头痛药	kàng piān tóu tòng yào	10
 康平路事件	kāng píng lù shì jiàn	10
 康普顿散射	kāng pǔ dùn sǎn shè	12
@@ -37578,6 +37712,7 @@ sort: by_weight
 考生的成绩	kǎo shēng de chéng jì	10
 考生和家长	kǎo shēng hé jiā zhǎng	10
 考生及家长	kǎo shēng jí jiā zhǎng	10
+考试考得好	kǎo shì kǎo de hǎo	10
 考试信息网	kǎo shì xìn xī wǎng	10
 考事业单位	kǎo shì yè dān wèi	10
 靠休息缓解	kào xiū xi huǎn jiě	10
@@ -37636,6 +37771,7 @@ sort: by_weight
 客场进球制	kè chǎng jìn qiú zhì	10
 课程和教学	kè chéng hé jiào xué	10
 可耻的匿了	kě chǐ de nì le	10
+可重入函数	kě chóng rù hán shù	10
 可穿戴智能	kě chuān dài zhì néng	10
 科垂尔大气	kē chuí ěr dà qì	10
 可从南到北	kě cóng nán dào běi	10
@@ -37828,7 +37964,6 @@ sort: by_weight
 客客气气的	kè kè qì qì de	10
 科科斯板块	kē kē sī bǎn kuài	10
 科科斯群岛	kē kē sī qún dǎo	10
-科科斯群岛	kē kē sī qún dǎo	10
 可可斯群岛	kě kě sī qún dǎo	10
 可可西里的	kě kě xī lǐ de	10
 可可西里湖	kě kě xī lǐ hú	10
@@ -37924,6 +38059,7 @@ sort: by_weight
 刻录到光盘	kè lù dào guāng pán	10
 克鲁尔拓扑	kè lǔ ěr tuò pū	10
 克鲁尔维数	kè lǔ ěr wéi shù	10
+克鲁玛高塔	kè lǔ mǎ gāo tǎ	10
 克鲁斯锥虫	kè lǔ sī zhuī chóng	10
 可路由协议	kě lù yóu xié yì	10
 克仑特罗栓	kè lún tè luó shuān	10
@@ -37932,6 +38068,7 @@ sort: by_weight
 克洛科夫角	kè luò kē fū jiǎo	10
 科罗科罗岛	kē luó kē luó dǎo	10
 克罗克山脉	kè luó kè shān mài	10
+科罗拉多州	kē luó lā duō zhōu	10
 科罗纳多岛	kē luó nà duō dǎo	10
 科罗纳山脉	kē luó nà shān mài	10
 克罗内克积	kè luó nèi kè jī	10
@@ -38070,6 +38207,7 @@ sort: by_weight
 髁突间距离	kē tū jiān jù lí	10
 可脱金球囊	kě tuō jīn qiú náng	10
 柯瓦尔天体	kē wǎ ěr tiān tǐ	10
+科瓦切维奇	kē wǎ qiè wéi qí	10
 可望不可求	kě wàng bù kě qiú	10
 可微分编程	kě wēi fēn biān chéng	10
 可危及生命	kě wēi jí shēng mìng	10
@@ -38077,6 +38215,7 @@ sort: by_weight
 柯西不等式	kē xī bù děng shì	10
 柯锡分定理	kē xī fēn dìng lǐ	10
 柯锡分公式	kē xī fēn gōng shì	10
+科西嘉大区	kē xī jiā dà qū	10
 客西马尼园	kè xī mǎ ní yuán	10
 可吸收缝线	kě xī shōu fèng xiàn	10
 可吸收螺钉	kě xī shōu luó dīng	10
@@ -38190,6 +38329,7 @@ sort: by_weight
 可疑症状者	kě yí zhèng zhuàng zhě	10
 可疑致癌物	kě yí zhì ái wù	10
 可一致化的	kě yí zhì huà de	10
+可以直接喝	kě yǐ zhí jiē hē	10
 可以直接秒	kě yǐ zhí jiē miǎo	10
 可以知兴替	kě yǐ zhī xīng tì	10
 可移植因子	kě yí zhí yīn zǐ	10
@@ -38997,6 +39137,7 @@ sort: by_weight
 喇叭练习中	lǎ bā liàn xí zhōng	10
 拉巴洛条约	lā bā luò tiáo yuē	10
 拉都拉不动	lā dōu lā bú dòng	10
+拉都拉不住	lā dōu lā bú zhù	10
 拉伐耳喷管	lā fá ěr pēn guǎn	10
 拉弗森方法	lā fú sēn fāng fǎ	10
 拉格朗日点	lā gé lǎng rì diǎn	10
@@ -39054,6 +39195,7 @@ sort: by_weight
 拉姆赛理论	lā mǔ sài lǐ lùn	10
 拉帕努伊岛	lā pà nǔ yī dǎo	10
 拉普拉斯妖	lā pǔ lā sī yāo	10
+拉齐奥大区	lā qí ào dà qū	10
 拉萨察隅带	lā sà chá yú dài	10
 拉萨尔主义	lā sà ěr zhǔ yì	10
 拉塞尔小体	lā sāi ěr xiǎo tǐ	10
@@ -39089,6 +39231,7 @@ sort: by_weight
 来倒是来过	lái dào shì lái guò	10
 来岛又兵卫	lái dǎo yòu bīng wèi	10
 来的都是客	lái de dōu shì kè	10
+来得是时候	lái de shì shí hou	10
 来得太快啦	lái dé tài kuài la	10
 来得太快了	lái de tài kuài le	10
 铼的同位素	lái de tóng wèi sù	10
@@ -39131,6 +39274,7 @@ sort: by_weight
 赖脯胰岛素	lài pú yí dǎo sù	10
 来栖川姬子	lái qī chuān jī zǐ	10
 来齐齐哈尔	lái qí qí hā ěr	10
+来日不方长	lái rì bù fāng cháng	10
 来上路支援	lái shàng lù zhī yuán	10
 来生再续缘	lái shēng zài xù yuán	10
 来时的路口	lái shí de lù kǒu	10
@@ -39441,6 +39585,7 @@ sort: by_weight
 老梁故事汇	lǎo liáng gù shi huì	10
 老龄化程度	lǎo líng huà chéng dù	10
 老龄化加剧	lǎo líng huà jiā jù	10
+老妈宫粽球	lǎo mā gōng zòng qiú	10
 老猫枕咸鱼	lǎo māo zhěn xián yú	10
 劳模话奋斗	láo mó huà fèn dòu	10
 老年护理院	lǎo nián hù lǐ yuàn	10
@@ -39671,6 +39816,7 @@ sort: by_weight
 累积雨量大	lěi jī yǔ liàng dà	10
 累计雨量大	lěi jì yǔ liàng dà	10
 累驾基暗飞	lèi jià jī àn fēi	10
+累加寄存器	lěi jiā jì cún qì	10
 肋剑突韧带	lèi jiàn tū rèn dài	10
 类金刚石碳	lèi jīn gāng shí tàn	10
 累进可除数	lěi jìn kě chú shù	10
@@ -40026,6 +40172,7 @@ sort: by_weight
 离开北京了	lí kāi běi jīng le	10
 离开学校后	lí kāi xué xiào hòu	10
 离开央视后	lí kāi yāng shì hòu	10
+离开这里啊	lí kāi zhè lǐ a	10
 立克次氏体	lì kè cì shì tǐ	10
 立克次体痘	lì kè cì tǐ dòu	10
 力克迪亚斯	lì kè dí yà sī	10
@@ -40079,10 +40226,10 @@ sort: by_weight
 理论与实务	lǐ lùn yǔ shí wù	10
 理论与实验	lǐ lùn yǔ shí yàn	10
 理论与实战	lǐ lùn yǔ shí zhàn	10
-利落的短发	lì luò de duǎn fà	10
-利落的发型	lì luò de fà xíng	10
-利落的剪裁	lì luò de jiǎn cái	10
-利落的线条	lì luò de xiàn tiáo	10
+利落的短发	lì luo de duǎn fà	10
+利落的发型	lì luo de fà xíng	10
+利落的剪裁	lì luo de jiǎn cái	10
+利落的线条	lì luo de xiàn tiáo	10
 利率的变化	lì lǜ de biàn huà	10
 利玛窦规矩	lì mǎ dòu guī ju	10
 利玛窦宿舍	lì mǎ dòu sù shè	10
@@ -40262,6 +40409,7 @@ sort: by_weight
 离太阳最近	lí tài yáng zuì jìn	10
 立陶夫斯克	lì táo fū sī kè	10
 利特罗装置	lì tè luó zhuāng zhì	10
+里特维尔德	lǐ tè wéi ěr dé	10
 立体的剪裁	lì tǐ de jiǎn cái	10
 立体的人物	lì tǐ de rén wù	10
 立体的五官	lì tǐ de wǔ guān	10
@@ -40403,6 +40551,7 @@ sort: by_weight
 梨园派出所	lí yuán pài chū suǒ	10
 荔园游乐场	lì yuán yóu lè chǎng	10
 里约基督像	lǐ yuē jī dū xiàng	10
+里约热内卢	lǐ yuē rè nèi lú	10
 礼运大同篇	lǐ yùn dà tóng piān	10
 离这里不远	lí zhè lǐ bù yuǎn	10
 立正佼成会	lì zhèng jiǎo chéng huì	10
@@ -40798,6 +40947,7 @@ sort: by_weight
 莲友念佛团	lián yǒu niàn fó tuán	10
 炼狱杏寿郎	liàn yù xìng shòu láng	10
 恋与制作人	liàn yǔ zhì zuò rén	10
+连在了一起	lián zài le yì qǐ	10
 连赞都不点	lián zàn dōu bù diǎn	10
 脸怎么红了	liǎn zěn me hóng le	10
 连渣都不剩	lián zhā dōu bú shèng	10
@@ -41128,10 +41278,10 @@ sort: by_weight
 量子无序系	liàng zǐ wú xù xì	10
 量子引力学	liàng zǐ yǐn lì xué	10
 疗病诱发疟	liáo bìng yòu fā nüè	10
-了不起的韩	liǎo bù qǐ de hán	10
-了不起的品	liǎo bù qǐ de pǐn	10
-了不起的选	liǎo bù qǐ de xuǎn	10
-了不起舞社	liǎo bù qǐ wǔ shè	10
+了不起的韩	liǎo bu qǐ de hán	10
+了不起的品	liǎo bu qǐ de pǐn	10
+了不起的选	liǎo bu qǐ de xuǎn	10
+了不起舞社	liǎo bu qǐ wǔ shè	10
 潦草不潦草	liáo cǎo bù liáo cǎo	10
 聊城开发区	liáo chéng kāi fā qū	10
 聊倒是聊过	liáo dào shì liáo guò	10
@@ -42331,6 +42481,7 @@ sort: by_weight
 鲁特斯集团	lǔ tè sī jí tuán	10
 路透社援引	lù tòu shè yuán yǐn	10
 路途的遥远	lù tú de yáo yuǎn	10
+卢瓦尔河谷	lú wǎ ěr hé gǔ	10
 鹿王本生图	lù wáng běn shēng tú	10
 路威廉姆斯	lù wēi lián mǔ sī	10
 炉温测试仪	lú wēn cè shì yí	10
@@ -42349,8 +42500,8 @@ sort: by_weight
 陆毅的女儿	lù yì de nǚ er	10
 录一段视频	lù yí duàn shì pín	10
 陆毅和鲍蕾	lù yì hé bào lěi	10
-路易斯安娜	lù yì sī ān nà	10
 路易斯安那	lù yì sī ān nà	10
+路易斯安娜	lù yì sī ān nà	10
 路易斯巴尔	lù yì sī bā ěr	10
 路易斯毒气	lù yì sī dú qì	10
 路易体痴呆	lù yì tǐ chī dāi	10
@@ -42427,6 +42578,7 @@ sort: by_weight
 卵圆孔未闭	luǎn yuán kǒng wèi bì	10
 卵子不植入	luǎn zǐ bù zhí rù	10
 卵子和精子	luǎn zǐ hé jīng zǐ	10
+伦巴第大区	lún bā dì dà qū	10
 轮虫动物门	lún chóng dòng wù mén	10
 论出版自由	lùn chū bǎn zì yóu	10
 轮斗挖掘机	lún dòu wā jué jī	10
@@ -42559,6 +42711,7 @@ sort: by_weight
 洛伦兹条件	luò lún zī tiáo jiàn	10
 洛伦兹系统	luò lún zī xì tǒng	10
 洛伦兹因数	luò lún zī yīn shù	10
+罗马涅大区	luó mǎ niè dà qū	10
 骡马市大街	luó mǎ shì dà jiē	10
 落马洲河套	luò mǎ zhōu hé tào	10
 罗曼尼康帝	luó màn ní kāng dì	10
@@ -42575,6 +42728,7 @@ sort: by_weight
 螺施运输机	luó shī yùn shū jī	10
 螺栓和螺母	luó shuān hé luó mǔ	10
 罗斯柴尔德	luó sī chái ěr dé	10
+螺丝定位板	luó sī dìng wèi bǎn	10
 螺丝墩遗址	luó sī dūn yí zhǐ	10
 罗斯托模型	luó sī tuō mó xíng	10
 螺丝在拧紧	luó sī zài níng jǐn	10
@@ -42938,6 +43092,7 @@ sort: by_weight
 玛尼巴达喇	mǎ ní bā dá lǎ	10
 玛尼玛尼轰	mǎ ní mǎ ní hōng	10
 玛尼什吐苏	mǎ ní shí tǔ sū	10
+马尼托巴省	mǎ ní tuō bā shěng	10
 玛旁雍错湖	mǎ páng yōng cuò hú	10
 马皮疽侵染	mǎ pí jū qīn rǎn	10
 麻浦帅小伙	má pǔ shuài xiǎo huǒ	10
@@ -42946,6 +43101,7 @@ sort: by_weight
 马乔林溃疡	mǎ qiáo lín kuì yáng	10
 麻雀要革命	má què yào gé mìng	10
 麻雀与小孩	má què yǔ xiǎo hái	10
+马萨诸塞州	mǎ sà zhū sāi zhōu	10
 麻萨诸塞州	má sà zhū sāi zhōu	10
 玛莎拉蒂案	mǎ shā lā dì àn	10
 马善被人骑	mǎ shàn bèi rén qí	10
@@ -43238,6 +43394,7 @@ sort: by_weight
 满地的垃圾	mǎn dì de lā jī	10
 满地的落叶	mǎn dì de luò yè	10
 满都海哈屯	mǎn dōu hǎi hā tún	10
+慢工出烂活	màn gōng chū làn huó	10
 满归林业局	mǎn guī lín yè jú	10
 满汉不通婚	mǎn hàn bù tōng hūn	10
 漫画和动画	màn huà hé dòng huà	10
@@ -43347,6 +43504,7 @@ sort: by_weight
 满满都是爱	mǎn mǎn dōu shì ài	10
 满满都是你	mǎn mǎn dōu shì nǐ	10
 满满都是戏	mǎn mǎn dōu shì xì	10
+慢慢儿吃吧	màn màn ér chī ba	10
 满满负能量	mǎn mǎn fù néng liàng	10
 漫漫回家路	màn màn huí jiā lù	10
 慢慢慢慢地	màn màn màn màn de	10
@@ -43363,7 +43521,7 @@ sort: by_weight
 满满一大盆	mǎn mǎn yí dà pén	10
 满满一大碗	mǎn mǎn yí dà wǎn	10
 满满一桌子	mǎn mǎn yì zhuō zi	10
-慢慢悠悠地	màn màn yōu yōu de	10
+慢慢悠悠地	màn man yōu yōu de	10
 满满正能量	mǎn mǎn zhèng néng liàng	10
 漫漫自由路	màn màn zì yóu lù	10
 曼妙的曲线	màn miào de qū xiàn	10
@@ -43884,6 +44042,7 @@ sort: by_weight
 魅惑的眼神	mèi huò de yǎn shén	10
 魅惑的妖精	mèi huò de yāo jīng	10
 酶活性异常	méi huó xìng yì cháng	10
+没系安全带	méi jì ān quán dài	10
 美疾控中心	měi jí kòng zhōng xīn	10
 美籍台湾人	měi jí tái wān rén	10
 美极鲜味汁	měi jí xiān wèi zhī	10
@@ -44287,7 +44446,6 @@ sort: by_weight
 没问题的啦	méi wèn tí de la	10
 眉纹天蚕蛾	méi wén tiān cán é	10
 美纹纸胶带	měi wén zhǐ jiāo dài	10
-没系安全带	méi xì ān quán dài	10
 美系豪华车	měi xì háo huá chē	10
 美系肌肉车	měi xì jī ròu chē	10
 美溪林业局	měi xī lín yè jú	10
@@ -44645,7 +44803,6 @@ sort: by_weight
 米卡芬净钠	mǐ kǎ fēn jìng nà	10
 米开朗基罗	mǐ kāi lǎng jī luó	10
 米科诺斯岛	mǐ kē nuò sī dǎo	10
-米克诺斯岛	mǐ kè nuò sī dǎo	10
 糜烂性白斑	mí làn xìng bái bān	10
 糜烂性毒剂	mí làn xìng dú jì	10
 糜烂性毒气	mí làn xìng dú qì	10
@@ -44712,6 +44869,7 @@ sort: by_weight
 迷雾的森林	mí wù de sēn lín	10
 迷雾追魂手	mí wù zhuī hún shǒu	10
 密西西比河	mì xī xī bǐ hé	10
+密西西比州	mì xī xī bǐ zhōu	10
 迷向子空间	mí xiàng zǐ kōng jiān	10
 蜜雪儿菲佛	mì xuě ér fēi fó	10
 秘验清胃饮	mì yàn qīng wèi yǐn	10
@@ -44923,7 +45081,6 @@ sort: by_weight
 民警赶到后	mín jǐng gǎn dào hòu	10
 民警和辅警	mín jǐng hé fǔ jǐng	10
 闵可夫斯基	mǐn kě fū sī jī	10
-闵科夫斯基	mǐn kē fū sī jī	10
 民可使由之	mín kě shǐ yóu zhī	10
 民科收集处	mín kē shōu jí chù	10
 民免而无耻	mín miǎn ér wú chǐ	10
@@ -45119,6 +45276,7 @@ sort: by_weight
 明目的功效	míng mù dì gōng xiào	10
 明目十六味	míng mù shí liù wèi	10
 明目张胆地	míng mù zhāng dǎn de	10
+明尼苏达州	míng ní sū dá zhōu	10
 明年的春天	míng nián de chūn tiān	10
 明年的今天	míng nián de jīn tiān	10
 名牌的衣服	míng pái de yī fu	10
@@ -45348,6 +45506,7 @@ sort: by_weight
 魔法阵祭祀	mó fǎ zhèn jì sì	10
 模范棒棒堂	mó fàn bàng bàng táng	10
 魔方工作室	mó fāng gōng zuò shì	10
+摩根士丹利	mó gēn shì dān lì	10
 蘑菇的朋友	mó gu de péng you	10
 魔贯光杀炮	mó guàn guāng shā pào	10
 磨光刻花法	mó guāng kè huā fǎ	10
@@ -45491,6 +45650,7 @@ sort: by_weight
 谟氏滑鸟蛤	mó shì huá niǎo há	10
 末世纪暴潮	mò shì jì bào cháo	10
 膜式控制阀	mó shì kòng zhì fá	10
+摸石头过河	mō shí tou guò hé	10
 磨蚀性岩石	mó shí xìng yán shí	10
 膜式蒸发器	mó shì zhēng fā qì	10
 没食子鞣质	mò shí zǐ róu zhì	10
@@ -45547,7 +45707,7 @@ sort: by_weight
 魔域口袋版	mó yù kǒu dài bǎn	10
 摸着良心说	mō zhe liáng xīn shuō	10
 魔侦探洛基	mó zhēn tàn luò jī	10
-魔怔了似的	mó zhēng le shì de	10
+魔怔了似的	mó zheng le shì de	10
 膜质子传导	mó zhì zǐ chuán dǎo	10
 魔钟奇幻屋	mó zhōng qí huàn wū	10
 秣周东路站	mò zhōu dōng lù zhàn	10
@@ -45593,6 +45753,7 @@ sort: by_weight
 模板的分类	mú bǎn de fēn lèi	10
 模板的条目	mú bǎn de tiáo mù	10
 模板的页面	mú bǎn de yè miàn	10
+模板化控件	mú bǎn huà kòng jiàn	10
 模板子模板	mú bǎn zǐ mú bǎn	10
 木邦宣慰司	mù bāng xuān wèi sī	10
 木薄壁组织	mù báo bì zǔ zhī	10
@@ -45904,6 +46065,7 @@ sort: by_weight
 那么就请你	nà me jiù qǐng nǐ	10
 那么冷的天	nà me lěng de tiān	10
 那么热的天	nà me rè de tiān	10
+那么着急啊	nà me zhāo jí a	10
 那没办法了	nà méi bàn fǎ le	10
 那美克星人	nà měi kè xīng rén	10
 那美丽的风	nà měi lì de fēng	10
@@ -46089,6 +46251,7 @@ sort: by_weight
 南安普顿岛	nán ān pǔ dùn dǎo	10
 南澳办事处	nán ào bàn shì chù	10
 南澳大地震	nán ào dà dì zhèn	10
+南澳大利亚	nán ào dà lì yà	10
 男版灰姑娘	nán bǎn huī gū niang	10
 男扮女装者	nán bàn nǚ zhuāng zhě	10
 楠部大吉郎	nán bù dà jí láng	10
@@ -46102,6 +46265,7 @@ sort: by_weight
 南传大藏经	nán chuán dà zàng jīng	10
 男创作歌手	nán chuàng zuò gē shǒu	10
 楠达德维山	nán dá dé wéi shān	10
+南达科他州	nán dá kē tā zhōu	10
 男单自由滑	nán dān zì yóu huá	10
 难倒英雄汉	nán dǎo yīng xióng hàn	10
 难得不糊涂	nán dé bù hú tú	10
@@ -46131,6 +46295,7 @@ sort: by_weight
 男妇科医生	nán fù kē yī shēng	10
 男妇女主任	nán fù nǚ zhǔ rèn	10
 南阁牌楼群	nán gé pái lóu qún	10
+难过得要死	nán guò de yào sǐ	10
 难过美人关	nán guò měi rén guān	10
 南国药业有	nán guó yào yè yǒu	10
 男孩的爸爸	nán hái de bà ba	10
@@ -46159,7 +46324,9 @@ sort: by_weight
 南甲海灵殿	nán jiǎ hǎi líng diàn	10
 难解型问题	nán jiě xíng wèn tí	10
 南京博物院	nán jīng bó wù yuàn	10
+南京房地产	nán jīng fáng dì chǎn	10
 南京攻略战	nán jīng gōng lüè zhàn	10
+南卡罗来纳	nán kǎ luó lái nà	10
 南凯科斯岛	nán kǎi kē sī dǎo	10
 南开区法院	nán kāi qū fǎ yuàn	10
 南开新校区	nán kāi xīn xiào qū	10
@@ -46339,6 +46506,7 @@ sort: by_weight
 内部告发者	nèi bù gào fā zhě	10
 内补黄芪汤	nèi bǔ huáng qí tāng	10
 内部或外部	nèi bù huò wài bù	10
+内布拉斯加	nèi bù lā sī jiā	10
 内部人士称	nèi bù rén shì chēng	10
 内部往来帐	nèi bù wǎng lái zhàng	10
 内部与外部	nèi bù yǔ wài bù	10
@@ -46416,8 +46584,6 @@ sort: by_weight
 内蒙古人物	nèi méng gǔ rén wù	10
 内蒙古事件	nèi méng gǔ shì jiàn	10
 内蒙古体彩	nèi méng gǔ tǐ cǎi	10
-内蒙古通辽	nèi méng gǔ tōng liáo	10
-内蒙古乌海	nèi méng gǔ wū hǎi	10
 内蒙古伊利	nèi méng gǔ yī lì	10
 内蒙古中优	nèi méng gǔ zhōng yōu	10
 内蒙古自治	nèi méng gǔ zì zhì	10
@@ -46664,6 +46830,7 @@ sort: by_weight
 你不经意间	nǐ bù jīng yì jiān	10
 你不觉得吗	nǐ bù jué de ma	10
 你不可以扰	nǐ bù kě yǐ rǎo	10
+你不苦谁苦	nǐ bù kǔ shuí kǔ	10
 你不是孤岛	nǐ bú shì gū dǎo	10
 你不是俗人	nǐ bú shì sú rén	10
 你不用管了	nǐ bú yòng guǎn le	10
@@ -48215,6 +48382,7 @@ sort: by_weight
 跑到她面前	pǎo dào tā miàn qián	10
 跑道中心线	pǎo dào zhōng xīn xiàn	10
 跑得非常快	pǎo de fēi cháng kuài	10
+跑得了和尚	pǎo de liǎo hé shang	10
 跑都跑不掉	pǎo dōu pǎo bú diào	10
 跑都跑不了	pǎo dōu pǎo bù liǎo	10
 泡发的木耳	pào fā de mù ěr	10
@@ -49199,6 +49367,7 @@ sort: by_weight
 朴迪莫伦斯	pǔ dí mò lún sī	10
 普丁格地图	pǔ dīng gé dì tú	10
 埔顶仁和宫	pǔ dǐng rén hé gōng	10
+普法尔茨州	pǔ fǎ ěr cí zhōu	10
 普法夫方程	pǔ fǎ fū fāng chéng	10
 普伐他汀钠	pǔ fá tā tīng nà	10
 扑粉龙岩二	pū fěn lóng yán èr	10
@@ -49353,6 +49522,7 @@ sort: by_weight
 契安尼娜牛	qì ān ní nà niú	10
 齐奥赛斯库	qí ào sài sī kù	10
 齐奥塞斯库	qí ào sāi sī kù	10
+七八五十六	qī bā wǔ shí liù	10
 七把小叉子	qī bǎ xiǎo chā zi	10
 七百七十八	qī bǎi qī shí bā	10
 七百七十九	qī bǎi qī shí jiǔ	10
@@ -49835,7 +50005,6 @@ sort: by_weight
 其他小语种	qí tā xiǎo yǔ zhǒng	10
 其他应交款	qí tā yīng jiāo kuǎn	10
 其他用户名	qí tā yòng hù míng	10
-其他用户名	qí tā yòng hù míng	10
 其他预收款	qí tā yù shōu kuǎn	10
 奇特的想象	qí tè de xiǎng xiàng	10
 奇特的一生	qí tè de yì shēng	10
@@ -50223,6 +50392,7 @@ sort: by_weight
 钱币形损害	qián bì xíng sǔn hài	10
 前臂旋后肌	qián bì xuán hòu jī	10
 浅薄的回忆	qiǎn bó de huí yì	10
+前波莫瑞州	qián bō mò ruì zhōu	10
 钱不是万能	qián bú shì wàn néng	10
 钱不是问题	qián bú shì wèn tí	10
 钱不是我的	qián bú shì wǒ de	10
@@ -50265,6 +50435,7 @@ sort: by_weight
 嵌顿性包茎	qiàn dùn xìng bāo jīng	10
 嵌顿性股疝	qiàn dùn xìng gǔ shàn	10
 浅二度烧伤	qiǎn èr dù shāo shāng	10
+签发者无效	qiān fā zhě wú xiào	10
 千反田爱瑠	qiān fǎn tián ài liú	10
 前方和后方	qián fāng hé hòu fāng	10
 前方后圆坟	qián fāng hòu yuán fén	10
@@ -50792,9 +50963,11 @@ sort: by_weight
 强力吸湿剂	qiáng lì xī shī jì	10
 强力痔根断	qiáng lì zhì gēn duàn	10
 强力止咳宁	qiáng lì zhǐ ké níng	10
+强联通分量	qiáng lián tōng fēn liàng	10
 强连通分量	qiáng lián tōng fēn liàng	10
 强连通分支	qiáng lián tōng fēn zhī	10
 强连通紧统	qiáng lián tōng jǐn tǒng	10
+强连通缩点	qiáng lián tōng suō diǎn	10
 强连续映射	qiáng lián xù yìng shè	10
 强烈的动机	qiáng liè de dòng jī	10
 强烈地要求	qiáng liè de yāo qiú	10
@@ -50815,6 +50988,7 @@ sort: by_weight
 锵锵三人行	qiāng qiāng sān rén xíng	10
 强权即公理	qiáng quán jí gōng lǐ	10
 强权即真理	qiáng quán jí zhēn lǐ	10
+强热带风暴	qiáng rè dài fēng bào	10
 强人服七合	qiǎng rén fú qī hé	10
 强人服一升	qiǎng rén fú yì shēng	10
 强人工智慧	qiǎng rén gōng zhì huì	10
@@ -51582,6 +51756,7 @@ sort: by_weight
 情节严重者	qíng jié yán zhòng zhě	10
 清洁与保养	qīng jié yǔ bǎo yǎng	10
 清洁与消毒	qīng jié yǔ xiāo dú	10
+青睫综合症	qīng jié zōng hé zhèng	10
 清金降火汤	qīng jīn jiàng huǒ tāng	10
 倾尽我所有	qīng jìn wǒ suǒ yǒu	10
 请进行澄清	qǐng jìn xíng chéng qīng	10
@@ -52083,6 +52258,7 @@ sort: by_weight
 球半中低水	qiú bàn zhōng dī shuǐ	10
 球孢白僵菌	qiú bāo bái jiāng jūn	10
 球孢枝孢菌	qiú bāo zhī bāo jūn	10
+丘比特之箭	qiū bǐ tè zhī jiàn	10
 求不定积分	qiú bú dìng jī fēn	10
 裘布依公式	qiú bù yī gōng shì	10
 球床反应堆	qiú chuáng fǎn yìng duī	10
@@ -52502,6 +52678,7 @@ sort: by_weight
 区委宣传部	qū wěi xuān chuán bù	10
 区委政法委	qū wěi zhèng fǎ wěi	10
 区委组织部	qū wěi zǔ zhī bù	10
+取文本长度	qǔ wén běn cháng dù	10
 驱蚊花露水	qū wén huā lù shuǐ	10
 取文件长度	qǔ wén jiàn cháng dù	10
 取文件时间	qǔ wén jiàn shí jiān	10
@@ -52522,6 +52699,7 @@ sort: by_weight
 曲线的挠率	qū xiàn de náo lǜ	10
 区县检察院	qū xiàn jiǎn chá yuàn	10
 取现手续费	qǔ xiàn shǒu xù fèi	10
+去线下看看	qù xiàn xià kàn kàn	10
 曲线下面积	qū xiàn xià miàn jī	10
 取现行时间	qǔ xiàn xíng shí jiān	10
 去香格里拉	qù xiāng gé lǐ lā	10
@@ -52554,6 +52732,7 @@ sort: by_weight
 区域网平差	qū yù wǎng píng chà	10
 趋于正常化	qū yú zhèng cháng huà	10
 祛瘀止痛酒	qū yū zhǐ tòng jiǔ	10
+取运行目录	qǔ yùn xíng mù lù	10
 去丈母娘家	qù zhàng mǔ niáng jiā	10
 屈掌指关节	qū zhǎng zhǐ guān jié	10
 去找份工作	qù zhǎo fèn gōng zuò	10
@@ -52892,6 +53071,7 @@ sort: by_weight
 全县各部门	quán xiàn gè bù mén	10
 全县各单位	quán xiàn gè dān wèi	10
 全县各乡镇	quán xiàn gè xiāng zhèn	10
+权限修饰符	quán xiàn xiū shì fú	10
 全县中小学	quán xiàn zhōng xiǎo xué	10
 全相关系数	quán xiāng guān xì shù	10
 全相联映射	quán xiāng lián yìng shè	10
@@ -53231,11 +53411,11 @@ sort: by_weight
 热门的职业	rè mén de zhí yè	10
 热弥漫散射	rè mí màn sǎn shè	10
 热姆丘任娜	rè mǔ qiū rèn nà	10
-热闹的氛围	rè nào de fēn wéi	10
-热闹的集市	rè nào de jí shì	10
-热闹的街市	rè nào de jiē shì	10
-热闹的景象	rè nào de jǐng xiàng	10
-热闹的夜市	rè nào de yè shì	10
+热闹的氛围	rè nao de fēn wéi	10
+热闹的集市	rè nao de jí shì	10
+热闹的街市	rè nao de jiē shì	10
+热闹的景象	rè nao de jǐng xiàng	10
+热闹的夜市	rè nao de yè shì	10
 热凝固疗法	rè níng gù liáo fǎ	10
 热柠乐煲姜	rè níng lè bāo jiāng	10
 热凝牙托粉	rè níng yá tuō fěn	10
@@ -54483,6 +54663,7 @@ sort: by_weight
 撒切尔主义	sā qiè ěr zhǔ yì	10
 洒洒分不清	sǎ sǎ fēn bù qīng	10
 飒爽的英姿	sà shuǎng de yīng zī	10
+萨斯喀彻温	sà sī kā chè wēn	10
 洒下的汗水	sǎ xià de hàn shuǐ	10
 撒一波狗粮	sā yì bō gǒu liáng	10
 撒种的比喻	sǎ zhǒng de bǐ yù	10
@@ -55035,6 +55216,7 @@ sort: by_weight
 色域覆盖率	sè yù fù gài lǜ	10
 色织格子布	sè zhī gé zi bù	10
 瑟兹德科娃	sè zī dé kē wá	10
+森近霖之助	sēn jìn lín zhī zhù	10
 森田六元组	sēn tián liù yuán zǔ	10
 僧伽婆尸沙	sēng jiā pó shī shā	10
 僧来看佛面	sēng lái kàn fó miàn	10
@@ -55231,7 +55413,7 @@ sort: by_weight
 山东淄博的	shān dōng zī bó de	10
 山顿安德森	shān dùn ān dé sēn	10
 善恶的彼岸	shàn è de bǐ àn	10
-鳝饿终有鲍	shàn è zhōng yǒu bào	10
+善恶终有报	shàn è zhōng yǒu bào	10
 陕甘边苏区	shǎn gān biān sū qū	10
 陕甘边特委	shǎn gān biān tè wěi	10
 陕甘根据地	shǎn gān gēn jù dì	10
@@ -56146,6 +56328,7 @@ sort: by_weight
 少说多做的	shǎo shuō duō zuò de	10
 少谈些主义	shǎo tán xiē zhǔ yì	10
 烧烫烫的爱	shāo tàng tàng de ài	10
+稍微长一点	shāo wēi cháng yì diǎn	10
 稍微改了下	shāo wēi gǎi le xià	10
 稍微宽一些	shāo wēi kuān yì xiē	10
 烧尾宴食单	shāo wěi yàn shí dān	10
@@ -57283,6 +57466,7 @@ sort: by_weight
 生产与研发	shēng chǎn yǔ yán fā	10
 生炒糯米饭	shēng chǎo nuò mǐ fàn	10
 生成句法学	shēng chéng jù fǎ xué	10
+生成树问题	shēng chéng shù wèn tí	10
 生抽和老抽	shēng chōu hé lǎo chōu	10
 生出的孩子	shēng chū de hái zi	10
 声磁电效应	shēng cí diàn xiào yìng	10
@@ -57361,7 +57545,6 @@ sort: by_weight
 升国旗仪式	shēng guó qí yí shì	10
 生还是不生	shēng hái shì bù shēng	10
 生孩子的事	shēng hái zi de shì	10
-省行政学院	shěng háng zhèng xué yuàn	10
 圣赫勒拿岛	shèng hè lè ná dǎo	10
 省红十字会	shěng hóng shí zì huì	10
 生化反应器	shēng huà fǎn yìng qì	10
@@ -57768,6 +57951,7 @@ sort: by_weight
 省心又省力	shěng xīn yòu shěng lì	10
 省心又省钱	shěng xīn yòu shěng qián	10
 盛行的当下	shèng xíng dí dàng xià	10
+省行政学院	shěng xíng zhèng xué yuàn	10
 省胸科医院	shěng xiōng kē yī yuàn	10
 生锈的铁钉	shēng xiù de tiě dīng	10
 生锈的小刀	shēng xiù de xiǎo dāo	10
@@ -57977,6 +58161,7 @@ sort: by_weight
 食材的准备	shí cái de zhǔn bèi	10
 石材雕刻机	shí cái diāo kè jī	10
 石材加工厂	shí cái jiā gōng chǎng	10
+市财政部门	shì cái zhèng bù mén	10
 食草动物区	shí cǎo dòng wù qū	10
 食草类动物	shí cǎo lèi dòng wù	10
 是差不多了	shì chà bu duō le	10
@@ -58137,6 +58322,7 @@ sort: by_weight
 适定性问题	shì dìng xìng wèn tí	10
 是东北大学	shì dōng běi dà xué	10
 是动画电影	shì dòng huà diàn yǐng	10
+试都不会试	shì dōu bú huì shì	10
 湿度测定法	shī dù cè dìng fǎ	10
 湿度传感器	shī dù chuán gǎn qì	10
 湿度的变化	shī dù de biàn huà	10
@@ -58330,6 +58516,7 @@ sort: by_weight
 时隔十五年	shí gé shí wǔ nián	10
 十个手指头	shí gè shǒu zhǐ tou	10
 时隔四年后	shí gé sì nián hòu	10
+是个小孩儿	shì gè xiǎo hái er	10
 十个小黑人	shí gè xiǎo hēi rén	10
 十个小时后	shí gè xiǎo shí hòu	10
 十个小时内	shí gè xiǎo shí nèi	10
@@ -58516,9 +58703,7 @@ sort: by_weight
 十佳主持人	shí jiā zhǔ chí rén	10
 石家庄北站	shí jiā zhuāng běi zhàn	10
 石家庄房价	shí jiā zhuāng fáng jià	10
-石家庄藁城	shí jiā zhuāng gǎo chéng	10
 石家庄六中	shí jiā zhuāng liù zhōng	10
-石家庄栾城	shí jiā zhuāng luán chéng	10
 石家庄桥东	shí jiā zhuāng qiáo dōng	10
 石家庄四药	shí jiā zhuāng sì yào	10
 石家庄太原	shí jiā zhuāng tài yuán	10
@@ -58915,6 +59100,7 @@ sort: by_weight
 十里铺社区	shí lǐ pù shè qū	10
 十里堡社区	shí lǐ pù shè qū	10
 十里桃花中	shí lǐ táo huā zhōng	10
+市立图书馆	shì lì tú shū guǎn	10
 诗里亚油田	shī lǐ yà yóu tián	10
 是礼仪之邦	shì lǐ yí zhī bāng	10
 实力与颜值	shí lì yǔ yán zhí	10
@@ -59121,6 +59307,7 @@ sort: by_weight
 石棚山石棚	shí péng shān shí péng	10
 视皮层疾患	shì pí céng jí huàn	10
 市批发市场	shì pī fā shì chǎng	10
+使皮肤光滑	shǐ pí fū guāng huá	10
 什皮基夫卡	shí pí jī fū kǎ	10
 什皮科洛西	shí pí kē luò xī	10
 失匹配负波	shī pǐ pèi fù bō	10
@@ -60164,7 +60351,7 @@ sort: by_weight
 使用膜胶带	shǐ yòng mó jiāo dài	10
 实用内科学	shí yòng nèi kē xué	10
 食用农产品	shí yòng nóng chǎn pǐn	10
-使用期费用	shǐ yòng qī fèi yòng	10
+使用期费用	shǐ yòng qī fèi yong	10
 试用期满后	shì yòng qī mǎn hòu	10
 使用时间短	shǐ yòng shí jiān duǎn	10
 使用手机时	shǐ yòng shǒu jī shí	10
@@ -60252,6 +60439,7 @@ sort: by_weight
 视语言中枢	shì yǔ yán zhōng shū	10
 时雨泽惠一	shí yǔ zé huì yī	10
 始源蓝宝石	shǐ yuán lán bǎo shí	10
+食源性疾病	shí yuán xìng jí bìng	10
 十月初五街	shí yuè chū wǔ jiē	10
 十月的孩子	shí yuè de hái zi	10
 十月的天空	shí yuè de tiān kōng	10
@@ -60361,6 +60549,7 @@ sort: by_weight
 市值破万亿	shì zhí pò wàn yì	10
 实质审查费	shí zhì shěn chá fèi	10
 始知相忆深	shǐ zhī xiāng yì shēn	10
+实质性利好	shí zhì xìng lì hǎo	10
 实质性伤害	shí zhì xìng shāng hài	10
 市职业学校	shì zhí yè xué xiào	10
 市职业中专	shì zhí yè zhōng zhuān	10
@@ -60381,6 +60570,8 @@ sort: by_weight
 石钟山石窟	shí zhōng shān shí kū	10
 是中文版的	shì zhōng wén bǎn de	10
 市中小企业	shì zhōng xiǎo qǐ yè	10
+是中心城区	shì zhōng xīn chéng qū	12
+市中心城区	shì zhōng xīn chéng qū	10
 市中心十字	shì zhōng xīn shí zì	10
 市中心血站	shì zhōng xīn xuè zhàn	10
 式中型卡车	shì zhōng xíng kǎ chē	10
@@ -60736,7 +60927,7 @@ sort: by_weight
 售前和售后	shòu qián hé shòu hòu	10
 守谦退之节	shǒu qiān tuì zhī jié	10
 手取川之战	shǒu qǔ chuān zhī zhàn	10
-收取的费用	shōu qǔ de fèi yòng	10
+收取的费用	shōu qǔ de fèi yong	10
 授权的专利	shòu quán de zhuān lì	10
 授权性规范	shòu quán xìng guī fàn	10
 授权资本制	shòu quán zī běn zhì	10
@@ -60972,6 +61163,7 @@ sort: by_weight
 书包的拉链	shū bāo de lā liàn	10
 鼠标和键盘	shǔ biāo hé jiàn pán	10
 鼠标移开时	shǔ biāo yí kāi shí	10
+鼠标移上时	shǔ biāo yí shàng shí	10
 鼠标右键可	shǔ biāo yòu jiàn kě	10
 束箔光谱学	shù bó guāng pǔ xué	10
 蔬菜的价格	shū cài de jià gé	10
@@ -60986,10 +61178,12 @@ sort: by_weight
 蔬菜与水果	shū cài yǔ shuǐ guǒ	10
 蔬菜直销点	shū cài zhí xiāo diǎn	10
 书虫啃书中	shū chóng kěn shū zhōng	10
+输出重定向	shū chū chóng dìng xiàng	10
 输出的功率	shū chū de gōng lǜ	10
 输出的结果	shū chū de jié guǒ	10
 输出和输入	shū chū hé shū rù	10
 输出继电器	shū chū jì diàn qì	10
+输出优先级	shū chū yōu xiān jí	10
 舒喘宁中毒	shū chuǎn níng zhòng dú	10
 树大好乘凉	shù dà hǎo chéng liáng	10
 书的爱好者	shū de ài hào zhě	10
@@ -61029,6 +61223,8 @@ sort: by_weight
 蜀汉的灭亡	shǔ hàn de miè wáng	10
 束河古镇网	shù hé gǔ zhèn wǎng	10
 术后的护理	shù hòu de hù lǐ	10
+术后的恢复	shù hòu de huī fù	10
+属猴的朋友	shǔ hóu de péng you	10
 术后恢复快	shù hòu huī fù kuài	10
 疏花丁公藤	shū huā dīng gōng téng	10
 束花粉报春	shù huā fěn bào chūn	10
@@ -61082,6 +61278,7 @@ sort: by_weight
 数据结构题	shù jù jié gòu tí	10
 数据控制者	shù jù kòng zhì zhě	10
 数据库编程	shù jù kù biān chéng	10
+数据库重构	shù jù kù chóng gòu	10
 数据库重组	shù jù kù chóng zǔ	10
 数据库范式	shù jù kù fàn shì	10
 数据库恢复	shù jù kù huī fù	10
@@ -61094,6 +61291,7 @@ sort: by_weight
 数据库事务	shù jù kù shì wù	10
 数据库运维	shù jù kù yùn wéi	10
 数据库转储	shù jù kù zhuǎn chǔ	10
+数据库作业	shù jù kù zuò yè	10
 数据上来看	shù jù shàng lái kàn	10
 数据研究院	shù jù yán jiū yuàn	10
 数据源控件	shù jù yuán kòng jiàn	10
@@ -61220,6 +61418,7 @@ sort: by_weight
 鼠伤寒杆菌	shǔ shāng hán gǎn jūn	10
 树上一条虫	shù shàng yì tiáo chóng	10
 树上啄木鸟	shù shàng zhuó mù niǎo	10
+树上最长链	shù shàng zuì cháng liàn	10
 树深处见鹿	shù shēn chù jiàn lù	10
 书圣王羲之	shū shèng wáng xī zhī	10
 梳士巴利道	shū shì bā lì dào	10
@@ -61298,6 +61497,7 @@ sort: by_weight
 术语和语言	shù yǔ hé yǔ yán	10
 薯蓣三十分	shǔ yù sān shí fēn	10
 数域筛选法	shù yù shāi xuǎn fǎ	10
+属于什么茶	shǔ yú shén me chá	10
 薯蓣丸主之	shǔ yù wán zhǔ zhī	10
 薯蓣皂苷元	shǔ yù zào gān yuán	10
 殊域周咨录	shū yù zhōu zī lù	10
@@ -61575,6 +61775,7 @@ sort: by_weight
 爽朗的笑声	shuǎng lǎng de xiào shēng	10
 爽朗的性格	shuǎng lǎng de xìng gé	10
 双立方插值	shuāng lì fāng chā zhí	10
+双联通分量	shuāng lián tōng fēn liàng	10
 双连通分量	shuāng lián tōng fēn liàng	10
 双连通分支	shuāng lián tōng fēn zhī	10
 双连通空间	shuāng lián tōng kōng jiān	10
@@ -61582,6 +61783,7 @@ sort: by_weight
 双连续可微	shuāng lián xù kě wēi	10
 双梁起重机	shuāng liáng qǐ zhòng jī	10
 双辽种羊场	shuāng liáo zhǒng yáng chǎng	10
+双列直插式	shuāng liè zhí chā shì	10
 双林北横路	shuāng lín běi héng lù	10
 双菱形皮瓣	shuāng líng xíng pí bàn	10
 双流西站站	shuāng liú xī zhàn zhàn	10
@@ -61944,7 +62146,6 @@ sort: by_weight
 水手辛巴德	shuǐ shǒu xīn bā dé	10
 水手辛伯达	shuǐ shǒu xīn bó dá	10
 水树和佳子	shuǐ shù hé jiā zǐ	10
-谁说得漂亮	shuí shuō de piào liang	10
 谁说得漂亮	shuí shuō de piào liang	10
 睡四个小时	shuì sì gè xiǎo shí	10
 水獭捕鱼法	shuǐ tǎ bǔ yú fǎ	10
@@ -62674,7 +62875,6 @@ sort: by_weight
 四眼井岩画	sì yǎn jǐng yán huà	10
 饲养的宠物	sì yǎng de chǒng wù	10
 饲养的动物	sì yǎng de dòng wù	10
-四仰化三铁	sì yǎng huà sān tiě	10
 四要一没有	sì yào yī méi yǒu	10
 丝业博物馆	sī yè bó wù guǎn	10
 四叶草项链	sì yè cǎo xiàng liàn	10
@@ -63486,6 +63686,7 @@ sort: by_weight
 踏水乱明霞	tà shuǐ luàn míng xiá	10
 塔斯基悖论	tǎ sī jī bèi lùn	10
 塔斯基定理	tǎ sī jī dìng lǐ	10
+塔斯马尼亚	tǎ sī mǎ ní yà	10
 塔斯曼半岛	tǎ sī màn bàn dǎo	10
 塔丝绒格子	tǎ sī róng gé zi	10
 她似这月儿	tā sì zhè yuè ér	10
@@ -63493,6 +63694,7 @@ sort: by_weight
 踏踏实实的	tà tā shi shí de	10
 踏踏实实地	tā tā shí shí de	10
 塔特多项式	tǎ tè duō xiàng shì	10
+他提了一个	tā tí le yí gè	10
 塔韦乌尼岛	tǎ wéi wū ní dǎo	10
 他喜不喜欢	tā xǐ bù xǐ huan	10
 她喜欢的是	tā xǐ huan de shì	10
@@ -63530,6 +63732,7 @@ sort: by_weight
 抬不起头来	tái bù qǐ tóu lái	10
 抬不起头了	tái bù qǐ tóu le	10
 太不容易啦	tài bù róng yì la	10
+太不识抬举	tài bù shí tái jǔ	10
 台茶十二号	tái chá shí èr hào	10
 台场摩天轮	tái chǎng mó tiān lún	10
 太常寺少卿	tài cháng sì shǎo qīng	10
@@ -63592,25 +63795,7 @@ sort: by_weight
 台发动机的	tái fā dòng jī de	10
 台防务部门	tái fáng wù bù mén	10
 太妃巧克力	tài fēi qiǎo kè lì	10
-台风艾尔西	tái fēng ài ěr xī	10
-台风奥麦斯	tái fēng ào mài sī	10
-台风碧利斯	tái fēng bì lì sī	10
-台风布拉万	tái fēng bù lā wàn	10
-台风查帕卡	tái fēng chá pà kǎ	10
-台风凡亚比	tái fēng fán yà bǐ	10
-台风哈格比	tái fēng hā gé bǐ	10
-台风卡玫基	tái fēng kǎ méi jī	10
-台风科博拉	tái fēng kē bó lā	10
-台风科罗旺	tái fēng kē luó wàng	10
 台风来临前	tái fēng lái lín qián	10
-台风玛莉亚	tái fēng mǎ lì yà	10
-台风美莎克	tái fēng měi shā kè	10
-台风莫兰蒂	tái fēng mò lán dì	10
-台风娜基莉	tái fēng nà jī lì	10
-台风山陀儿	tái fēng shān tuó ér	10
-台风舒力基	tái fēng shū lì jī	10
-台风苏迪罗	tái fēng sū dí luó	10
-台风陶卡基	tái fēng táo kǎ jī	10
 太感情用事	tài gǎn qíng yòng shì	10
 太感谢您了	tài gǎn xiè nín le	10
 太钢不锈钢	tài gāng bú xiù gāng	10
@@ -63687,13 +63872,16 @@ sort: by_weight
 太理想主义	tài lǐ xiǎng zhǔ yì	10
 肽链内切酶	tài liàn nèi qiē méi	10
 抬梁式构架	tái liáng shì gòu jià	10
-太了不起了	tài liǎo bù qǐ le	10
+太了不起了	tài liǎo bu qǐ le	10
 泰梅尔半岛	tài méi ěr bàn dǎo	10
 太梅尔半岛	tài méi ěr bàn dǎo	10
 钛镁合金门	tài měi hé jīn mén	10
 台美基金会	tái měi jī jīn huì	10
 太没人性了	tài méi rén xìng le	10
 太没意思了	tài méi yì sī le	10
+太猛了这个	tài měng le zhè ge	12
+太萌了这个	tài méng le zhè ge	10
+泰米尔纳德	tài mǐ ěr nà dé	10
 胎盘糖旦白	tāi pán táng dàn bái	10
 胎盘性难产	tāi pán xìng nán chǎn	10
 太平猴魁茶	tài píng hóu kuí chá	10
@@ -63886,7 +64074,6 @@ sort: by_weight
 太原化工厂	tài yuán huà gōng chǎng	10
 太原火车站	tài yuán huǒ chē zhàn	10
 太原基督教	tài yuán jī dū jiào	10
-太原尖草坪	tài yuán jiān cǎo píng	10
 太原建筑史	tài yuán jiàn zhù shǐ	10
 太原老字号	tài yuán lǎo zì hào	10
 太原煤气化	tài yuán méi qì huà	10
@@ -63929,6 +64116,7 @@ sort: by_weight
 贪嗔痴慢疑	tān chēn chī màn yí	10
 贪嗔痴三毒	tān chēn chī sān dú	10
 郯城大地震	tán chéng dà dì zhèn	10
+弹出式菜单	tán chū shì cài dān	10
 碳氮氧循环	tàn dàn yǎng xún huán	10
 檀岛茶餐厅	tán dǎo chá cān tīng	10
 檀岛咖啡店	tán dǎo kā fēi diàn	10
@@ -64294,8 +64482,11 @@ sort: by_weight
 桃源仙境图	táo yuán xiān jìng tú	10
 陶斋吉金录	táo zhāi jí jīn lù	10
 套状撕脱伤	tào zhuàng sī tuō shāng	10
+特别地方便	tè bié de fāng biàn	10
 特别的回忆	tè bié de huí yì	10
+特别地精致	tè bié de jīng zhì	10
 特别的美食	tè bié de měi shí	10
+特别地热闹	tè bié de rè nao	10
 特别防护期	tè bié fáng hù qī	10
 特别负责任	tè bié fù zé rèn	10
 特别检查官	tè bié jiǎn chá guān	10
@@ -65240,6 +65431,7 @@ sort: by_weight
 跳棋类游戏	tiào qí lèi yóu xì	10
 条鳍鱼总纲	tiáo qí yú zǒng gāng	10
 调琴啜茗图	tiáo qín chuò míng tú	10
+调入少许盐	tiáo rù shǎo xǔ yán	10
 挑软柿子捏	tiāo ruǎn shì zi niē	10
 挑食的孩子	tiāo shí de hái zi	10
 调试和测试	tiáo shì hé cè shì	10
@@ -65621,7 +65813,6 @@ sort: by_weight
 同华节度使	tóng huá jié dù shǐ	10
 通化街夜市	tōng huà jiē yè shì	10
 通话两小时	tōng huà liǎng xiǎo shí	10
-通化梅河口	tōng huà méi hé kǒu	10
 通话门事件	tōng huà mén shì jiàn	10
 通化葡萄酒	tōng huà pú táo jiǔ	10
 通化市政府	tōng huà shì zhèng fǔ	10
@@ -65702,7 +65893,6 @@ sort: by_weight
 通灵大峡谷	tōng líng dà xiá gǔ	10
 铜陵路高架	tóng líng lù gāo jià	10
 铜陵日报社	tóng líng rì bào shè	10
-铜陵市郊区	tóng líng shì jiāo qū	10
 铜陵市政府	tóng líng shì zhèng fǔ	10
 同流不合污	tóng liú bù hé wū	10
 铜六角螺母	tóng liù jiǎo luó mǔ	10
@@ -65919,6 +66109,7 @@ sort: by_weight
 同一生产线	tóng yī shēng chǎn xiàn	10
 同一时间段	tóng yī shí jiān duàn	10
 同一时间内	tóng yī shí jiān nèi	10
+同一首歌儿	tóng yī shǒu gē er	10
 同一水平面	tóng yī shuǐ píng miàn	10
 同一水平线	tóng yī shuǐ píng xiàn	10
 统一所得税	tǒng yī suǒ dé shuì	10
@@ -66228,6 +66419,7 @@ sort: by_weight
 土地审裁处	tǔ dì shěn cái chǔ	10
 土地神公公	tǔ dì shén gōng gong	10
 土地使用税	tǔ dì shǐ yòng shuì	10
+土地使用者	tǔ dì shǐ yòng zhě	10
 土地闲置税	tǔ dì xián zhì shuì	10
 土地盐渍化	tǔ dì yán zì huà	10
 土地拥有者	tǔ dì yōng yǒu zhě	10
@@ -66298,6 +66490,7 @@ sort: by_weight
 土木堡之役	tǔ mù bǎo zhī yì	10
 土木堡之战	tǔ mù bǎo zhī zhàn	10
 土牧尔台站	tǔ mù ěr tái zhàn	10
+土木工程师	tǔ mù gōng chéng shī	10
 吐木尼牙孜	tǔ mù ní yá zī	10
 土木香内酯	tǔ mù xiāng nèi zhǐ	10
 吐尼沙古丽	tǔ ní shā gǔ lì	10
@@ -67077,6 +67270,7 @@ sort: by_weight
 万善同归所	wàn shàn tóng guī suǒ	10
 晚上和周末	wǎn shàng hé zhōu mò	10
 万商俱乐部	wàn shāng jù lè bù	10
+晚上没有课	wǎn shàng méi yǒu kè	10
 晚上七点到	wǎn shàng qī diǎn dào	10
 晚上要吃少	wǎn shàng yào chī shǎo	10
 玩上一整天	wán shàng yì zhěng tiān	10
@@ -67382,6 +67576,7 @@ sort: by_weight
 往市区方向	wǎng shì qū fāng xiàng	10
 王氏三兄弟	wáng shì sān xiōng dì	10
 往事随风逝	wǎng shì suí fēng shì	10
+往死里玩儿	wǎng sǐ lǐ wán er	10
 往死路上逼	wǎng sǐ lù shàng bī	10
 王四营桥东	wáng sì yíng qiáo dōng	10
 枉送了性命	wǎng sòng le xìng mìng	10
@@ -67671,6 +67866,7 @@ sort: by_weight
 维多利亚岛	wéi duō lì yà dǎo	10
 维多利亚湖	wéi duō lì yà hú	10
 维多利亚坑	wéi duō lì yà kēng	10
+维多利亚州	wéi duō lì yà zhōu	10
 为堕胎辩护	wéi duò tāi biàn hù	10
 巍峨的高山	wēi é de gāo shān	10
 巍峨的群山	wēi é de qún shān	10
@@ -67761,6 +67957,7 @@ sort: by_weight
 味皇茶餐厅	wèi huáng chá cān tīng	10
 位皇家骑士	wèi huáng jiā qí shì	10
 为活动致辞	wéi huó dòng zhì cí	10
+未系安全带	wèi jì ān quán dài	10
 危机和挑战	wēi jī hé tiǎo zhàn	10
 胃机能紊乱	wèi jī néng wěn luàn	10
 为嵇侍中血	wéi jī shì zhōng xuè	10
@@ -67812,6 +68009,7 @@ sort: by_weight
 微孔滤膜法	wēi kǒng lǜ mó fǎ	10
 微孔钛臼衬	wēi kǒng tài jiù chèn	10
 尾矿压滤机	wěi kuàng yā lǜ jī	10
+韦拉克鲁斯	wéi lā kè lǔ sī	10
 维拉宿代数	wéi lā sù dài shù	10
 未来程序猿	wèi lái chéng xù yuán	10
 未来成长性	wèi lái chéng zhǎng xìng	10
@@ -67905,6 +68103,7 @@ sort: by_weight
 喂你吃毓婷	wèi nǐ chī yù tíng	10
 韦尼格罗德	wéi ní gé luó dé	10
 唯你是青山	wéi nǐ shì qīng shān	10
+威尼托大区	wēi ní tuō dà qū	10
 韦尼泽洛斯	wéi ní zé luò sī	10
 薇诺娜赖德	wēi nuò nà lài dé	10
 为女权辩护	wéi nǚ quán biàn hù	10
@@ -68037,8 +68236,10 @@ sort: by_weight
 洈水风景区	wéi shuǐ fēng jǐng qū	10
 为水停心下	wéi shuǐ tíng xīn xià	10
 味水轩日记	wèi shuǐ xuān rì jì	10
+威斯康星州	wēi sī kāng xīng zhōu	10
 卫斯连大学	wèi sī lián dà xué	10
 魏司曼学说	wèi sī màn xué shuō	10
+威斯特法伦	wēi sī tè fǎ lún	10
 尾索动物亚	wěi suǒ dòng wù yà	10
 维索科伊岛	wéi suǒ kē yī dǎo	10
 为所有玩家	wéi suǒ yǒu wán jiā	10
@@ -68049,7 +68250,7 @@ sort: by_weight
 韦塔斯基温	wéi tǎ sī jī wēn	10
 魏太和造像	wèi tài hé zào xiàng	10
 为台湾而教	wéi tái wān ér jiào	10
-未摊销费用	wèi tān xiāo fèi yòng	10
+未摊销费用	wèi tān xiāo fèi yong	10
 威坦哲条约	wēi tǎn zhé tiáo yuē	10
 维特比算法	wéi tè bǐ suàn fǎ	10
 维特根斯坦	wéi tè gēn sī tǎn	10
@@ -68096,7 +68297,6 @@ sort: by_weight
 魏武宣皇后	wèi wǔ xuān huáng hòu	10
 唯物主义史	wéi wù zhǔ yì shǐ	10
 唯物主义者	wéi wù zhǔ yì zhě	10
-未系安全带	wèi xì ān quán dài	10
 胃喜润恶燥	wèi xǐ rùn è zào	10
 为希望努力	wéi xī wàng nǔ lì	10
 微下击暴流	wēi xià jī bào liú	10
@@ -68235,6 +68435,7 @@ sort: by_weight
 唯音乐永恒	wéi yīn yuè yǒng héng	10
 唯英语运动	wéi yīng yǔ yùn dòng	10
 胃有点难受	wèi yǒu diǎn nán shòu	10
+唯有读书高	wéi yǒu dú shū gāo	10
 位于北京市	wèi yú běi jīng shì	10
 鲔鱼茶泡饭	wěi yú chá pào fàn	10
 位于高新区	wèi yú gāo xīn qū	10
@@ -68456,6 +68657,7 @@ sort: by_weight
 文化和知识	wén huà hé zhī shi	10
 文化和自然	wén huà hé zì rán	10
 问花花不语	wèn huā huā bù yǔ	10
+文化活动室	wén huà huó dòng shì	10
 文化及经济	wén huà jí jīng jì	10
 文化界人士	wén huà jiè rén shì	10
 文化街社区	wén huà jiē shè qū	10
@@ -68478,6 +68680,7 @@ sort: by_weight
 温基夫齐区	wēn jī fū qí qū	10
 问几个问题	wèn jǐ gè wèn tí	10
 温基亚图罗	wēn jī yà tú luó	10
+文件重定向	wén jiàn chóng dìng xiàng	10
 文件传阅单	wén jiàn chuán yuè dān	10
 稳健的表现	wěn jiàn de biǎo xiàn	10
 稳健的步伐	wěn jiàn de bù fá	10
@@ -68508,6 +68711,7 @@ sort: by_weight
 纹理统一法	wén lǐ tǒng yī fǎ	10
 温良恭俭让	wēn liáng gōng jiǎn ràng	10
 温祢古丹岛	wēn mí gǔ dān dǎo	10
+文明办主任	wén míng bàn zhǔ rèn	10
 文明冲突论	wén míng chōng tū lùn	10
 文明的产物	wén míng de chǎn wù	10
 文明的城市	wén míng de chéng shì	10
@@ -68642,6 +68846,7 @@ sort: by_weight
 温峡口水库	wēn xiá kǒu shuǐ kù	10
 温县陈家沟	wēn xiàn chén jiā gōu	10
 稳相加速器	wěn xiāng jiā sù qì	10
+文心大模型	wén xīn dà mó xíng	10
 温馨的爱情	wēn xīn de ài qíng	10
 温馨的场景	wēn xīn de chǎng jǐng	10
 温馨的灯光	wēn xīn de dēng guāng	10
@@ -68808,7 +69013,6 @@ sort: by_weight
 我的妻子吗	wǒ de qī zǐ ma	10
 我的青春高	wǒ de qīng chūn gāo	10
 我的声音是	wǒ de shēng yīn shì	10
-我的未来是	wǒ de wèi lái shì	10
 我的未来式	wǒ de wèi lái shì	10
 我的一部书	wǒ de yí bù shū	10
 我的意中人	wǒ de yì zhōng rén	10
@@ -68878,7 +69082,11 @@ sort: by_weight
 我回不了家	wǒ huí bù le jiā	10
 我回到家了	wǒ huí dào jiā le	10
 我会加油的	wǒ huì jiā yóu de	10
+我回来得迟	wǒ huí lái de chí	10
+我回来得晚	wǒ huí lái de wǎn	10
+我回来得早	wǒ huí lái de zǎo	10
 我回老家了	wǒ huí lǎo jiā le	10
+我会怕你吗	wǒ huì pà nǐ ma	10
 我会心疼的	wǒ huì xīn téng de	10
 我回学校了	wǒ huí xué xiào le	10
 我会遇见她	wǒ huì yù jiàn tā	10
@@ -69201,6 +69409,7 @@ sort: by_weight
 我系香港人	wǒ xì xiāng gǎng rén	10
 我系小忌廉	wǒ xì xiǎo jì lián	10
 我吓了一跳	wǒ xià le yí tiào	10
+我先打电话	wǒ xiān dǎ diàn huà	10
 我现在去的	wǒ xiàn zài qù de	10
 我现在有事	wǒ xiàn zài yǒu shì	10
 我想和你做	wǒ xiǎng hé nǐ zuò	10
@@ -69220,6 +69429,7 @@ sort: by_weight
 我心有不甘	wǒ xīn yǒu bù gān	10
 我幸福快乐	wǒ xìng fú kuài lè	10
 我行我素藤	wǒ xíng wǒ sù téng	10
+我修改一下	wǒ xiū gǎi yí xià	10
 涡旋压缩机	wō xuán yā suō jī	10
 我选择了你	wǒ xuǎn zé le nǐ	10
 我眼中的你	wǒ yǎn zhōng de nǐ	10
@@ -69231,6 +69441,7 @@ sort: by_weight
 我要做厨神	wǒ yào zuò chú shén	10
 我也不想再	wǒ yě bù xiǎng zài	10
 我也不想在	wǒ yě bù xiǎng zài	10
+我也查不到	wǒ yě chá bú dào	10
 我也考不上	wǒ yě kǎo bú shàng	10
 我也正想玩	wǒ yě zhèng xiǎng wán	10
 我已不再是	wǒ yǐ bú zài shì	10
@@ -69314,6 +69525,7 @@ sort: by_weight
 蜗轴螺旋脉	wō zhóu luó xuán mài	10
 我住的地方	wǒ zhù de dì fāng	10
 我自作多情	wǒ zì zuò duō qíng	10
+我走的很慢	wǒ zǒu de hěn màn	10
 我最爱的女	wǒ zuì ài de nǚ	10
 我做不了主	wǒ zuò bù liǎo zhǔ	10
 我坐的位置	wǒ zuò de wèi zhì	10
@@ -70090,6 +70302,7 @@ sort: by_weight
 无声仿有声	wú shēng fǎng yǒu shēng	10
 无盛号石桥	wú shèng hào shí qiáo	10
 五省六曹制	wǔ shěng liù cáo zhì	10
+无声胜有声	wú shēng shèng yǒu shēng	10
 无绳吸尘器	wú shéng xī chén qì	10
 五声性调式	wǔ shēng xìng diào shì	10
 无声又无息	wú shēng yòu wú xī	10
@@ -70262,6 +70475,7 @@ sort: by_weight
 无头浏览器	wú tóu liú lǎn qì	10
 无投票当选	wú tóu piào dāng xuǎn	10
 无途的归人	wú tú de guī rén	10
+乌土库兽人	wū tǔ kù shòu rén	10
 乌托邦主义	wū tuō bāng zhǔ yì	10
 无外汇管制	wú wài huì guǎn zhì	10
 舞王大火案	wǔ wáng dà huǒ àn	10
@@ -70350,6 +70564,7 @@ sort: by_weight
 无线互联网	wú xiàn hù lián wǎng	10
 无限火力中	wú xiàn huǒ lì zhōng	10
 无线基地台	wú xiàn jī dì tái	10
+无限极分类	wú xiàn jí fēn lèi	10
 无限级分类	wú xiàn jí fēn lèi	10
 无线交换机	wú xiàn jiāo huàn jī	10
 无限接近点	wú xiàn jiē jìn diǎn	10
@@ -70679,6 +70894,7 @@ sort: by_weight
 捂住他的嘴	wǔ zhù tā de zuǐ	10
 吴茱萸一升	wú zhū yú yì shēng	10
 污浊的空气	wū zhuó de kōng qì	10
+乌孜别克族	wū zī bié kè zú	10
 五子补肾酒	wǔ zǐ bǔ shèn jiǔ	10
 物资出版社	wù zī chū bǎn shè	10
 物资储备局	wù zī chǔ bèi jú	10
@@ -70752,6 +70968,7 @@ sort: by_weight
 西安夜生活	xī ān yè shēng huó	10
 西安易俗社	xī ān yì sú shè	10
 西安幼儿园	xī ān yòu ér yuán	10
+西澳大利亚	xī ào dà lì yà	10
 喜白蚁动物	xǐ bái yǐ dòng wù	10
 西班牙礼来	xī bān yá lǐ lái	10
 细胞的代谢	xì bāo de dài xiè	10
@@ -70858,6 +71075,7 @@ sort: by_weight
 吸附等温线	xī fù děng wēn xiàn	10
 媳妇和孩子	xí fù hé hái zi	10
 媳妇和婆婆	xí fù hé pó po	10
+西弗吉尼亚	xī fú jí ní yà	10
 吸附能力强	xī fù néng lì qiáng	10
 吸附色谱法	xī fù sè pǔ fǎ	10
 吸附式净化	xī fù shì jìng huà	10
@@ -71037,6 +71255,7 @@ sort: by_weight
 曦码输入法	xī mǎ shū rù fǎ	10
 席曼斯基山	xí màn sī jī shān	10
 锡梅伊基内	xī méi yī jī nèi	10
+西孟加拉邦	xī mèng jiā lā bāng	10
 西蒙拉特尔	xī méng lā tè ěr	10
 西蒙斯理论	xī méng sī lǐ lùn	10
 吸蜜蜂鸟族	xī mì fēng niǎo zú	10
@@ -71219,6 +71438,7 @@ sort: by_weight
 嘻嘻哈哈人	xī xī hā hā rén	10
 嘻嘻和哈哈	xī xī hé hā hā	10
 西西里传说	xī xī lǐ chuán shuō	10
+西西里大区	xī xī lǐ dà qū	10
 西西里战役	xī xī lǐ zhàn yì	10
 隰县小西天	xí xiàn xiǎo xī tiān	10
 细小的灰尘	xì xiǎo de huī chén	10
@@ -71564,6 +71784,7 @@ sort: by_weight
 霞石玄武岩	xiá shí xuán wǔ yán	10
 霞石正长岩	xiá shí zhèng cháng yán	10
 下手都太狠	xià shǒu dōu tài hěn	10
+下手重点儿	xià shǒu zhòng diǎn er	10
 下水道四班	xià shuǐ dào sì bān	10
 吓死老子了	xià sǐ lǎo zi le	10
 下送下收车	xià sòng xià shōu chē	10
@@ -72173,6 +72394,7 @@ sort: by_weight
 鲜虾豆苗饺	xiān xiā dòu miáo jiǎo	10
 线下和线上	xiàn xià hé xiàn shàng	10
 先下手为强	xiān xià shǒu wéi qiáng	10
+线下体验店	xiàn xià tǐ yàn diàn	10
 鲜虾鱼板面	xiān xiā yú bǎn miàn	10
 陷下则灸之	xiàn xià zé jiǔ zhī	10
 闲暇辄相思	xián xiá zhé xiāng sī	10
@@ -72377,6 +72599,7 @@ sort: by_weight
 想不红都难	xiǎng bù hóng dōu nán	10
 想不劳而获	xiǎng bù láo ér huò	10
 向不同方向	xiàng bù tóng fāng xiàng	10
+想不想我吧	xiǎng bù xiǎng wǒ ba	10
 想不想我哇	xiǎng bù xiǎng wǒ wa	10
 想不想学吧	xiǎng bù xiǎng xué ba	10
 像苍蝇一样	xiàng cāng ying yí yàng	10
@@ -72679,6 +72902,7 @@ sort: by_weight
 香磨山水库	xiāng mó shān shuǐ kù	10
 向目标前进	xiàng mù biāo qián jìn	10
 项目部经理	xiàng mù bù jīng lǐ	10
+项目重命名	xiàng mù chóng mìng míng	10
 项目的建成	xiàng mù dì jiàn chéng	10
 项目的立项	xiàng mù dì lì xiàng	10
 项目的实施	xiàng mù dì shí shī	10
@@ -72973,6 +73197,7 @@ sort: by_weight
 响应速度慢	xiǎng yìng sù dù màn	10
 向英雄学习	xiàng yīng xióng xué xí	10
 向英雄致敬	xiàng yīng xióng zhì jìng	10
+响应者链条	xiǎng yìng zhě liàn tiáo	10
 像影子一样	xiàng yǐng zi yí yàng	10
 想用户所想	xiǎng yòng hù suǒ xiǎng	10
 享用下午茶	xiǎng yòng xià wǔ chá	10
@@ -73329,6 +73554,7 @@ sort: by_weight
 小家碧玉型	xiǎo jiā bì yù xíng	10
 小甲与巨甲	xiǎo jiǎ yǔ jù jiǎ	10
 小见川千明	xiǎo jiàn chuān qiān míng	10
+削尖了脑袋	xiāo jiān le nǎo dai	10
 小建中汤方	xiǎo jiàn zhōng tāng fāng	10
 小江断裂带	xiǎo jiāng duàn liè dài	10
 小交响乐团	xiǎo jiāo xiǎng yuè tuán	10
@@ -73885,6 +74111,7 @@ sort: by_weight
 小运转单机	xiǎo yùn zhuàn dān jī	10
 小运转列车	xiǎo yùn zhuàn liè chē	10
 孝哉闵子骞	xiào zāi mǐn zǐ qiān	10
+小泽玛丽亚	xiǎo zé mǎ lì yà	10
 小则又沐风	xiǎo zé yòu mù fēng	10
 小增益定理	xiǎo zēng yì dìng lǐ	10
 小站练兵园	xiǎo zhàn liàn bīng yuán	10
@@ -74103,6 +74330,7 @@ sort: by_weight
 新表现主义	xīn biǎo xiàn zhǔ yì	10
 辛卜生法则	xīn bo shēng fǎ zé	10
 辛卜生公式	xīn bo shēng gōng shì	10
+新不伦瑞克	xīn bù lún ruì kè	10
 新部落主义	xīn bù luò zhǔ yì	10
 信不信由你	xìn bú xìn yóu nǐ	10
 新材料之王	xīn cái liào zhī wáng	10
@@ -74213,6 +74441,7 @@ sort: by_weight
 辛亥革命时	xīn hài gé mìng shí	10
 辛亥革命史	xīn hài gé mìng shǐ	10
 信还是不信	xìn hái shì bú xìn	10
+新罕布什尔	xīn hǎn bù shí ěr	10
 信号的处理	xìn hào de chǔ lǐ	10
 信号的传输	xìn hào de chuán shū	10
 信号的再生	xìn hào de zài shēng	10
@@ -74478,8 +74707,10 @@ sort: by_weight
 新民主党人	xīn mín zhǔ dǎng rén	10
 新民主主义	xīn mín zhǔ zhǔ yì	10
 新名词辞典	xīn míng cí cí diǎn	10
+新墨西哥州	xīn mò xī gē zhōu	10
 新纳粹主义	xīn nà cuì zhǔ yì	10
 心纳素测定	xīn nà sù cè dìng	10
+新南威尔士	xīn nán wēi ěr shì	10
 新难兄难弟	xīn nàn xiōng nàn dì	10
 心内膜下支	xīn nèi mó xià zhī	10
 心内血回收	xīn nèi xuè huí shōu	10
@@ -74648,6 +74879,7 @@ sort: by_weight
 新四军事件	xīn sì jūn shì jiàn	10
 新四军五师	xīn sì jūn wǔ shī	10
 新四军战士	xīn sì jūn zhàn shì	10
+新斯科舍省	xīn sī kē shě shěng	10
 新死亡游戏	xīn sǐ wáng yóu xì	10
 心算世界杯	xīn suàn shì jiè bēi	10
 心碎的感觉	xīn suì de gǎn jué	10
@@ -75462,7 +75694,7 @@ sort: by_weight
 胸部和背部	xiōng bù hé bèi bù	10
 胸部和腹部	xiōng bù hé fù bù	10
 雄蚕蛾家蚕	xióng cán é jiā cán	10
-凶城计中计	xiōng chéng jì zhòng jì	10
+凶城计中计	xiōng chéng jì zhōng jì	10
 胸大的妹子	xiōng dà de mèi zi	10
 胸大的女人	xiōng dà de nǚ rén	10
 熊大和熊二	xióng dà hé xióng èr	10
@@ -75867,6 +76099,7 @@ sort: by_weight
 宣传和普及	xuān chuán hé pǔ jí	10
 宣传和推广	xuān chuán hé tuī guǎng	10
 宣传和展示	xuān chuán hé zhǎn shì	10
+宣传教育处	xuān chuán jiào yù chù	10
 宣传与推广	xuān chuán yǔ tuī guǎng	10
 选倒是选过	xuǎn dào shì xuǎn guò	10
 选帝侯大街	xuǎn dì hóu dà jiē	10
@@ -76599,6 +76832,7 @@ sort: by_weight
 压力继电器	yā lì jì diàn qì	10
 压力降落法	yā lì jiàng luò fǎ	10
 压力马斯内	yā lì mǎ sī nèi	10
+亚利桑那州	yà lì sāng nà zhōu	10
 亚历山大带	yà lì shān dà dài	10
 亚历山大岛	yà lì shān dà dǎo	10
 亚历山大角	yà lì shān dà jiǎo	10
@@ -77035,6 +77269,7 @@ sort: by_weight
 研究三角园	yán jiū sān jiǎo yuán	10
 研究生导师	yán jiū shēng dǎo shī	10
 研究生复试	yán jiū shēng fù shì	10
+研究生机试	yán jiū shēng jī shì	10
 研究生硕士	yán jiū shēng shuò shì	10
 研究生院校	yán jiū shēng yuàn xiào	10
 研究实验室	yán jiū shí yàn shì	10
@@ -78117,6 +78352,8 @@ sort: by_weight
 叶绿体被膜	yè lǜ tǐ bèi mó	10
 叶绿体基粒	yè lǜ tǐ jī lì	10
 叶绿体基质	yè lǜ tǐ jī zhì	10
+页码比较多	yè mǎ bǐ jiào duō	12
+野马比较多	yě mǎ bǐ jiào duō	10
 野蛮其体魄	yě mán qí tǐ pò	10
 野蛮人科南	yě mán rén kē nán	10
 野蛮人柯南	yě mán rén kē nán	10
@@ -78846,6 +79083,7 @@ sort: by_weight
 颐和园铜亭	yí hé yuán tóng tíng	10
 亦黑迭儿丁	yì hēi dié ér dīng	10
 伊红染色剂	yī hóng rǎn sè jì	10
+以后不会了	yǐ hòu bú huì le	12
 以厚德载物	yǐ hòu dé zài wù	10
 一候水始冰	yí hòu shuǐ shǐ bīng	10
 医护工作者	yī hù gōng zuò zhě	10
@@ -79113,7 +79351,7 @@ sort: by_weight
 以离婚收场	yǐ lí hūn shōu chǎng	10
 一粒老鼠屎	yí lì lǎo shǔ shǐ	10
 以理念创新	yǐ lǐ niàn chuàng xīn	10
-依利诺伊州	yī lì nuò yī zhōu	10
+伊利诺伊州	yī lì nuò yī zhōu	10
 义理巧克力	yì lǐ qiǎo kè lì	10
 伊丽莎白角	yī lì shā bái jiǎo	10
 蚁力神事件	yǐ lì shén shì jiàn	10
@@ -79484,6 +79722,8 @@ sort: by_weight
 遗失的心跳	yí shī de xīn tiào	10
 一时的兴起	yī shí de xīng qǐ	10
 一时的一时	yī shí de yì shí	10
+一时都有点	yì shí dōu yǒu diǎn	12
+意识都有点	yì shí dōu yǒu diǎn	10
 遗世而独立	yí shì ér dú lì	10
 衣氏放线菌	yī shì fàng xiàn jūn	10
 一时分不清	yì shí fēn bù qīng	10
@@ -79724,6 +79964,7 @@ sort: by_weight
 意外和惊喜	yì wài hé jīng xǐ	10
 意外伤害险	yì wài shāng hài xiǎn	10
 意外收获呢	yì wài shōu huò ne	10
+意外退出了	yì wài tuì chū le	10
 意外又惊喜	yì wài yòu jīng xǐ	10
 以外语言的	yǐ wài yǔ yán de	10
 一碗白开水	yì wǎn bái kāi shuǐ	10
@@ -80118,6 +80359,7 @@ sort: by_weight
 依泽替米贝	yī zé tì mǐ bèi	10
 遗赠受领人	yí zèng shòu lǐng rén	10
 一眨眼工夫	yì zhǎ yǎn gōng fu	10
+一眨眼功夫	yì zhǎ yǎn gōng fu	10
 衣沾不足惜	yī zhān bù zú xī	10
 一盏长明灯	yì zhǎn cháng míng dēng	10
 一战定乾坤	yí zhàn dìng qián kūn	10
@@ -80311,6 +80553,7 @@ sort: by_weight
 一字长蛇阵	yī zì cháng shé zhèn	10
 椅子的靠背	yǐ zi de kào bèi	10
 一字螺丝刀	yí zì luó sī dāo	10
+易滋生细菌	yì zī shēng xì jūn	10
 以字行于世	yǐ zì xíng yú shì	10
 一字值千金	yí zì zhí qiān jīn	10
 以咨诹善道	yǐ zī zōu shàn dào	10
@@ -80397,6 +80640,7 @@ sort: by_weight
 阴德太平记	yīn dé tài píng jì	10
 银的同位素	yín de tóng wèi sù	10
 印地安纳热	yìn dì ān nà rè	10
+印第安纳州	yìn dì ān nà zhōu	10
 阴蒂背动脉	yīn dì bèi dòng mài	10
 印地纺集团	yìn dì fǎng jí tuán	10
 阴蒂深动脉	yīn dì shēn dòng mài	10
@@ -80608,6 +80852,7 @@ sort: by_weight
 隐式欧拉法	yǐn shì ōu lā fǎ	10
 音视频通话	yīn shì pín tōng huà	10
 饮食上注意	yǐn shí shàng zhù yì	10
+隐式图搜索	yǐn shì tú sōu suǒ	10
 饮食文化史	yǐn shí wén huà shǐ	10
 饮食习惯的	yǐn shí xí guàn de	10
 因失血过多	yīn shī xuè guò duō	10
@@ -80648,6 +80893,7 @@ sort: by_weight
 音位正写法	yīn wèi zhèng xiě fǎ	10
 隐纹花松鼠	yǐn wén huā sōng shǔ	10
 因无证驾驶	yīn wú zhèng jià shǐ	10
+饮下了毒酒	yǐn xià le dú jiǔ	10
 阴线买入法	yīn xiàn mǎi rù fǎ	10
 因嫌纱帽小	yīn xián shā mào xiǎo	10
 音响爱好者	yīn xiǎng ài hào zhě	10
@@ -81113,7 +81359,7 @@ sort: by_weight
 应要求撤转	yīng yāo qiú chè zhuǎn	10
 营业部经理	yíng yè bù jīng lǐ	10
 营业部旧址	yíng yè bù jiù zhǐ	10
-营业费用的	yíng yè fèi yòng de	10
+营业费用的	yíng yè fèi yong de	10
 樱野玖璃梦	yīng yě jiǔ lí mèng	10
 赢也没赢过	yíng yě méi yíng guò	10
 樱野三加一	yīng yě sān jiā yī	10
@@ -81293,6 +81539,7 @@ sort: by_weight
 永恒与一天	yǒng héng yǔ yì tiān	10
 永鸿基集团	yǒng hóng jī jí tuán	10
 永鸿基置业	yǒng hóng jī zhì yè	10
+用户标识码	yòng hù biāo shí mǎ	10
 用户查核员	yòng hù chá hé yuán	10
 用户的角度	yòng hù de jiǎo dù	10
 拥护共产党	yōng hù gòng chǎn dǎng	10
@@ -81695,6 +81942,7 @@ sort: by_weight
 尤加坦半岛	yóu jiā tǎn bàn dǎo	10
 有家杂货店	yǒu jiā zá huò diàn	10
 又见白娘子	yòu jiàn bái niáng zǐ	10
+邮件管理员	yóu jiàn guǎn lǐ yuán	10
 邮件和日历	yóu jiàn hé rì lì	10
 又见脚气中	yòu jiàn jiǎo qì zhōng	10
 又见桃花源	yòu jiàn táo huā yuán	10
@@ -81864,6 +82112,7 @@ sort: by_weight
 有没有钱呀	yǒu méi yǒu qián ya	10
 有没有时间	yǒu méi yǒu shí jiān	10
 又没有时间	yòu méi yǒu shí jiān	10
+有没有戏啊	yǒu méi yǒu xì a	10
 有没有想我	yǒu méi yǒu xiǎng wǒ	10
 有没有效啊	yǒu méi yǒu xiào a	10
 有没有新意	yǒu méi yǒu xīn yì	10
@@ -82226,6 +82475,7 @@ sort: by_weight
 有线路由器	yǒu xiàn lù yóu qì	10
 有限幂零群	yǒu xiàn mì líng qún	10
 优先清算权	yōu xiān qīng suàn quán	10
+优先权队列	yōu xiān quán duì liè	10
 有限生成模	yǒu xiàn shēng chéng mó	10
 有限生成群	yǒu xiàn shēng chéng qún	10
 优先受让权	yōu xiān shòu ràng quán	10
@@ -82406,6 +82656,7 @@ sort: by_weight
 有一事相求	yǒu yí shì xiāng qiú	10
 有意识注意	yǒu yì shí zhù yì	10
 有壹手快修	yǒu yī shǒu kuài xiū	10
+有意思得很	yǒu yì sī de hěn	10
 有意思么你	yǒu yì sī me nǐ	10
 友谊体育馆	yǒu yì tǐ yù guǎn	10
 友谊西路站	yǒu yì xī lù zhàn	10
@@ -82463,6 +82714,7 @@ sort: by_weight
 鱿鱼茄子泥	yóu yú qié zi ní	10
 游鱼随风起	yóu yú suí fēng qǐ	10
 忧郁小王子	yōu yù xiǎo wáng zǐ	10
+友元程序集	yǒu yuán chéng xù jí	10
 悠远的苍穹	yōu yuǎn de cāng qióng	10
 悠远的历史	yōu yuǎn de lì shǐ	10
 幽怨的眼神	yōu yuàn de yǎn shén	10
@@ -83072,6 +83324,7 @@ sort: by_weight
 欲速而不达	yù sù ér bù dá	10
 语素构词学	yǔ sù gòu cí xué	10
 鱼素鸡七喜	yú sù jī qī xǐ	10
+欲速则一坨	yù sù zé yì tuó	10
 预算的编制	yù suàn de biān zhì	10
 预算的执行	yù suàn de zhí xíng	10
 预算外支出	yù suàn wài zhī chū	10
@@ -83646,7 +83899,7 @@ sort: by_weight
 圆润的脸蛋	yuán rùn de liǎn dàn	10
 圆润的设计	yuán rùn de shè jì	10
 圆润的身材	yuán rùn de shēn cái	10
-圆润的下巴	yuán rùn de xià bā	10
+圆润的下巴	yuán rùn de xià ba	10
 圆润的线条	yuán rùn de xiàn tiáo	10
 圆润的造型	yuán rùn de zào xíng	10
 圆润地离开	yuán rùn dì lí kāi	10
@@ -83698,6 +83951,7 @@ sort: by_weight
 圆石滩车展	yuán shí tān chē zhǎn	10
 原始汤假说	yuán shǐ tāng jiǎ shuō	10
 原始血细胞	yuán shǐ xuè xì bāo	10
+愿逝者安息	yuàn shì zhě ān xī	10
 元首的愤怒	yuán shǒu de fèn nù	10
 元首的面孔	yuán shǒu de miàn kǒng	10
 原首都饭店	yuán shǒu dū fàn diàn	10
@@ -83963,7 +84217,9 @@ sort: by_weight
 粤港澳大湾	yuè gǎng ào dà wān	10
 粤港澳湾区	yuè gǎng ào wān qū	10
 粤港财富通	yuè gǎng cái fù tōng	10
+越搞越带劲	yuè gǎo yuè dài jìn	10
 越搞越复杂	yuè gǎo yuè fù zá	10
+越搞越糊涂	yuè gǎo yuè hú tu	10
 月歌舞台剧	yuè gē wǔ tái jù	10
 月桂山梨坦	yuè guì shān lí tǎn	10
 粤海关旧址	yuè hǎi guān jiù zhǐ	10
@@ -83984,6 +84240,7 @@ sort: by_weight
 约化梯度法	yuē huà tī dù fǎ	10
 约化同调群	yuē huà tóng diào qún	10
 约化自动机	yuē huà zì dòng jī	10
+越混越回去	yuè hùn yuè huí qù	10
 月火连续剧	yuè huǒ lián xù jù	10
 月活跃用户	yuè huó yuè yòng hù	10
 月见草油乳	yuè jiàn cǎo yóu rǔ	10
@@ -84064,15 +84321,18 @@ sort: by_weight
 月收入过万	yuè shōu rù guò wàn	10
 约束和限制	yuē shù hé xiàn zhì	10
 约束性保护	yuē shù xìng bǎo hù	10
+越数越迷糊	yuè shù yuè mí hu	10
 约束至酒醒	yuē shù zhì jiǔ xǐng	10
 约四分之一	yuē sì fēn zhī yī	10
 约斯塔函数	yuē sī tǎ hán shù	10
 乐坛插班生	yuè tán chā bān shēng	10
 月坛体育馆	yuè tán tǐ yù guǎn	10
+越谈越投机	yuè tán yuè tóu jī	10
 越淘越开心	yuè táo yuè kāi xīn	10
 越王城遗址	yuè wáng chéng yí zhǐ	10
 越王勾践剑	yuè wáng gōu jiàn jiàn	10
 粤文拉丁化	yuè wén lā dīng huà	10
+越问越麻烦	yuè wèn yuè má fan	10
 越吻越伤心	yuè wěn yuè shāng xīn	10
 粤西行政区	yuè xī xíng zhèng qū	10
 月下夜想曲	yuè xià yè xiǎng qǔ	10
@@ -84102,6 +84362,7 @@ sort: by_weight
 越长越年轻	yuè zhǎng yuè nián qīng	10
 越长越漂亮	yuè zhǎng yuè piào liang	10
 越长越容易	yuè zhǎng yuè róng yì	10
+越照越漂亮	yuè zhào yuè piào liang	10
 曰之乎者也	yuē zhī hū zhě yě	10
 月之女祭司	yuè zhī nǚ jì sī	10
 越治越严重	yuè zhì yuè yán zhòng	10
@@ -84317,6 +84578,8 @@ sort: by_weight
 在长征路上	zài cháng zhēng lù shàng	10
 在朝堂之上	zài cháo táng zhī shàng	10
 再重复一遍	zài chóng fù yí biàn	10
+再重新安装	zài chóng xīn ān zhuāng	12
+在重新安装	zài chóng xīn ān zhuāng	10
 再创新纪录	zài chuàng xīn jì lù	10
 在此过程中	zài cǐ guò chéng zhōng	10
 在此基础上	zài cǐ jī chǔ shàng	10
@@ -84635,6 +84898,7 @@ sort: by_weight
 在远距离上	zài yuǎn jù lí shàng	10
 在园幼儿数	zài yuán yòu ér shù	10
 在运动模式	zài yùn dòng mó shì	10
+再增加一个	zài zēng jiā yí gè	10
 在战国时代	zài zhàn guó shí dài	10
 再长大一点	zài zhǎng dà yì diǎn	10
 再这么下去	zài zhè me xià qù	10
@@ -84829,7 +85093,6 @@ sort: by_weight
 早早孕试纸	zǎo zǎo yùn shì zhǐ	10
 造纸等行业	zào zhǐ děng háng yè	10
 枣庄高新区	zǎo zhuāng gāo xīn qū	10
-枣庄台儿庄	zǎo zhuāng tái ér zhuāng	10
 则昂头戴面	zé áng tóu dài miàn	10
 泽巴赫反应	zé bā hè fǎn yìng	10
 则必有我师	zé bì yǒu wǒ shī	10
@@ -84864,6 +85127,7 @@ sort: by_weight
 则正好相反	zé zhèng hǎo xiāng fǎn	10
 鲗鱼涌街市	zéi yú yǒng jiē shì	10
 怎么办家康	zěn me bàn jiā kāng	10
+怎么不回了	zěn me bù huí le	10
 怎么差这么	zěn me chà zhè me	10
 怎么个死法	zěn me gè sǐ fǎ	10
 怎么回事啦	zěn me huí shì la	10
@@ -84879,10 +85143,12 @@ sort: by_weight
 怎么那么苦	zěn me nà me kǔ	10
 怎么那么慢	zěn me nà me màn	10
 怎么去痘印	zěn me qù dòu yìn	10
+怎么少得了	zěn me shǎo de le	10
 怎么实现的	zěn me shí xiàn de	10
 怎么忘了她	zěn me wàng le tā	10
 怎么泄露的	zěn me xiè lòu de	10
 怎么也不听	zěn me yě bù tīng	10
+怎么着也得	zěn me zhāo yě děi	10
 怎么这么高	zěn me zhè me gāo	10
 怎么这样呢	zěn me zhè yàng ne	10
 赠澳大熊猫	zèng ào dà xióng māo	10
@@ -85305,11 +85571,8 @@ sort: by_weight
 张家界市委	zhāng jiā jiè shì wěi	10
 张家界一中	zhāng jiā jiè yī zhōng	10
 张家口斑岩	zhāng jiā kǒu bān yán	10
-张家口崇礼	zhāng jiā kǒu chóng lǐ	10
 张家口市区	zhāng jiā kǒu shì qū	10
 张家口市委	zhāng jiā kǒu shì wěi	10
-张家口万全	zhāng jiā kǒu wàn quán	10
-张家口宣化	zhāng jiā kǒu xuān huà	10
 张家口一中	zhāng jiā kǒu yī zhōng	10
 张家山汉简	zhāng jiā shān hàn jiǎn	10
 张家少奶奶	zhāng jiā shào nǎi nǎi	10
@@ -85339,6 +85602,7 @@ sort: by_weight
 张拉千斤顶	zhāng lā qiān jīn dǐng	10
 张老师月刊	zhāng lǎo shī yuè kān	10
 张乐平故居	zhāng lè píng gù jū	10
+长了一对儿	zhǎng le yí duì ér	10
 张立基专辑	zhāng lì jī zhuān jí	10
 张力描记器	zhāng lì miáo jì qì	10
 张力腿平台	zhāng lì tuǐ píng tái	10
@@ -85676,7 +85940,6 @@ sort: by_weight
 哲合忍耶派	zhé hé rěn yé pài	10
 这会应该是	zhè huì yīng gāi shì	12
 这回应该是	zhè huí yìng gāi shì	10
-这回应该是	zhè huí yìng gāi shì	10
 这基本都是	zhè jī běn dōu shì	10
 哲基尔与我	zhé jī ěr yǔ wǒ	10
 褶颊虫亚目	zhě jiá chóng yà mù	10
@@ -85714,6 +85977,7 @@ sort: by_weight
 这么大的雪	zhè me dà de xuě	10
 这么大的雨	zhè me dà de yǔ	10
 这么多人骂	zhè me duō rén mà	10
+这么好的事	zhè me hǎo de shì	10
 这么回事吗	zhè me huí shì ma	10
 这么客气的	zhè me kè qì de	10
 这么冷的天	zhè me lěng de tiān	10
@@ -85947,6 +86211,7 @@ sort: by_weight
 侦缉训练科	zhēn jī xùn liàn kē	10
 真假面骑士	zhēn jiǎ miàn qí shì	10
 针尖对麦芒	zhēn jiān duì mài máng	10
+帧检验序列	zhēn jiǎn yàn xù liè	10
 镇江开发区	zhèn jiāng kāi fā qū	10
 镇江直属站	zhèn jiāng zhí shǔ zhàn	10
 帧校验序列	zhēn jiào yàn xù liè	10
@@ -85979,6 +86244,7 @@ sort: by_weight
 针孔摄影机	zhēn kǒng shè yǐng jī	10
 真空脱气机	zhēn kōng tuō qì jī	10
 针孔照相机	zhēn kǒng zhào xiàng jī	10
+帧控制字段	zhēn kòng zhì zì duàn	10
 真空紫外谱	zhēn kōng zǐ wài pǔ	10
 真盔甲鱼目	zhēn kuī jiǎ yú mù	10
 针阔混交林	zhēn kuò hùn jiāo lín	10
@@ -86609,6 +86875,7 @@ sort: by_weight
 整数多面体	zhěng shù duō miàn tǐ	10
 正数和负数	zhèng shù hé fù shù	10
 整数平方根	zhěng shù píng fāng gēn	10
+证书作废表	zhèng shū zuò fèi biǎo	10
 郑爽的粉丝	zhèng shuǎng de fěn sī	10
 郑爽的性格	zhèng shuǎng de xìng gé	10
 郑爽的演技	zhèng shuǎng de yǎn jì	10
@@ -86679,6 +86946,7 @@ sort: by_weight
 正义的旗帜	zhèng yì de qí zhì	10
 正义的使者	zhèng yì de shǐ zhě	10
 正义的侠客	zhèng yì de xiá kè	10
+正义的一方	zhèng yì de yì fāng	10
 正义和邪恶	zhèng yì hé xié è	10
 正一盟威道	zhèng yī méng wēi dào	10
 正一派道观	zhèng yī pài dào guàn	10
@@ -86863,9 +87131,11 @@ sort: by_weight
 支撑和引领	zhī chēng hé yǐn lǐng	10
 支撑和阻力	zhī chēng hé zǔ lì	10
 职称计算机	zhí chēng jì suàn jī	10
+支撑面不粘	zhī chēng miàn bù zhān	10
 职称评审权	zhí chēng píng shěn quán	10
 志诚张主管	zhì chéng zhāng zhǔ guǎn	10
 支持巴沙尔	zhī chí bā shā ěr	10
+支持得不好	zhī chí dé bù hǎo	10
 支持得很好	zhī chí de hěn hǎo	10
 知耻而后勇	zhī chǐ ér hòu yǒng	10
 支持和协作	zhī chí hé xié zuò	10
@@ -86910,6 +87180,7 @@ sort: by_weight
 知道得更多	zhī dào de gèng duō	10
 知道得太多	zhī dào de tài duō	10
 知道得太少	zhī dào de tài shǎo	10
+知道的知识	zhī dào de zhī shi	10
 直到第二天	zhí dào dì èr tiān	10
 直到多年后	zhí dào duō nián hòu	10
 指导和帮助	zhǐ dǎo hé bāng zhù	10
@@ -87060,15 +87331,6 @@ sort: by_weight
 职工的工资	zhí gōng de gōng zī	10
 直贡噶举派	zhí gòng gá jǔ pài	10
 支公司经理	zhī gōng sī jīng lǐ	10
-指骨间关节	zhǐ gǔ jiān guān jié	10
-趾骨间关节	zhǐ gǔ jiān guān jié	10
-跖骨间关节	zhí gǔ jiān guān jié	10
-肢骨外上髁	zhī gǔ wài shàng kē	10
-支管胆管瘘	zhī guǎn dǎn guǎn lòu	10
-指关节融合	zhǐ guān jié róng hé	10
-趾关节融合	zhǐ guān jié róng hé	10
-指关节脱位	zhǐ guān jié tuō wèi	10
-趾关节脱位	zhǐ guān jié tuō wèi	10
 至关重要的	zhì guān zhòng yào de	10
 直光导纤维	zhí guāng dǎo xiān wéi	10
 脂光正长岩	zhī guāng zhèng zhǎng yán	10
@@ -87494,8 +87756,6 @@ sort: by_weight
 之你死我活	zhī nǐ sǐ wǒ huó	10
 止逆下气者	zhǐ nì xià qì zhě	10
 置你于死地	zhì nǐ yú sǐ dì	10
-置鲶龙太郎	zhì nián lóng tài láng	10
-置鲇龙太郎	zhì nián lóng tài láng	10
 值年旗大臣	zhí nián qí dà chén	10
 值年旗衙门	zhí nián qí yá mén	10
 值年神李丙	zhí nián shén lǐ bǐng	10
@@ -88157,6 +88417,7 @@ sort: by_weight
 中国的姓氏	zhōng guó de xìng shì	10
 中国的优势	zhōng guó de yōu shì	10
 中国的智慧	zhōng guó de zhì huì	10
+中国电影史	zhōng guó diàn yǐng shǐ	10
 中国美术馆	zhōng guó měi shù guǎn	10
 中国现代史	zhōng guó xiàn dài shǐ	10
 忠海制造所	zhōng hǎi zhì zào suǒ	10
@@ -88445,6 +88706,7 @@ sort: by_weight
 中铁十一局	zhōng tiě shí yī jú	10
 钟庭耀事件	zhōng tíng yào shì jiàn	10
 肿痛外擦酊	zhǒng tòng wài cā dīng	10
+中途相遇法	zhōng tú xiāng yù fǎ	10
 忠王李秀成	zhōng wáng lǐ xiù chéng	10
 中微子振荡	zhōng wēi zǐ zhèn dàng	10
 忠武节度使	zhōng wǔ jié dù shǐ	10
@@ -88650,7 +88912,7 @@ sort: by_weight
 中原之霸者	zhōng yuán zhī bà zhě	10
 中越关系史	zhōng yuè guān xì shǐ	10
 重在参与嘛	zhòng zài cān yù ma	10
-种在小园中	zhǒng zài xiǎo yuán zhōng	10
+种在小园中	zhòng zài xiǎo yuán zhōng	10
 忠贞的爱情	zhōng zhēn de ài qíng	10
 重正规化群	zhòng zhèng guī huà qún	10
 重质不重量	zhòng zhì bú zhòng liàng	10
@@ -88800,6 +89062,7 @@ sort: by_weight
 周琦的表现	zhōu qí de biǎo xiàn	10
 皱起的眉头	zhòu qǐ de méi tóu	10
 周期关系式	zhōu qī guān xì shì	10
+周期性行业	zhōu qī xìng háng yè	10
 周期性事件	zhōu qī xìng shì jiàn	10
 周期性嗜睡	zhōu qī xìng shì shuì	10
 周期性中断	zhōu qī xìng zhōng duàn	10
@@ -89137,6 +89400,7 @@ sort: by_weight
 柱面向量场	zhù miàn xiàng liàng chǎng	10
 柱面坐标系	zhù miàn zuò biāo xì	10
 著名的景点	zhù míng de jǐng diǎn	10
+著名建筑师	zhù míng jiàn zhù shī	10
 著名收藏家	zhù míng shōu cáng jiā	10
 瞩目的成绩	zhǔ mù dì chéng jì	10
 珠穆拉玛峰	zhū mù lā mǎ fēng	10
@@ -89535,6 +89799,7 @@ sort: by_weight
 转译后修饰	zhuǎn yì hòu xiū shì	10
 转移性收入	zhuǎn yí xìng shōu rù	10
 转移性质粒	zhuǎn yí xìng zhì lì	10
+专用程序集	zhuān yòng chéng xù jí	10
 专有出版权	zhuān yǒu chū bǎn quán	10
 专有服务器	zhuān yǒu fú wù qì	10
 专有名词学	zhuān yǒu míng cí xué	10
@@ -89978,6 +90243,7 @@ sort: by_weight
 字符串常量	zì fú chuàn cháng liàng	10
 字符串反转	zì fú chuàn fǎn zhuǎn	10
 字符串翻转	zì fú chuàn fān zhuǎn	10
+字符串回文	zì fú chuàn huí wén	10
 字符串截取	zì fú chuàn jié qǔ	10
 字符串连接	zì fú chuàn lián jiē	10
 自俘获电子	zì fú huò diàn zǐ	10
@@ -90268,6 +90534,7 @@ sort: by_weight
 自然码双拼	zì rán mǎ shuāng pīn	10
 自然拼读法	zì rán pīn dú fǎ	10
 自然人独资	zì rán rén dú zī	10
+自然是由我	zì rán shì yóu wǒ	10
 自然式园林	zì rán shì yuán lín	10
 自然数幂和	zì rán shù mì hé	10
 自燃损失险	zì rán sǔn shī xiǎn	10
@@ -91199,7 +91466,9 @@ sort: by_weight
 嘴平伊之助	zuǐ píng yī zhī zhù	10
 最扑朔迷离	zuì pū shuò mí lí	10
 最浅显易懂	zuì qiǎn xiǎn yì dǒng	10
+最强打工人	zuì qiáng dǎ gōng rén	10
 最强的队伍	zuì qiáng de duì wǔ	10
+最强得分手	zuì qiáng de fēn shǒu	10
 最强的国家	zuì qiáng de guó jiā	10
 最强的行列	zuì qiáng de háng liè	10
 最强的一位	zuì qiáng de yí wèi	10
@@ -91220,6 +91489,7 @@ sort: by_weight
 最速上升法	zuì sù shàng shēng fǎ	10
 最速下降线	zuì sù xià jiàng xiàn	10
 最大子段和	zuì tài zǐ duàn hé	10
+最大子矩形	zuì tài zǐ jǔ xíng	10
 最特立独行	zuì tè lì dú xíng	10
 醉卧美人膝	zuì wò měi rén xī	10
 最喜欢的花	zuì xǐ huan de huā	10
@@ -91237,6 +91507,7 @@ sort: by_weight
 最小对立体	zuì xiǎo duì lì tǐ	10
 最小二乘解	zuì xiǎo èr chéng jiě	10
 最小分辨角	zuì xiǎo fēn biàn jiǎo	12
+最小割模型	zuì xiǎo gē mó xíng	10
 最小红斑量	zuì xiǎo hóng bān liàng	10
 最小角回归	zuì xiǎo jiǎo huí guī	10
 最小可觉差	zuì xiǎo kě jué chà	10
@@ -91245,6 +91516,7 @@ sort: by_weight
 最小可听值	zuì xiǎo kě tīng zhí	10
 最小模糊圆	zuì xiǎo mó hu yuán	12
 最小平方法	zuì xiǎo píng fāng fǎ	10
+最小权匹配	zuì xiǎo quán pǐ pèi	10
 最小树问题	zuì xiǎo shù wèn tí	10
 最小树形图	zuì xiǎo shù xíng tú	10
 最小完全类	zuì xiǎo wán quán lèi	10
@@ -91715,6 +91987,7 @@ sort: by_weight
 阿尔巴内塞簇	ā ěr bā nèi sāi cù	10
 阿尔巴内斯簇	ā ěr bā nèi sī cù	10
 阿尔贝拉医药	ā ěr bèi lā yī yào	10
+阿尔卑斯大区	ā ěr bēi sī dà qū	10
 阿尔卑斯山脉	ā ěr bēi sī shān mài	10
 阿尔贝维尔东	ā ěr bèi wéi ěr dōng	10
 阿尔芬催化剂	ā ěr fēn cuī huà jì	10
@@ -92142,21 +92415,6 @@ sort: by_weight
 暗灰叉齿龙䲢	àn huī chā chǐ lóng téng	10
 安徽高速公路	ān huī gāo sù gōng lù	10
 安徽国元集团	ān huī guó yuán jí tuán	10
-安徽省安庆市	ān huī shěng ān qìng shì	10
-安徽省蚌埠市	ān huī shěng bèng bù shì	10
-安徽省亳州市	ān huī shěng bó zhōu shì	10
-安徽省池州市	ān huī shěng chí zhōu shì	10
-安徽省滁州市	ān huī shěng chú zhōu shì	10
-安徽省阜阳市	ān huī shěng fù yáng shì	10
-安徽省合肥市	ān huī shěng hé féi shì	10
-安徽省淮北市	ān huī shěng huái běi shì	10
-安徽省淮南市	ān huī shěng huái nán shì	10
-安徽省黄山市	ān huī shěng huáng shān shì	10
-安徽省六安市	ān huī shěng lù ān shì	10
-安徽省宿州市	ān huī shěng sù zhōu shì	10
-安徽省铜陵市	ān huī shěng tóng líng shì	10
-安徽省芜湖市	ān huī shěng wú hú shì	10
-安徽省宣城市	ān huī shěng xuān chéng shì	10
 暗灰玄白霞岩	àn huī xuán bái xiá yán	10
 按既定方针办	àn jì dìng fāng zhēn bàn	10
 岸基反舰导弹	àn jī fǎn jiàn dǎo dàn	10
@@ -92358,6 +92616,7 @@ sort: by_weight
 巴丹半岛战役	bā dān bàn dǎo zhàn yì	10
 坝道工程医院	bà dào gōng chéng yī yuàn	10
 霸道总裁范儿	bà dào zǒng cái fàn ér	10
+巴登符腾堡州	bā dēng fú téng bǎo zhōu	10
 巴登号铁甲舰	bā dēng hào tiě jiǎ jiàn	10
 八点半的星光	bā diǎn bàn de xīng guāng	10
 八点钟的太阳	bā diǎn zhōng de tài yáng	10
@@ -92987,6 +93246,7 @@ sort: by_weight
 傍花车辆基地	bàng huā chē liàng jī dì	10
 蚌淮高速公路	bàng huái gāo sù gōng lù	10
 帮伙行为观察	bāng huǒ xíng wéi guān chá	10
+蚌壳式引擎盖	bàng ké shì yǐn qíng gài	10
 邦劳国际机场	bāng láo guó jì jī chǎng	10
 邦盟汇骏集团	bāng méng huì jùn jí tuán	10
 棒球全明星赛	bàng qiú quán míng xīng sài	10
@@ -93101,6 +93361,7 @@ sort: by_weight
 宝莱国际机场	bǎo lái guó jì jī chǎng	10
 宝兰客运专线	bǎo lán kè yùn zhuān xiàn	10
 保乐力加品牌	bǎo lè lì jiā pǐn pái	10
+报了杀父之仇	bào le shā fù zhī chóu	10
 报了一箭之仇	bào le yí jiàn zhī chóu	10
 爆了一句粗口	bào le yí jù cū kǒu	10
 保利百合花园	bǎo lì bǎi hé huā yuán	10
@@ -93552,6 +93813,8 @@ sort: by_weight
 北京宗教人物	běi jīng zōng jiào rén wù	10
 北京樽祥科技	běi jīng zūn xiáng kē jì	10
 被狙击的学园	bèi jū jī de xué yuán	10
+北卡罗来纳州	běi kǎ luó lái nà zhōu	10
+北卡罗莱纳州	běi kǎ luó lái nà zhōu	10
 被开除党籍者	bèi kāi chú dǎng jí zhě	10
 北龛摩崖造像	běi kān mó yá zào xiàng	10
 北科大张建伟	běi kē dà zhāng jiàn wěi	10
@@ -93678,7 +93941,7 @@ sort: by_weight
 被讨厌的勇气	bèi tǎo yàn de yǒng qì	10
 贝特二氏定律	bèi tè èr shì dìng lǜ	10
 被提上了日程	bèi tí shàng le rì chéng	10
-北庭大都护府	běi tíng dà dōu hù fǔ	10
+北庭大都护府	běi tíng dà dū hù fǔ	10
 北庭故城遗址	běi tíng gù chéng yí zhǐ	10
 北投温泉浴场	běi tóu wēn quán yù chǎng	10
 被偷走的一代	bèi tōu zǒu de yí dài	10
@@ -93930,7 +94193,7 @@ sort: by_weight
 比较特立独行	bǐ jiào tè lì dú xíng	10
 比较心理学家	bǐ jiào xīn lǐ xué jiā	10
 闭角型青光眼	bì jiǎo xíng qīng guāng yǎn	10
-比较中规中矩	bǐ jiào zhōng guī zhōng jǔ	10
+比较中规中矩	bǐ jiào zhòng guī zhòng jǔ	10
 毕竟孩子还小	bì jìng hái zi hái xiǎo	10
 鼻疽伯克氏菌	bí jū bó kè shì jūn	10
 秕糠马拉癣菌	bǐ kāng mǎ lā xuǎn jūn	10
@@ -94070,7 +94333,7 @@ sort: by_weight
 变得越来越难	biàn de yuè lái yuè nán	10
 变得越来越像	biàn de yuè lái yuè xiàng	10
 遍地都是黄金	biàn dì dōu shì huáng jīn	10
-变动间接费用	biàn dòng jiàn jiē fèi yòng	10
+变动间接费用	biàn dòng jiàn jiē fèi yong	10
 编都编不出来	biān dōu biān bù chū lái	10
 变额年金保险	biàn é nián jīn bǎo xiǎn	10
 边防指挥学校	biān fáng zhǐ huī xué xiào	10
@@ -94216,7 +94479,7 @@ sort: by_weight
 表现非常优异	biǎo xiàn fēi cháng yōu yì	10
 表现极其出色	biǎo xiàn jí qí chū sè	10
 表现可圈可点	biǎo xiàn kě quān kě diǎn	10
-表现中规中矩	biǎo xiàn zhōng guī zhōng jǔ	10
+表现中规中矩	biǎo xiàn zhòng guī zhòng jǔ	10
 表现主义电影	biǎo xiàn zhǔ yì diàn yǐng	10
 表现主义画家	biǎo xiàn zhǔ yì huà jiā	10
 表现主义绘画	biǎo xiàn zhǔ yì huì huà	10
@@ -94266,6 +94529,7 @@ sort: by_weight
 别册玛格丽特	bié cè mǎ gé lì tè	10
 别耽误人家了	bié dān wù rén jiā le	10
 别德里基夫齐	bié dé lǐ jī fū qí	10
+别尔哥罗德州	bié ěr gē luó dé zhōu	10
 别高兴得太早	bié gāo xìng de tài zǎo	10
 别跟山过不去	bié gēn shān guò bú qù	10
 别唧唧歪歪啦	bié jī jī wāi wāi la	10
@@ -94325,6 +94589,7 @@ sort: by_weight
 髌前筋膜下囊	bìn qián jīn mó xià náng	10
 滨石高速公路	bīn shí gāo sù gōng lù	10
 髌外侧支持带	bìn wài cè zhī chí dài	10
+宾夕法尼亚州	bīn xī fǎ ní yà zhōu	10
 宾夕凡尼亚州	bīn xī fán ní yà zhōu	10
 丙氨瑞林冻干	bǐng ān ruì lín dòng gān	10
 丙氨酰合成酶	bǐng ān xiān hé chéng méi	10
@@ -94600,6 +94865,7 @@ sort: by_weight
 不潮不用花钱	bù cháo bú yòng huā qián	10
 不超负荷用电	bù chāo fù hè yòng diàn	10
 不称职的父亲	bú chèn zhí de fù qīn	10
+不成功便成仁	bù chéng gōng biàn chéng rén	10
 不成魔不成活	bù chéng mó bù chéng huó	10
 不成器的儿子	bù chéng qì de ér zi	10
 不成熟的表现	bù chéng shú de biǎo xiàn	10
@@ -94648,7 +94914,7 @@ sort: by_weight
 不得其酱不食	bù dé qí jiàng bù shí	10
 不得其门而入	bù dé qí mén ér rù	10
 不得擅自发布	bù dé shàn zì fā bù	10
-不得收取费用	bù dé shōu qǔ fèi yòng	10
+不得收取费用	bù dé shōu qǔ fèi yong	10
 不得已的苦衷	bù dé yǐ de kǔ zhōng	10
 不得已的情况	bù dé yǐ de qíng kuàng	10
 不得已的原因	bù dé yǐ de yuán yīn	10
@@ -95003,6 +95269,7 @@ sort: by_weight
 不列颠诸王史	bú liè diān zhū wáng shǐ	10
 布列斯特条约	bù liè sī tè tiáo yuē	10
 布列塔尼半岛	bù liè tǎ ní bàn dǎo	10
+布列塔尼大区	bù liè tǎ ní dà qū	10
 卟啉症后天性	bǔ lín zhèng hòu tiān xìng	10
 不留一丝痕迹	bù liú yì sī hén jì	10
 布龙贝格条约	bù lóng bèi gé tiáo yuē	10
@@ -95576,7 +95843,7 @@ sort: by_weight
 不知几千里也	bù zhī jǐ qiān lǐ yě	10
 布置家庭作业	bù zhì jiā tíng zuò yè	10
 不知老之将至	bù zhī lǎo zhī jiāng zhì	10
-不知鹿死谁手	bù zhī lù sǐ shéi shǒu	10
+不知鹿死谁手	bù zhī lù sǐ shuí shǒu	10
 不知名的小花	bù zhī míng de xiǎo huā	10
 不知名的小站	bù zhī míng de xiǎo zhàn	10
 不知名的星星	bù zhī míng de xīng xīng	10
@@ -95592,6 +95859,7 @@ sort: by_weight
 不知为不知之	bù zhī wéi bù zhī zhī	10
 不只我一个人	bù zhǐ wǒ yí gè rén	10
 不止一次提到	bù zhǐ yí cì tí dào	10
+布置一个任务	bù zhì yí gè rèn wù	10
 不治之症医院	bú zhì zhī zhèng yī yuàn	10
 不准百姓点灯	bù zhǔn bǎi xìng diǎn dēng	10
 不准出境人员	bù zhǔn chū jìng rén yuán	10
@@ -95933,7 +96201,7 @@ sort: by_weight
 产雌孤雌生殖	chǎn cí gū cí shēng zhí	10
 馋得直流口水	chán de zhí liú kǒu shuǐ	10
 产电性钠钾泵	chǎn diàn xìng nà jiǎ bèng	10
-颤抖的双下巴	chàn dǒu de shuāng xià bā	10
+颤抖的双下巴	chàn dǒu de shuāng xià ba	10
 产后恶露不尽	chǎn hòu è lù bú jìn	10
 产后恶露不绝	chǎn hòu è lù bù jué	10
 产后腹中㽲痛	chǎn hòu fù zhōng jiǎo tòng	10
@@ -95999,7 +96267,7 @@ sort: by_weight
 产业升级换代	chǎn yè shēng jí huàn dài	10
 产业提质增效	chǎn yè tí zhì zēng xiào	10
 产业招商引资	chǎn yè zhāo shāng yǐn zī	10
-单于大都护府	chán yú dà dōu hù fǔ	10
+单于大都护府	chán yú dà dū hù fǔ	10
 禅宗六祖慧能	chán zōng liù zǔ huì néng	10
 长安大学教授	cháng ān dà xué jiào shòu	10
 长安大学校友	cháng ān dà xué xiào yǒu	10
@@ -96300,6 +96568,7 @@ sort: by_weight
 长潭高速公路	cháng tán gāo sù gōng lù	10
 长潭西线高速	cháng tán xī xiàn gāo sù	10
 长体结耙非鲫	cháng tǐ jié bà fēi jì	10
+长痛不如短痛	cháng tòng bù rú duǎn tòng	10
 长痛不如短痛	cháng tòng bù rú duǎn tòng	10
 昌铜高速公路	chāng tóng gāo sù gōng lù	10
 畅通信访渠道	chàng tōng xìn fǎng qú dào	10
@@ -97400,7 +97669,7 @@ sort: by_weight
 出使四国日记	chū shǐ sì guó rì jì	10
 初始投资成本	chū shǐ tóu zī chéng běn	10
 初始土地登记	chū shǐ tǔ dì dēng jì	10
-初始直接费用	chū shǐ zhí jiē fèi yòng	10
+初始直接费用	chū shǐ zhí jiē fèi yong	10
 初始质量函数	chū shǐ zhì liàng hán shù	10
 初始作战能力	chū shǐ zuò zhàn néng lì	10
 初霜号驱逐舰	chū shuāng hào qū zhú jiàn	10
@@ -97491,7 +97760,7 @@ sort: by_weight
 船舶物料备品	chuán bó wù liào bèi pǐn	10
 船舶污染防治	chuán bó wū rǎn fáng zhì	10
 传播先进文化	chuán bō xiān jìn wén huà	10
-船舶营运费用	chuán bó yíng yùn fèi yòng	10
+船舶营运费用	chuán bó yíng yùn fèi yong	10
 船舶运力过剩	chuán bó yùn lì guò shèng	10
 船舶租购合同	chuán bó zū gòu hé tong	10
 传承石油精神	chuán chéng shí yóu jīng shén	10
@@ -100705,6 +100974,7 @@ sort: by_weight
 动态肺顺应性	dòng tài fèi shùn yìng xìng	10
 动态监测机制	dòng tài jiān cè jī zhì	10
 动态量化考核	dòng tài liàng huà kǎo hé	10
+动态流量检测	dòng tài liú liàng jiǎn cè	10
 动态路由协议	dòng tài lù yóu xié yì	10
 动态无功补偿	dòng tài wú gōng bǔ cháng	10
 动态血压监测	dòng tài xuè yā jiān cè	10
@@ -100736,6 +101006,7 @@ sort: by_weight
 洞穴巨魔腰带	dòng xué jù mó yāo dài	10
 洞穴仆人战士	dòng xué pú rén zhàn shì	10
 东野圭吾小说	dōng yě guī wú xiǎo shuō	10
+东一个西一个	dōng yī gè xī yí gè	10
 东一句西一句	dōng yī jù xī yī jù	10
 东医寿世保元	dōng yī shòu shì bǎo yuán	10
 东医四象新篇	dōng yī sì xiàng xīn piān	10
@@ -101310,7 +101581,6 @@ sort: by_weight
 鄂尔多斯地块	è ěr duō sī dì kuài	10
 鄂尔多斯地理	è ěr duō sī dì lǐ	10
 鄂尔多斯地台	è ěr duō sī dì tái	10
-鄂尔多斯东胜	è ěr duō sī dōng shèng	10
 鄂尔多斯断块	è ěr duō sī duàn kuài	10
 鄂尔多斯高原	è ěr duō sī gāo yuán	10
 鄂尔多斯公司	è ěr duō sī gōng sī	10
@@ -101346,6 +101616,8 @@ sort: by_weight
 俄甲联赛球队	é jiǎ lián sài qiú duì	10
 阿胶鸡子黄汤	ē jiāo jī zǐ huáng tāng	10
 恶徼以为知者	è jiǎo yǐ wéi zhī zhě	10
+俄克拉何马州	é kè lā hé mǎ zhōu	10
+俄克拉荷马州	é kè lā hé mǎ zhōu	10
 额勒锥特穆尔	é lè zhuī tè mù ěr	10
 腭裂系列治疗	è liè xì liè zhì liáo	10
 厄伦美厄合成	è lún měi è hé chéng	10
@@ -101839,6 +102111,7 @@ sort: by_weight
 法捷耶娃函数	fǎ jié yé wá hán shù	10
 法克赖三氏法	fǎ kè lài sān shì fǎ	10
 法兰克福平面	fǎ lán kè fú píng miàn	10
+法兰西岛大区	fǎ lán xī dǎo dà qū	10
 法隆二氏萎缩	fǎ lóng èr shì wěi suō	10
 伐罗诃密希罗	fá luó hē mì xī luó	10
 法律当挡箭牌	fǎ lǜ dāng dǎng jiàn pái	10
@@ -102789,6 +103062,7 @@ sort: by_weight
 费了好大的劲	fèi le hǎo dà de jìn	10
 费了很大的劲	fèi le hěn dà de jìn	10
 费了很多心思	fèi le hěn duō xīn si	10
+费了一番工夫	fèi le yì fān gōng fu	10
 非累积优先股	fēi lěi jī yōu xiān gǔ	10
 翡冷翠的一夜	fěi lěng cuì de yí yè	10
 腓力奥古斯都	féi lì ào gǔ sī dū	10
@@ -103021,9 +103295,9 @@ sort: by_weight
 非营利性民办	fēi yíng lì xìng mín bàn	10
 非用材林产品	fēi yòng cái lín chǎn pǐn	10
 非永久性居民	fēi yǒng jiǔ xìng jū mín	10
-费用使用情况	fèi yòng shǐ yòng qíng kuàng	10
+费用使用情况	fèi yong shǐ yòng qíng kuàng	10
 废用性外斜视	fèi yòng xìng wài xié shì	10
-费用源头管控	fèi yòng yuán tóu guǎn kòng	10
+费用源头管控	fèi yong yuán tóu guǎn kòng	10
 非有诏不得上	fēi yǒu zhào bù dé shàng	10
 飞鱼的幻想曲	fēi yú de huàn xiǎng qǔ	10
 非于静止于风	fēi yú jìng zhǐ yú fēng	10
@@ -103473,6 +103747,7 @@ sort: by_weight
 夫短气有微饮	fū duǎn qì yǒu wēi yǐn	10
 富恩拉夫拉达	fù ēn lā fū lā dá	10
 富二代的身份	fù èr dài de shēn fèn	10
+伏尔加格勒州	fú ěr jiā gé lè zhōu	10
 福尔摩沙三角	fú ěr mó shā sān jiǎo	10
 福尔摩斯小说	fú ěr mó sī xiǎo shuō	10
 负二项式分布	fù èr xiàng shì fēn bù	10
@@ -103573,15 +103848,6 @@ sort: by_weight
 伏见宫博恭王	fú jiàn gōng bó gōng wáng	10
 福建航空公司	fú jiàn háng kōng gōng sī	10
 福建上市公司	fú jiàn shàng shì gōng sī	10
-福建省福州市	fú jiàn shěng fú zhōu shì	10
-福建省龙岩市	fú jiàn shěng lóng yán shì	10
-福建省南平市	fú jiàn shěng nán píng shì	10
-福建省宁德市	fú jiàn shěng níng dé shì	10
-福建省莆田市	fú jiàn shěng pú tián shì	10
-福建省泉州市	fú jiàn shěng quán zhōu shì	10
-福建省三明市	fú jiàn shěng sān míng shì	10
-福建省厦门市	fú jiàn shěng xià mén shì	10
-福建省漳州市	fú jiàn shěng zhāng zhōu shì	10
 福建食品公司	fú jiàn shí pǐn gōng sī	10
 福建投资集团	fú jiàn tóu zī jí tuán	10
 附件炎性包块	fù jiàn yán xìng bāo kuài	10
@@ -103601,6 +103867,7 @@ sort: by_weight
 付款凭单审计	fù kuǎn píng dān shěn jì	10
 弗拉蒂尼子群	fú lā dì ní zǐ qún	10
 弗拉二氏试验	fú lā èr shì shì yàn	10
+弗拉基米尔州	fú lā jī mǐ ěr zhōu	10
 富拉斯特恩岩	fù lā sī tè ēn yán	10
 弗赖塔格反应	fú lài tǎ gé fǎn yìng	10
 弗兰德斯战役	fú lán dé sī zhàn yì	10
@@ -104194,17 +104461,6 @@ sort: by_weight
 甘肃兰州兵变	gān sù lán zhōu bīng biàn	10
 甘肃陇南事件	gān sù lǒng nán shì jiàn	10
 甘肃旅游景点	gān sù lǚ yóu jǐng diǎn	10
-甘肃省白银市	gān sù shěng bái yín shì	10
-甘肃省定西市	gān sù shěng dìng xī shì	10
-甘肃省金昌市	gān sù shěng jīn chāng shì	10
-甘肃省酒泉市	gān sù shěng jiǔ quán shì	10
-甘肃省兰州市	gān sù shěng lán zhōu shì	10
-甘肃省陇南市	gān sù shěng lǒng nán shì	10
-甘肃省平凉市	gān sù shěng píng liáng shì	10
-甘肃省庆阳市	gān sù shěng qìng yáng shì	10
-甘肃省天水市	gān sù shěng tiān shuǐ shì	10
-甘肃省武威市	gān sù shěng wǔ wēi shì	10
-甘肃省张掖市	gān sù shěng zhāng yè shì	10
 甘肃师范大学	gān sù shī fàn dà xué	10
 肝素涂覆管道	gān sù tú fù guǎn dào	10
 甘肃伊斯兰教	gān sù yī sī lán jiào	10
@@ -105120,7 +105376,7 @@ sort: by_weight
 各辖区派出所	gè xiá qū pài chū suǒ	10
 割线刚度矩阵	gē xiàn gāng dù jǔ zhèn	10
 割线弹性模量	gē xiàn tán xìng mó liàng	10
-各项费用支出	gè xiàng fèi yòng zhī chū	10
+各项费用支出	gè xiàng fèi yong zhī chū	10
 各项惠农政策	gè xiàng huì nóng zhèng cè	10
 各向同性假设	gè xiàng tóng xìng jiǎ shè	10
 各向同性介质	gè xiàng tóng xìng jiè zhì	12
@@ -105227,6 +105483,7 @@ sort: by_weight
 给你打电话了	gěi nǐ dǎ diàn huà le	10
 给你打个电话	gěi nǐ dǎ gè diàn huà	10
 给你钱就是了	gěi nǐ qián jiù shì le	10
+给你一个交代	gěi nǐ yí gè jiāo dài	10
 给你遮风挡雨	gěi nǐ zhē fēng dǎng yǔ	10
 给彭德怀同志	gěi péng dé huái tóng zhì	10
 给时光以生命	gěi shí guāng yǐ shēng mìng	10
@@ -105309,7 +105566,7 @@ sort: by_weight
 跟同龄人相比	gēn tóng líng rén xiāng bǐ	10
 跟骰背侧韧带	gēn tóu bèi cè rèn dài	10
 跟骰足底韧带	gēn tóu zú dǐ rèn dài	10
-跟图片打交道	gēn tú piàn dǎ jiāo dào	10
+跟图片打交道	gēn tú piàn dǎ jiāo dao	10
 跟我打电话的	gēn wǒ dǎ diàn huà de	10
 跟我在一起吧	gēn wǒ zài yì qǐ ba	10
 跟小编来看看	gēn xiǎo biān lái kàn kàn	10
@@ -106504,27 +106761,6 @@ sort: by_weight
 广东全球通队	guǎng dōng quán qiú tōng duì	10
 广东勷勤大学	guǎng dōng ráng qín dà xué	10
 广东三大名鸡	guǎng dōng sān dà míng jī	10
-广东省潮州市	guǎng dōng shěng cháo zhōu shì	10
-广东省东莞市	guǎng dōng shěng dōng guǎn shì	10
-广东省佛山市	guǎng dōng shěng fó shān shì	10
-广东省广州市	guǎng dōng shěng guǎng zhōu shì	10
-广东省河源市	guǎng dōng shěng hé yuán shì	10
-广东省惠州市	guǎng dōng shěng huì zhōu shì	10
-广东省江门市	guǎng dōng shěng jiāng mén shì	10
-广东省揭阳市	guǎng dōng shěng jiē yáng shì	10
-广东省茂名市	guǎng dōng shěng mào míng shì	10
-广东省梅州市	guǎng dōng shěng méi zhōu shì	10
-广东省清远市	guǎng dōng shěng qīng yuǎn shì	10
-广东省汕头市	guǎng dōng shěng shàn tóu shì	10
-广东省汕尾市	guǎng dōng shěng shàn wěi shì	10
-广东省韶关市	guǎng dōng shěng sháo guān shì	10
-广东省深圳市	guǎng dōng shěng shēn zhèn shì	10
-广东省阳江市	guǎng dōng shěng yáng jiāng shì	10
-广东省云浮市	guǎng dōng shěng yún fú shì	10
-广东省湛江市	guǎng dōng shěng zhàn jiāng shì	10
-广东省肇庆市	guǎng dōng shěng zhào qìng shì	10
-广东省中山市	guǎng dōng shěng zhōng shān shì	10
-广东省珠海市	guǎng dōng shěng zhū hǎi shì	10
 广东师范学院	guǎng dōng shī fàn xué yuàn	10
 广东石油化工	guǎng dōng shí yóu huà gōng	10
 广东水电二局	guǎng dōng shuǐ diàn èr jú	10
@@ -106913,11 +107149,6 @@ sort: by_weight
 贵州花江狗肉	guì zhōu huā jiāng gǒu ròu	10
 贵州旅游景点	guì zhōu lǚ yóu jǐng diǎn	10
 贵州黔源电力	guì zhōu qián yuán diàn lì	10
-贵州省安顺市	guì zhōu shěng ān shùn shì	10
-贵州省毕节市	guì zhōu shěng bì jié shì	10
-贵州省贵阳市	guì zhōu shěng guì yáng shì	10
-贵州省铜仁市	guì zhōu shěng tóng rén shì	10
-贵州省遵义市	guì zhōu shěng zūn yì shì	10
 贵州师大附中	guì zhōu shī dà fù zhōng	10
 贵州师范大学	guì zhōu shī fàn dà xué	10
 贵州师范学院	guì zhōu shī fàn xué yuàn	10
@@ -107633,10 +107864,6 @@ sort: by_weight
 海纳国际集团	hǎi nà guó jì jí tuán	10
 氦氖氩氪氙氡	hài nǎi yà kè xiān dōng	10
 海南高速公路	hǎi nán gāo sù gōng lù	10
-海南省儋州市	hǎi nán shěng dān zhōu shì	10
-海南省海口市	hǎi nán shěng hǎi kǒu shì	10
-海南省三沙市	hǎi nán shěng sān shā shì	10
-海南省三亚市	hǎi nán shěng sān yà shì	10
 海南椰树集团	hǎi nán yē shù jí tuán	10
 氦年代测定法	hài nián dài cè dìng fǎ	10
 海欧二氏小体	hǎi ōu èr shì xiǎo tǐ	10
@@ -108122,15 +108349,7 @@ sort: by_weight
 河北旅游景点	hé běi lǚ yóu jǐng diǎn	10
 河北摩崖石刻	hé běi mó yá shí kè	10
 河北目击事件	hé běi mù jī shì jiàn	10
-河北省保定市	hé běi shěng bǎo dìng shì	10
-河北省沧州市	hé běi shěng cāng zhōu shì	10
-河北省承德市	hé běi shěng chéng dé shì	10
-河北省邯郸市	hé běi shěng hán dān shì	10
-河北省衡水市	hé běi shěng héng shuǐ shì	10
 河北盛华化工	hé běi shèng huá huà gōng	10
-河北省廊坊市	hé běi shěng láng fāng shì	10
-河北省唐山市	hé běi shěng táng shān shì	10
-河北省邢台市	hé běi shěng xíng tái shì	10
 河北师大附中	hé běi shī dà fù zhōng	10
 河北师范大学	hé běi shī fàn dà xué	10
 河北师范学院	hé běi shī fàn xué yuàn	10
@@ -108317,21 +108536,7 @@ sort: by_weight
 河南农商银行	hé nán nóng shāng yín háng	10
 河南商报记者	hé nán shāng bào jì zhě	10
 河南赊店老酒	hé nán shē diàn lǎo jiǔ	10
-河南省安阳市	hé nán shěng ān yáng shì	10
-河南省鹤壁市	hé nán shěng hè bì shì	10
 河南省济源市	hé nán shěng jì yuán shì	10
-河南省焦作市	hé nán shěng jiāo zuò shì	10
-河南省开封市	hé nán shěng kāi fēng shì	10
-河南省漯河市	hé nán shěng luò hé shì	10
-河南省洛阳市	hé nán shěng luò yáng shì	10
-河南省南阳市	hé nán shěng nán yáng shì	10
-河南省濮阳市	hé nán shěng pú yáng shì	10
-河南省商丘市	hé nán shěng shāng qiū shì	10
-河南省新乡市	hé nán shěng xīn xiāng shì	10
-河南省信阳市	hé nán shěng xìn yáng shì	10
-河南省许昌市	hé nán shěng xǔ chāng shì	10
-河南省郑州市	hé nán shěng zhèng zhōu shì	10
-河南省周口市	hé nán shěng zhōu kǒu shì	10
 河南师大附中	hé nán shī dà fù zhōng	10
 河南师范大学	hé nán shī fàn dà xué	10
 河南师范学院	hé nán shī fàn xué yuàn	10
@@ -109067,18 +109272,6 @@ sort: by_weight
 湖北农务学堂	hú běi nóng wù xué táng	10
 湖北人事考试	hú běi rén shì kǎo shì	10
 湖北三丰智能	hú běi sān fēng zhì néng	10
-湖北省鄂州市	hú běi shěng è zhōu shì	10
-湖北省黄冈市	hú běi shěng huáng gāng shì	10
-湖北省黄石市	hú běi shěng huáng shí shì	10
-湖北省荆门市	hú běi shěng jīng mén shì	10
-湖北省荆州市	hú běi shěng jīng zhōu shì	10
-湖北省十堰市	hú běi shěng shí yàn shì	10
-湖北省随州市	hú běi shěng suí zhōu shì	10
-湖北省武汉市	hú běi shěng wǔ hàn shì	10
-湖北省咸宁市	hú běi shěng xián níng shì	10
-湖北省襄阳市	hú běi shěng xiāng yáng shì	10
-湖北省孝感市	hú běi shěng xiào gǎn shì	10
-湖北省宜昌市	hú běi shěng yí chāng shì	10
 湖北师范大学	hú běi shī fàn dà xué	10
 湖北师范学院	hú běi shī fàn xué yuàn	10
 湖北文理学院	hú běi wén lǐ xué yuàn	10
@@ -109197,18 +109390,6 @@ sort: by_weight
 湖南旅游景点	hú nán lǚ yóu jǐng diǎn	10
 湖南群治大学	hú nán qún zhì dà xué	10
 湖南三湘银行	hú nán sān xiāng yín háng	10
-湖南省常德市	hú nán shěng cháng dé shì	10
-湖南省长沙市	hú nán shěng cháng shā shì	10
-湖南省郴州市	hú nán shěng chēn zhōu shì	10
-湖南省衡阳市	hú nán shěng héng yáng shì	10
-湖南省怀化市	hú nán shěng huái huà shì	10
-湖南省娄底市	hú nán shěng lóu dǐ shì	10
-湖南省邵阳市	hú nán shěng shào yáng shì	10
-湖南省湘潭市	hú nán shěng xiāng tán shì	10
-湖南省益阳市	hú nán shěng yì yáng shì	10
-湖南省永州市	hú nán shěng yǒng zhōu shì	10
-湖南省岳阳市	hú nán shěng yuè yáng shì	10
-湖南省株洲市	hú nán shěng zhū zhōu shì	10
 湖南师大附中	hú nán shī dà fù zhōng	10
 湖南师范大学	hú nán shī fàn dà xué	10
 湖南师范学院	hú nán shī fàn xué yuàn	10
@@ -110200,7 +110381,7 @@ sort: by_weight
 惠阳崇雅中学	huì yáng chóng yǎ zhōng xué	10
 蕙肴蒸兮兰藉	huì yáo zhēng xī lán jí	10
 回忆点点滴滴	huí yì diǎn diǎn dī dī	10
-会议费用使用	huì yì fèi yòng shǐ yòng	10
+会议费用使用	huì yì fèi yong shǐ yòng	10
 回忆积木小屋	huí yì jī mù xiǎo wū	10
 会议纪要显示	huì yì jì yào xiǎn shì	10
 回忆里的风景	huí yì lǐ de fēng jǐng	10
@@ -110918,6 +111099,7 @@ sort: by_weight
 记录器录音机	jì lù qì lù yīn jī	10
 棘轮单向扳手	jí lún dān xiàng bān shǒu	10
 集落刺激因子	jí luò cì jī yīn zǐ	10
+基洛夫格勒州	jī luò fū gé lè zhōu	10
 济洛夫斯科耶	jì luò fū sī kē yé	10
 基洛夫州河流	jī luò fū zhōu hé liú	10
 纪律部队宿舍	jì lǜ bù duì sù shè	10
@@ -111049,6 +111231,7 @@ sort: by_weight
 寄生虫病妄想	jì shēng chóng bìng wàng xiǎng	10
 寄生前夜系列	jì shēng qián yè xì liè	10
 吉盛伟邦家具	jí shèng wěi bāng jiā jù	10
+既生瑜何生亮	jì shēng yú hé shēng liàng	10
 寄生原生动物	jì shēng yuán shēng dòng wù	10
 即时比分直播	jí shí bǐ fēn zhí bō	10
 即时策略游戏	jí shí cè lüè yóu xì	10
@@ -111522,10 +111705,13 @@ sort: by_weight
 加里波利战役	jiā lǐ bō lì zhàn yì	10
 加利波利战役	jiā lì bō lì zhàn yì	10
 嘉利大厦大火	jiā lì dà shà dà huǒ	10
+加利福利亚州	jiā lì fú lì yà zhōu	10
+加利福尼亚州	jiā lì fú ní yà zhōu	10
 家里红旗不倒	jiā lǐ hóng qí bù dǎo	10
 伽利略不变性	jiā lì lüè bú biàn xìng	10
 伽利略的苦恼	jiā lì lüè de kǔ nǎo	10
 伽利略望远镜	jiā lì lüè wàng yuǎn jìng	10
+加里宁格勒州	jiā lǐ níng gé lè zhōu	10
 家里谁说了算	jiā lǐ shuí shuō le suàn	10
 家里挺有钱的	jiā lǐ tǐng yǒu qián de	10
 加利西亚战役	jiā lì xī yà zhàn yì	10
@@ -111972,7 +112158,7 @@ sort: by_weight
 简简单单就好	jiǎn jiǎn dān dān jiù hǎo	10
 简洁而不简单	jiǎn jié ér bù jiǎn dān	10
 间接故意犯罪	jiàn jiē gù yì fàn zuì	10
-间接管理费用	jiàn jiē guǎn lǐ fèi yòng	10
+间接管理费用	jiàn jiē guǎn lǐ fèi yong	10
 间接接触传染	jiàn jiē jiē chù chuán rǎn	10
 间接解释标志	jiàn jiē jiě shì biāo zhì	12
 间接经济损失	jiàn jiē jīng jì sǔn shī	10
@@ -112328,18 +112514,6 @@ sort: by_weight
 江苏立霸实业	jiāng sū lì bà shí yè	10
 江苏龙肯帝亚	jiāng sū lóng kěn dì yà	10
 江苏旅游景点	jiāng sū lǚ yóu jǐng diǎn	10
-江苏省常州市	jiāng sū shěng cháng zhōu shì	10
-江苏省淮安市	jiāng sū shěng huái ān shì	10
-江苏省南京市	jiāng sū shěng nán jīng shì	10
-江苏省南通市	jiāng sū shěng nán tōng shì	10
-江苏省宿迁市	jiāng sū shěng sù qiān shì	10
-江苏省苏州市	jiāng sū shěng sū zhōu shì	10
-江苏省泰州市	jiāng sū shěng tài zhōu shì	10
-江苏省无锡市	jiāng sū shěng wú xī shì	10
-江苏省徐州市	jiāng sū shěng xú zhōu shì	10
-江苏省盐城市	jiāng sū shěng yán chéng shì	10
-江苏省扬州市	jiāng sū shěng yáng zhōu shì	10
-江苏省镇江市	jiāng sū shěng zhèn jiāng shì	10
 江苏师范大学	jiāng sū shī fàn dà xué	10
 江苏师范学堂	jiāng sū shī fàn xué táng	10
 江苏师范学院	jiāng sū shī fàn xué yuàn	10
@@ -112370,16 +112544,6 @@ sort: by_weight
 江西洪城水业	jiāng xī hóng chéng shuǐ yè	10
 江西理文造纸	jiāng xī lǐ wén zào zhǐ	10
 江西旅游景点	jiāng xī lǚ yóu jǐng diǎn	10
-江西省抚州市	jiāng xī shěng fǔ zhōu shì	10
-江西省赣州市	jiāng xī shěng gàn zhōu shì	10
-江西省吉安市	jiāng xī shěng jí ān shì	10
-江西省九江市	jiāng xī shěng jiǔ jiāng shì	10
-江西省南昌市	jiāng xī shěng nán chāng shì	10
-江西省萍乡市	jiāng xī shěng píng xiāng shì	10
-江西省上饶市	jiāng xī shěng shàng ráo shì	10
-江西省新余市	jiāng xī shěng xīn yú shì	10
-江西省宜春市	jiāng xī shěng yí chūn shì	10
-江西省鹰潭市	jiāng xī shěng yīng tán shì	10
 江西师大附中	jiāng xī shī dà fù zhōng	10
 江西师范大学	jiāng xī shī fàn dà xué	10
 江西师范学院	jiāng xī shī fàn xué yuàn	10
@@ -112672,7 +112836,7 @@ sort: by_weight
 届不到的爱恋	jiè bú dào de ài liàn	10
 解不开的心结	jiě bù kāi de xīn jié	10
 皆布衣之士也	jiē bù yī zhī shì yě	10
-芥菜种的比喻	jiè cài zhǒng de bǐ yù	10
+芥菜种的比喻	jiè cài zhòng de bǐ yù	10
 节操碎了一地	jié cāo suì le yí dì	10
 结肠宁灌肠剂	jié cháng níng guàn cháng jì	10
 阶乘矩母函数	jiē chéng jǔ mǔ hán shù	10
@@ -113197,6 +113361,7 @@ sort: by_weight
 今日不宜出行	jīn rì bù yí chū xíng	10
 近日出席活动	jìn rì chū xí huó dòng	10
 近日媒体报道	jìn rì méi tǐ bào dào	10
+今日事今日毕	jīn rì shì jīn rì bì	10
 近日现身机场	jìn rì xiàn shēn jī chǎng	10
 近日有报道称	jìn rì yǒu bào dào chēng	10
 近日有消息称	jìn rì yǒu xiāo xi chēng	10
@@ -114866,6 +115031,7 @@ sort: by_weight
 看得见的未来	kàn de jiàn de wèi lái	10
 看得见的蔚蓝	kàn dé jiàn de wèi lán	10
 看得见的正义	kàn de jiàn de zhèng yì	10
+看得见摸得着	kàn de jiàn mō de zháo	10
 看得津津有味	kàn de jīn jīn yǒu wèi	10
 看得目瞪口呆	kàn de mù dèng kǒu dāi	10
 看得清清楚楚	kàn de qīng qīng chǔ chǔ	10
@@ -114911,6 +115077,7 @@ sort: by_weight
 看完的小伙伴	kàn wán de xiǎo huǒ bàn	10
 看完恍然大悟	kàn wán huǎng rán dà wù	10
 看我七十二变	kàn wǒ qī shí èr biàn	10
+看戏的是傻子	kàn xì de shì shǎ zi	10
 勘验检查笔录	kān yàn jiǎn chá bǐ lù	10
 看颜值的时代	kàn yán zhí de shí dài	10
 看也不是什么	kàn yě bú shì shén me	10
@@ -115417,6 +115584,7 @@ sort: by_weight
 科斯二氏检验	kē sī èr shì jiǎn yàn	10
 科斯居尔复形	kē sī jū ěr fù xíng	10
 科斯坦特公式	kē sī tǎn tè gōng shì	10
+科斯特罗马州	kē sī tè luó mǎ zhōu	10
 咳嗽和打喷嚏	ké sòu hé dǎ pēn tì	10
 咳嗽或打喷嚏	ké sòu huò dǎ pēn tì	10
 咳嗽激发试验	ké sòu jī fā shì yàn	10
@@ -115437,6 +115605,7 @@ sort: by_weight
 克烷基化反应	kè wán jī huà fǎn yìng	10
 可万万没想到	kě wàn wàn méi xiǎng dào	10
 可望而不可即	kě wàng ér bù kě jí	10
+可望而不可攀	kě wàng ér bù kě pān	10
 可畏号铁甲舰	kě wèi hào tiě jiǎ jiàn	10
 可畏级护卫舰	kě wèi jí hù wèi jiàn	10
 可谓锦上添花	kě wèi jǐn shàng tiān huā	10
@@ -115763,7 +115932,7 @@ sort: by_weight
 哭得泣不成声	kū de qì bù chéng shēng	10
 哭得死去活来	kū de sǐ qù huó lái	10
 哭得撕心裂肺	kū de sī xīn liè fèi	10
-哭得稀里哗啦	kū de xī lǐ huā lā	10
+哭得稀里哗啦	kū de xī li huā lā	10
 哭得像个泪人	kū de xiàng gè lèi rén	10
 哭得一塌糊涂	kū de yī tā hú tu	10
 哭都哭不出来	kū dōu kū bù chū lái	10
@@ -115798,7 +115967,6 @@ sort: by_weight
 堀桑与宫村君	kū sāng yǔ gōng cūn jūn	10
 苦参素葡萄糖	kǔ shēn sù pú táo táng	10
 库斯托扎战役	kù sī tuō zhā zhàn yì	10
-枯滕老树昏鸦	kū téng lǎo shù hūn yā	10
 库欣氏症候群	kù xīn shì zhèng hòu qún	10
 苦行素食主义	kǔ xíng sù shí zhǔ yì	10
 库兴综合征型	kù xīng zōng hé zhēng xíng	10
@@ -116132,6 +116300,7 @@ sort: by_weight
 懒人手机支架	lǎn rén shǒu jī zhī jià	10
 懒人行动主义	lǎn rén xíng dòng zhǔ yì	10
 蓝色格子衬衫	lán sè gé zi chèn shān	10
+蓝色海岸大区	lán sè hǎi àn dà qū	10
 蓝色画面当机	lán sè huà miàn dāng jī	10
 蓝色石蕊试纸	lán sè shí ruǐ shì zhǐ	10
 蓝色水晶戒指	lán sè shuǐ jīng jiè zhǐ	10
@@ -116527,6 +116696,7 @@ sort: by_weight
 离过婚的男人	lí guò hūn de nán rén	10
 离过婚的女人	lí guò hūn de nǚ rén	10
 里海航空公司	lǐ hǎi háng kōng gōng sī	10
+厉害了我的哥	lì hai le wǒ de gē	10
 利赫诺夫斯基	lì hè nuò fū sī jī	10
 离合器半联动	lí hé qì bàn lián dòng	10
 力恒化纤科技	lì héng huà xiān kē jì	10
@@ -116735,7 +116905,7 @@ sort: by_weight
 李斯曼染色素	lǐ sī màn rǎn sè sù	10
 里斯维克条约	lǐ sī wéi kè tiáo yuē	10
 理所当然的事	lǐ suǒ dāng rán de shì	10
-利索二氏骨剪	lì suǒ èr shì gǔ jiǎn	10
+利索二氏骨剪	lì suo èr shì gǔ jiǎn	10
 力所能及的事	lì suǒ néng jí de shì	10
 理所应当的事	lǐ suǒ yīng dāng de shì	10
 醴潭高速公路	lǐ tán gāo sù gōng lù	10
@@ -116817,6 +116987,7 @@ sort: by_weight
 鲤鱼没有尾巴	lǐ yú méi yǒu wěi ba	10
 鲤鱼门渡假村	lǐ yú mén dù jiǎ cūn	10
 梨园主题公园	lí yuán zhǔ tí gōng yuán	10
+里约热内卢州	lǐ yuē rè nèi lú zhōu	10
 利云杜夫斯基	lì yún dù fū sī jī	10
 丽泽商务区站	lì zé shāng wù qū zhàn	10
 李兆麟将军墓	lǐ zhào lín jiāng jūn mù	10
@@ -117254,16 +117425,16 @@ sort: by_weight
 量子隐形传态	liàng zǐ yǐn xíng chuán tài	10
 量子之诺效应	liàng zǐ zhī nuò xiào yìng	10
 量子资讯科学	liàng zǐ zī xùn kē xué	10
-了不起的爸爸	liǎo bù qǐ de bà ba	10
-了不起的长城	liǎo bù qǐ de cháng chéng	10
-了不起的丁一	liǎo bù qǐ de dīng yī	10
-了不起的孩子	liǎo bù qǐ de hái zi	10
-了不起的火箭	liǎo bù qǐ de huǒ jiàn	10
-了不起的匠人	liǎo bù qǐ de jiàng rén	10
-了不起的老爸	liǎo bù qǐ de lǎo bà	10
-了不起的女人	liǎo bù qǐ de nǚ rén	10
-了不起的挑战	liǎo bù qǐ de tiǎo zhàn	10
-了不起的亡灵	liǎo bù qǐ de wáng líng	10
+了不起的爸爸	liǎo bu qǐ de bà ba	10
+了不起的长城	liǎo bu qǐ de cháng chéng	10
+了不起的丁一	liǎo bu qǐ de dīng yī	10
+了不起的孩子	liǎo bu qǐ de hái zi	10
+了不起的火箭	liǎo bu qǐ de huǒ jiàn	10
+了不起的匠人	liǎo bu qǐ de jiàng rén	10
+了不起的老爸	liǎo bu qǐ de lǎo bà	10
+了不起的女人	liǎo bu qǐ de nǚ rén	10
+了不起的挑战	liǎo bu qǐ de tiǎo zhàn	10
+了不起的亡灵	liǎo bu qǐ de wáng líng	10
 聊不完的话题	liáo bù wán de huà tí	10
 聊城大学校长	liáo chéng dà xué xiào zhǎng	10
 聊乘化以归尽	liáo chéng huà yǐ guī jìn	10
@@ -117983,6 +118154,7 @@ sort: by_weight
 鲁斯塔维金属	lǔ sī tǎ wéi jīn shǔ	10
 卤素间化合物	lǔ sù jiān huà hé wù	10
 炉条逐步水解	lú tiáo zhú bù shuǐ jiě	10
+卢瓦尔河地区	lú wǎ ěr hé dì qū	10
 卢瓦尔河流域	lú wǎ ěr hé liú yù	10
 路威和哈雷尔	lù wēi hé hā léi ěr	10
 路威酩轩集团	lù wēi mǐng xuān jí tuán	10
@@ -117995,6 +118167,8 @@ sort: by_weight
 路西塔尼亚号	lù xī tǎ ní yà hào	10
 露西亚的情人	lù xī yà de qíng rén	10
 路要勇敢地走	lù yào yǒng gǎn de zǒu	10
+路易斯安那州	lù yì sī ān nà zhōu	10
+路易斯安纳州	lù yì sī ān nà zhōu	10
 路易斯结构式	lù yì sī jié gòu shì	10
 录音制作者权	lù yīn zhì zuò zhě quán	10
 鲁油鲁炼项目	lǔ yóu lǔ liàn xiàng mù	10
@@ -118158,6 +118332,7 @@ sort: by_weight
 罗马级铁甲舰	luó mǎ jí tiě jiǎ jiàn	10
 洛迈维蒂群岛	luò mài wéi dì qún dǎo	10
 罗曼斯基染料	luó màn sī jī rǎn liào	10
+罗讷阿尔卑斯	luó nè ā ěr bēi sī	10
 罗宁高速公路	luó níng gāo sù gōng lù	10
 罗奇代尔理论	luó qí dài ěr lǐ lùn	10
 落球式黏度计	luò qiú shì nián dù jì	10
@@ -118372,6 +118547,7 @@ sort: by_weight
 玛格特罗依德	mǎ gé tè luó yī dé	10
 马公三甲七保	mǎ gōng sān jiǎ qī bǎo	10
 妈宫三甲七保	mā gōng sān jiǎ qī bǎo	10
+马哈拉施特拉	mǎ hā lā shī tè lā	10
 玛哈沙拉堪府	mǎ hā shā lā kān fǔ	10
 麻花辊满负荷	má huā gǔn mǎn fù hè	10
 麻黄附子汤方	má huáng fù zǐ tāng fāng	10
@@ -118447,6 +118623,7 @@ sort: by_weight
 吗替麦考酚酯	ma tì mài kǎo fēn zhǐ	10
 马蹄寺石窟群	mǎ tí sì shí kū qún	10
 码头号对接舱	mǎ tóu hào duì jiē cāng	10
+马托格罗索州	mǎ tuō gé luó suǒ zhōu	10
 玛夏布洛姆峰	mǎ xià bù luò mǔ fēng	10
 马歇罗尼常数	mǎ xiē luó ní cháng shù	10
 麻杏石甘汤加	má xìng shí gān tāng jiā	10
@@ -118799,6 +118976,7 @@ sort: by_weight
 玫瑰圣母圣殿	méi gui shèng mǔ shèng diàn	10
 玫瑰是红色的	méi gui shì hóng sè de	10
 玫瑰碗体育场	méi gui wǎn tǐ yù chǎng	10
+美国俄勒冈州	měi guó é lè gāng zhōu	10
 美国宇航局于	měi guó yǔ háng jú yú	10
 美好从未停歇	měi hǎo cóng wèi tíng xiē	10
 美和技术学院	měi hé jì shù xué yuàn	10
@@ -119171,6 +119349,7 @@ sort: by_weight
 秘密立储制度	mì mì lì chǔ zhì dù	10
 咪咪羊上学趣	mī mī yáng shàng xué qù	10
 米纳哈萨半岛	mǐ nà hā sà bàn dǎo	10
+米纳斯吉拉斯	mǐ nà sī jí lā sī	10
 迷你电视影集	mí nǐ diàn shì yǐng jí	10
 迷你雪纳瑞犬	mí nǐ xuě nà ruì quǎn	10
 幂平均不等式	mì píng jūn bù děng shì	10
@@ -119843,6 +120022,7 @@ sort: by_weight
 纳粹主义组织	nà cuì zhǔ yì zǔ zhī	10
 娜妲莉的情人	nà dá lì de qíng rén	10
 娜妲莎金斯基	nà dá shā jīn sī jī	10
+拿到陌生耗材	ná dào mò shēng hào cái	10
 拿得起放得下	ná de qǐ fàng de xià	10
 那丁国际机场	nà dīng guó jì jī chǎng	10
 那都不是个事	nà dōu bú shì gè shì	10
@@ -119966,6 +120146,7 @@ sort: by_weight
 乃至四句偈等	nǎi zhì sì jù jì děng	10
 乃至无意识界	nǎi zhì wú yì shí jiè	10
 南阿拉伯半岛	nán ā lā bó bàn dǎo	10
+南澳大利亚州	nán ào dà lì yà zhōu	10
 南奥克尼群岛	nán ào kè ní qún dǎo	10
 南北高速公路	nán běi gāo sù gōng lù	10
 难波八阪神社	nán bō bā bǎn shén shè	10
@@ -119982,6 +120163,7 @@ sort: by_weight
 难度可想而知	nán dù kě xiǎng ér zhī	10
 南方电力公司	nán fāng diàn lì gōng sī	10
 南方集团军群	nán fāng jí tuán jūn qún	10
+南佛罗里达州	nán fó luó lǐ dá zhōu	10
 南高史地学派	nán gāo shǐ dì xué pài	10
 南光高速公路	nán guāng gāo sù gōng lù	10
 南光贸易公司	nán guāng mào yì gōng sī	10
@@ -119996,7 +120178,10 @@ sort: by_weight
 难经汇注笺正	nán jīng huì zhù jiān zhèng	10
 难经经释补正	nán jīng jīng shì bǔ zhèng	10
 南京虐童事件	nán jīng nüè tóng shì jiàn	10
+南卡罗来纳州	nán kǎ luó lái nà zhōu	10
+南卡罗莱纳州	nán kǎ luó lái nà zhōu	10
 难啃的硬骨头	nán kěn de yìng gǔ tou	10
+南里奥格兰德	nán lǐ ào gé lán dé	10
 南林高速公路	nán lín gāo sù gōng lù	10
 南罗纳德赛岛	nán luó nà dé sài dǎo	10
 南麻临朐战役	nán má lín qú zhàn yì	10
@@ -120006,6 +120191,7 @@ sort: by_weight
 南宁高速公路	nán níng gāo sù gōng lù	10
 男女交往校规	nán nǚ jiāo wǎng xiào guī	10
 男女老少皆宜	nán nǚ lǎo shào jiē yí	10
+男女授受不亲	nán nǚ shòu shòu bù qīn	10
 男女授授不亲	nán nǚ shòu shòu bù qīn	10
 男女授受不亲	nán nǚ shòu shòu bù qīn	10
 男女同工同酬	nán nǚ tóng gōng tóng chóu	10
@@ -120305,7 +120491,7 @@ sort: by_weight
 拟翅茎马兜铃	nǐ chì jīng mǎ dōu líng	10
 你丑没事我瞎	nǐ chǒu méi shì wǒ xiā	10
 拟除虫菊酯类	nǐ chú chóng jú zhǐ lèi	10
-你凑什么热闹	nǐ còu shén me rè nào	10
+你凑什么热闹	nǐ còu shén me rè nao	10
 你答应过我的	nǐ dā yìng guò wǒ de	10
 你的电话号码	nǐ de diàn huà hào mǎ	10
 你的个人魅力	nǐ de gè rén mèi lì	10
@@ -120334,6 +120520,7 @@ sort: by_weight
 你孤独的样子	nǐ gū dú de yàng zi	10
 你孤芳自赏时	nǐ gū fāng zì shǎng shí	10
 尼古拉斯反应	ní gǔ lā sī fǎn yìng	10
+尼古拉耶夫州	ní gǔ lā yé fū zhōu	10
 逆光电光谱学	nì guāng diàn guāng pǔ xué	10
 逆光下的轮廓	nì guāng xià de lún kuò	10
 你还记得哪些	nǐ hái jì de nǎ xiē	10
@@ -120889,6 +121076,7 @@ sort: by_weight
 诺贝尔和平奖	nuò bèi ěr hé píng jiǎng	10
 诺贝尔文学奖	nuò bèi ěr wén xué jiǎng	10
 诺德价值优势	nuò dé jià zhí yōu shì	10
+诺夫哥罗德州	nuò fū gē luó dé zhōu	10
 诺曼大西洋号	nuò màn dà xī yáng hào	10
 诺曼第大空降	nuò màn dì dà kōng jiàng	10
 糯米团子阿离	nuò mǐ tuán zi ā lí	10
@@ -121186,9 +121374,7 @@ sort: by_weight
 盘山烈士陵园	pán shān liè shì líng yuán	10
 盼星星盼月亮	pàn xīng xīng pàn yuè liàng	10
 盘营客运专线	pán yíng kè yùn zhuān xiàn	10
-攀枝花市东区	pān zhī huā shì dōng qū	10
 攀枝花市桥梁	pān zhī huā shì qiáo liáng	10
-攀枝花市西区	pān zhī huā shì xī qū	10
 盘族球状星团	pán zú qiú zhuàng xīng tuán	10
 庞贝城的末日	páng bèi chéng de mò rì	10
 胖嘟嘟的脸蛋	pàng dū dū de liǎn dàn	10
@@ -121323,6 +121509,7 @@ sort: by_weight
 碰撞辐射复合	pèng zhuàng fú shè fù hé	10
 碰撞时间极短	pèng zhuàng shí jiān jí duǎn	10
 碰撞数的假定	pèng zhuàng shù de jiǎ dìng	10
+皮埃蒙特大区	pí āi méng tè dà qū	10
 脾包膜下出血	pí bāo mó xià chū xiě	10
 批陈整风运动	pī chén zhěng fēng yùn dòng	10
 蜱传脑炎病毒	pí chuán nǎo yán bìng dú	10
@@ -121396,6 +121583,7 @@ sort: by_weight
 皮长高速公路	pí zhǎng gāo sù gōng lù	10
 披着狼皮的羊	pī zhe láng pí de yáng	10
 披着情绪的花	pī zhe qíng xù de huā	10
+披着羊皮的狼	pī zhe yáng pí de láng	10
 皮质脊髓侧束	pí zhì jǐ suǐ cè shù	10
 皮质脊髓前束	pí zhì jǐ suǐ qián shù	10
 皮质素水试验	pí zhì sù shuǐ shì yàn	10
@@ -122052,7 +122240,7 @@ sort: by_weight
 其他胎儿失血	qí tā tāi ér shī xuè	10
 其他条件不变	qí tā tiáo jiàn bú biàn	10
 其他突发事件	qí tā tū fā shì jiàn	10
-其他推销费用	qí tā tuī xiāo fèi yòng	10
+其他推销费用	qí tā tuī xiāo fèi yong	10
 其他无形资产	qí tā wú xíng zī chǎn	10
 其他形式诺卡	qí tā xíng shì nuò kǎ	10
 其他行政处罚	qí tā xíng zhèng chǔ fá	10
@@ -122060,7 +122248,7 @@ sort: by_weight
 其他业务支出	qí tā yè wù zhī chū	10
 其他医护人员	qí tā yī hù rén yuán	10
 其他一级资本	qí tā yì jí zī běn	10
-其他应付费用	qí tā yìng fù fèi yòng	10
+其他应付费用	qí tā yìng fù fèi yong	10
 其他营业成本	qí tā yíng yè chéng běn	10
 其他营业收入	qí tā yíng yè shōu rù	10
 其他用途的阀	qí tā yòng tú de fá	10
@@ -122070,9 +122258,8 @@ sort: by_weight
 其他职能部门	qí tā zhí néng bù mén	10
 其他智能家居	qí tā zhì néng jiā jū	10
 其他智能手机	qí tā zhì néng shǒu jī	10
-其他制造费用	qí tā zhì zào fèi yòng	10
+其他制造费用	qí tā zhì zào fèi yong	10
 其他专业人士	qí tā zhuān yè rén shì	10
-其他资本公积	qí tā zī běn gōng jī	10
 其他资本公积	qí tā zī běn gōng jī	10
 气态漂白气化	qì tài piǎo bái qì huà	10
 气体纯化装置	qì tǐ chún huà zhuāng zhì	10
@@ -122274,7 +122461,7 @@ sort: by_weight
 浅层地震勘探	qiǎn céng dì zhèn kān tàn	10
 浅成热液矿床	qiǎn chéng rè yè kuàng chuáng	10
 铅锤号铁甲舰	qiān chuí hào tiě jiǎ jiàn	10
-千次印象费用	qiān cì yìn xiàng fèi yòng	10
+千次印象费用	qiān cì yìn xiàng fèi yong	10
 前大灯组造型	qián dà dēng zǔ zào xíng	10
 前德国殖民地	qián dé guó zhí mín dì	10
 钱德拉塞卡拉	qián dé lā sāi kǎ lā	10
@@ -123031,8 +123218,7 @@ sort: by_weight
 青海可可西里	qīng hǎi kě kě xī lǐ	10
 青海旅游景点	qīng hǎi lǚ yóu jǐng diǎn	10
 青海森科球员	qīng hǎi sēn kē qiú yuán	10
-青海省海东市	qīng hǎi shěng hǎi dōng shì	10
-青海省西宁市	qīng hǎi shěng xī níng shì	10
+青海省玉树州	qīng hǎi shěng yù shù zhōu	10
 青海师范大学	qīng hǎi shī fàn dà xué	10
 青海师范学院	qīng hǎi shī fàn xué yuàn	10
 青海盐湖钾肥	qīng hǎi yán hú jiǎ féi	10
@@ -123178,7 +123364,7 @@ sort: by_weight
 青少年的心理	qīng shào nián de xīn lǐ	10
 青少年和成人	qīng shào nián hé chéng rén	10
 青少年维权岗	qīng shào nián wéi quán gǎng	10
-情深深雨蒙蒙	qíng shēn shēn yǔ méng méng	10
+情深深雨濛濛	qíng shēn shēn yǔ méng méng	10
 情圣卡萨诺瓦	qíng shèng kǎ sà nuò wǎ	10
 情事变更原则	qíng shì biàn gēng yuán zé	10
 情势变更原则	qíng shì biàn gēng yuán zé	10
@@ -123343,6 +123529,7 @@ sort: by_weight
 球型关节人偶	qiú xíng guān jié rén ǒu	10
 求爷爷告奶奶	qiú yé ye gào nǎi nai	10
 求医不如求己	qiú yī bù rú qiú jǐ	10
+求医不如自医	qiú yī bù rú zì yī	10
 球衣退役仪式	qiú yī tuì yì yí shì	10
 球员们的表现	qiú yuán men de biǎo xiàn	10
 球栅阵列封装	qiú zhà zhèn liè fēng zhuāng	10
@@ -124065,8 +124252,8 @@ sort: by_weight
 惹妹妹生气了	rě mèi mei shēng qì le	10
 热门单机游戏	rè mén dān jī yóu xì	10
 热门旅游景点	rè mén lǚ yóu jǐng diǎn	10
-热闹不嫌事大	rè nào bù xián shì dà	10
-热闹是他们的	rè nào shì tā men de	10
+热闹不嫌事大	rè nao bù xián shì dà	10
+热闹是他们的	rè nao shì tā men de	10
 热尼什基夫齐	rè ní shí jī fū qí	10
 热膨胀系数小	rè péng zhàng xì shù xiǎo	10
 热普科夫斯基	rè pǔ kē fū sī jī	10
@@ -124544,6 +124731,7 @@ sort: by_weight
 人物御龙帛画	rén wù yù lóng bó huà	10
 人物造型设计	rén wù zào xíng shè jì	10
 人嫌狗不待见	rén xián gǒu bú dài jiàn	10
+人衔枚马裹蹄	rén xián méi mǎ guǒ tí	10
 人纤维蛋白原	rén xiān wéi dàn bái yuán	10
 仁新高速公路	rén xīn gāo sù gōng lù	10
 人心齐泰山移	rén xīn qí tài shān yí	10
@@ -124930,6 +125118,7 @@ sort: by_weight
 萨缪尔森效应	sà móu ěr sēn xiào yìng	10
 萨姆勒特反应	sà mǔ lè tè fǎn yìng	10
 萨尼亚克效应	sà ní yà kè xiào yìng	10
+萨斯喀彻温省	sà sī kā chè wēn shěng	10
 萨特存在主义	sà tè cún zài zhǔ yì	10
 赛波特比色计	sài bō tè bǐ sè jì	10
 腮耳肾症候群	sāi ěr shèn zhèng hòu qún	10
@@ -125375,22 +125564,6 @@ sort: by_weight
 煽动民族仇恨	shān dòng mín zú chóu hèn	10
 山东蓬翔汽车	shān dōng péng xiáng qì chē	10
 山东泉鑫期货	shān dōng quán xīn qī huò	10
-山东省滨州市	shān dōng shěng bīn zhōu shì	10
-山东省德州市	shān dōng shěng dé zhōu shì	10
-山东省东营市	shān dōng shěng dōng yíng shì	10
-山东省菏泽市	shān dōng shěng hé zé shì	10
-山东省济南市	shān dōng shěng jǐ nán shì	10
-山东省济宁市	shān dōng shěng jǐ níng shì	10
-山东省聊城市	shān dōng shěng liáo chéng shì	10
-山东省临沂市	shān dōng shěng lín yí shì	10
-山东省青岛市	shān dōng shěng qīng dǎo shì	10
-山东省日照市	shān dōng shěng rì zhào shì	10
-山东省泰安市	shān dōng shěng tài ān shì	10
-山东省潍坊市	shān dōng shěng wéi fāng shì	10
-山东省威海市	shān dōng shěng wēi hǎi shì	10
-山东省烟台市	shān dōng shěng yān tái shì	10
-山东省枣庄市	shān dōng shěng zǎo zhuāng shì	10
-山东省淄博市	shān dōng shěng zī bó shì	10
 山东师大附中	shān dōng shī dà fù zhōng	10
 山东师范大学	shān dōng shī fàn dà xué	10
 山东师范学院	shān dōng shī fàn xué yuàn	10
@@ -125517,28 +125690,7 @@ sort: by_weight
 陕西秦岭水泥	shǎn xī qín lǐng shuǐ ní	10
 陕西三边总督	shǎn xī sān biān zǒng dū	10
 陕西上市公司	shǎn xī shàng shì gōng sī	10
-陕西省安康市	shǎn xī shěng ān kāng shì	10
-陕西省宝鸡市	shǎn xī shěng bǎo jī shì	10
 山西省博物馆	shān xī shěng bó wù guǎn	10
-山西省长治市	shān xī shěng cháng zhì shì	10
-山西省大同市	shān xī shěng dà tóng shì	10
-陕西省汉中市	shǎn xī shěng hàn zhōng shì	10
-山西省晋城市	shān xī shěng jìn chéng shì	10
-山西省晋中市	shān xī shěng jìn zhōng shì	10
-山西省临汾市	shān xī shěng lín fén shì	10
-山西省吕梁市	shān xī shěng lǚ liáng shì	10
-陕西省商洛市	shǎn xī shěng shāng luò shì	10
-山西省朔州市	shān xī shěng shuò zhōu shì	10
-山西省太原市	shān xī shěng tài yuán shì	10
-陕西省铜川市	shǎn xī shěng tóng chuān shì	10
-陕西省渭南市	shǎn xī shěng wèi nán shì	10
-陕西省西安市	shǎn xī shěng xī ān shì	10
-陕西省咸阳市	shǎn xī shěng xián yáng shì	10
-山西省忻州市	shān xī shěng xīn zhōu shì	10
-陕西省延安市	shǎn xī shěng yán ān shì	10
-山西省阳泉市	shān xī shěng yáng quán shì	10
-陕西省榆林市	shǎn xī shěng yú lín shì	10
-山西省运城市	shān xī shěng yùn chéng shì	10
 陕西师大附中	shǎn xī shī dà fù zhōng	10
 山西师范大学	shān xī shī fàn dà xué	10
 陕西师范大学	shǎn xī shī fàn dà xué	10
@@ -125791,6 +125943,7 @@ sort: by_weight
 商用冰淇淋机	shāng yòng bīng qí lín jī	10
 上游表达序列	shàng yóu biǎo dá xù liè	10
 上游开采设备	shàng yóu kāi cǎi shè bèi	10
+上有老下有小	shàng yǒu lǎo xià yǒu xiǎo	10
 上游新闻记者	shàng yóu xīn wén jì zhě	10
 上游信息科技	shàng yóu xìn xī kē jì	10
 上游阻抑序列	shàng yóu zǔ yì xù liè	10
@@ -126642,9 +126795,11 @@ sort: by_weight
 省检验检疫局	shěng jiǎn yàn jiǎn yì jú	10
 省建筑设计院	shěng jiàn zhù shè jì yuàn	10
 生姜半夏汤方	shēng jiāng bàn xià tāng fāng	10
+升降式全面屏	shēng jiàng shì quán miàn píng	10
 升降式止回阀	shēng jiàng shì zhǐ huí fá	10
 省教育厅厅长	shěng jiào yù tīng tīng zhǎng	10
 生均公用经费	shēng jūn gōng yòng jīng fèi	10
+圣卡塔琳娜州	shèng kǎ tǎ lín nà zhōu	10
 盛开的木棉花	shèng kāi de mù mián huā	10
 盛开的油菜花	shèng kāi de yóu cài huā	10
 省劳动保障厅	shěng láo dòng bǎo zhàng tīng	10
@@ -126854,6 +127009,7 @@ sort: by_weight
 生于七月四日	shēng yú qī yuè sì rì	10
 生与死的距离	shēng yǔ sǐ de jù lí	10
 生与死的考验	shēng yǔ sǐ de kǎo yàn	10
+生于斯长于斯	shēng yú sī zhǎng yú sī	10
 生于天地之间	shēng yú tiān dì zhī jiān	10
 升余弦滤波器	shēng yú xián lǜ bō qì	10
 剩余续航里程	shèng yú xù háng lǐ chéng	10
@@ -129216,6 +129372,7 @@ sort: by_weight
 水力发电枢纽	shuǐ lì fā diàn shū niǔ	10
 水力发电装置	shuǐ lì fā diàn zhuāng zhì	10
 水力开采矿井	shuǐ lì kāi cǎi kuàng jǐng	10
+水里来火里去	shuǐ lǐ lái huǒ lǐ qù	10
 水力摩阻系数	shuǐ lì mó zǔ xì shù	10
 水利水电职院	shuǐ lì shuǐ diàn zhí yuàn	10
 水力停留时间	shuǐ lì tíng liú shí jiān	10
@@ -129470,23 +129627,6 @@ sort: by_weight
 四川旅游景点	sì chuān lǚ yóu jǐng diǎn	10
 四川明星电力	sì chuān míng xīng diàn lì	10
 四川全兴球员	sì chuān quán xīng qiú yuán	10
-四川省巴中市	sì chuān shěng bā zhōng shì	10
-四川省成都市	sì chuān shěng chéng dū shì	10
-四川省达州市	sì chuān shěng dá zhōu shì	10
-四川省德阳市	sì chuān shěng dé yáng shì	10
-四川省广安市	sì chuān shěng guǎng ān shì	10
-四川省广元市	sì chuān shěng guǎng yuán shì	10
-四川省乐山市	sì chuān shěng lè shān shì	10
-四川省泸州市	sì chuān shěng lú zhōu shì	10
-四川省眉山市	sì chuān shěng méi shān shì	10
-四川省绵阳市	sì chuān shěng mián yáng shì	10
-四川省南充市	sì chuān shěng nán chōng shì	10
-四川省内江市	sì chuān shěng nèi jiāng shì	10
-四川省遂宁市	sì chuān shěng suì níng shì	10
-四川省雅安市	sì chuān shěng yǎ ān shì	10
-四川省宜宾市	sì chuān shěng yí bīn shì	10
-四川省自贡市	sì chuān shěng zì gòng shì	10
-四川省资阳市	sì chuān shěng zī yáng shì	10
 四川师大附中	sì chuān shī dà fù zhōng	10
 四川师范大学	sì chuān shī fàn dà xué	10
 四川师范学堂	sì chuān shī fàn xué táng	10
@@ -129630,6 +129770,7 @@ sort: by_weight
 四明公所旧址	sì míng gōng suǒ jiù zhǐ	10
 四明公所事件	sì míng gōng suǒ shì jiàn	10
 似魔鬼的步伐	sì mó guǐ de bù fá	10
+斯摩棱斯克州	sī mó léng sī kè zhōu	10
 司母戊大方鼎	sī mǔ wù dà fang dǐng	10
 斯奈克玛公司	sī nài kè mǎ gōng sī	10
 四逆加人参汤	sì nì jiā rén shēn tāng	10
@@ -130015,7 +130156,7 @@ sort: by_weight
 算法补缺失值	suàn fǎ bǔ quē shī zhí	10
 算是见识到了	suàn shì jiàn shi dào le	10
 算是锦上添花	suàn shì jǐn shàng tiān huā	10
-算是中规中矩	suàn shì zhōng guī zhōng jǔ	10
+算是中规中矩	suàn shì zhòng guī zhòng jǔ	10
 算术基本定理	suàn shù jī běn dìng lǐ	10
 算数基本定理	suàn shù jī běn dìng lǐ	10
 算术几何级数	suàn shù jǐ hé jí shù	10
@@ -130277,6 +130418,7 @@ sort: by_weight
 她是我的朋友	tā shì wǒ de péng you	10
 她是一个女孩	tā shì yí gè nǚ hái	10
 塔斯马尼亚岛	tǎ sī mǎ ní yà dǎo	10
+塔斯马尼亚州	tǎ sī mǎ ní yà zhōu	10
 榻榻米的设计	tà tà mǐ de shè jì	10
 踏踏实实干事	tà tā shi shí gàn shì	10
 踏踏实实演戏	tà tā shi shí yǎn xì	10
@@ -130322,17 +130464,8 @@ sort: by_weight
 太对我胃口了	tài duì wǒ wèi kǒu le	10
 太多不确定性	tài duō bú què dìng xìng	10
 太多专业术语	tài duō zhuān yè shù yǔ	10
-胎儿戒断症状	tāi ér jiè duàn zhèng zhuàng	10
-胎儿脐带绕颈	tāi ér qí dài rào jǐng	10
-胎儿亲子鉴定	tāi ér qīn zǐ jiàn dìng	10
-胎儿缺碘效应	tāi ér quē diǎn xiào yìng	10
-胎儿生长受限	tāi ér shēng zhǎng shòu xiàn	10
-胎儿心搏徐缓	tāi ér xīn bó xú huǎn	10
-胎儿心律失常	tāi ér xīn lǜ shī cháng	10
-胎儿智力发育	tāi ér zhì lì fā yù	10
 台儿庄保卫战	tái ér zhuāng bǎo wèi zhàn	10
 胎粪性肠梗阻	tāi fèn xìng cháng gěng zǔ	10
-台风的诺尔达	tái fēng de nuò ěr dá	10
 台风基础资讯	tái fēng jī chǔ zī xùn	10
 台福基督教会	tái fú jī dū jiào huì	10
 台夫特塔实验	tái fū tè tǎ shí yàn	10
@@ -130377,6 +130510,7 @@ sort: by_weight
 台盟上海市委	tái méng shàng hǎi shì wěi	10
 太盟投资集团	tài méng tóu zī jí tuán	10
 台盟浙江省委	tái méng zhè jiāng shěng wěi	10
+泰米尔纳德邦	tài mǐ ěr nà dé bāng	10
 太米斯托克利	tài mǐ sī tuō kè lì	10
 台面型晶体管	tái miàn xíng jīng tǐ guǎn	10
 太穆皇后窦氏	tài mù huáng hòu dòu shì	10
@@ -131236,6 +131370,7 @@ sort: by_weight
 天之影地之光	tiān zhī yǐng dì zhī guāng	10
 天之御中主神	tiān zhī yù zhōng zhǔ shén	10
 天作孽犹可恕	tiān zuò niè yóu kě shù	10
+天作孽犹可违	tiān zuò niè yóu kě wéi	10
 条背长刺叶蚤	tiáo bèi cháng cì yè zǎo	10
 条窗钩翅天蛾	tiáo chuāng gōu chì tiān é	10
 条大路通阴间	tiáo dà lù tōng yīn jiān	10
@@ -131973,6 +132108,7 @@ sort: by_weight
 驼色大衣搭配	tuó sè dà yī dā pèi	10
 拓市扩销增效	tuò shì kuò xiāo zēng xiào	10
 脱水剂脱水剂	tuō shuǐ jì tuō shuǐ jì	10
+托斯卡纳大区	tuō sī kǎ nà dà qū	10
 托斯卡纳公司	tuō sī kǎ nà gōng sī	10
 托斯卡纳群岛	tuō sī kǎ nà qún dǎo	10
 沱沱的风魔教	tuó tuó de fēng mó jiào	10
@@ -132847,6 +132983,7 @@ sort: by_weight
 维库溴铵冻干	wéi kù xiù ǎn dòng gān	10
 胃溃疡伴出血	wèi kuì yáng bàn chū xiě	10
 胃溃疡伴穿孔	wèi kuì yáng bàn chuān kǒng	10
+韦拉克鲁斯州	wéi lā kè lǔ sī zhōu	10
 未来不可估量	wèi lái bù kě gū liáng	10
 未来不确定性	wèi lái bú què dìng xìng	10
 潍莱高速公路	wéi lái gāo sù gōng lù	10
@@ -133005,6 +133142,7 @@ sort: by_weight
 韦斯顿镉电池	wéi sī dùn gé diàn chí	10
 微丝凝聚蛋白	wēi sī níng jù dàn bái	10
 维斯台登构造	wéi sī tái dēng gòu zào	10
+威斯特法伦州	wēi sī tè fǎ lún zhōu	10
 尾索动物亚门	wěi suǒ dòng wù yà mén	10
 微缩景观世界	wēi suō jǐng guān shì jiè	10
 韦索沃夫斯基	wéi suǒ wò fū sī jī	10
@@ -134302,6 +134440,7 @@ sort: by_weight
 西安高新一中	xī ān gāo xīn yī zhōng	10
 锡安国家公园	xī ān guó jiā gōng yuán	10
 西安交大附中	xī ān jiāo dà fù zhōng	10
+西安交通大学	xī ān jiāo tōng dà xué	10
 西安利君制药	xī ān lì jūn zhì yào	10
 西安烈士陵园	xī ān liè shì líng yuán	10
 西安绿地中心	xī ān lǜ dì zhōng xīn	10
@@ -134333,6 +134472,7 @@ sort: by_weight
 西安中际医院	xī ān zhōng jì yī yuàn	10
 西安注册公司	xī ān zhù cè gōng sī	10
 锡安主义运动	xī ān zhǔ yì yùn dòng	10
+西澳大利亚州	xī ào dà lì yà zhōu	10
 西班牙葛兰素	xī bān yá gé lán sù	10
 西班牙基立福	xī bān yá jī lì fú	10
 膝半月板损伤	xī bàn yuè bǎn sǔn shāng	10
@@ -134409,6 +134549,7 @@ sort: by_weight
 熄风通络头痛	xī fēng tōng luò tóu tòng	10
 吸附白喉疫苗	xī fù bái hóu yì miáo	10
 吸附霍乱菌苗	xī fù huò luàn jūn miáo	10
+西弗吉尼亚州	xī fú jí ní yà zhōu	10
 吸附洗脱试验	xī fù xǐ tuō shì yàn	10
 吸附有害气体	xī fù yǒu hài qì tǐ	10
 膝盖中了一箭	xī gài zhōng le yí jiàn	10
@@ -134910,7 +135051,7 @@ sort: by_weight
 显得非常精致	xiǎn de fēi cháng jīng zhì	10
 显得非常可爱	xiǎn de fēi cháng kě ài	10
 显得非常重要	xiǎn de fēi cháng zhòng yào	10
-显得干净利落	xiǎn de gān jìng lì luò	10
+显得干净利落	xiǎn de gān jìng lì luo	10
 显得格格不入	xiǎn de gé gé bú rù	10
 显得格外美丽	xiǎn de gé wài měi lì	10
 显得格外迷人	xiǎn de gé wài mí rén	10
@@ -135268,6 +135409,7 @@ sort: by_weight
 先增大后减小	xiān zēng dà hòu jiǎn xiǎo	10
 闲者便是主人	xián zhě biàn shì zhǔ rén	10
 闲着无聊的花	xián zhe wú liáo de huā	10
+闲着也是闲着	xián zhe yě shì xián zhe	10
 先诊疗后付费	xiān zhěn liáo hòu fù fèi	10
 宪政社会主义	xiàn zhèng shè huì zhǔ yì	10
 宪政拥护运动	xiàn zhèng yōng hù yùn dòng	10
@@ -135724,6 +135866,7 @@ sort: by_weight
 消除残余应力	xiāo chú cán yú yīng lì	10
 消除风险隐患	xiāo chú fēng xiǎn yǐn huàn	10
 消除黑臭水体	xiāo chú hēi chòu shuǐ tǐ	10
+笑出了猪叫声	xiào chū le zhū jiào shēng	10
 消除信息孤岛	xiāo chú xìn xī gū dǎo	10
 消除政治落差	xiāo chú zhèng zhì luò chā	10
 小船说翻就翻	xiǎo chuán shuō fān jiù fān	10
@@ -136197,6 +136340,7 @@ sort: by_weight
 写自己的名字	xiě zì jǐ de míng zì	10
 协作开发环境	xié zuò kāi fā huán jìng	10
 协作配合机制	xié zuò pèi hé jī zhì	10
+新阿基坦大区	xīn ā jī tǎn dà qū	10
 心爱的玩具呢	xīn ài de wán jù ne	10
 心岸春天花园	xīn àn chūn tiān huā yuán	10
 心安即是归处	xīn ān jí shì guī chù	10
@@ -136215,6 +136359,7 @@ sort: by_weight
 新柏拉图学派	xīn bó lā tú xué pài	10
 新柏拉图主义	xīn bó lā tú zhǔ yì	10
 薪不尽火不灭	xīn bú jìn huǒ bú miè	10
+新不伦瑞克省	xīn bù lún ruì kè shěng	10
 新仓颉输入法	xīn cāng jié shū rù fǎ	10
 锌测定试剂盒	xīn cè dìng shì jì hé	10
 新产品的开发	xīn chǎn pǐn de kāi fā	10
@@ -136286,6 +136431,7 @@ sort: by_weight
 信贵山城之战	xìn guì shān chéng zhī zhàn	10
 信贵山真言宗	xìn guì shān zhēn yán zōng	10
 新国际版圣经	xīn guó jì bǎn shèng jīng	10
+新罕布什尔州	xīn hǎn bù shí ěr zhōu	10
 新韩金融集团	xīn hán jīn róng jí tuán	10
 信号识别粒子	xìn hào shí bié lì zǐ	10
 信和地产投资	xìn hé dì chǎn tóu zī	10
@@ -136332,7 +136478,6 @@ sort: by_weight
 新疆教培中心	xīn jiāng jiào péi zhōng xīn	10
 新疆劫机事件	xīn jiāng jié jī shì jiàn	10
 新疆居民外逃	xīn jiāng jū mín wài táo	10
-新疆克拉玛依	xīn jiāng kè lā mǎ yī	10
 新疆恐怖主义	xīn jiāng kǒng bù zhǔ yì	10
 新疆矿冶学院	xīn jiāng kuàng yě xué yuàn	10
 新疆历史人物	xīn jiāng lì shǐ rén wù	10
@@ -136348,7 +136493,6 @@ sort: by_weight
 新疆天山雪豹	xīn jiāng tiān shān xuě bào	10
 新疆吐鲁番市	xīn jiāng tǔ lǔ fān shì	10
 新疆维吾尔族	xīn jiāng wéi wú ěr zú	10
-新疆乌鲁木齐	xīn jiāng wū lǔ mù qí	10
 新疆新鑫矿业	xīn jiāng xīn xīn kuàng yè	10
 新疆医科大学	xīn jiāng yī kē dà xué	10
 新疆伊斯兰教	xīn jiāng yī sī lán jiào	10
@@ -136488,6 +136632,7 @@ sort: by_weight
 信铭生命科技	xìn míng shēng mìng kē jì	10
 新明斯克协议	xīn míng sī kè xié yì	10
 辛姆巴科公司	xīn mǔ bā kē gōng sī	10
+新南威尔士州	xīn nán wēi ěr shì zhōu	10
 心内膜纤维化	xīn nèi mó xiān wéi huà	10
 新能源车板块	xīn néng yuán chē bǎn kuài	10
 新能源车补贴	xīn néng yuán chē bǔ tiē	10
@@ -136711,6 +136856,7 @@ sort: by_weight
 性别与基督教	xìng bié yǔ jī dū jiào	10
 性别与性取向	xìng bié yǔ xìng qǔ xiàng	10
 性病防治中心	xìng bìng fáng zhì zhōng xīn	10
+行不得也哥哥	xíng bù de yě gē gē	10
 星槎道都大学	xīng chá dào dōu dà xué	10
 型超声诊断法	xíng chāo shēng zhěn duàn fǎ	10
 型超新星爆发	xíng chāo xīn xīng bào fā	10
@@ -137824,7 +137970,7 @@ sort: by_weight
 眼都不眨一下	yǎn dōu bù zhǎ yí xià	10
 眼都睁不开了	yǎn dōu zhēng bù kāi le	10
 眼耳鼻舌身意	yǎn ěr bí shé shēn yì	10
-研发费用支出	yán fā fèi yòng zhī chū	10
+研发费用支出	yán fā fèi yong zhī chū	10
 研发经费支出	yán fā jīng fèi zhī chū	10
 严防次生灾害	yán fáng cì shēng zāi hài	10
 燕飞利仕音响	yàn fēi lì shì yīn xiǎng	10
@@ -138628,6 +138774,7 @@ sort: by_weight
 一八九五乙未	yī bā jiǔ wǔ yǐ wèi	10
 依巴拉度时间	yī bā lā dù shí jiān	10
 一八烈士公墓	yī bā liè shì gōng mù	10
+一把屎一把尿	yì bǎ shǐ yì bǎ niào	10
 一八一二序曲	yī bā yī èr xù qǔ	10
 一巴掌扇过去	yì bā zhǎng shàn guò qù	10
 一百二十八两	yī bǎi èr shí bā liǎng	10
@@ -138874,6 +139021,7 @@ sort: by_weight
 以对抗促提升	yǐ duì kàng cù tí shēng	10
 翼腭管注射法	yì è guǎn zhù shè fǎ	10
 乙二胺配合物	yǐ èr àn pèi hé wù	10
+伊尔库茨克州	yī ěr kù cí kè zhōu	10
 一二三排检法	yī èr sān pái jiǎn fǎ	10
 一二三自由日	yī èr sān zì yóu rì	10
 以儿童为中心	yǐ ér tóng wéi zhōng xīn	10
@@ -139206,7 +139354,7 @@ sort: by_weight
 忆莲意乱情迷	yì lián yì luàn qíng mí	10
 医疗保健支出	yī liáo bǎo jiàn zhī chū	10
 医疗废物收集	yī liáo fèi wù shōu jí	10
-医疗费用支出	yī liáo fèi yòng zhī chū	10
+医疗费用支出	yī liáo fèi yong zhī chū	10
 伊辽高速公路	yī liáo gāo sù gōng lù	10
 医疗过失行为	yī liáo guò shī xíng wéi	10
 医疗纠纷案件	yī liáo jiū fēn àn jiàn	10
@@ -139720,6 +139868,8 @@ sort: by_weight
 以一颗平常心	yǐ yì kē píng cháng xīn	10
 一亿零五百万	yí yì líng wǔ bǎi wàn	10
 一亿一千万元	yí yì yì qiān wàn yuán	10
+以营利为目的	yǐ yíng lì wèi mù dì	12
+以盈利为目的	yǐ yíng lì wèi mù dì	10
 以英语为外语	yǐ yīng yǔ wéi wài yǔ	10
 医用的水杨酸	yī yòng de shuǐ yáng suān	10
 医用电子仪器	yī yòng diàn zǐ yí qì	10
@@ -142004,14 +142154,7 @@ sort: by_weight
 云南旅游景点	yún nán lǚ yóu jǐng diǎn	10
 云南民大附中	yún nán mín dà fù zhōng	10
 云南七子饼茶	yún nán qī zǐ bǐng chá	10
-云南省保山市	yún nán shěng bǎo shān shì	10
-云南省昆明市	yún nán shěng kūn míng shì	10
-云南省丽江市	yún nán shěng lì jiāng shì	10
-云南省临沧市	yún nán shěng lín cāng shì	10
-云南省普洱市	yún nán shěng pǔ ěr shì	10
-云南省曲靖市	yún nán shěng qū jìng shì	10
-云南省玉溪市	yún nán shěng yù xī shì	10
-云南省昭通市	yún nán shěng zhāo tōng shì	10
+云南省德宏州	yún nán shěng dé hóng zhōu	10
 云南师大附中	yún nán shī dà fù zhōng	10
 云南师范大学	yún nán shī fàn dà xué	10
 云南史前时期	yún nán shǐ qián shí qī	10
@@ -142174,7 +142317,7 @@ sort: by_weight
 在前权利要求	zài qián quán lì yāo qiú	10
 在曲折中前进	zài qū zhé zhōng qián jìn	10
 在全世界面前	zài quán shì jiè miàn qián	10
-在热闹的气氛	zài rè nào de qì fēn	10
+在热闹的气氛	zài rè nao de qì fēn	10
 载人登陆火星	zài rén dēng lù huǒ xīng	10
 在日菲律宾人	zài rì fēi lǜ bīn rén	10
 再入式谐振腔	zài rù shì xié zhèn qiāng	10
@@ -142840,17 +142983,6 @@ sort: by_weight
 折光率测定法	zhé guāng lǜ cè dìng fǎ	10
 折合成人民币	zhé hé chéng rén mín bì	10
 这话的意思是	zhè huà de yì sī shì	10
-浙江省杭州市	zhè jiāng shěng háng zhōu shì	10
-浙江省湖州市	zhè jiāng shěng hú zhōu shì	10
-浙江省嘉兴市	zhè jiāng shěng jiā xīng shì	10
-浙江省金华市	zhè jiāng shěng jīn huá shì	10
-浙江省丽水市	zhè jiāng shěng lí shuǐ shì	10
-浙江省宁波市	zhè jiāng shěng níng bō shì	10
-浙江省衢州市	zhè jiāng shěng qú zhōu shì	10
-浙江省绍兴市	zhè jiāng shěng shào xīng shì	10
-浙江省台州市	zhè jiāng shěng tāi zhōu shì	10
-浙江省温州市	zhè jiāng shěng wēn zhōu shì	10
-浙江省舟山市	zhè jiāng shěng zhōu shān shì	10
 折旧折耗总量	zhé jiù shé hào zǒng liàng	10
 这就是僵尸吗	zhè jiù shì jiāng shī ma	10
 这句话的意思	zhè jù huà de yì si	10
@@ -143440,6 +143572,7 @@ sort: by_weight
 政治行动主义	zhèng zhì xíng dòng zhǔ yì	10
 整治形式主义	zhěng zhì xíng shì zhǔ yì	10
 政治学习泛化	zhèng zhì xué xí fàn huà	10
+睁只眼闭只眼	zhēng zhī yǎn bì zhī yǎn	10
 政治异见人士	zhèng zhì yì jiàn rén shì	10
 政治异议人士	zhèng zhì yì yì rén shì	10
 整治占道经营	zhěng zhì zhàn dào jīng yíng	10
@@ -144360,7 +144493,7 @@ sort: by_weight
 志愿者的身影	zhì yuàn zhě de shēn yǐng	10
 值月神黄承乙	zhí yuè shén huáng chéng yǐ	10
 只在一念之间	zhǐ zài yí niàn zhī jiān	10
-制造间接费用	zhì zào jiàn jiē fèi yòng	10
+制造间接费用	zhì zào jiàn jiē fèi yong	10
 制造商的产品	zhì zào shāng de chǎn pǐn	10
 制造业等行业	zhì zào yè děng háng yè	10
 制造者制造厂	zhì zào zhě zhì zào chǎng	10
@@ -145633,6 +145766,7 @@ sort: by_weight
 抓好脱贫攻坚	zhuā hǎo tuō pín gōng jiān	10
 抓好招商引资	zhuā hǎo zhāo shāng yǐn zī	10
 抓好组织实施	zhuā hǎo zǔ zhī shí shī	10
+抓紧抓细抓实	zhuā jǐn zhuā xì zhuā shí	10
 抓两头带中间	zhuā liǎng tóu dài zhōng jiān	10
 抓岩机的抓斗	zhuā yán jī de zhuā dòu	10
 抓一抓会好转	zhuā yì zhuā huì hǎo zhuǎn	10
@@ -146004,7 +146138,7 @@ sort: by_weight
 自激振荡电路	zì jī zhèn dàng diàn lù	10
 自激振荡系统	zì jī zhèn dàng xì tǒng	10
 自驾游的朋友	zì jià yóu de péng you	10
-自家种的蔬菜	zì jiā zhǒng de shū cài	10
+自家种的蔬菜	zì jiā zhòng de shū cài	10
 自交不亲和性	zì jiāo bù qīn hé xìng	10
 自校正控制器	zì jiào zhèng kòng zhì qì	10
 自校正调节器	zì jiào zhèng tiáo jié qì	10
@@ -146044,6 +146178,7 @@ sort: by_weight
 自然边界条件	zì rán biān jiè tiáo jiàn	10
 自然博物馆站	zì rán bó wù guǎn zhàn	10
 自然不言而喻	zì rán bù yán ér yù	10
+自然的守护者	zì rán de shǒu hù zhě	10
 自然地质灾害	zì rán de zhì zāi hài	10
 自然对数的底	zì rán duì shù de dǐ	10
 自然对数的枝	zì rán duì shù de zhī	10
@@ -146715,8 +146850,8 @@ sort: by_weight
 最强劲的对手	zuì qiáng jìng de duì shǒu	10
 最强劲的脉动	zuì qiáng jìng de mài dòng	10
 最亲密的关系	zuì qīn mì de guān xì	10
-最热闹的地方	zuì rè nào de dì fāng	10
-最热闹的节日	zuì rè nào de jié rì	10
+最热闹的地方	zuì rè nao de dì fāng	10
+最热闹的节日	zuì rè nao de jié rì	10
 最柔软的地方	zuì róu ruǎn de dì fāng	10
 最柔软的角落	zuì róu ruǎn de jiǎo luò	10
 最擅长的事情	zuì shàn cháng de shì qíng	10
@@ -147242,6 +147377,7 @@ sort: by_weight
 挨打的狗去咬鸡	ái dǎ de gǒu qù yǎo jī	10
 爱宕号重巡洋舰	ài dàng hào zhòng xún yáng jiàn	10
 爱得不要不要的	ài de bú yào bú yào de	10
+爱德华王子岛省	ài dé huá wáng zǐ dǎo shěng	10
 埃德里奇格林灯	āi dé lǐ qí gé lín dēng	10
 埃德里奇格试验	āi dé lǐ qí gé shì yàn	10
 爱的另一种存在	ài de lìng yì zhǒng cún zài	10
@@ -147491,6 +147627,7 @@ sort: by_weight
 奥吉二氏开睑器	ào jí èr shì kāi jiǎn qì	10
 奥克季三氏线锯	ào kè jì sān shì xiàn jù	10
 奥克兰血红蛋白	ào kè lán xuè hóng dàn bái	10
+奥克西塔尼大区	ào kè xī tǎ ní dà qū	10
 奥林达历史中心	ào lín dá lì shǐ zhōng xīn	10
 奥林匹克运动会	ào lín pǐ kè yùn dòng huì	10
 奥孟二氏混合盐	ào mèng èr shì hùn hé yán	10
@@ -149126,7 +149263,7 @@ sort: by_weight
 不画扮熟的眼线	bú huà bàn shú de yǎn xiàn	10
 不患贫而患不均	bú huàn pín ér huàn bù jūn	10
 不会对人体有害	bú huì duì rén tǐ yǒu hài	10
-不会看的看热闹	bú huì kàn de kàn rè nào	10
+不会看的看热闹	bú huì kàn de kàn rè nao	10
 不会恋爱的我们	bú huì liàn ài de wǒ men	10
 不会轻易的放弃	bú huì qīng yì de fàng qì	10
 不会让大家失望	bú huì ràng dà jiā shī wàng	10
@@ -149283,6 +149420,7 @@ sort: by_weight
 不列颠北美法案	bú liè diān běi měi fǎ àn	10
 不列颠的统治者	bú liè diān de tǒng zhì zhě	10
 不列颠东非公司	bú liè diān dōng fēi gōng sī	10
+不列颠哥伦比亚	bú liè diān gē lún bǐ yà	10
 不列颠科学协会	bú liè diān kē xué xié huì	10
 不列颠南非公司	bú liè diān nán fēi gōng sī	10
 布林质理想定理	bù lín zhì lǐ xiǎng dìng lǐ	10
@@ -149701,6 +149839,7 @@ sort: by_weight
 才是真正的赢家	cái shì zhēn zhèng de yíng jiā	10
 才是正确的选择	cái shì zhèng què de xuǎn zé	10
 才是最大的幸福	cái shì zuì dà de xìng fú	10
+才是最重要的事	cái shì zuì zhòng yào de shì	10
 财叔之横扫千军	cái shū zhī héng sǎo qiān jūn	10
 彩陶八角星纹豆	cǎi táo bā jiǎo xīng wén dòu	10
 财务报表的编制	cái wù bào biǎo de biān zhì	10
@@ -152240,7 +152379,7 @@ sort: by_weight
 迪亚哥加西亚岛	dí yà gē jiā xī yà dǎo	10
 蒂亚瓦纳科遗址	dì yà wǎ nà kē yí zhǐ	10
 低压蒸汽压缩机	dī yā zhēng qì yā suō jī	10
-递延所得税费用	dì yán suǒ dé shuì fèi yòng	10
+递延所得税费用	dì yán suǒ dé shuì fèi yong	10
 递延所得税负债	dì yán suǒ dé shuì fù zhài	10
 递延所得税资产	dì yán suǒ dé shuì zī chǎn	10
 低眼压性青光眼	dī yǎn yā xìng qīng guāng yǎn	10
@@ -154204,7 +154343,7 @@ sort: by_weight
 风起于青萍之末	fēng qǐ yú qīng píng zhī mò	10
 枫桥风景名胜区	fēng qiáo fēng jǐng míng shèng qū	10
 风情国际旅行社	fēng qíng guó jì lǚ xíng shè	10
-风情万种的女人	fēng qíng wàn zhǒng de nǚ rén	10
+风情万种的女人	fēng qíng wàn zhòng de nǚ rén	10
 风趣幽默的语言	fēng qù yōu mò de yǔ yán	10
 风犬少年的天空	fēng quǎn shào nián de tiān kōng	10
 蜂群崩坏症候群	fēng qún bēng huài zhèng hòu qún	10
@@ -154687,8 +154826,8 @@ sort: by_weight
 敢叫日月换新天	gǎn jiào rì yuè huàn xīn tiān	10
 赶紧行动起来吧	gǎn jǐn xíng dòng qǐ lái ba	10
 赶紧找个男朋友	gǎn jǐn zhǎo gè nán péng you	10
-干净利落的短发	gān jìng lì luò de duǎn fà	10
-干净利落的线条	gān jìng lì luò de xiàn tiáo	10
+干净利落的短发	gān jìng lì luo de duǎn fà	10
+干净利落的线条	gān jìng lì luo de xiàn tiáo	10
 肝经湿热力能排	gān jīng shī rè lì néng pái	10
 干净舒适的环境	gān jìng shū shì de huán jìng	10
 干净整洁的道路	gān jìng zhěng jié de dào lù	10
@@ -156835,7 +156974,6 @@ sort: by_weight
 加减运用在胸中	jiā jiǎn yùn yòng zài xiōng zhōng	10
 加快数字化发展	jiā kuài shù zì huà fā zhǎn	10
 加快数字化转型	jiā kuài shù zì huà zhuǎn xíng	10
-加拉帕戈斯群岛	jiā lā pà gē sī qún dǎo	10
 加利马二氏试验	jiā lì mǎ èr shì shì yàn	10
 加利迈尼尼试验	jiā lì mài ní ní shì yàn	10
 加利亚诺铁甲堡	jiā lì yà nuò tiě jiǎ bǎo	10
@@ -157848,6 +157986,7 @@ sort: by_weight
 芦笋菠萝蛋白酶	lú sǔn bō luó dàn bái méi	10
 路索二氏咬骨钳	lù suǒ èr shì yǎo gǔ qián	10
 露天矿采剥方法	lù tiān kuàng cǎi bō fāng fǎ	10
+卢瓦尔河谷大区	lú wǎ ěr hé gǔ dà qū	10
 颅腕跗发育不良	lú wàn fū fā yù bù liáng	10
 卵巢切除未定性	luǎn cháo qiē chú wèi dìng xìng	10
 卵巢输卵管粘连	luǎn cháo shū luǎn guǎn zhān lián	10
@@ -157878,6 +158017,7 @@ sort: by_weight
 马尔维纳斯群岛	mǎ ěr wéi nà sī qún dǎo	10
 马公东甲北极殿	mǎ gōng dōng jiǎ běi jí diàn	10
 马公市三甲七保	mǎ gōng shì sān jiǎ qī bǎo	10
+马哈拉施特拉邦	mǎ hā lā shī tè lā bāng	10
 麻黄附子甘草汤	má huáng fù zǐ gān cǎo tāng	10
 麻黄附子细辛汤	má huáng fù zǐ xì xīn tāng	10
 麻黄连翘赤豆汤	má huáng lián qiáo chì dòu tāng	10
@@ -157989,6 +158129,7 @@ sort: by_weight
 弥勒下生成佛经	mí lè xià shēng chéng fó jīng	10
 密立根油滴实验	mì lì gēn yóu dī shí yàn	10
 迷路性眼球震颤	mí lù xìng yǎn qiú zhèn chàn	10
+米纳斯吉拉斯州	mǐ nà sī jí lā sī zhōu	10
 弥散性轴索损伤	mí sàn xìng zhóu suǒ sǔn shāng	10
 迷信法律的作用	mí xìn fǎ lǜ de zuò yòng	10
 密宗道次第广论	mì zōng dào cì dì guǎng lùn	10
@@ -158117,6 +158258,7 @@ sort: by_weight
 南港项目管理部	nán gǎng xiàng mù guǎn lǐ bù	10
 南极科学考察站	nán jí kē xué kǎo chá zhàn	10
 南开数学研究所	nán kāi shù xué yán jiū suǒ	10
+南里奥格兰德州	nán lǐ ào gé lán dé zhōu	10
 南蛮重装藤甲兵	nán mán zhòng zhuāng téng jiǎ bīng	10
 男童的神奇号角	nán tóng de shén qí hào jiǎo	10
 男性的精子质量	nán xìng de jīng zǐ zhì liàng	10
@@ -159944,6 +160086,7 @@ sort: by_weight
 温疟加蜀漆半分	wēn nüè jiā shǔ qī bàn fēn	10
 温阳化气添桂枝	wēn yáng huà qì tiān guì zhī	10
 文艺理论与批评	wén yì lǐ lùn yǔ pī píng	10
+我的未来不是梦	wǒ de wèi lái bú shì mèng	12
 我们生活的地方	wǒ men shēng huó de dì fāng	10
 我们新疆好地方	wǒ men xīn jiāng hǎo dì fāng	10
 我命由我不由天	wǒ mìng yóu wǒ bù yóu tiān	10
@@ -160093,6 +160236,7 @@ sort: by_weight
 西站长途客运站	xī zhàn cháng tú kè yùn zhàn	10
 下颌运动复制器	xià hé yùn dòng fù zhì qì	10
 下颌运动描记仪	xià hé yùn dòng miáo jì yí	10
+下加利福尼亚州	xià jiā lì fú ní yà zhōu	10
 下了很大的功夫	xià le hěn dà de gōng fu	10
 下了很大的决心	xià le hěn dà de jué xīn	10
 下了一整夜的雨	xià le yì zhěng yè de yǔ	10
@@ -160691,13 +160835,14 @@ sort: by_weight
 易派客工业品展	yì pài kè gōng yè pǐn zhǎn	10
 以排山倒海之势	yǐ pái shān dǎo hǎi zhī shì	10
 噫气不降心下痞	yī qì bú jiàng xīn xià pǐ	10
+一起来看流星雨	yì qǐ lái kàn liú xīng yǔ	10
 以其他方式公开	yǐ qí tā fāng shì gōng kāi	10
 以前想都不敢想	yǐ qián xiǎng dōu bù gǎn xiǎng	10
 以强烈的事业心	yǐ qiáng liè de shì yè xīn	10
 以强迫思维为主	yǐ qiǎng pò sī wéi wéi zhǔ	10
 一切成本皆可降	yí qiè chéng běn jiē kě jiàng	10
 一切成本皆可控	yí qiè chéng běn jiē kě kòng	10
-一切费用皆可控	yí qiè fèi yòng jiē kě kòng	10
+一切费用皆可控	yí qiè fèi yong jiē kě kòng	10
 疫情及疫情报告	yì qíng jí yì qíng bào gào	10
 以求亲媚于主上	yǐ qiú qīn mèi yú zhǔ shàng	10
 以热爱祖国为荣	yǐ rè ài zǔ guó wéi róng	10
@@ -160925,7 +161070,7 @@ sort: by_weight
 预判了你的预判	yù pàn le nǐ de yù pàn	10
 预判了我的预判	yù pàn le wǒ de yù pàn	10
 与时俱进求创新	yǔ shí jù jìn qiú chuàng xīn	10
-预算外费用支出	yù suàn wài fèi yòng zhī chū	10
+预算外费用支出	yù suàn wài fèi yong zhī chū	10
 语言服务器协议	yǔ yán fú wù qì xié yì	10
 鱼跃台式血压计	yú yuè tái shì xuè yā jì	10
 玉簪清咽十五味	yù zān qīng yàn shí wǔ wèi	10
@@ -161739,12 +161884,14 @@ sort: by_weight
 别往自己脸上贴金	bié wǎng zì jǐ liǎn shàng tiē jīn	10
 兵来将挡水来土掩	bīng lái jiàng dǎng shuǐ lái tǔ yǎn	10
 兵马未动粮草先行	bīng mǎ wèi dòng liáng cǎo xiān xíng	10
+玻色爱因斯坦凝聚	bō sè ài yīn sī tǎn níng jù	10
 玻色爱因斯坦统计	bō sè ài yīn sī tǎn tǒng jì	10
 不愤不启不悱不发	bú fèn bù qǐ bù fěi bù fā	10
 不该交的朋友不交	bù gāi jiāo de péng you bù jiāo	10
 不该去的地方不去	bù gāi qù de dì fāng bú qù	10
 不经一事不长一智	bù jīng yī shì bù zhǎng yí zhì	10
 布莱恩空气透过法	bù lái ēn kōng qì tòu guò fǎ	10
+不列颠哥伦比亚省	bú liè diān gē lún bǐ yà shěng	10
 不鸣则已一鸣惊人	bù míng zé yǐ yì míng jīng rén	10
 不怕一万就怕万一	bú pà yí wàn jiù pà wàn yī	10
 不求有功但求无过	bù qiú yǒu gōng dàn qiú wú guò	10
@@ -161962,6 +162109,7 @@ sort: by_weight
 龙潭山高句丽山城	lóng tán shān gāo gōu lí shān chéng	10
 路见不平拔刀相助	lù jiàn bù píng bá dāo xiāng zhù	10
 露天设备范围非圆	lù tiān shè bèi fàn wéi fēi yuán	10
+卢瓦尔河地区大区	lú wǎ ěr hé dì qū dà qū	10
 伦敦政治经济学院	lún dūn zhèng zhì jīng jì xué yuàn	10
 落花有意流水无情	luò huā yǒu yì liú shuǐ wú qíng	10
 洛桑联邦理工学院	luò sāng lián bāng lǐ gōng xué yuàn	10
@@ -161991,6 +162139,7 @@ sort: by_weight
 逆同位素稀释分析	nì tóng wèi sù xī shì fēn xī	10
 宁为玉碎不为瓦全	nìng wéi yù suì bù wéi wǎ quán	10
 宁做鸡头不做凤尾	níng zuò jī tóu bú zuò fèng wěi	10
+纽芬兰与拉布拉多	niǔ fēn lán yǔ lā bù lā duō	10
 扭剪型高强度螺栓	niǔ jiǎn xíng gāo qiáng dù luó shuān	10
 偶极式虚实分量法	ǒu jí shì xū shí fèn liàng fǎ	10
 跑了和尚跑不了庙	pǎo le hé shang pǎo bù liǎo miào	10
@@ -162030,7 +162179,7 @@ sort: by_weight
 全国联行外汇往来	quán guó lián háng wài huì wǎng lái	10
 群众的眼睛是雪亮	qún zhòng de yǎn jing shì xuě liàng	10
 热带稀树草原气候	rè dài xī shù cǎo yuán qì hòu	10
-热热闹闹吃现成饭	rè rè nào nào chī xiàn chéng fàn	10
+热热闹闹吃现成饭	rè rè nao nào chī xiàn chéng fàn	10
 人不犯我我不犯人	rén bú fàn wǒ wǒ bú fàn rén	10
 人不为己天诛地灭	rén bú wèi jǐ tiān zhū dì miè	10
 人不知除非己莫为	rén bù zhī chú fēi jǐ mò wéi	10
@@ -162307,6 +162456,7 @@ sort: by_weight
 麻黄杏仁薏苡甘草汤	má huáng xìng rén yì yǐ gān cǎo tāng	10
 没有对比就没有伤害	méi yǒu duì bǐ jiù méi yǒu shāng hài	10
 能量守恒与转化定律	néng liàng shǒu héng yǔ zhuǎn huà dìng lǜ	10
+纽芬兰与拉布拉多省	niǔ fēn lán yǔ lā bù lā duō shěng	10
 欧拉流体动力学方程	ōu lā liú tǐ dòng lì xué fāng chéng	10
 跑得了和尚跑不了庙	pǎo de liǎo hé shang pǎo bù liǎo miào	10
 贫穷限制了我的想象	pín qióng xiàn zhì le wǒ de xiǎng xiàng	10
@@ -162362,7 +162512,7 @@ sort: by_weight
 段氏与三十七部会盟碑	duàn shì yǔ sān shí qī bù huì méng bēi	10
 躲得了初一躲不过十五	duǒ de liǎo chū yī duǒ bú guò shí wǔ	10
 过了这个村就没这个店	guò le zhè ge cūn jiù méi zhè ge diàn	10
-好人不长命祸害遗千年	hǎo rén bù cháng mìng huò hài yí qiān nián	10
+好人不长命祸害遗千年	hǎo rén bù cháng mìng huò hai yí qiān nián	10
 赫德岛和麦克唐纳群岛	hè dé dǎo hé mài kè táng nà qún dǎo	10
 既想当婊子又要立牌坊	jì xiǎng dāng biǎo zi yòu yào lì pái fāng	10
 加州大学圣地亚哥分校	jiā zhōu dà xué shèng dì yà gē fēn xiào	10
