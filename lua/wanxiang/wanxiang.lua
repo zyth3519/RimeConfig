@@ -5,7 +5,7 @@ local wanxiang = {}
 
 -- x-release-please-start-version
 
-wanxiang.version = "v16.1.2"
+wanxiang.version = "v16.1.3"
 
 -- x-release-please-end
 
@@ -82,7 +82,7 @@ function wanxiang.is_special_desktop()
         local exclude = false
         if lower_dist == "squirrel" then
             exclude = true
-        elseif lower_dist == "fcitx5-rime" and lower_sys:find("library") then
+        elseif lower_dist == "fcitx-rime" and lower_sys:find("library") then
             exclude = true
         end
         is_special_desktop = exclude
