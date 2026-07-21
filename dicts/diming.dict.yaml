@@ -2535,6 +2535,7 @@ sort: by_weight
 长港镇	cháng gǎng zhèn	10
 长皋乡	cháng gāo xiāng	10
 长葛市	cháng gé shì	866
+长葛县	cháng gé xiàn	104
 唱歌镇	chàng gē zhèn	10
 长沟镇	cháng gōu zhèn	10
 长桂乡	cháng guì xiāng	10
@@ -7144,6 +7145,7 @@ sort: by_weight
 海原县	hǎi yuán xiàn	182
 海渊镇	hǎi yuān zhèn	10
 海州区	hǎi zhōu qū	185
+解州镇	hài zhōu zhèn	105
 海珠区	hǎi zhū qū	263
 海子乡	hǎi zǐ xiāng	10
 海子镇	hǎi zǐ zhèn	10
@@ -11119,6 +11121,8 @@ sort: by_weight
 老君镇	lǎo jūn zhèn	10
 老莱镇	lǎo lái zhèn	10
 老林镇	lǎo lín zhèn	10
+乐陵市	lào líng shì	565
+乐陵县	lào líng xiàn	129
 老隆镇	lǎo lóng zhèn	199
 老马镇	lǎo mǎ zhèn	10
 老麦乡	lǎo mài xiāng	10
@@ -11177,8 +11181,6 @@ sort: by_weight
 乐江镇	lè jiāng zhèn	10
 乐居镇	lè jū zhèn	10
 乐里镇	lè lǐ zhèn	10
-乐陵市	lè líng shì	565
-乐陵县	lè líng xiàn	129
 勒马乡	lè mǎ xiāng	10
 乐民镇	lè mín zhèn	10
 乐平市	lè píng shì	10
@@ -22393,7 +22395,6 @@ sort: by_weight
 协雄乡	xié xióng xiāng	10
 谢洋乡	xiè yáng xiāng	10
 卸载站	xiè zài zhàn	99
-解州镇	xiè zhōu zhèn	105
 谢庄镇	xiè zhuāng zhèn	10
 新安县	xīn ān xiàn	215
 新安乡	xīn ān xiāng	10
@@ -25358,7 +25359,6 @@ sort: by_weight
 张高村	zhāng gāo cūn	10
 张皋镇	zhāng gāo zhèn	10
 张阁村	zhāng gé cūn	10
-长葛县	zhǎng gé xiàn	104
 张阁镇	zhāng gé zhèn	159
 张各庄	zhāng gè zhuāng	312
 张戈庄	zhāng gē zhuāng	150
@@ -33187,7 +33187,7 @@ sort: by_weight
 德正街道	dé zhèng jiē dào	10
 德州德城	dé zhōu dé chéng	10
 德州街道	dé zhōu jiē dào	10
-德州乐陵	dé zhōu lè líng	10
+德州乐陵	dé zhōu lào líng	10
 德州临邑	dé zhōu lín yì	10
 德州陵城	dé zhōu líng chéng	10
 德州宁津	dé zhōu níng jīn	10
@@ -38934,6 +38934,7 @@ sort: by_weight
 海则滩镇	hǎi zé tān zhèn	10
 海州街道	hǎi zhōu jiē dào	10
 海洲街道	hǎi zhōu jiē dào	10
+解州营村	hài zhōu yíng cūn	10
 海幢街道	hǎi zhuàng jiē dào	10
 海子沟村	hǎi zǐ gōu cūn	10
 海子沟乡	hǎi zǐ gōu xiāng	10
@@ -54404,7 +54405,6 @@ sort: by_weight
 赛乌素镇	sài wū sù zhèn	10
 赛鱼街道	sài yú jiē dào	10
 三八街道	sān bā jiē dào	10
-三拨子乡	sān bá zi xiāng	10
 三百弓村	sān bǎi gōng cūn	10
 三百户村	sān bǎi hù cūn	10
 三白山村	sān bái shān cūn	10
@@ -54415,6 +54415,7 @@ sort: by_weight
 三堡社区	sān bǎo shè qū	130
 三宝营乡	sān bǎo yíng xiāng	10
 三卜树村	sān bo shù cūn	10
+三拨子乡	sān bō zi xiāng	10
 三埠街道	sān bù jiē dào	10
 三汊港镇	sān chà gǎng zhèn	10
 三岔河村	sān chà hé cūn	10
@@ -62457,7 +62458,6 @@ sort: by_weight
 西八千乡	xī bā qiān xiāng	10
 西坝头村	xī bà tóu cūn	10
 西把栅乡	xī bǎ zhà xiāng	10
-西拨子村	xī bá zi cūn	10
 西白岱村	xī bái dài cūn	10
 西柏店村	xī bǎi diàn cūn	10
 西柏涧村	xī bǎi jiàn cūn	10
@@ -62540,6 +62540,7 @@ sort: by_weight
 西卜沙乡	xī bo shā xiāng	10
 希博特乡	xī bó tè xiāng	10
 西卜庄村	xī bo zhuāng cūn	10
+西拨子村	xī bō zi cūn	10
 西布河乡	xī bù hé xiāng	10
 西埠后村	xī bù hòu cūn	10
 西步乐村	xī bù lè cūn	10
@@ -65500,7 +65501,6 @@ sort: by_weight
 谢辛庄村	xiè xīn zhuāng cūn	10
 渫阳社区	xiè yáng shè qū	45
 撷云二庄	xié yún èr zhuāng	10
-解州营村	xiè zhōu yíng cūn	10
 蝎子庙村	xiē zi miào cūn	10
 蝎子山村	xiē zi shān cūn	10
 新艾里村	xīn ài lǐ cūn	10
@@ -66495,12 +66495,12 @@ sort: by_weight
 修之于乡	xiū zhī yú xiāng	10
 徐碧街道	xú bì jiē dào	10
 徐埠口村	xú bù kǒu cūn	10
+许昌长葛	xǔ chāng cháng gé	10
 许昌建安	xǔ chāng jiàn ān	10
 许昌魏都	xǔ chāng wèi dū	10
 许昌襄城	xǔ chāng xiāng chéng	10
 许昌鄢陵	xǔ chāng yān líng	10
 许昌禹州	xǔ chāng yǔ zhōu	10
-许昌长葛	xǔ chāng zhǎng gé	10
 许城东村	xǔ chéng dōng cūn	10
 盱城街道	xū chéng jiē dào	10
 徐城街道	xú chéng jiē dào	10
@@ -78830,7 +78830,7 @@ sort: by_weight
 德阳市什邡市	dé yáng shì shí fāng shì	10
 德阳市中江县	dé yáng shì zhōng jiāng xiàn	10
 德州市德城区	dé zhōu shì dé chéng qū	10
-德州市乐陵市	dé zhōu shì lè líng shì	10
+德州市乐陵市	dé zhōu shì lào líng shì	10
 德州市临邑县	dé zhōu shì lín yì xiàn	10
 德州市陵城区	dé zhōu shì líng chéng qū	10
 德州市宁津县	dé zhōu shì níng jīn xiàn	10
