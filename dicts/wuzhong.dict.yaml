@@ -630,9 +630,9 @@ sort: by_weight
 电鲶	diàn nián	73
 颠茄	diān qié	94
 滇芹	diān qín	99
-滇芎	diān qiōng	69
 垫刃	diàn rèn	13
 滇桐	diān tóng	90
+滇芎	diān xiōng	69
 电鳐	diàn yáo	114
 点蝇	diǎn yíng	94
 滇竹	diān zhú	70
@@ -3776,7 +3776,7 @@ sort: by_weight
 岩鹨	yán liù	93
 烟鲈	yān lú	68
 岩螺	yán luó	82
-燕麦	yān mài	102
+燕麦	yàn mài	102
 岩螨	yán mǎn	86
 胭螨	yān mǎn	73
 岩蟒	yán mǎng	98
@@ -4711,7 +4711,8 @@ sort: by_weight
 白环蛇	bái huán shé	5
 白灰蝶	bái huī dié	4
 白及兰	bái jí lán	5
-白𬶨豚	bái jì tún	8
+白𬶨豚	bái jì tún	118
+白暨豚	bái jì tún	87
 白鲫鱼	bái jì yú	114
 白蛱蝶	bái jiá dié	6
 白甲鱼	bái jiǎ yú	147
@@ -14455,7 +14456,7 @@ sort: by_weight
 珊穴蟹	shān xué xiè	7
 闪眼蝶	shǎn yǎn dié	8
 山眼蝶	shān yǎn dié	8
-山燕麦	shān yān mài	7
+山燕麦	shān yàn mài	7
 山芫荽	shān yán suī	12
 山羊草	shān yáng cǎo	21
 山羊豆	shān yáng dòu	12
@@ -17607,7 +17608,7 @@ sort: by_weight
 延龄草	yán líng cǎo	7
 岩羚羊	yán líng yáng	8
 偃麦草	yǎn mài cǎo	16
-燕麦草	yān mài cǎo	12
+燕麦草	yàn mài cǎo	12
 烟盲蝽	yān máng chūn	5
 岩玫瑰	yán méi gui	6
 岩母草	yán mǔ cǎo	4
@@ -18018,7 +18019,7 @@ sort: by_weight
 异牙鲿	yì yá cháng	5
 翼牙䱛	yì yá huò	5
 异檐花	yì yán huā	7
-异燕麦	yì yān mài	17
+异燕麦	yì yàn mài	17
 异药花	yì yào huā	21
 翼药花	yì yào huā	13
 异药芥	yì yào jiè	12
@@ -23286,10 +23287,19 @@ sort: by_weight
 皇帝章鱼	huáng dì zhāng yú	9
 黄点茴鱼	huáng diǎn huí yú	6
 黄蝶尺蛾	huáng dié chǐ é	1
+黄额啸鹟	huáng é xiào wēng	99
 黄额鸦雀	huáng é yā què	17
+黄额鹦鹉	huáng é yīng wǔ	153
+黄耳鹦哥	huáng ěr yīng gē	50
 黄耳鹦哥	huáng ěr yīng gē	1
 黄耳鹦鹉	huáng ěr yīng wǔ	1
+黄肥尾蝎	huáng féi wěi xiē	117
 黄粉蝶亚	huáng fěn dié yà	1
+黄腹杆蛇	huáng fù gān shé	130
+黄腹冠鹎	huáng fù guān bēi	99
+黄腹鹪莺	huáng fù jiāo yīng	189
+黄腹角雉	huáng fù jiǎo zhì	3
+黄腹柳莺	huáng fù liǔ yīng	153
 黄腹山雀	huáng fù shān què	21
 黄肱蛱蝶	huáng gōng jiá dié	1
 黄钩钩蛾	huáng gōu gōu é	1
@@ -26287,7 +26297,7 @@ sort: by_weight
 泉南乳鱼	quán nán rǔ yú	9
 犬腺病毒	quǎn xiàn bìng dú	16
 全形贝超	quán xíng bèi chāo	1
-全叶滇芎	quán yè diān qiōng	9
+全叶滇芎	quán yè diān xiōng	9
 拳叶灰藓	quán yè huī xiǎn	1
 全叶荚蒾	quán yè jiá mí	5
 全叶马兰	quán yè mǎ lán	11
@@ -28511,7 +28521,7 @@ sort: by_weight
 蝎小卷蛾	xiē xiǎo juàn é	1
 斜眼长蝽	xié yǎn cháng chūn	1
 楔叶糙苏	xiē yè cāo sū	7
-楔叶滇芎	xiē yè diān qiōng	9
+楔叶滇芎	xiē yè diān xiōng	9
 楔叶杜鹃	xiē yè dù juān	9
 斜叶黄檀	xié yè huáng tán	34
 谢叶佳桐	xiè yè jiā tóng	13
@@ -32401,7 +32411,7 @@ sort: by_weight
 长柄线尾榕	cháng bǐng xiàn wěi róng	1
 长柄象牙参	cháng bǐng xiàng yá shēn	1
 长柄新月蕨	cháng bǐng xīn yuè jué	1
-长柄熊巴掌	cháng bǐng xióng bā zhǎng	1
+长柄熊巴掌	cháng bǐng xióng bā zhang	1
 长柄岩黄耆	cháng bǐng yán huáng qí	1
 长柄羊蹄甲	cháng bǐng yáng tí jiǎ	1
 长柄野扁豆	cháng bǐng yě biǎn dòu	1
@@ -34409,7 +34419,7 @@ sort: by_weight
 短喙蓑衣蛤	duǎn huì suō yī há	1
 短喙细长蝽	duǎn huì xì cháng chūn	1
 短喙蜥代龙	duǎn huì xī dài lóng	1
-短棘的鲷亚	duǎn jí de diāo yà	1
+短棘的鲷亚	duǎn jí dì diāo yà	1
 短棘鹦竺鲷	duǎn jí yīng zhú diāo	1
 短棘烛光鱼	duǎn jí zhú guāng yú	1
 短尖厚棱芹	duǎn jiān hòu léng qín	1
@@ -34476,7 +34486,7 @@ sort: by_weight
 短毛双尾蚜	duǎn máo shuāng wěi yá	1
 短毛双药芒	duǎn máo shuāng yào máng	1
 短毛松针蚜	duǎn máo sōng zhēn yá	1
-短毛熊巴掌	duǎn máo xióng bā zhǎng	1
+短毛熊巴掌	duǎn máo xióng bā zhang	1
 短毛野青茅	duǎn máo yě qīng máo	1
 短鳍兵鲂𫚒	duǎn qí bīng fáng fú	1
 短鳍高原鳅	duǎn qí gāo yuán qiū	1
@@ -42332,7 +42342,7 @@ sort: by_weight
 青海萝卜螺	qīng hǎi luó bo luó	1
 青海以礼草	qīng hǎi yǐ lǐ cǎo	1
 青海仲彬草	qīng hǎi zhòng bīn cǎo	1
-青甲眼的鲷	qīng jiǎ yǎn de diāo	1
+青甲眼的鲷	qīng jiǎ yǎn dì diāo	1
 青金翅雀鲷	qīng jīn chì què diāo	1
 青鲸鹦嘴鱼	qīng jīng yīng zuǐ yú	1
 清亮烛光鱼	qīng liàng zhú guāng yú	1
@@ -46824,7 +46834,7 @@ sort: by_weight
 眼眶牛尾鱼	yǎn kuàng niú wěi yú	1
 岩鲤碘泡虫	yán lǐ diǎn pào chóng	1
 岩鲤两极虫	yán lǐ liǎng jí chóng	1
-燕麦拟捻螺	yān mài nǐ niǎn luó	1
+燕麦拟捻螺	yàn mài nǐ niǎn luó	1
 奄美短肠蕨	yǎn měi duǎn cháng jué	1
 岩梅虎耳草	yán méi hǔ ěr cǎo	1
 眼眉拉摩蟹	yǎn méi lā mó xiè	1
@@ -52743,7 +52753,7 @@ sort: by_weight
 日本竿鰕虎鱼	rì běn gān xiā hǔ yú	1
 日本海晶狮鱼	rì běn hǎi jīng shī yú	1
 日本虹银汉鱼	rì běn hóng yín hàn yú	1
-日本甲眼的鲷	rì běn jiǎ yǎn de diāo	1
+日本甲眼的鲷	rì běn jiǎ yǎn dì diāo	1
 日本裸平头鱼	rì běn luǒ píng tóu yú	1
 日本绿鹦嘴鱼	rì běn lǜ yīng zuǐ yú	1
 日本拟隆头鱼	rì běn nǐ lóng tóu yú	1
