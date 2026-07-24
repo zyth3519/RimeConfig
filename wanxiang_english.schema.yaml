@@ -12,6 +12,8 @@ switches:
   - name: ascii_mode
     reset: 0
     states: [整句, 字母]
+  - name: full_shape
+    states: [半角, 全角]
   - name: emoji
     states: [表情关, 表情开]
   - name: chinese_english
@@ -24,6 +26,7 @@ engine:
     - key_binder
     - speller
     - recognizer
+    - punctuator
     - selector
     - navigator
     - express_editor
@@ -35,7 +38,7 @@ engine:
     - fallback_segmentor
   translators:
     - table_translator
-    - table_translator@wanxiang_english  #英文词汇表导入
+    - lua_translator@*wanxiang.super_english*T
     - punct_translator
   filters:
     - lua_filter@*wanxiang.super_english*F
@@ -63,6 +66,8 @@ key_binder:
     - {when: always, accept: Shift+space, select: .next}  #下一个方案
     #使用Control+e进入翻译模式
     - {when: has_menu, accept: "Control+e", toggle: chinese_english}
+punctuator:
+  __include: wanxiang_symbols:/ascii_symbol_table
 recognizer:
   import_preset: default
 
