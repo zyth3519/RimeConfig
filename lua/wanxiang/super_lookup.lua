@@ -1624,12 +1624,17 @@ end
 function f.fini(env)
     if env.update_conn then
         env.update_conn:disconnect()
+        env.update_conn = nil
     end
+
     if env.notifier then
         env.notifier:disconnect()
+        env.notifier = nil
     end
+
     if env.mem then
         env.mem:disconnect()
+        env.mem = nil
     end
 
     env.db_names = nil
@@ -1639,6 +1644,7 @@ function f.fini(env)
     env._db_cache = nil
     env._comment_cache = nil
     env.history_parts = nil
+    env.history_input = nil
     env.direct_cache = nil
 
     collectgarbage("collect")
