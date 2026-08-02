@@ -250,7 +250,8 @@ local function split_predict_line(line)
     return code, word, tail
 end
 
-local _db_pool, _db_refs = {}, {}
+-- 模块私有数据库池：同名数据库共享包装器和生命周期。
+local DB_POOL = {}
 
 -- 获取并引用当前方案共用的预测数据库。
 local function get_db(env)
@@ -258,41 +259,48 @@ local function get_db(env)
 
     local config = env.engine.schema.config
     local db_name = config:get_string("user_predict/db_name") or "lua/predict"
-    local db = _db_pool[db_name]
+    local entry = DB_POOL[db_name]
 
-    if not db then
-        db = userdb.LevelDb(db_name)
-        if not db then return nil end
-        _db_pool[db_name] = db
+    if entry then
+        if not entry.db or not entry.db:loaded() and not entry.db:open() then
+            DB_POOL[db_name] = nil
+            return nil
+        end
+    else
+        local db = userdb.LevelDb(db_name)
+        if not db or not db:loaded() and not db:open() then return nil end
+
+        entry = {db = db, refs = 0}
+        DB_POOL[db_name] = entry
     end
 
-    if not db:loaded() and not db:open() then
-        _db_pool[db_name] = nil
-        return nil
-    end
-
-    _db_refs[db_name] = (_db_refs[db_name] or 0) + 1
-    env.predict_db, env.predict_db_name = db, db_name
-    return db
+    entry.refs = entry.refs + 1
+    env.predict_db = entry.db
+    env.predict_db_name = db_name
+    return entry.db
 end
 
 -- 释放当前组件的数据库引用并在最后关闭数据库。
 local function release_db(env)
-    local db, db_name = env.predict_db, env.predict_db_name
+    local db = env.predict_db
+    local db_name = env.predict_db_name
+
+    env.predict_db = nil
+    env.predict_db_name = nil
+
     if not db or not db_name then return end
 
-    env.predict_db, env.predict_db_name = nil, nil
+    local entry = DB_POOL[db_name]
+    if not entry or entry.db ~= db then return end
 
-    local refs = (_db_refs[db_name] or 1) - 1
-    if refs > 0 then
-        _db_refs[db_name] = refs
-        return
-    end
+    entry.refs = math_max(0, entry.refs - 1)
+    if entry.refs > 0 then return end
 
-    _db_refs[db_name] = nil
-    _db_pool[db_name] = nil
+    DB_POOL[db_name] = nil
+    collectgarbage()
 
-    db:close()
+    if db:loaded() then db:close() end
+    entry.db = nil
 end
 
 
