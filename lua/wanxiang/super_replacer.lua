@@ -18,7 +18,7 @@ local s_upper = string.upper
 local t_sort = table.sort
 local type = type
 local tonumber = tonumber
-local DB_FORMAT_VERSION = "2"
+local DB_FORMAT_VERSION = "4"
 local MERGED_SCHEMA_IDS = {"wanxiang_pro", "wanxiang", "wanxiang_english", "wanxiang_t9", "wanxiang_t9i"}
 -- 模块私有数据库池：同名数据库共享包装器和生命周期。
 local DB_POOL = {}
@@ -345,19 +345,18 @@ local function erase_raw_record(db, raw_key)
 end
 
 -- 重建数据库：
--- 1. 普通任务逐行写入，完全不进入转换逻辑；
--- 2. 转换任务逐行转换并按最终 key 聚合；
--- 3. 所有转换任务读取完成后，每个最终 key 只写入一次。
+-- 1. 普通任务按最终数据库 key 逐行写入，避免把全部词库堆在 Lua 内存中；
+-- 2. 重复判定始终包含 prefix，不同模块前缀互不比较；
+-- 3. 转换任务仅按“同一 prefix + 原始 key”判重，并按最终 key 聚合碰撞候选；
+-- 4. 普通任务与转换任务无论加载先后，最终 key 冲突时都合并候选，不丢数据。
 local function rebuild(tasks, db)
     local written_db_keys = {}
     local seen_converted_keys = nil
     local converted_groups = nil
     local converted_order = nil
-    local duplicate_count = 0
-    local invalid_count = 0
 
     for _, task in ipairs(tasks) do
-        local prefix = task.prefix
+        local prefix = task.prefix or ""
         local conversion = task.conversion
         local seen_source_keys = nil
 
@@ -386,9 +385,7 @@ local function rebuild(tasks, db)
                         if conversion then
                             local original_key = key
 
-                            if seen_source_keys[original_key] then
-                                duplicate_count = duplicate_count + 1
-                            else
+                            if not seen_source_keys[original_key] then
                                 seen_source_keys[original_key] = true
                                 key = s_gsub(key, ".", conversion)
                                 value = append_preedit(
@@ -410,20 +407,16 @@ local function rebuild(tasks, db)
                             end
                         else
                             local db_key = prefix .. key
-                            local grouped = converted_groups
-                                and converted_groups[db_key]
 
-                            if written_db_keys[db_key] or grouped then
-                                duplicate_count = duplicate_count + 1
-                            elseif not update_aggregate(db, db_key, value) then
-                                close()
-                                return false
-                            else
+                            -- db_key 已包含 prefix；只有同模块同 key 才视为重复。
+                            if not written_db_keys[db_key] then
+                                if not update_aggregate(db, db_key, value) then
+                                    close()
+                                    return false
+                                end
                                 written_db_keys[db_key] = true
                             end
                         end
-                    else
-                        invalid_count = invalid_count + 1
                     end
                 end
             end
@@ -436,10 +429,9 @@ local function rebuild(tasks, db)
         for _, db_key in ipairs(converted_order) do
             local value = concat(converted_groups[db_key], VALUE_SEPARATOR)
 
+            -- 普通任务可能在转换任务之前或之后读取；统一在这里合并。
             if written_db_keys[db_key] then
-                local old_value, old_raw_key =
-                    fetch_aggregate(db, db_key)
-
+                local old_value, old_raw_key = fetch_aggregate(db, db_key)
                 if not old_value or not old_raw_key then return false end
 
                 value = old_value .. VALUE_SEPARATOR .. value
@@ -448,22 +440,9 @@ local function rebuild(tasks, db)
 
             if not update_aggregate(db, db_key, value) then return false end
             written_db_keys[db_key] = true
-        end
-    end
 
-    if log and log.warning then
-        if duplicate_count > 0 then
-            log.warning(s_format(
-                "super_replacer: 已跳过 %d 行重复源 key，仅保留第一次出现",
-                duplicate_count
-            ))
-        end
-
-        if invalid_count > 0 then
-            log.warning(s_format(
-                "super_replacer: 已跳过 %d 行无效数据，格式必须为 key<真实Tab>候选1\\t候选2",
-                invalid_count
-            ))
+            -- 写入后立即释放当前碰撞组，降低重建阶段的尾部占用。
+            converted_groups[db_key] = nil
         end
     end
 
@@ -571,10 +550,6 @@ local function connect_db(
     end
 
     clear_table(env_query_cache)
-
-    if log and log.info then
-        log.info("super_replacer: 联合配置数据已重载，固定表头特征已记录")
-    end
 
     db:close()
 
