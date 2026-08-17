@@ -9,7 +9,6 @@ name: lianxiang
 version: "LTS"
 sort: by_weight
 ...
-能	néng
 阿巴科群岛	ā bā kē qún dǎo	10
 阿贝比长仪	ā bèi bǐ cháng yí	10
 阿贝不变量	ā bèi bú biàn liàng	10
@@ -13729,7 +13728,7 @@ sort: by_weight
 电介质滞后	diàn jiè zhì zhì hòu	10
 点就放学了	diǎn jiù fàng xué le	10
 电锯的边缘	diàn jù de biān yuán	10
-典军中郎将	diǎn jūn zhōng láng jiāng	10
+典军中郎将	diǎn jūn zhōng láng jiàng	10
 癫狂与文明	diān kuáng yǔ wén míng	10
 点扩散函数	diǎn kuò sàn hán shù	10
 电缆的敷设	diàn lǎn de fū shè	10
@@ -16815,7 +16814,7 @@ sort: by_weight
 发起式基金	fā qǐ shì jī jīn	10
 罚球命中率	fá qiú mìng zhòng lǜ	10
 罚球命中数	fá qiú mìng zhòng shù	10
-发丘中郎将	fā qiū zhōng láng jiāng	10
+发丘中郎将	fā qiū zhōng láng jiàng	10
 法权基础论	fǎ quán jī chǔ lùn	10
 发热不止者	fā rè bù zhǐ zhě	10
 发热色和者	fā rè sè hé zhě	10
@@ -32773,7 +32772,7 @@ sort: by_weight
 检委会委员	jiǎn wěi huì wěi yuán	10
 检维修余料	jiǎn wéi xiū yú liào	10
 煎鲔鱼革命	jiān wěi yú gé mìng	10
-建威中郎将	jiàn wēi zhōng láng jiāng	10
+建威中郎将	jiàn wēi zhōng láng jiàng	10
 简文帝萧纲	jiǎn wén dì xiāo gāng	10
 见物不见人	jiàn wù bú jiàn rén	10
 建屋发展局	jiàn wū fā zhǎn jú	10
@@ -36843,7 +36842,7 @@ sort: by_weight
 军事物流学	jūn shì wù liú xué	10
 军事与战争	jūn shì yǔ zhàn zhēng	10
 军事执政团	jūn shì zhí zhèng tuán	10
-军师中郎将	jūn shī zhōng láng jiāng	10
+军师中郎将	jūn shī zhōng láng jiàng	10
 军师诸葛亮	jūn shī zhū gě liàng	10
 军事装备学	jūn shì zhuāng bèi xué	10
 军书十二卷	jūn shū shí èr juǎn	10
@@ -69609,7 +69608,7 @@ sort: by_weight
 五官很精致	wǔ guān hěn jīng zhì	10
 吴官屯石窟	wú guān tún shí kū	10
 五关斩六将	wǔ guān zhǎn liù jiāng	10
-五官中郎将	wǔ guān zhōng láng jiāng	10
+五官中郎将	wǔ guān zhōng láng jiàng	10
 吴冠中先生	wú guàn zhōng xiān shēng	10
 无规律可循	wú guī lǜ kě xún	10
 五桂山山脉	wǔ guì shān shān mài	10
@@ -74536,6 +74535,7 @@ sort: by_weight
 新能源货车	xīn néng yuán huò chē	10
 新能源轿车	xīn néng yuán jiào chē	10
 新能源牌照	xīn néng yuán pái zhào	10
+新能源汽车	xīn néng yuán qì chē	10
 新能源消纳	xīn néng yuán xiāo nà	10
 新年的脚步	xīn nián de jiǎo bù	10
 新年的开始	xīn nián de kāi shǐ	10
@@ -82954,7 +82954,7 @@ sort: by_weight
 榆林要塞区	yú lín yào sài qū	10
 羽林争霸赛	yǔ lín zhēng bà sài	10
 榆林指挥部	yú lín zhǐ huī bù	10
-羽林中郎将	yǔ lín zhōng láng jiāng	10
+羽林中郎将	yǔ lín zhōng láng jiàng	10
 玉苓消渴茶	yù líng xiāo kě chá	10
 鱼柳包跑友	yú liǔ bāo pǎo yǒu	10
 榆柳荫后檐	yú liǔ yīn hòu yán	10
@@ -89940,6 +89940,7 @@ sort: by_weight
 资产的配置	zī chǎn de pèi zhì	10
 资产的收益	zī chǎn de shōu yì	10
 资产抵押债	zī chǎn dǐ yā zhài	10
+资产负债表	zī chǎn fù zhài biǎo	10
 资产和负债	zī chǎn hé fù zhài	10
 资产及负债	zī chǎn jí fù zhài	10
 自产农产品	zì chǎn nóng chǎn pǐn	10
@@ -90390,8 +90391,9 @@ sort: by_weight
 资深咨询师	zī shēn zī xún shī	10
 滋生的温床	zī shēng de wēn chuáng	10
 姿势要正确	zī shì yào zhèng què	10
-自适应路由	zì shì yīng lù yóu	10
-自适应网格	zì shì yīng wǎng gé	10
+自适应路由	zì shì yìng lù yóu	10
+自适应网格	zì shì yìng wǎng gé	10
+自适应巡航	zì shì yìng xún háng	10
 自受激振动	zì shòu jī zhèn dòng	10
 资寿解语汤	zī shòu jiě yǔ tāng	10
 紫苏变玄岩	zǐ sū biàn xuán yán	10
@@ -97326,6 +97328,7 @@ sort: by_weight
 抽象客体理论	chōu xiàng kè tǐ lǐ lùn	10
 抽象维纳空间	chōu xiàng wéi nà kōng jiān	10
 臭氧损耗潜势	chòu yǎng sǔn hào qián shì	10
+愁一愁白了头	chóu yī chóu bái le tóu	10
 抽油杆悬挂器	chōu yóu gān xuán guà qì	12
 抽油烟机清洗	chōu yóu yān jī qīng xǐ	10
 出埃及记章节	chū āi jí jì zhāng jié	10
@@ -111156,6 +111159,7 @@ sort: by_weight
 吉祥航空公司	jí xiáng háng kōng gōng sī	10
 急相球蛋白类	jí xiāng qiú dàn bái lèi	10
 吉祥如意平安	jí xiáng rú yì píng ān	10
+击响中文之韵	jī xiǎng zhōng wén zhī yùn	10
 极小概率事件	jí xiǎo gài lǜ shì jiàn	10
 极小化极大解	jí xiǎo huà jí dà jiě	10
 极小极大策略	jí xiǎo jí dà cè lüè	10
@@ -131380,6 +131384,7 @@ sort: by_weight
 铜陵长江大桥	tóng líng cháng jiāng dà qiáo	10
 通灵男孩诺曼	tōng líng nán hái nuò màn	10
 统领千军万马	tǒng lǐng qiān jūn wàn mǎ	10
+统领天下兵马	tǒng lǐng tiān xià bīng mǎ	10
 铜陵有色金属	tóng líng yǒu sè jīn shǔ	10
 桐庐瑶琳仙境	tóng lú yáo lín xiān jìng	10
 同伦等价空间	tóng lún děng jià kōng jiān	10
@@ -135980,6 +135985,7 @@ sort: by_weight
 小一点的孩子	xiǎo yì diǎn de hái zi	10
 效益降工资降	xiào yì jiàng gōng zī jiàng	10
 小医师大玩偶	xiǎo yī shī dà wán ǒu	10
+笑一笑十年少	xiào yí xiào shí nián shào	10
 效益增工资增	xiào yì zēng gōng zī zēng	10
 萧翼赚兰亭图	xiāo yì zhuàn lán tíng tú	10
 效应面优化法	xiào yìng miàn yōu huà fǎ	10
@@ -140512,7 +140518,6 @@ sort: by_weight
 永远吹冲锋号	yǒng yuǎn chuī chōng fēng hào	10
 永远等待着你	yǒng yuǎn děng dài zhe nǐ	10
 永远繁荣昌盛	yǒng yuǎn fán róng chāng shèng	10
-永远怀念家驹	yǒng yuǎn huái niàn jiā jū	10
 永远没有终点	yǒng yuǎn méi yǒu zhōng diǎn	10
 永远也忘不掉	yǒng yuǎn yě wàng bú diào	10
 永远也长不大	yǒng yuǎn yě zhǎng bú dà	10
@@ -147986,9 +147991,6 @@ sort: by_weight
 包科尼沙尔卡尼	bāo kē ní shā ěr kǎ ní	10
 包科尼圣基拉伊	bāo kē ní shèng jī lā yī	10
 包括但不局限于	bāo kuò dàn bù jú xiàn yú	10
-包括新能源汽车	bāo kuò xīn néng yuán qì chē	10
-包括资产负债表	bāo kuò zī chǎn fù zhài biǎo	10
-包括自适应巡航	bāo kuò zì shì yīng xún háng	10
 保拉埃斯皮诺萨	bǎo lā āi sī pí nuò sà	10
 保利海上五月花	bǎo lì hǎi shàng wǔ yuè huā	10
 保利世贸博览馆	bǎo lì shì mào bó lǎn guǎn	10
@@ -153834,6 +153836,7 @@ sort: by_weight
 非选择性阻滞剂	fēi xuǎn zé xìng zǔ zhì jì	10
 费雪二氏黏度计	fèi xuě èr shì nián dù jì	10
 费雪交换方程式	fèi xuě jiāo huàn fāng chéng shì	10
+飞雪连天射白鹿	fēi xuě lián tiān shè bái lù	10
 非血栓性肺栓塞	fēi xuè shuān xìng fèi shuān sè	10
 非压缩半尾花介	fēi yā suō bàn wěi huā jiè	10
 肺炎克雷伯氏菌	fèi yán kè léi bó shì jūn	10
@@ -154439,7 +154442,7 @@ sort: by_weight
 复杂适应性系统	fù zá shì yìng xìng xì tǒng	10
 复杂性和长期性	fù zá xìng hé cháng qī xìng	10
 复杂性派生理论	fù zá xìng pài shēng lǐ lùn	10
-复杂自适应系统	fù zá zì shì yīng xì tǒng	10
+复杂自适应系统	fù zá zì shì yìng xì tǒng	10
 富在深山有远亲	fù zài shēn shān yǒu yuǎn qīn	10
 浮在水面上的草	fú zài shuǐ miàn shàng de cǎo	10
 复造候风地动仪	fù zào hòu fēng dì dòng yí	10
@@ -160129,6 +160132,7 @@ sort: by_weight
 消食和胃效堪夸	xiāo shí hé wèi xiào kān kuā	10
 小时尿蛋白定量	xiǎo shí niào dàn bái dìng liàng	10
 小鼠成纤维细胞	xiǎo shǔ chéng xiān wéi xì bāo	10
+笑书神侠倚碧鸳	xiào shū shén xiá yǐ bì yuān	10
 小腿多发性骨折	xiǎo tuǐ duō fā xìng gǔ zhé	10
 肖维涅舍弃判据	xiāo wéi niè shě qì pàn jù	10
 小心驶得万年船	xiǎo xīn shǐ de wàn nián chuán	10
@@ -161477,9 +161481,9 @@ sort: by_weight
 资深心理咨询师	zī shēn xīn lǐ zī xún shī	10
 自身牙根种植体	zì shēn yá gēn zhòng zhí tǐ	10
 自是浮生无可说	zì shì fú shēng wú kě shuō	10
-自适应巡航功能	zì shì yīng xún háng gōng néng	10
-自适应巡航控制	zì shì yīng xún háng kòng zhì	10
-自适应巡航系统	zì shì yīng xún háng xì tǒng	10
+自适应巡航功能	zì shì yìng xún háng gōng néng	10
+自适应巡航控制	zì shì yìng xún háng kòng zhì	10
+自适应巡航系统	zì shì yìng xún háng xì tǒng	10
 紫苏斜长花岗岩	zǐ sū xié cháng huā gǎng yán	10
 自碎火成角砾岩	zì suì huǒ chéng jiǎo lì yán	10
 子孙弃者无论焉	zǐ sūn qì zhě wú lùn yān	10
