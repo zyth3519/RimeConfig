@@ -8,7 +8,6 @@
 -- 5) 已经手动排序过的候选若再次被挤动，只更新它自己的最终位置
 -- 6) c<0 为重置墓碑；墓碑版本高于旧状态，可通过原生 UserDb 同步传播
 
--- ✨ 是给上一层滤镜传递排序上下文信息的代码，不用时便于删除
 local wanxiang = require("wanxiang/wanxiang")
 local userdb   = require("wanxiang/userdb")
 local byte     = string.byte
@@ -149,7 +148,8 @@ end
 -- 四、DB、缓存与旧数据迁移
 ------------------------------------------------------------
 local RECORD_CACHE_LIMIT = 128
-local DB_POOL = {}
+-- 仅共享排序缓存状态；弱引用不会阻止组件退出后的状态与数据库包装器回收。
+local SEQUENCE_STATES = setmetatable({}, { __mode = "v" })
 
 local function resolve_db_name(config)
     local db_name = config and config:get_string("super_sequence/db_name") or nil
@@ -161,68 +161,38 @@ local function resolve_db_name(config)
     return db_name ~= "" and db_name or "lua/sequence"
 end
 
--- 获取当前组件对应的模块私有共享状态；Filter 不增加数据库引用。
-local function get_sequence_state(env)
-    local db_name = env.sequence_db_name
-        or resolve_db_name(env.engine.schema.config)
-    env.sequence_db_name = db_name
-    return DB_POOL[db_name]
-end
+-- Processor / Filter 按 db_name 共享同一排序缓存状态。数据库包装器本身不再手工计数或关闭。
+local function get_sequence_state(env, config)
+    if env.sequence_state then return env.sequence_state end
 
--- Processor 获取数据库引用；同名数据库共用包装器与缓存。
-local function acquire_sequence_db(env, config)
-    if env.sequence_db_attached then
-        local state = get_sequence_state(env)
-        return state and state.db or nil
-    end
-
-    local db_name = resolve_db_name(config)
-    local state = DB_POOL[db_name]
+    config = config or env.engine.schema.config
+    local db_name = env.sequence_db_name or resolve_db_name(config)
+    local state = SEQUENCE_STATES[db_name]
 
     if not state then
         local db = userdb.LevelDb(db_name)
-        if not db or not db:loaded() and not db:open() then return nil end
+        if not db or (not db:loaded() and not db:open()) then return nil end
 
         state = {
-            db = db, refs = 0, cache = {},
+            db = db, cache = {},
             cache_size = 0, cache_clock = 0,
         }
-        DB_POOL[db_name] = state
-    elseif not state.db or not state.db:loaded() and not state.db:open() then
-        DB_POOL[db_name] = nil
-        return nil
+        SEQUENCE_STATES[db_name] = state
     end
 
-    state.refs = state.refs + 1
     env.sequence_db_name = db_name
-    env.sequence_db_attached = true
-    return state.db
+    env.sequence_state = state
+    return state
 end
 
--- Processor 释放数据库引用，并在最后一个使用者退出时关闭。
-local function release_sequence_db(env)
-    if not env or not env.sequence_db_attached then return end
-
-    local db_name = env.sequence_db_name
-    env.sequence_db_attached = nil
+local function release_sequence_state(env)
+    if not env then return end
+    env.sequence_state = nil
     env.sequence_db_name = nil
 
-    local state = db_name and DB_POOL[db_name]
-    if not state then return end
-
-    state.refs = math.max(0, state.refs - 1)
-    if state.refs > 0 then return end
-
-    DB_POOL[db_name] = nil
-    state.cache = {}
-    state.cache_size = 0
-    state.cache_clock = 0
-
-    local db = state.db
-    state.db = nil
-
+    -- DbAccessor 没有显式析构接口。所有局部访问器先置空，再执行一次
+    -- 完整垃圾回收，确保其先于所引用的 LevelDb 释放。
     collectgarbage()
-    if db and db:loaded() then db:close() end
 end
 
 local function invalidate_input_cache(state, input)
@@ -404,18 +374,6 @@ end
 ------------------------------------------------------------
 -- 五、排序状态
 ------------------------------------------------------------
-local seq_property = { ADJUST_KEY = "sequence_adjustment_code" }
-
-function seq_property.get(context)
-    return context:get_property(seq_property.ADJUST_KEY)
-end
-
-function seq_property.reset(context)
-    local code = seq_property.get(context)
-    if code ~= nil and code ~= "" then
-        context:set_property(seq_property.ADJUST_KEY, "")
-    end
-end
 
 local curr_state = {}
 curr_state.ADJUST_MODE = {
@@ -649,12 +607,12 @@ function P.init(env)
         pin = config:get_string("super_sequence/pin") or DEFAULT_SEQ_KEY.pin,
     }
 
-    acquire_sequence_db(env, config)
+    get_sequence_state(env, config)
 end
 
 function P.fini(env)
     env.seq_keys = nil
-    release_sequence_db(env)
+    release_sequence_state(env)
 end
 
 local function process_adjustment(context)
@@ -687,6 +645,11 @@ function P.func(key_event, env)
     local reset = seq_keys.reset
     local pin = seq_keys.pin
     local is_ctrl_key = code == 0xffe3 or code == 0xffe4
+
+    if wanxiang.is_function_mode_active(context) then
+        curr_state.reset()
+        return wanxiang.RIME_PROCESS_RESULTS.kNoop
+    end
 
     -- Ctrl 监听，用于开关可视化标记。
     if is_ctrl_key then
@@ -722,17 +685,9 @@ function P.func(key_event, env)
         return wanxiang.RIME_PROCESS_RESULTS.kNoop
     end
 
-    local is_function_mode = wanxiang.is_function_mode_active(context)
-    local adjust_code
+    local adjust_code = context.input:sub(1, context.caret_pos)
 
-    if is_function_mode then
-        local value = seq_property.get(context)
-        if value and value ~= "" then adjust_code = value end
-    else
-        adjust_code = context.input:sub(1, context.caret_pos)
-    end
-
-    if not is_function_mode and is_single_lowercase_letter(adjust_code) then
+    if is_single_lowercase_letter(adjust_code) then
         return wanxiang.RIME_PROCESS_RESULTS.kNoop
     end
 
@@ -778,18 +733,15 @@ function F.init(env)
 
     env.symbol = string.sub(symbol, 1, 1)
     env.page_size = config and config:get_int("menu/page_size") or 5
-    env.sequence_db_name = resolve_db_name(config)
+    get_sequence_state(env, config)
 end
 
-local function extract_adjustment_code(context, is_function_mode)
-    if is_function_mode then
-        local code = seq_property.get(context)
-        if code and code ~= "" then return code end
-        return nil
-    end
-
-    return context.input:sub(1, context.caret_pos)
+function F.fini(env)
+    env.symbol = nil
+    env.page_size = nil
+    release_sequence_state(env)
 end
+
 
 function F.func(input, env)
     -- ✨ 宣告：排序脚本活着，包裹脚本不要自行处理。
@@ -809,17 +761,14 @@ function F.func(input, env)
     end
 
     local cache_limit = (env.page_size or 5) * 2
-    local is_function_mode = wanxiang.is_function_mode_active(context)
-    local adjustment_allowed = not (
-        is_function_mode and seq_property.get(context) == nil
-    )
 
-    if not adjustment_allowed then
+    if wanxiang.is_function_mode_active(context) then
+        curr_state.reset()
         return yield_original_list(input, has_symbol, cache_limit, page_cache)
     end
 
-    local adjust_code = extract_adjustment_code(context, is_function_mode)
-    if not adjust_code or adjust_code == "" then
+    local adjust_code = context.input:sub(1, context.caret_pos)
+    if adjust_code == "" then
         return yield_original_list(input, has_symbol, cache_limit, page_cache)
     end
 
