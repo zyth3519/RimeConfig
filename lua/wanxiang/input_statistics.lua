@@ -2,14 +2,9 @@
 -- input_stats.lua：分设备统计 / 最近速度 / 峰速格式去重 / 历史查询
 local userdb = require("wanxiang/userdb")
 local wanxiang = require("wanxiang/wanxiang")
--- 模块私有数据库池：同名数据库共享包装器和生命周期。
-local DB_POOL = {}
-
 local SOFTWARE_NAME = rime_api.get_distribution_code_name()
 local RECORD_SEPARATOR = " \t"
 local STATS_C_MAX = 2147483000
-local BATCH_INTERVAL = 5
-local MAX_PENDING_CHARACTERS = 200
 local DEFAULT_CONTINUOUS_GAP_MS = 1000
 local DEFAULT_AVERAGE_GAP_MS = 5000
 local DEFAULT_MINIMUM_AVERAGE_SESSION_MS = 1000
@@ -117,52 +112,32 @@ local function get_device_id(config)
     return stable_device_hash((SOFTWARE_NAME or "rime") .. "|" .. user_dir)
 end
 
+-- 每个组件只保留自己的 Lua 包装器；同名底层 UserDb 由 wanxiang/userdb.lua 复用。
 local function acquire_db(env)
     if env.stats_db then return env.stats_db end
 
-    local entry = DB_POOL[env.stats_db_name]
-    if not entry then
-        local db = userdb.LevelDb(env.stats_db_name)
-        if not db or not db:loaded() and not db:open() then
-            env.stats_db_error = true
-            return nil
-        end
-        entry = {db=db, refs=0}
-        DB_POOL[env.stats_db_name] = entry
-    elseif not entry.db or not entry.db:loaded() and not entry.db:open() then
-        DB_POOL[env.stats_db_name] = nil
+    local db = userdb.LevelDb(env.stats_db_name)
+    if not db or (not db:loaded() and not db:open()) then
         env.stats_db_error = true
         return nil
     end
 
-    entry.refs = entry.refs + 1
-    env.stats_db = entry.db
+    env.stats_db = db
     env.stats_db_error = nil
-    return entry.db
+    return db
 end
 
 local function get_db(env)
     return env.stats_db or acquire_db(env)
 end
 
+-- 不主动 close：底层对象可能被其他组件共享，生命周期交给 userdb 弱池与 C++ 析构。
 local function release_db(env)
-    local db, db_name = env.stats_db, env.stats_db_name
     env.stats_db = nil
-
-    local entry = db_name and DB_POOL[db_name]
-    if not db or not entry or entry.db ~= db then return end
-
-    entry.refs = math.max(0, entry.refs - 1)
-    if entry.refs > 0 then return end
-
-    DB_POOL[db_name] = nil
 
     -- DbAccessor 没有显式析构接口。所有局部访问器先置空，再执行一次
     -- 完整垃圾回收，确保其先于所引用的 LevelDb 释放。
     collectgarbage()
-
-    if db:loaded() then db:close() end
-    entry.db = nil
 end
 
 local function make_raw_key(key, device_id)
@@ -280,45 +255,14 @@ local function new_stats()
     }
 end
 
-local function pending_add(env, key, amount)
+local function stats_add(env, key, amount)
     local db = get_db(env)
-    if env.stats_db_error or not db or not db:loaded() then return false end
-    env.pending_stats[key] = (env.pending_stats[key] or 0) + amount
-    return true
-end
-
-local function flush_pending(env)
-    if not next(env.pending_stats) then return true end
-    local db = get_db(env)
-
-    if db and db:loaded() then
-        for key, amount in pairs(env.pending_stats) do
-            if not db_add(db, key, env.device_id, amount) then
-                db = nil
-                break
-            end
-        end
-    end
-
-    if not db then
-        env.pending_stats = {}; env.pending_characters = 0
+    if env.stats_db_error or not db then return false end
+    if not db_add(db, key, env.device_id, amount) then
         env.stats_db_error = true
         return false
     end
-
-    env.pending_stats = {}
-    env.pending_characters = 0
-    env.last_flush_ts = os.time()
     return true
-end
-
-local function try_flush(env)
-    if next(env.pending_stats)
-        and (env.pending_characters >= MAX_PENDING_CHARACTERS
-            or os.time() - env.last_flush_ts >= BATCH_INTERVAL)
-    then
-        flush_pending(env)
-    end
 end
 
 local function reset_sample(sample)
@@ -353,9 +297,9 @@ local function finish_average(env)
     reset_sample(env.average_sample)
     if not day then return false end
     local prefix = DAY_PREFIX .. day .. "/speed_average/"
-    pending_add(env, prefix .. "characters", characters)
-    pending_add(env, prefix .. "milliseconds", milliseconds)
-    pending_add(env, prefix .. "sessions", 1)
+    stats_add(env, prefix .. "characters", characters)
+    stats_add(env, prefix .. "milliseconds", milliseconds)
+    stats_add(env, prefix .. "sessions", 1)
     return true
 end
 
@@ -370,7 +314,7 @@ local function finish_peak(env)
     )
     reset_sample(env.peak_sample)
     if not day then return false end
-    pending_add(env, string.format("%s%s/speed_peak_window_10s/%04d",
+    stats_add(env, string.format("%s%s/speed_peak_window_10s/%04d",
         DAY_PREFIX, day, peak_speed(characters, milliseconds)), 1)
     return true
 end
@@ -453,24 +397,23 @@ local function record_stats(env, characters, code_length, candidate_type)
     local timestamp_ms = monotonic_ms()
     local day = day_id()
     local prefix = DAY_PREFIX .. day .. "/"
-    if not pending_add(env, prefix .. "text/characters", characters) then return end
-    pending_add(env, prefix .. "text/commits", 1)
+    if not stats_add(env, prefix .. "text/characters", characters) then return end
+    stats_add(env, prefix .. "text/commits", 1)
 
     -- 平均编码只使用“确实取得输入编码”的配对样本。
     -- text/keystrokes 继续保留真实编码总量；新字段保证历史脏数据不会混入新口径。
     if code_length > 0 then
-        pending_add(env, prefix .. "text/keystrokes", code_length)
-        pending_add(env, prefix .. "text/code_keystrokes", code_length)
-        pending_add(env, prefix .. "text/code_characters", characters)
+        stats_add(env, prefix .. "text/keystrokes", code_length)
+        stats_add(env, prefix .. "text/code_keystrokes", code_length)
+        stats_add(env, prefix .. "text/code_characters", characters)
     end
 
-    env.pending_characters = env.pending_characters + characters
     local field = characters == 1 and "commit_length/1"
         or characters == 2 and "commit_length/2"
         or characters == 3 and "commit_length/3"
         or characters == 4 and "commit_length/4"
         or "commit_length/5_plus"
-    pending_add(env, prefix .. field, 1)
+    stats_add(env, prefix .. field, 1)
 
     if is_valid_speed_commit(env, characters, code_length) then
         commit_to_speed(env, day, timestamp_ms, characters,
@@ -515,7 +458,7 @@ local function aggregate_statistics(env, start_day, end_day, device_id,
     speed_start_day = speed_start_day or start_day
     speed_end_day = speed_end_day or end_day
     local db = get_db(env)
-    if not db or not db:loaded() then return nil end
+    if not db then return nil end
     local stats, peaks = new_stats(), {}
 
     scan_prefix(db, STATISTICS_PREFIX, device_id,
@@ -588,7 +531,7 @@ end
 
 local function migrate_database(env)
     local db = get_db(env)
-    if not db or not db:loaded() then return end
+    if not db then return end
     local additions, old_keys = {}, {}
     scan_prefix(db, "d_", nil, function(key, device_id, value, raw_key)
         old_keys[#old_keys + 1] = raw_key
@@ -742,7 +685,6 @@ end
 
 local function prepare_report(env)
     finish_stale(env, monotonic_ms())
-    flush_pending(env)
 end
 
 local function standard_report(input, env)
@@ -826,7 +768,6 @@ local function on_commit(context, env)
     local code_length = #code
 
     record_stats(env, characters, code_length, candidate_type)
-    try_flush(env)
 end
 
 local function bounded_int(config, key, default, minimum, maximum)
@@ -854,9 +795,7 @@ local function init(env)
         DEFAULT_MAX_SPEED_COMMIT_LENGTH, 1, 10)
     env.speed_history_days = bounded_int(config,
         "input_stats/speed_history_days", 30, 1, 365)
-    env.pending_stats, env.pending_characters = {}, 0
     env.stats_db_error = nil
-    env.last_flush_ts = os.time()
     env.last_observed_input = ""
     env.titles = nil
     env.average_sample = {}
@@ -882,13 +821,12 @@ end
 local function fini(env)
     finish_peak(env)
     finish_average(env)
-    flush_pending(env)
     env.last_observed_input = ""
     if env.stat_notifier then
         env.stat_notifier:disconnect()
         env.stat_notifier = nil
     end
-    env.pending_stats, env.titles = nil, nil
+    env.titles = nil
     env.average_sample, env.peak_sample = nil, nil
     release_db(env)
 end
@@ -907,7 +845,6 @@ local function translator(input, seg, env)
                 "※ 统计数据库打开失败", "⚠️")
         end
     else
-        try_flush(env)
         local history, first, second, empty_message = history_report(input, env)
         if history == false then return yield_msg(seg, first, second) end
         if history == nil then return end

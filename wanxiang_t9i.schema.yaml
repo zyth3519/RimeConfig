@@ -139,10 +139,11 @@ speller:
   algebra:
     - xform/ⅱ//  #用于Lua判断输入类型的标记
     - xform/^(.*);.*$/$1/
-    - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜüńňǹḿm̀/aaaaooooeeeeiiiiuuuuvvvvvnnnmmm/
+    - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜüńňǹ/aaaaooooeeeeiiiiuuuuvvvvvnnn/
+    - xform/ḿ/me/
+    - xform/m̀/me/
     - derive/^ng$/eng/
     - xform/^n$/en/
-    - xform/^m$/me/
     - derive/^(.*)$/\U$1/
     - derive/^([nl])ve$/$1ue/
     - derive/^([NL])VE$/$1UE/
@@ -442,11 +443,6 @@ super_replacer:
       prefix: "_s2tw_"
       files:
         - lua/data/TWVariants.txt
-    - option: true  # 默认开启以词定词
-      mode: derive
-      tags: [abc]
-      files:
-        - lua/data/derive.txt
     - option: abbrev
       mode: abbrev  # <--- 新增的简码模式
       tags: [abc]
