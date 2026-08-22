@@ -5,7 +5,7 @@ local wanxiang = {}
 
 -- x-release-please-start-version
 
-wanxiang.version = "v17.5.4"
+wanxiang.version = "v17.5.5"
 
 -- x-release-please-end
 
@@ -110,7 +110,7 @@ end
 ---判断是否在命令模式
 ---@param context Context | nil
 ---@return boolean
-function wanxiang.is_function_mode_active(context)
+function wanxiang.is_function_mode(context)
     if not context or not context.composition or context.composition:empty() then
         return false
     end
@@ -127,7 +127,7 @@ end
 
 ---@param context Context | nil
 ---@return boolean
-function wanxiang.s2t_conversion(context)
+function wanxiang.is_special_mode(context)
     if not context or not context.composition or context.composition:empty() then
         return false
     end
@@ -140,6 +140,7 @@ function wanxiang.s2t_conversion(context)
         seg:has_tag("punct") or      -- 标点符号 全角半角提示
         seg:has_tag("calculator") or -- super_calculator.lua V键计算器
         seg:has_tag("shijian") or    -- shijian.lua 时间日期相关功能
+        seg:has_tag("super_symbol") or    -- 超级符号
         seg:has_tag("wanxiang_reverse")
 end
 ---判断文件是否存在
