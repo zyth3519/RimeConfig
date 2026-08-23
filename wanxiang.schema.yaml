@@ -238,7 +238,7 @@ recognizer:
   import_preset: default  # 从 default.yaml 继承通用的
   patterns:  # 再增加方案专有的：
     # 排除 /sym /emoji 开头（含单独 /sym /emoji），交给 super_sym / super_emoji tag 处理
-    punct: '^/(([!-.:-df-rt-~][!-/:-~]*|s([!-/:-xz-~][!-/:-~]*|y([!-/:-ln-~][!-/:-~]*)?)?|e([!-/:-ln-~][!-/:-~]*|m([!-/:-np-~][!-/:-~]*|o([!-/:-ik-~][!-/:-~]*|j([!-/:-hj-~][!-/:-~]*)?)?)?)?)|[0-9]|10|11|110|0[3*~]|1[2-9^]|2[35^]|3[458^]|45|5[68]|78|88|[*]0|<3|\^[0-9]|_[0-9]|~0|[(]([0-9]|[1-4][0-9]|50)[)]?)$'  # 响应 symbols.yaml 的 symbols
+    punct: '^/([!-.:-~](?:[!-/:-~](?:[\)\/0-9ACEILORSUa-z]*)?)?|---|--\.|[0-9]|10|11|110|0[3*~]|1[2-9^]|2[35^]|3[458^]|45|5[68]|78|88|[*]0|<3|\^[0-9]|_[0-9]|~0|[(]([0-9]|[1-4][0-9]|50)[)]?)$'  # 响应 symbols.yaml 的 symbols
     super_sym: "^/sym[.?/][A-Za-z.]+$"  # /sym.arrow.r.double 精确  /sym?keyword 或 /sym/keyword 模糊
     super_emoji: "^/emoji[.?/][A-Za-z.]+$"  # /emoji.apple.red  /emoji?keyword  /emoji/keyword
     super_sym_pre: "^/sym[.?/]?$"  # 仅 /sym /sym. /sym? /sym/ 模式提示
@@ -273,9 +273,6 @@ punctuator:
   digit_separators: ",.:"  #数字分隔符，系统逻辑是在中文状态下输入数字后继续输入句号按下两次即输入半角状态
   __include: wanxiang_symbols:/symbol_table  # 从 wanxiang_symbols.yaml 导入所有符号配置
   __patch: wanxiang_symbols:/symbols
-# Compose 模式设置
-compose:
-  alt_send_char: true  # 左 Alt + 任意主键盘键: 将对应字符直接送入 Compose 序列(便于无小键盘用户完成合成, 如 Alt+1 把 "1" 加入序列)。右 Alt(AltGr)不受影响, 可在 custom 中设为 false 关闭。
 
 # 从 default 继承快捷键
 key_binder:
