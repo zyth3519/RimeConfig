@@ -1,9 +1,22 @@
 -- @amzxyz  https://github.com/amzxyz/rime-wanxiang
 -- 万象拼音
+-- Unicode 双向工具：
+-- P（Processor）：通过可配置快捷键将当前选中的单字符候选切换为 Uxxxx 输入，再次触发可返回原始 input。
+-- T（Translator）：解析 U 输入并生成字符、码点及各种编码表示。
 
-local unicode_conversion = {}
+local wanxiang = require("wanxiang/wanxiang")
+
+local P = {}
+local T = {}
 
 local MAX_CODEPOINT = 0x10FFFF
+local DEFAULT_HOTKEY = "Control+u"
+
+-- 多码点快捷查询内部协议：
+-- Unicode 最大合法码点为 0x10FFFF，因此 0x110000 可安全作为保留标记。
+-- 标记后的每个码点固定使用 6 位十六进制，整个输入仍满足 ^U[a-f0-9]+。
+local SEQUENCE_MARKER = "110000"
+local SEQUENCE_WIDTH = 6
 
 local DIGIT_VALUES = {}
 for i = 0, 9 do
@@ -253,6 +266,41 @@ local function codepoints(text)
     return result
 end
 
+local function encode_codepoint_sequence(points)
+    local parts = { SEQUENCE_MARKER }
+
+    for i = 1, #points do
+        local cp = points[i]
+        if not is_valid_scalar(cp) then return nil end
+        parts[#parts + 1] = string.format("%06x", cp)
+    end
+
+    return table.concat(parts)
+end
+
+local function decode_codepoint_sequence(payload)
+    if payload:sub(1, #SEQUENCE_MARKER) ~= SEQUENCE_MARKER then return nil end
+
+    local encoded = payload:sub(#SEQUENCE_MARKER + 1)
+    if encoded == "" or #encoded % SEQUENCE_WIDTH ~= 0 then return nil end
+
+    local points = {}
+    for i = 1, #encoded, SEQUENCE_WIDTH do
+        local cp = parse_base_integer(encoded:sub(i, i + SEQUENCE_WIDTH - 1), 16)
+        if not is_valid_scalar(cp) then return nil end
+        points[#points + 1] = cp
+    end
+
+    if #points < 2 then return nil end
+
+    local chars = {}
+    for i = 1, #points do
+        chars[i] = utf8.char(points[i])
+    end
+
+    return table.concat(chars), points
+end
+
 local function join_codepoints(points, formatter, separator)
     local result = {}
 
@@ -436,18 +484,123 @@ local function yield_dictionary_conversion(code, seg, env)
     end
 end
 
-function unicode_conversion.init(env)
+-- ----------------------
+-- P：当前候选字符 -> Uxxxx
+-- ----------------------
+
+local function has_unicode_prefix(input, env)
+    local trigger = get_unicode_trigger(env)
+    return trigger ~= "" and input:sub(1, #trigger) == trigger
+end
+
+function P.init(env)
+    local config = env.engine.schema.config
+    local key = config:get_string("unicode/key")
+    if not key or key == "" then key = DEFAULT_HOTKEY end
+
+    env.unicode_key = KeyEvent(key)
+    env.unicode_prev_input = nil
+    env.unicode_update_connection = env.engine.context.update_notifier:connect(function(context)
+        if env.unicode_prev_input ~= nil and not has_unicode_prefix(context.input or "", env) then
+            env.unicode_prev_input = nil
+        end
+    end)
+end
+
+function P.fini(env)
+    if env.unicode_update_connection then
+        env.unicode_update_connection:disconnect()
+        env.unicode_update_connection = nil
+    end
+
+    env.unicode_key = nil
+    env.unicode_prev_input = nil
+end
+
+function P.func(key, env)
+    if key:release() or not env.unicode_key or not key:eq(env.unicode_key) then
+        return wanxiang.RIME_PROCESS_RESULTS.kNoop
+    end
+
+    local context = env.engine.context
+
+    -- 必须直接保存完整 context.input；不能从当前 segment / preedit 反推。
+    -- recognizer / segmentor 即使消费了反查前缀（如 `yuif 的 `），
+    -- context.input 仍是需要恢复的完整原始输入。
+    local full_input = context.input or ""
+
+    -- 只有快捷键创建的 U 会话才有返回点；U 内部继续编辑仍保留该返回点。
+    if env.unicode_prev_input ~= nil and has_unicode_prefix(full_input, env) then
+        local prev_input = env.unicode_prev_input
+        env.unicode_prev_input = nil
+        context.input = prev_input
+        return wanxiang.RIME_PROCESS_RESULTS.kAccepted
+    end
+
+    -- 用户手动输入 U... 时不制造虚假的返回点。
+    if has_unicode_prefix(full_input, env) then
+        return wanxiang.RIME_PROCESS_RESULTS.kNoop
+    end
+
+    -- 普通候选优先直接取 Context 当前候选。
+    local cand = context:get_selected_candidate()
+
+    -- punct / 符号菜单可能只有“高亮索引”而没有 selected candidate，
+    -- 因此直接按当前 Segment.selected_index 从 Menu 取候选。
+    if not cand then
+        local current_seg = context.composition:back()
+        local menu = current_seg and current_seg.menu or nil
+        if menu and not menu:empty() then
+            local index = tonumber(current_seg.selected_index) or 0
+            menu:prepare(index + 1)
+            cand = menu:get_candidate_at(index)
+        end
+    end
+
+    local text = cand and cand.text or ""
+    if text == "" then
+        return wanxiang.RIME_PROCESS_RESULTS.kNoop
+    end
+
+    local points = codepoints(text)
+    if not points or #points == 0 then
+        return wanxiang.RIME_PROCESS_RESULTS.kNoop
+    end
+
+    local payload
+    if #points == 1 then
+        if not is_valid_scalar(points[1]) then
+            return wanxiang.RIME_PROCESS_RESULTS.kNoop
+        end
+        payload = string.format("%x", points[1])
+    else
+        payload = encode_codepoint_sequence(points)
+        if not payload then
+            return wanxiang.RIME_PROCESS_RESULTS.kNoop
+        end
+    end
+
+    env.unicode_prev_input = full_input
+    context.input = get_unicode_trigger(env) .. payload
+    return wanxiang.RIME_PROCESS_RESULTS.kAccepted
+end
+
+-- ----------------------
+-- T：U 输入 -> Unicode 候选
+-- ----------------------
+
+function T.init(env)
     env.unicode_memory = Memory(env.engine, env.engine.schema)
 end
 
-function unicode_conversion.fini(env)
+function T.fini(env)
     if env.unicode_memory then
         env.unicode_memory:disconnect()
         env.unicode_memory = nil
     end
 end
 
-function unicode_conversion.func(input, seg, env)
+function T.func(input, seg, env)
     local payload = extract_payload(input, seg, env)
     if payload == nil then
         return
@@ -455,13 +608,7 @@ function unicode_conversion.func(input, seg, env)
 
     local hint_text, hint_comment = get_prefix_hint(payload)
     if hint_text then
-        yield(Candidate(
-            "unicode",
-            seg.start,
-            seg._end,
-            hint_text,
-            hint_comment
-        ))
+        yield(Candidate("unicode", seg.start, seg._end, hint_text, hint_comment))
         return
     end
 
@@ -469,6 +616,22 @@ function unicode_conversion.func(input, seg, env)
         local code = payload:sub(2)
         if code ~= "" then
             yield_dictionary_conversion(code, seg, env)
+        end
+        return
+    end
+
+    local sequence_text, sequence_points = decode_codepoint_sequence(payload)
+    if sequence_text then
+        local preedit = join_codepoints(sequence_points, format_u_plus)
+        local original = Candidate("unicode", seg.start, seg._end, sequence_text, "〔字符序列〕")
+        original.preedit = preedit
+        yield(original)
+
+        local candidates = build_text_candidates(sequence_text)
+        for _, item in ipairs(candidates) do
+            local cand = Candidate("unicode", seg.start, seg._end, item[1], item[2])
+            cand.preedit = preedit
+            yield(cand)
         end
         return
     end
@@ -485,43 +648,19 @@ function unicode_conversion.func(input, seg, env)
     )
 
     if cp > MAX_CODEPOINT then
-        yield(Candidate(
-            "unicode",
-            seg.start,
-            seg._end,
-            "数值超限！",
-            "〔错误〕"
-        ))
+        yield(Candidate("unicode", seg.start, seg._end, "数值超限！", "〔错误〕"))
 
         if decimal_alternative then
-            yield(Candidate(
-                "unicode",
-                seg.start,
-                seg._end,
-                decimal_alternative,
-                "〔字符·十进〕"
-            ))
+            yield(Candidate("unicode", seg.start, seg._end, decimal_alternative, "〔字符·十进〕"))
         end
         return
     end
 
     if cp >= 0xD800 and cp <= 0xDFFF then
-        yield(Candidate(
-            "unicode",
-            seg.start,
-            seg._end,
-            "代理区字符无效！",
-            "〔错误〕"
-        ))
+        yield(Candidate("unicode", seg.start, seg._end, "代理区字符无效！", "〔错误〕"))
 
         if decimal_alternative then
-            yield(Candidate(
-                "unicode",
-                seg.start,
-                seg._end,
-                decimal_alternative,
-                "〔字符·十进〕"
-            ))
+            yield(Candidate("unicode", seg.start, seg._end, decimal_alternative, "〔字符·十进〕"))
         end
         return
     end
@@ -535,14 +674,8 @@ function unicode_conversion.func(input, seg, env)
     insert_alternative_character(candidates, decimal_alternative)
 
     for _, item in ipairs(candidates) do
-        yield(Candidate(
-            "unicode",
-            seg.start,
-            seg._end,
-            item[1],
-            item[2]
-        ))
+        yield(Candidate("unicode", seg.start, seg._end, item[1], item[2]))
     end
 end
 
-return unicode_conversion
+return { P = P, T = T }
