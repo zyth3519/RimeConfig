@@ -28572,6 +28572,7 @@ sort: by_weight
 器	qì	19132
 齐	qí	11441
 起	qǐ	10868
+骑	qí	9749
 祁	qí	1946
 期	qī	933
 戚	qī	926
@@ -28581,7 +28582,6 @@ sort: by_weight
 启	qǐ	811
 弃	qì	799
 旗	qí	767
-骑	qí	749
 棋	qí	746
 欺	qī	727
 歧	qí	645
@@ -40281,11 +40281,11 @@ sort: by_weight
 𪂼	xiāng	1
 𣚺	xiàng	1
 小	xiǎo	305330
-效	xiào	3542
+笑	xiào	39452
+效	xiào	13542
 消	xiāo	3305
 校	xiào	3238
 销	xiāo	2582
-笑	xiào	2452
 晓	xiǎo	781
 肖	xiào	741
 孝	xiào	703
@@ -46269,6 +46269,7 @@ sort: by_weight
 园	yuán	3489
 愿	yuàn	3314
 圆	yuán	1188
+媛	yuán	1120
 援	yuán	747
 怨	yuàn	742
 苑	yuàn	729
@@ -46326,7 +46327,6 @@ sort: by_weight
 轅	yuán	133
 鋺	yuǎn	133
 圜	yuán	124
-媛	yuán	120
 猨	yuán	115
 囦	yuān	111
 謜	yuán	106
