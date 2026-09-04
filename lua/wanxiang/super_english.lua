@@ -134,7 +134,9 @@ function T.init(env)
 end
 
 function T.func(input, seg, env)
-    if not env.engine.context:get_option("english") then
+    if (env.engine.schema.schema_id ~= "wanxiang_english"
+            and not env.engine.context:get_option("english"))
+        or env.engine.context:get_option("ascii_mode") then
         return
     end
 
@@ -821,6 +823,9 @@ function F.func(input, env)
             and final_comment ~= ""
             and find(final_comment, "\226\152\175")
         then
+            -- librime-lua 的 ShadowCandidate 可能继续继承原候选 comment；
+            -- 先清空原 Phrase comment，再传空 comment，确保 ☯ 不会被继承回来。
+            cand.comment = ""
             final_comment = ""
         end
 
